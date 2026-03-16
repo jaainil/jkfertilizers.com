@@ -52,6 +52,9 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-marquee: marquee 28s linear infinite;
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -59,23 +62,34 @@
   }
 
   @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-
-    to {
-      height: var(--radix-accordion-content-height);
-    }
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
   }
 
   @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
 
-    to {
-      height: 0;
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
     }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.75); }
   }
 }
 
@@ -83,9 +97,6 @@
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
 */
 @layer base {
 
@@ -112,41 +123,62 @@
 
 @layer base {
   :root {
-    --background: 40 13% 97%;
-    --foreground: 0 0% 10%;
-    --card: 40 13% 97%;
-    --card-foreground: 0 0% 10%;
-    --popover: 40 13% 97%;
-    --popover-foreground: 0 0% 10%;
-    --primary: 200 85% 44%;
+    /* ── Earthy & Premium palette ── */
+    --background: 42 30% 97%;           /* warm cream */
+    --foreground: 24 25% 12%;           /* rich dark brown */
+    --card: 42 25% 96%;
+    --card-foreground: 24 25% 12%;
+    --popover: 42 25% 96%;
+    --popover-foreground: 24 25% 12%;
+
+    /* Primary: deep forest green */
+    --primary: 146 52% 28%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 100% 19%;
+
+    /* Secondary: deep earthy slate-green (dark hero backgrounds) */
+    --secondary: 155 45% 14%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 175 20% 96%;
-    --muted-foreground: 0 0% 35%;
-    --accent: 76 72% 51%;
-    --accent-foreground: 0 0% 10%;
+
+    /* Muted: warm sage tint */
+    --muted: 90 18% 94%;
+    --muted-foreground: 24 15% 40%;
+
+    /* Accent: warm amber/gold */
+    --accent: 38 92% 50%;
+    --accent-foreground: 24 25% 12%;
+
     --destructive: 0 68% 42%;
     --destructive-foreground: 60 9% 98%;
-    --border: 175 10% 90%;
-    --input: 175 10% 90%;
-    --ring: 200 85% 44%;
-    --chart-1: 200 85% 44%;
-    --chart-2: 76 72% 51%;
-    --chart-3: 210 100% 19%;
-    --chart-4: 175 45% 72%;
-    --chart-5: 31 58% 42%;
-    --radius: 0.9rem;
-    --brand-blue: #0577C2;
-    --brand-dark-blue: #0F3752;
-    --brand-green: #9ECD2E;
-    --brand-teal: #9AC5C2;
-    --surface-soft: #f7fafa;
-    --surface-base: #fafafa;
-    --surface-card: #F8F7F4;
-    --surface-overlay: #FCFCF7;
-    --text-main: #1a1a1a;
-    --text-muted: #4a4a4a;
+
+    --border: 90 12% 88%;
+    --input: 90 12% 88%;
+    --ring: 146 52% 28%;
+
+    --chart-1: 146 52% 28%;
+    --chart-2: 38 92% 50%;
+    --chart-3: 155 45% 14%;
+    --chart-4: 90 35% 62%;
+    --chart-5: 24 58% 42%;
+
+    --radius: 1rem;
+
+    /* Brand tokens */
+    --brand-green: #2D7A4A;
+    --brand-dark-green: #163D26;
+    --brand-amber: #F59E0B;
+    --brand-gold: #D97706;
+    --brand-sage: #8FAF7E;
+    --brand-olive: #6B7C3E;
+
+    /* Surfaces — warm cream hierarchy */
+    --surface-soft: #F9F7F2;
+    --surface-base: #FAFAF5;
+    --surface-card: #F6F4EE;
+    --surface-overlay: #FEFDF8;
+
+    /* Text */
+    --text-main: #1C1208;
+    --text-muted: #5C5040;
   }
 
   * {
@@ -163,9 +195,12 @@
     margin: 0;
     font-family: "Manrope Variable", "Manrope", sans-serif;
     color: var(--text-main);
+    /* Rich earthy layered background */
     background:
-      radial-gradient(circle at top left, rgba(5, 119, 194, 0.06), transparent 24%),
-      linear-gradient(180deg, #FCFCF7 0%, #f7fafa 100%);
+      radial-gradient(ellipse at 0% 0%, rgba(45, 122, 74, 0.07) 0%, transparent 40%),
+      radial-gradient(ellipse at 100% 100%, rgba(245, 158, 11, 0.05) 0%, transparent 35%),
+      radial-gradient(ellipse at 60% 50%, rgba(143, 175, 126, 0.04) 0%, transparent 50%),
+      linear-gradient(160deg, #FEFDF8 0%, #F9F7F2 50%, #F5F2EA 100%);
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -183,7 +218,7 @@
   }
 
   ::selection {
-    background: rgba(158, 205, 46, 0.25);
+    background: rgba(245, 158, 11, 0.22);
     color: var(--text-main);
   }
 }
@@ -220,19 +255,36 @@
   }
 }
 
+/* ── Premium scrollbar ── */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e8f4f8;
+  background: #EDE8DC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9AC5C2;
+  background: linear-gradient(180deg, #2D7A4A, #6B7C3E);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7aa8a5;
+  background: linear-gradient(180deg, #225F39, #556230);
+}
+
+/* ── Section divider organic shape utility ── */
+.section-wave {
+  position: relative;
+}
+.section-wave::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: inherit;
+  clip-path: ellipse(55% 100% at 50% 100%);
+  pointer-events: none;
 }
