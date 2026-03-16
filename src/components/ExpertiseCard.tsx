@@ -28,27 +28,26 @@ export const ExpertiseCard = ({ card }) => {
   const color = iconColors[card.icon] || iconColors.leaf;
 
   return (
-    <Card className="group h-full rounded-[28px] border-border/60 bg-surface-card/95 shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20 overflow-hidden">
+    <Card className="group h-full rounded-2xl border-border/60 bg-surface-card/95 shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20 overflow-hidden sm:rounded-[28px]">
       {/* Top accent bar */}
       <div
         className="h-1 w-full transition-all duration-500 group-hover:h-1.5"
         style={{ background: `linear-gradient(to right, ${color}, transparent)` }}
       />
-      <CardContent className="p-8">
-        {/* Icon container with layered background */}
+      {/* FIX 4.1: p-5 on mobile, p-6 on sm, p-8 on lg */}
+      <CardContent className="p-5 sm:p-6 lg:p-8">
         <div
-          className="relative flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110"
+          className="relative flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl"
           style={{ background: gradient }}
         >
-          <Icon className="h-7 w-7" style={{ color }} />
+          <Icon className="h-6 w-6 sm:h-7 sm:w-7" style={{ color }} />
         </div>
 
-        <h3 className="mt-6 font-heading text-xl font-bold text-foreground">{card.title}</h3>
-        <p className="mt-4 text-sm leading-7 text-muted-foreground">{card.description}</p>
+        <h3 className="mt-5 font-heading text-lg font-bold text-foreground sm:mt-6 sm:text-xl">{card.title}</h3>
+        <p className="mt-3 text-sm leading-7 text-muted-foreground sm:mt-4">{card.description}</p>
 
-        {/* Subtle bottom accent */}
         <div
-          className="mt-6 h-px w-0 transition-all duration-500 group-hover:w-full"
+          className="mt-5 h-px w-0 transition-all duration-500 group-hover:w-full sm:mt-6"
           style={{ background: `linear-gradient(to right, ${color}40, transparent)` }}
         />
       </CardContent>

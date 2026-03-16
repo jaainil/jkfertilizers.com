@@ -48,14 +48,12 @@ export const InquiryForm = ({
     setIsSubmitting(true);
 
     try {
-      // Simulate network request since backend is removed
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
       setFormData(initialForm);
       const message = "Inquiry sent successfully. Our team will contact you shortly.";
       setStatusMessage(message);
       toast.success(message);
-    } catch (error) {
+    } catch {
       const message = "Something went wrong while sending your inquiry.";
       setStatusMessage(message);
       toast.error(message);
@@ -66,15 +64,15 @@ export const InquiryForm = ({
 
   return (
     <form
-      className={`rounded-[28px] border border-border bg-surface-card p-6 shadow-[0_20px_60px_rgba(16,24,40,0.08)] sm:p-8 ${className}`}
+      className={`rounded-2xl border border-border bg-surface-card p-5 shadow-[0_20px_60px_rgba(16,24,40,0.08)] sm:rounded-[28px] sm:p-6 lg:p-8 ${className}`}
       onSubmit={handleSubmit}
       data-testid="inquiry-form"
     >
-      <div className="space-y-3">
-        <div className="inline-flex rounded-full border border-border bg-muted px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary" data-testid="inquiry-form-eyebrow">
+      <div className="space-y-2 sm:space-y-3">
+        <div className="inline-flex rounded-full border border-border bg-muted px-3 py-1 text-xs font-bold uppercase tracking-[0.22em] text-primary" data-testid="inquiry-form-eyebrow">
           B2B Lead Form
         </div>
-        <h3 className="font-heading text-2xl font-semibold text-foreground" data-testid="inquiry-form-title">
+        <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl" data-testid="inquiry-form-title">
           {title}
         </h3>
         <p className="text-sm leading-6 text-muted-foreground" data-testid="inquiry-form-description">
@@ -82,11 +80,9 @@ export const InquiryForm = ({
         </p>
       </div>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground" htmlFor="name">
-            Name
-          </label>
+      <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4">
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium text-foreground" htmlFor="name">Name</label>
           <Input
             id="name"
             name="name"
@@ -98,10 +94,8 @@ export const InquiryForm = ({
             data-testid="inquiry-form-name-input"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground" htmlFor="company">
-            Company
-          </label>
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium text-foreground" htmlFor="company">Company</label>
           <Input
             id="company"
             name="company"
@@ -113,10 +107,8 @@ export const InquiryForm = ({
             data-testid="inquiry-form-company-input"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground" htmlFor="email">
-            Email
-          </label>
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium text-foreground" htmlFor="email">Email</label>
           <Input
             id="email"
             name="email"
@@ -129,10 +121,8 @@ export const InquiryForm = ({
             data-testid="inquiry-form-email-input"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground" htmlFor="phone">
-            Phone
-          </label>
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium text-foreground" htmlFor="phone">Phone</label>
           <Input
             id="phone"
             name="phone"
@@ -146,10 +136,8 @@ export const InquiryForm = ({
         </div>
       </div>
 
-      <div className="mt-4 space-y-2">
-        <label className="text-sm font-medium text-foreground" htmlFor="interest">
-          Inquiry type
-        </label>
+      <div className="mt-3 space-y-1.5 sm:mt-4">
+        <label className="text-sm font-medium text-foreground" htmlFor="interest">Inquiry type</label>
         <select
           id="interest"
           name="interest"
@@ -166,24 +154,22 @@ export const InquiryForm = ({
         </select>
       </div>
 
-      <div className="mt-4 space-y-2">
-        <label className="text-sm font-medium text-foreground" htmlFor="message">
-          Project details
-        </label>
+      <div className="mt-3 space-y-1.5 sm:mt-4">
+        <label className="text-sm font-medium text-foreground" htmlFor="message">Project details</label>
         <Textarea
           id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell us about your product, expected volume, or partnership requirement."
-          className="min-h-[140px] rounded-xl border-border bg-muted"
+          className="min-h-[120px] rounded-xl border-border bg-muted sm:min-h-[140px]"
           required
           data-testid="inquiry-form-message-textarea"
         />
       </div>
 
       <label
-        className="mt-4 flex items-start gap-3 rounded-2xl border border-border bg-muted p-4 text-sm leading-6 text-muted-foreground"
+        className="mt-3 flex items-start gap-3 rounded-xl border border-border bg-muted p-3 text-sm leading-6 text-muted-foreground sm:mt-4 sm:rounded-2xl sm:p-4"
         data-testid="inquiry-form-consent-wrapper"
       >
         <input
@@ -191,7 +177,7 @@ export const InquiryForm = ({
           name="consent"
           checked={formData.consent}
           onChange={handleChange}
-          className="mt-1 h-4 w-4 rounded border-primary text-primary"
+          className="mt-0.5 h-4 w-4 rounded border-primary text-primary"
           data-testid="inquiry-form-consent-checkbox"
         />
         <span data-testid="inquiry-form-consent-text">
@@ -199,10 +185,11 @@ export const InquiryForm = ({
         </span>
       </label>
 
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      {/* FIX 9.5: w-full on mobile, w-auto on sm */}
+      <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between">
         <Button
           type="submit"
-          className="h-12 rounded-full bg-primary px-6 text-primary-foreground transition hover:bg-primary/90"
+          className="h-12 w-full rounded-full bg-primary px-6 text-primary-foreground transition hover:bg-primary/90 sm:w-auto"
           disabled={isSubmitting}
           data-testid="inquiry-form-submit-button"
         >
@@ -218,7 +205,7 @@ export const InquiryForm = ({
             </>
           )}
         </Button>
-        <p className="text-sm text-muted-foreground" data-testid="inquiry-form-status-message">
+        <p className="text-xs text-muted-foreground sm:text-sm" data-testid="inquiry-form-status-message">
           {statusMessage || "Priority response for product, manufacturing, and distribution inquiries."}
         </p>
       </div>

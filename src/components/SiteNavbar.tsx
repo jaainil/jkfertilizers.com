@@ -4,14 +4,29 @@ import { Mail, MapPin, Menu, Phone, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company, navigation } from "@/data/siteData";
 
-const linkClassName = ({ isActive }: { isActive: boolean }) =>
+// Desktop nav pill — NOT reused on mobile
+const desktopLinkClassName = ({ isActive }: { isActive: boolean }) =>
   `rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
     isActive
       ? "bg-primary/12 text-primary font-semibold"
       : "text-foreground/75 hover:text-primary hover:bg-primary/6"
   }`;
 
-export const SiteNavbar = ({ onMobileToggle, mobileOpen }: { onMobileToggle: () => void; mobileOpen: boolean }) => {
+// FIX 2.1 + 2.6: separate mobile style — full-width flex rows, py-3 = 44px+ tap target
+const mobileLinkClassName = ({ isActive }: { isActive: boolean }) =>
+  `flex w-full items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
+    isActive
+      ? "bg-primary/10 text-primary font-semibold"
+      : "text-foreground/75 hover:text-primary hover:bg-primary/5"
+  }`;
+
+export const SiteNavbar = ({
+  onMobileToggle,
+  mobileOpen,
+}: {
+  onMobileToggle: () => void;
+  mobileOpen: boolean;
+}) => {
   return (
     <>
       {/* ── Top utility bar (desktop only) ── */}
@@ -57,24 +72,28 @@ export const SiteNavbar = ({ onMobileToggle, mobileOpen }: { onMobileToggle: () 
 
       {/* ── Sticky header ── */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-surface-overlay/90 backdrop-blur-2xl shadow-[0_1px_0_0_rgba(45,122,74,0.06),0_4px_24px_rgba(22,61,38,0.04)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
-          <Link to="/" className="group flex items-center gap-3" data-testid="site-logo-link">
-            <div className="relative">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-3.5 lg:px-8">
+
+          {/* Logo */}
+          <Link to="/" className="group flex items-center gap-2.5 sm:gap-3" data-testid="site-logo-link">
+            <div className="relative shrink-0">
               <div className="absolute inset-0 rounded-xl bg-primary/8 blur-md group-hover:bg-primary/12 transition-all duration-300" />
-              <img src="/logo.png" alt="Adit Biorganic" className="relative h-11 w-auto rounded-xl object-contain" />
+              <img src="/logo.png" alt="Adit Biorganic" className="relative h-10 w-auto rounded-xl object-contain sm:h-11" />
             </div>
             <div>
-              <p className="font-heading text-base font-bold leading-tight text-foreground">{company.name}</p>
-              <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-muted-foreground">Organic · Certified · Trusted</p>
+              <p className="font-heading text-sm font-bold leading-tight text-foreground sm:text-base">{company.name}</p>
+              {/* FIX 2.4: text-xs minimum (was text-[10px]) */}
+              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">Organic · Certified · Trusted</p>
             </div>
           </Link>
 
+          {/* Desktop nav */}
           <nav className="hidden items-center gap-0.5 lg:flex" data-testid="desktop-navigation">
             {navigation.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
-                className={linkClassName}
+                className={desktopLinkClassName}
                 data-testid={`nav-link-${item.label.toLowerCase()}`}
               >
                 {item.label}
@@ -82,6 +101,7 @@ export const SiteNavbar = ({ onMobileToggle, mobileOpen }: { onMobileToggle: () 
             ))}
           </nav>
 
+          {/* Desktop CTAs */}
           <div className="hidden items-center gap-2.5 lg:flex">
             <Button
               asChild
@@ -103,41 +123,70 @@ export const SiteNavbar = ({ onMobileToggle, mobileOpen }: { onMobileToggle: () 
             </Button>
           </div>
 
+          {/* FIX 2.3: h-11 w-11 = 44px touch target, h-5 w-5 icon */}
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-surface-card text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-200 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-surface-card text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-200 lg:hidden"
             onClick={onMobileToggle}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             data-testid="mobile-menu-toggle-button"
           >
-            {mobileOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
-        {mobileOpen ? (
-          <div className="border-t border-border/50 bg-surface-card/95 backdrop-blur-xl px-4 py-5 lg:hidden" data-testid="mobile-navigation-panel">
+        {/* FIX 2.2: backdrop overlay closes menu on tap-outside */}
+        {mobileOpen && (
+          <div
+            className="fixed inset-0 z-[-1] lg:hidden"
+            onClick={onMobileToggle}
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Mobile nav panel */}
+        {mobileOpen && (
+          <div
+            className="border-t border-border/50 bg-surface-card/98 backdrop-blur-xl px-4 py-4 lg:hidden"
+            data-testid="mobile-navigation-panel"
+          >
+            {/* FIX 2.6: full-width links, py-3 tap targets via mobileLinkClassName */}
             <div className="flex flex-col gap-1">
               {navigation.map((item) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
-                  className={linkClassName}
+                  className={mobileLinkClassName}
+                  onClick={onMobileToggle}
                   data-testid={`mobile-nav-link-${item.label.toLowerCase()}`}
                 >
                   {item.label}
                 </NavLink>
               ))}
-              <div className="mt-3 h-px bg-border/60" />
+            </div>
+
+            <div className="mt-4 h-px bg-border/60" />
+
+            {/* Mobile CTAs */}
+            <div className="mt-4 flex flex-col gap-3">
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="mt-3 flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(45,122,74,0.3)]"
+                className="flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(45,122,74,0.3)]"
                 data-testid="mobile-call-link"
               >
                 <Phone className="h-4 w-4" />
                 Call {company.phoneDisplay}
               </a>
+              <Link
+                to="/contact"
+                onClick={onMobileToggle}
+                className="flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/6 px-4 py-3 text-sm font-semibold text-primary"
+              >
+                Become a partner
+              </Link>
             </div>
           </div>
-        ) : null}
+        )}
       </header>
     </>
   );

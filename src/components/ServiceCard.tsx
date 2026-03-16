@@ -13,45 +13,44 @@ const iconMap = {
 
 export const ServiceCard = ({ service }) => {
   const Icon = iconMap[service.icon] || FileText;
-
   const href = service.slug ? `/services/${service.slug}` : "/services";
 
   // Image-backed card
   if (service.imageSrc) {
     return (
-      <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-[30px]">
-        <article className="relative flex h-full min-h-[340px] flex-col overflow-hidden rounded-[30px] border border-border/50 shadow-[0_16px_48px_rgba(22,61,38,0.08)] transition-all duration-300 group-hover:shadow-[0_24px_72px_rgba(22,61,38,0.16)] group-hover:border-primary/20">
+      <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-[30px]">
+        <article className="relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border/50 shadow-[0_16px_48px_rgba(22,61,38,0.08)] transition-all duration-300 group-hover:shadow-[0_24px_72px_rgba(22,61,38,0.16)] group-hover:border-primary/20 sm:min-h-[340px] sm:rounded-[30px]">
           <img
             src={service.imageSrc}
             alt={service.title}
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
-          {/* Rich earthy gradient overlay */}
           <div
             className="absolute inset-0 transition-opacity duration-300"
             style={{ background: "linear-gradient(to top, rgba(22,61,38,0.97) 0%, rgba(22,61,38,0.65) 50%, rgba(22,61,38,0.15) 100%)" }}
           />
-          {/* Top accent shimmer on hover */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-          <div className="relative flex h-full flex-col justify-end p-7">
-            <div className="flex items-start justify-between gap-4">
-              <div className="space-y-2">
-                <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm">
+          {/* FIX 5.2: p-5 on mobile, p-7 on sm */}
+          <div className="relative flex h-full flex-col justify-end p-5 sm:p-7">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
+              <div className="space-y-1.5 sm:space-y-2">
+                <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white/80 backdrop-blur-sm sm:px-3">
                   {service.concept}
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-white">{service.title}</h3>
+                {/* FIX 5.4: text-xl on mobile, text-2xl on sm */}
+                <h3 className="font-heading text-xl font-bold text-white sm:text-2xl">{service.title}</h3>
               </div>
               <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-secondary transition-transform duration-300 group-hover:scale-110"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-secondary transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12 sm:rounded-2xl"
                 style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
             </div>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/75">{service.description}</p>
-            <div className="mt-5 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+            <p className="mt-3 text-sm leading-6 text-white/75 sm:mt-4 sm:leading-7">{service.description}</p>
+            <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent sm:mt-5">
               Learn more
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
             </div>
@@ -61,26 +60,26 @@ export const ServiceCard = ({ service }) => {
     );
   }
 
-  // Default text-only card
+  // Text-only card
   return (
-    <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-[30px]">
-      <article className="flex h-full flex-col rounded-[30px] border border-border/60 bg-surface-card p-7 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_24px_60px_rgba(22,61,38,0.10)] group-hover:border-primary/20">
-        <div className="flex items-start justify-between gap-4">
-          <div className="space-y-3">
-            <div className="inline-flex rounded-full border border-border bg-muted px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+    <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-[30px]">
+      <article className="flex h-full flex-col rounded-2xl border border-border/60 bg-surface-card p-5 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_24px_60px_rgba(22,61,38,0.10)] group-hover:border-primary/20 sm:rounded-[30px] sm:p-7">
+        <div className="flex items-start justify-between gap-3 sm:gap-4">
+          <div className="space-y-2 sm:space-y-3">
+            <div className="inline-flex rounded-full border border-border bg-muted px-2.5 py-1 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground sm:px-3">
               {service.concept}
             </div>
-            <h3 className="font-heading text-2xl font-bold text-foreground">{service.title}</h3>
+            <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">{service.title}</h3>
           </div>
           <div
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white transition-transform duration-300 group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl"
             style={{ background: "linear-gradient(135deg, #2D7A4A, #163D26)" }}
           >
-            <Icon className="h-6 w-6" />
+            <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
         </div>
-        <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground">{service.description}</p>
-        <div className="mt-auto pt-5 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+        <p className="mt-4 text-sm leading-7 text-muted-foreground sm:mt-5">{service.description}</p>
+        <div className="mt-auto pt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary sm:pt-5">
           Learn more
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
         </div>
