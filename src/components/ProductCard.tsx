@@ -30,7 +30,7 @@ export const ProductCard = ({ product }) => (
     {/* FIX 6.1: p-4 on mobile, p-5 on sm, p-7 on lg */}
     <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-7">
       <div className="flex items-start justify-between gap-3">
-        <h3 className="font-heading text-base font-bold leading-snug text-foreground sm:text-xl">
+        <h3 className="font-heading type-card-title font-bold leading-snug text-foreground">
           {product.title}
         </h3>
         {/* FIX 6.3: relative + overflow-hidden wrapper so no absolute escape */}
@@ -42,7 +42,7 @@ export const ProductCard = ({ product }) => (
         </div>
       </div>
 
-      <p className="mt-2 flex-1 text-xs leading-6 text-muted-foreground sm:mt-3 sm:text-sm sm:leading-7">
+      <p className="mt-2 flex-1 type-body-sm text-muted-foreground sm:mt-3">
         {product.summary}
       </p>
 

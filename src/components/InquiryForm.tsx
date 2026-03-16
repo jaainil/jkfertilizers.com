@@ -72,10 +72,10 @@ export const InquiryForm = ({
         <div className="inline-flex rounded-full border border-border bg-muted px-3 py-1 text-xs font-bold uppercase tracking-[0.22em] text-primary" data-testid="inquiry-form-eyebrow">
           B2B Lead Form
         </div>
-        <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl" data-testid="inquiry-form-title">
+        <h3 className="font-heading type-card-title font-bold text-foreground" data-testid="inquiry-form-title">
           {title}
         </h3>
-        <p className="text-sm leading-6 text-muted-foreground" data-testid="inquiry-form-description">
+        <p className="type-body text-muted-foreground" data-testid="inquiry-form-description">
           {description}
         </p>
       </div>

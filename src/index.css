@@ -121,6 +121,108 @@
   text-wrap: balance;
 }
 
+/*
+  ── Standardised Type Scale ──────────────────────────────────────────
+  Use these instead of raw text-* classes so every element type is
+  consistent across every component.
+
+  LABEL      → eyebrow pills, column headers, category badges, CTA micro-links
+  CAPTION    → overlay card labels, date stamps, footer meta, attribution
+  BODY-SM    → card descriptions, benefit list items, overlay body copy
+  BODY       → main section body paragraphs, nav links, form descriptions
+  CARD-TITLE → h3 inside cards (ExpertiseCard, ServiceCard, ProductCard,
+                InsightCard, InquiryForm title)
+  SECTION-H2 → all in-page h2 headings (HomePage sections, Footer CTA)
+  PAGE-H1    → inner-page hero h1 (PageHero)
+  HERO-H1    → homepage main hero h1 only
+  ─────────────────────────────────────────────────────────────────── */
+
+/* 12px fixed — badges, pills, micro-labels */
+@utility type-label {
+  font-size: 0.75rem;   /* 12px */
+  line-height: 1rem;
+}
+
+/* 11px fixed — very tight overlay labels only */
+@utility type-caption {
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1rem;
+}
+
+/* 13px → 14px — card bodies, overlay body, benefit items */
+@utility type-body-sm {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.625rem;
+  @media (min-width: 640px) {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.75rem;
+  }
+}
+
+/* 14px → 16px — main body paragraphs, nav links, form text */
+@utility type-body {
+  font-size: 0.875rem;  /* 14px */
+  line-height: 1.75rem;
+  @media (min-width: 640px) {
+    font-size: 1rem;    /* 16px */
+    line-height: 1.875rem;
+  }
+}
+
+/* 18px → 20px → 22px — card h3 titles */
+@utility type-card-title {
+  font-size: 1.125rem;  /* 18px */
+  line-height: 1.4;
+  @media (min-width: 640px) {
+    font-size: 1.25rem; /* 20px */
+  }
+  @media (min-width: 1024px) {
+    font-size: 1.375rem; /* 22px */
+  }
+}
+
+/* 28px → 36px → 44px — section h2 */
+@utility type-section-h2 {
+  font-size: 1.75rem;   /* 28px */
+  line-height: 1.15;
+  @media (min-width: 640px) {
+    font-size: 2.25rem; /* 36px */
+  }
+  @media (min-width: 1024px) {
+    font-size: 2.75rem; /* 44px */
+  }
+}
+
+/* 28px → 38px → 52px — inner page h1 */
+@utility type-page-h1 {
+  font-size: 1.75rem;   /* 28px */
+  line-height: 1.1;
+  @media (min-width: 640px) {
+    font-size: 2.375rem; /* 38px */
+  }
+  @media (min-width: 1024px) {
+    font-size: 3.25rem; /* 52px */
+  }
+  @media (min-width: 1280px) {
+    font-size: 3.75rem; /* 60px */
+  }
+}
+
+/* 30px → 44px → 60px → 72px — homepage hero h1 only */
+@utility type-hero-h1 {
+  font-size: 1.875rem;  /* 30px */
+  line-height: 1.08;
+  @media (min-width: 640px) {
+    font-size: 2.75rem; /* 44px */
+  }
+  @media (min-width: 1024px) {
+    font-size: 3.75rem; /* 60px */
+  }
+  @media (min-width: 1280px) {
+    font-size: 4.5rem;  /* 72px */
+  }
+}
+
 @layer base {
   :root {
     /* ── Earthy & Premium palette ── */

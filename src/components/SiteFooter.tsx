@@ -45,7 +45,7 @@ export const SiteFooter = () => {
               <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent">Partner with us</p>
             </div>
             {/* FIX 3.3: text-2xl base */}
-            <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+            <h2 className="font-heading type-section-h2 font-bold text-white">
               Let's grow something great.
             </h2>
             <p className="mt-2 max-w-lg text-sm leading-7 text-white/55">

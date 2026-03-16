@@ -22,10 +22,10 @@ export const PageHero = ({
           {eyebrow}
         </div>
         {/* FIX 10.1: text-3xl base → text-4xl sm → text-5xl lg → text-6xl xl */}
-        <h1 className="max-w-3xl font-heading text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl xl:text-6xl">
+        <h1 className="max-w-3xl font-heading type-page-h1 font-bold tracking-tight text-foreground text-balance">
           {title}
         </h1>
-        <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+        <p className="max-w-2xl type-body text-muted-foreground">
           {description}
         </p>
         {badges.length > 0 && (

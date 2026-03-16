@@ -197,10 +197,10 @@ const HomePage = () => (
 
           <div className="space-y-4">
             {/* FIX 1.3: text-3xl base → text-5xl sm → text-6xl lg → text-7xl xl */}
-            <h1 className="max-w-4xl font-heading text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl text-balance leading-[1.08]">
+            <h1 className="max-w-4xl font-heading type-hero-h1 font-bold tracking-tight text-foreground text-balance">
               {company.subTagline}
             </h1>
-            <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+            <p className="max-w-xl type-body text-muted-foreground">
               {company.heroSubtitle}
             </p>
           </div>
@@ -262,16 +262,16 @@ const HomePage = () => (
           overlay={
             <div className="grid gap-2 grid-cols-2">
               <div className="rounded-xl border border-white/30 bg-surface-overlay/92 p-3 shadow-[0_16px_50px_rgba(22,61,38,0.15)] backdrop-blur-sm sm:rounded-2xl sm:p-4">
-                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">Our promise</p>
+                <p className="type-label font-bold uppercase tracking-[0.22em] text-muted-foreground">Our promise</p>
                 <p className="mt-1 font-heading text-sm font-bold text-foreground sm:mt-2 sm:text-base">Consistency at scale</p>
-                <p className="mt-1 hidden text-xs leading-5 text-muted-foreground sm:block">Granules engineered for repeatability and dependable supply.</p>
+                <p className="mt-1 hidden type-label text-muted-foreground sm:block">Granules engineered for repeatability and dependable supply.</p>
               </div>
               <div className="rounded-xl border border-white/20 p-3 text-white shadow-[0_16px_50px_rgba(22,61,38,0.2)] sm:rounded-2xl sm:p-4" style={{ background: "linear-gradient(135deg, #2D7A4A, #163D26)" }}>
-                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/70 sm:text-xs">Why Adit Biorganic</p>
+                <p className="type-label font-bold uppercase tracking-[0.22em] text-white/70">Why Adit Biorganic</p>
                 <p className="mt-1 font-heading text-sm font-bold sm:mt-2 sm:text-base">Industrial discipline, organic intent</p>
                 <div className="mt-1 flex items-center gap-1.5 sm:mt-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" style={{ animation: "pulse-dot 2s ease-in-out infinite" }} />
-                  <span className="text-[10px] text-white/70 sm:text-xs">10+ years experience</span>
+                  <span className="type-label text-white/70">10+ years experience</span>
                 </div>
               </div>
             </div>
@@ -312,7 +312,7 @@ const HomePage = () => (
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-72"
           overlay={
             <div className="rounded-2xl border border-white/25 p-4 shadow-[0_16px_50px_rgba(22,61,38,0.22)] backdrop-blur-md sm:rounded-3xl sm:p-5" style={{ background: "linear-gradient(135deg, rgba(22,61,38,0.92), rgba(45,122,74,0.88))" }}>
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/60 sm:text-xs">ISO 9001:2015 Certified</p>
+              <p className="type-label font-bold uppercase tracking-[0.22em] text-white/60">ISO 9001:2015 Certified</p>
               <p className="mt-1 font-heading text-sm font-bold text-white sm:mt-2 sm:text-base">"Quality You Can Trust. Results You Can See."</p>
               <div className="mt-2 flex items-center gap-2">
                 <Award className="h-3.5 w-3.5 text-accent" />
@@ -326,13 +326,13 @@ const HomePage = () => (
             <Leaf className="h-3 w-3" />
             {company.heroTitle}
           </div>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
             Quality You Can Trust. <span className="text-primary">Results You Can See.</span>
           </h2>
-          <p className="text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+          <p className="type-body text-muted-foreground">
             Leveraging state-of-the-art technology and ISO 9001:2015 certified processes, we deliver high-performance, eco-friendly fertilizers you can depend on.
           </p>
-          <p className="text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+          <p className="type-body text-muted-foreground">
             We are a leading manufacturer providing high-quality, customized organic fertilizer solutions that enhance soil health and ensure farm sustainability.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
@@ -359,10 +359,10 @@ const HomePage = () => (
             <Sprout className="h-3.5 w-3.5 text-accent" />
             What Is Our Expertise?
           </div>
-          <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground sm:mt-5 sm:text-3xl lg:text-4xl">
+          <h2 className="mt-4 font-heading type-section-h2 font-bold tracking-tight text-foreground sm:mt-5">
             Manufacturing Advanced Granular Fertilizers
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+          <p className="mx-auto mt-3 max-w-3xl type-body text-muted-foreground">
             Adit Biorganic specializes in manufacturing nutrient base and coating granular fertilizers. We provide customized 'Recipe Granules' using mineral and organic bases as a superior alternative to standard bentonite.
           </p>
         </div>
@@ -420,15 +420,15 @@ const HomePage = () => (
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-80"
           overlay={
             <div className="rounded-2xl border border-white/30 bg-surface-overlay/95 p-4 shadow-[0_16px_50px_rgba(22,61,38,0.12)] backdrop-blur-sm sm:rounded-3xl sm:p-5">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">Chairman's message</p>
-              <p className="mt-2 font-accent text-sm italic text-primary leading-6 sm:text-base sm:leading-7">
+              <p className="type-label font-bold uppercase tracking-[0.22em] text-muted-foreground">Chairman's message</p>
+              <p className="mt-2 font-accent type-body-sm italic text-primary leading-6">
                 "Our mission is not just about business but about contributing positively to the environment."
               </p>
               <div className="mt-3 flex items-center gap-3 border-t border-border/60 pt-3">
                 <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center sm:h-8 sm:w-8">
                   <Sprout className="h-3.5 w-3.5 text-primary sm:h-4 sm:w-4" />
                 </div>
-                <p className="text-xs font-semibold text-foreground sm:text-sm">{company.founder}<span className="ml-1.5 font-normal text-muted-foreground">· {company.founderTitle}</span></p>
+                <p className="type-body-sm font-semibold text-foreground">{company.founder}<span className="ml-1.5 font-normal text-muted-foreground">· {company.founderTitle}</span></p>
               </div>
             </div>
           }
@@ -438,25 +438,25 @@ const HomePage = () => (
             <Leaf className="h-3 w-3" />
             {company.subTagline}
           </div>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
             The Foundation of Your Harvest is Built on <span className="text-primary">Quality</span>
           </h2>
-          <p className="text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+          <p className="type-body text-muted-foreground">
             {company.aboutDetails}
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-border/60 bg-surface-card p-4 shadow-sm sm:rounded-3xl sm:p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">Our Mission</p>
-              <p className="mt-3 font-accent text-sm leading-7 text-foreground italic sm:text-base">
+              <p className="type-label font-bold uppercase tracking-[0.2em] text-muted-foreground">Our Mission</p>
+              <p className="mt-3 font-accent type-body-sm italic text-foreground">
                 "{company.mission.slice(0, 120)}…"
               </p>
             </div>
             <div className="rounded-2xl p-4 text-white sm:rounded-3xl sm:p-5" style={{ background: "linear-gradient(135deg, #163D26 0%, #2D7A4A 100%)" }}>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Chairman's Note</p>
-              <p className="mt-3 font-accent text-sm leading-7 text-white/90 italic sm:text-base">
+              <p className="type-label font-bold uppercase tracking-[0.2em] text-white/60">Chairman's Note</p>
+              <p className="mt-3 font-accent type-body-sm text-white/90 italic">
                 "{company.chairmanMessage.slice(0, 120)}…"
               </p>
-              <p className="mt-3 text-xs font-medium text-white/50">— {company.founder}</p>
+              <p className="mt-3 type-label font-medium text-white/50">— {company.founder}</p>
             </div>
           </div>
           <Button
@@ -477,10 +477,10 @@ const HomePage = () => (
           <Award className="h-3.5 w-3.5" />
           Core strengths
         </div>
-        <h2 className="mt-5 font-heading text-3xl font-bold tracking-tight text-foreground sm:mt-6 sm:text-4xl lg:text-5xl text-balance">
+        <h2 className="mt-5 font-heading type-section-h2 font-bold tracking-tight text-foreground sm:mt-6 text-balance">
           The Foundation for <span className="text-primary">Sustainable Farming</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
+        <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
           We believe superior crops start with superior soil. Our high-quality granular fertilizers are the key.
         </p>
       </div>
@@ -505,17 +505,17 @@ const HomePage = () => (
             <Leaf className="h-3 w-3 text-accent" />
             Why Choose Us
           </div>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
             At Adit Biorganic, We Are Your Partner In <span className="text-accent">Sustainable Agriculture.</span>
           </h2>
-          <p className="text-sm leading-7 text-white/75 sm:max-w-xl sm:text-base sm:leading-8">
+          <p className="type-body text-white/75 sm:max-w-xl">
             With over a decade of manufacturing experience, we operate 24/7 to produce advanced organic granular fertilizers. Our state-of-the-art facilities and robust R&D allow us to create customized, eco-friendly solutions.
           </p>
           <div className="grid gap-3">
             {partnerBenefits.map((benefit) => (
               <div key={benefit} className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/6 p-3 backdrop-blur-sm transition-all duration-200 hover:border-white/15 hover:bg-white/8 sm:rounded-2xl sm:p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                <p className="text-sm leading-6 text-white/85 sm:leading-7">{benefit}</p>
+                <p className="type-body-sm text-white/85">{benefit}</p>
               </div>
             ))}
           </div>
@@ -541,11 +541,11 @@ const HomePage = () => (
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
           overlay={
             <div className="rounded-2xl border border-white/20 bg-white/8 p-3 backdrop-blur-md sm:rounded-3xl sm:p-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/70 sm:text-xs">India's Leading B2B Fertilizer Manufacturer</p>
+              <p className="type-label font-bold uppercase tracking-[0.22em] text-white/70">India's Leading B2B Fertilizer Manufacturer</p>
               <p className="mt-1 font-heading text-sm font-bold text-white sm:text-base">ISO 9001:2015 Certified</p>
               <div className="mt-1.5 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" style={{ animation: "pulse-dot 2s ease-in-out infinite" }} />
-                <span className="text-xs text-white/60">Active operations · 24/7</span>
+                <span className="type-label text-white/60">Active operations · 24/7</span>
               </div>
             </div>
           }
@@ -563,10 +563,10 @@ const HomePage = () => (
               <Sprout className="h-3 w-3" />
               Our Products
             </div>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
+            <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
               Premium Granular Products
             </h2>
-            <p className="text-sm leading-7 text-muted-foreground sm:max-w-2xl sm:text-base sm:leading-8">
+            <p className="type-body text-muted-foreground sm:max-w-2xl">
               High-quality base granules engineered for consistent performance and sustainable agriculture.
             </p>
           </div>
@@ -600,8 +600,8 @@ const HomePage = () => (
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(22,61,38,0.4), transparent)" }} />
                   </div>
                   <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
-                    <h3 className="font-heading text-sm font-bold text-foreground sm:text-base lg:text-lg">{product.title}</h3>
-                    <p className="mt-2 flex-1 text-xs leading-6 text-muted-foreground sm:text-sm">{product.summary}</p>
+                    <h3 className="font-heading type-card-title font-bold text-foreground">{product.title}</h3>
+                    <p className="mt-2 flex-1 type-body-sm text-muted-foreground">{product.summary}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
                       {product.fit.map((tag) => (
                         <span key={tag} className="rounded-full border border-accent/25 bg-accent/8 px-2.5 py-0.5 text-xs font-semibold text-accent-foreground/70 sm:px-3 sm:py-1">
@@ -631,10 +631,10 @@ const HomePage = () => (
             <Leaf className="h-3 w-3 text-accent" />
             Our Services
           </div>
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
             What We Offer
           </h2>
-          <p className="text-sm leading-7 text-muted-foreground sm:max-w-2xl sm:text-base sm:leading-8">
+          <p className="type-body text-muted-foreground sm:max-w-2xl">
             We provide comprehensive, end-to-end B2B solutions for the fertilizer industry, from custom formulation and manufacturing to precision coating and quality assurance.
           </p>
         </div>
@@ -663,10 +663,10 @@ const HomePage = () => (
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-card px-3 py-1.5 text-xs font-bold uppercase tracking-[0.26em] text-muted-foreground">
               From The Blog
             </div>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
+            <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
               Latest News &amp; Articles
             </h2>
-            <p className="text-sm leading-7 text-muted-foreground sm:max-w-2xl sm:text-base sm:leading-8">
+            <p className="type-body text-muted-foreground sm:max-w-2xl">
               Explore our latest insights on sustainable agriculture, organic fertilizer technology, and manufacturing innovations for our B2B partners.
             </p>
           </div>
@@ -696,17 +696,17 @@ const HomePage = () => (
             Get In Touch
           </div>
           {/* FIX 1.19: text-3xl base, text-balance, no hard <br /> */}
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
             Quality You Can Trust, <span className="text-accent">Results You Can See</span>
           </h2>
-          <p className="text-sm leading-7 text-white/75 sm:max-w-2xl sm:text-base sm:leading-8">
+          <p className="type-body text-white/75 sm:max-w-2xl">
             Every product is manufactured using state-of-the-art technology under ISO 9001:2015 certified processes.
           </p>
           <div className="grid gap-3">
             {partnerBenefits.map((benefit) => (
               <div key={benefit} className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/6 p-3 backdrop-blur-sm sm:rounded-2xl sm:p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                <p className="text-sm leading-6 text-white/80 sm:leading-7">{benefit}</p>
+                <p className="type-body-sm text-white/80">{benefit}</p>
               </div>
             ))}
           </div>
@@ -726,7 +726,7 @@ const HomePage = () => (
             </Button>
           </div>
           {/* FIX 1.21: min-w-0 + break-words on address span */}
-          <div className="grid gap-3 pt-2 text-sm text-white/65">
+          <div className="grid gap-3 pt-2 type-body-sm text-white/65">
             <div className="flex items-start gap-2">
               <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span className="min-w-0 break-words">{company.address}</span>

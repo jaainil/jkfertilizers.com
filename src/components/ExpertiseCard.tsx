@@ -43,8 +43,8 @@ export const ExpertiseCard = ({ card }) => {
           <Icon className="h-6 w-6 sm:h-7 sm:w-7" style={{ color }} />
         </div>
 
-        <h3 className="mt-5 font-heading text-lg font-bold text-foreground sm:mt-6 sm:text-xl">{card.title}</h3>
-        <p className="mt-3 text-sm leading-7 text-muted-foreground sm:mt-4">{card.description}</p>
+        <h3 className="mt-5 font-heading type-card-title font-bold text-foreground sm:mt-6">{card.title}</h3>
+        <p className="mt-3 type-body-sm text-muted-foreground sm:mt-4">{card.description}</p>
 
         <div
           className="mt-5 h-px w-0 transition-all duration-500 group-hover:w-full sm:mt-6"

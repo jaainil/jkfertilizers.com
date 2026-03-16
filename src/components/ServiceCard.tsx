@@ -40,7 +40,7 @@ export const ServiceCard = ({ service }) => {
                   {service.concept}
                 </div>
                 {/* FIX 5.4: text-xl on mobile, text-2xl on sm */}
-                <h3 className="font-heading text-xl font-bold text-white sm:text-2xl">{service.title}</h3>
+                <h3 className="font-heading type-card-title font-bold text-white">{service.title}</h3>
               </div>
               <div
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-secondary transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12 sm:rounded-2xl"
@@ -49,7 +49,7 @@ export const ServiceCard = ({ service }) => {
                 <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
             </div>
-            <p className="mt-3 text-sm leading-6 text-white/75 sm:mt-4 sm:leading-7">{service.description}</p>
+            <p className="mt-3 type-body-sm text-white/75 sm:mt-4">{service.description}</p>
             <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent sm:mt-5">
               Learn more
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -69,7 +69,7 @@ export const ServiceCard = ({ service }) => {
             <div className="inline-flex rounded-full border border-border bg-muted px-2.5 py-1 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground sm:px-3">
               {service.concept}
             </div>
-            <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">{service.title}</h3>
+            <h3 className="font-heading type-card-title font-bold text-foreground">{service.title}</h3>
           </div>
           <div
             className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white transition-transform duration-300 group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl"
@@ -78,7 +78,7 @@ export const ServiceCard = ({ service }) => {
             <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
         </div>
-        <p className="mt-4 text-sm leading-7 text-muted-foreground sm:mt-5">{service.description}</p>
+        <p className="mt-4 type-body-sm text-muted-foreground sm:mt-5">{service.description}</p>
         <div className="mt-auto pt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary sm:pt-5">
           Learn more
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />

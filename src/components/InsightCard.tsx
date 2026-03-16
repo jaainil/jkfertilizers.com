@@ -42,8 +42,8 @@ export const InsightCard = ({ post }: { post: InsightPost }) => (
           </div>
           <span className="shrink-0 text-xs text-muted-foreground">{post.dateDisplay ?? post.date}</span>
         </div>
-        <h3 className="mt-4 font-heading text-lg font-bold text-foreground leading-snug sm:mt-5 sm:text-xl">{post.title}</h3>
-        <p className="mt-3 flex-1 text-xs leading-6 text-muted-foreground sm:mt-4 sm:text-sm sm:leading-7">{post.excerpt}</p>
+        <h3 className="mt-4 font-heading type-card-title font-bold text-foreground leading-snug sm:mt-5">{post.title}</h3>
+        <p className="mt-3 flex-1 type-body-sm text-muted-foreground sm:mt-4">{post.excerpt}</p>
         <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary sm:mt-6">
           Read more
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
