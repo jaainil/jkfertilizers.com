@@ -138,7 +138,19 @@ const infrastructureItems = [
   },
 ];
 
-export const AboutPage = () => (
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
+
+export const AboutPage = () => {
+  const statsReveal = useScrollReveal();
+  const welcomeReveal = useScrollReveal();
+  const missionReveal = useScrollReveal();
+  const expertiseReveal = useScrollReveal();
+  const historyReveal = useScrollReveal();
+  const infraReveal = useScrollReveal();
+  const teamReveal = useScrollReveal();
+  const qualityReveal = useScrollReveal();
+
+  return (
   <>
     <SEOHead
       title="About Us — ISO Certified Organic Fertilizer Manufacturer, Anand Gujarat"
@@ -170,10 +182,13 @@ export const AboutPage = () => (
 
     {/* ── Stats Banner ── */}
     <section className="bg-secondary py-14 lg:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div 
+        ref={statsReveal.ref}
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="group text-center">
+          {stats.map((s, i) => (
+            <div key={s.label} className="group text-center" {...staggerDelay(i, 100)}>
               <p className="font-heading text-5xl font-bold text-white">
                 {s.value}
                 {s.unit && <span className="text-accent ml-1 text-3xl">{s.unit}</span>}
@@ -188,7 +203,10 @@ export const AboutPage = () => (
 
     {/* ── Welcome / Who We Are ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div 
+        ref={welcomeReveal.ref}
+        className={`grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center reveal ${welcomeReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="space-y-7">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
             Welcome to Adit Biorganic
@@ -228,8 +246,11 @@ export const AboutPage = () => (
     </section>
 
     {/* ── Mission + Chairman ── */}
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-muted py-20 lg:py-28 section-wave">
+      <div 
+        ref={missionReveal.ref}
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${missionReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="mb-12 text-center">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
             Our Purpose
@@ -291,7 +312,10 @@ export const AboutPage = () => (
 
     {/* ── Manufacturing Expertise ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="mb-14 text-center">
+      <div 
+        ref={expertiseReveal.ref}
+        className={`mb-14 text-center reveal ${expertiseReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
           Our Manufacturing Expertise
         </div>
@@ -302,10 +326,11 @@ export const AboutPage = () => (
           We combine over a decade of experience with state-of-the-art technology to be the most trusted B2B partner in India.
         </p>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {expertiseItems.map((item) => (
+      <div className={`grid gap-6 md:grid-cols-2 lg:grid-cols-4 reveal-scale ${expertiseReveal.isVisible ? 'visible' : ''}`}>
+        {expertiseItems.map((item, i) => (
           <div
             key={item.title}
+            {...staggerDelay(i, 100)}
             className="group flex flex-col rounded-[28px] border border-border bg-surface-card p-6 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
           >
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
@@ -342,8 +367,11 @@ export const AboutPage = () => (
     </section>
 
     {/* ── History / Timeline ── */}
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-muted py-20 lg:py-28 section-wave">
+      <div 
+        ref={historyReveal.ref}
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${historyReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           {/* Left: text + milestones */}
           <div className="space-y-8">
@@ -359,19 +387,25 @@ export const AboutPage = () => (
               </p>
             </div>
             {/* Timeline */}
-            <div className="relative space-y-0 pl-6">
-              <div className="absolute left-[11px] top-2 h-[calc(100%-1rem)] w-0.5 bg-linear-to-b from-primary/60 via-primary/20 to-transparent" />
-              {milestones.map((m) => (
-                <div key={m.title} className="relative flex gap-6 pb-8 last:pb-0">
-                  <div className="absolute -left-6 flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-surface-card shadow-sm">
+            <div className="relative space-y-0">
+              {milestones.map((m, i) => (
+                <div key={m.title} className="relative flex items-start gap-4 sm:gap-6 pb-12 last:pb-0 group">
+                  {/* Vertical connecting line */}
+                  {i !== milestones.length - 1 && (
+                    <div className="absolute left-[11px] top-[26px] bottom-[-8px] w-0.5 bg-primary/20" />
+                  )}
+                  {/* Circle */}
+                  <div className="relative mt-[2px] shrink-0 flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-muted shadow-sm z-10 transition-transform duration-300 group-hover:scale-110">
                     <div className="h-2 w-2 rounded-full bg-primary" />
                   </div>
-                  <div className="flex-1 pt-0.5">
-                    <div className="mb-1 inline-flex rounded-full bg-primary/10 px-3 py-0.5 text-xs font-bold text-primary">
-                      {m.year}
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 md:gap-4 mb-2">
+                      <div className="inline-flex h-[26px] items-center justify-center shrink-0 rounded-full bg-primary/10 px-3 text-xs font-bold text-primary">
+                        {m.year}
+                      </div>
+                      <h4 className="font-heading text-lg font-semibold text-foreground">{m.title}</h4>
                     </div>
-                    <h4 className="font-heading text-lg font-semibold text-foreground">{m.title}</h4>
-                    <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{m.desc}</p>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{m.desc}</p>
                   </div>
                 </div>
               ))}
@@ -397,7 +431,10 @@ export const AboutPage = () => (
 
     {/* ── Infrastructure ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="mb-14 text-center">
+      <div 
+        ref={infraReveal.ref}
+        className={`mb-14 text-center reveal ${infraReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
           Our Advanced Infrastructure
         </div>
@@ -408,9 +445,9 @@ export const AboutPage = () => (
           From state-of-the-art granulation lines to our in-house ISO-certified lab and spacious warehouses — every corner of our facility is engineered for excellence.
         </p>
       </div>
-      <div className="grid gap-8 md:grid-cols-3">
-        {infrastructureItems.map((item) => (
-          <div key={item.title} className="group overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
+      <div className={`grid gap-8 md:grid-cols-3 reveal-scale ${infraReveal.isVisible ? 'visible' : ''}`}>
+        {infrastructureItems.map((item, i) => (
+          <div key={item.title} {...staggerDelay(i, 100)} className="group overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
             <div className="relative h-52 overflow-hidden">
               <img
                 src={item.img}
@@ -430,8 +467,11 @@ export const AboutPage = () => (
     </section>
 
     {/* ── Team + Products + Partnership ── */}
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-muted py-20 lg:py-28 section-wave">
+      <div 
+        ref={teamReveal.ref}
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${teamReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="mb-12 text-center">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
             What Makes Us Different
@@ -495,7 +535,10 @@ export const AboutPage = () => (
 
     {/* ── Quality Commitment Banner ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div 
+        ref={qualityReveal.ref}
+        className={`grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${qualityReveal.isVisible ? 'visible' : ''}`}
+      >
         <ImagePanel
           src={images.granules}
           alt="Premium organic granular fertilizer granules — our core product"
@@ -571,4 +614,5 @@ export const AboutPage = () => (
       </div>
     </section>
   </>
-);
+  );
+};

@@ -29,7 +29,14 @@ const images = {
   partnership: "/images/partnership.jpg",
 };
 
-export const ProductsPage = () => (
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
+
+export const ProductsPage = () => {
+  const introReveal = useScrollReveal();
+  const listReveal = useScrollReveal();
+  const detailsReveal = useScrollReveal();
+
+  return (
   <>
     <SEOHead
       title="Organic Fertilizer Base Granules — Mineral, Bio, Organic Products | Gujarat India"
@@ -59,20 +66,33 @@ export const ProductsPage = () => (
     />
 
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <SectionIntro
-        eyebrow="Catalog overview"
-        title="Core Product Families"
-        description="Eight specialized granule lines — each engineered for a distinct agronomic purpose — available for B2B supply and contract manufacturing across India."
-      />
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {products.map((product) => (
-          <ProductCard key={product.slug} product={product} />
+      <div 
+        ref={introReveal.ref}
+        className={`reveal ${introReveal.isVisible ? 'visible' : ''}`}
+      >
+        <SectionIntro
+          eyebrow="Catalog overview"
+          title="Core Product Families"
+          description="Eight specialized granule lines — each engineered for a distinct agronomic purpose — available for B2B supply and contract manufacturing across India."
+        />
+      </div>
+      <div 
+        ref={listReveal.ref}
+        className={`grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 reveal-scale ${listReveal.isVisible ? 'visible' : ''}`}
+      >
+        {products.map((product, i) => (
+          <div key={product.slug} {...staggerDelay(i, 100)}>
+            <ProductCard product={product} />
+          </div>
         ))}
       </div>
     </section>
 
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-center">
+    <section className="bg-muted py-20 lg:py-28 section-wave">
+      <div 
+        ref={detailsReveal.ref}
+        className={`mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-center reveal ${detailsReveal.isVisible ? 'visible' : ''}`}
+      >
         <ImagePanel src={images.soil} alt="Healthy soil and organic performance" testId="products-highlight-image-panel" className="aspect-[4/4.6] min-h-[360px]" />
         <div className="space-y-5">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
@@ -80,8 +100,8 @@ export const ProductsPage = () => (
           </div>
           <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">Recipe Granules Built Around Partner Requirements</h2>
           <div className="grid gap-4">
-          {productHighlights.map((item) => (
-            <div key={item.slice(0, 20)} className="flex items-start gap-3 rounded-[24px] border border-border bg-surface-card p-5">
+          {productHighlights.map((item, i) => (
+            <div key={item.slice(0, 20)} {...staggerDelay(i, 100)} className="flex items-start gap-3 rounded-[24px] border border-border bg-surface-card p-5">
               <svg className="mt-1 h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
@@ -93,4 +113,5 @@ export const ProductsPage = () => (
       </div>
     </section>
   </>
-);
+  );
+};

@@ -57,7 +57,16 @@ const images = {
   customizedGranules: "/images/customized-granules.jpg",
 };
 
-export const ServicesPage = () => (
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
+
+export const ServicesPage = () => {
+  const coreReveal = useScrollReveal();
+  const listReveal = useScrollReveal();
+  const processReveal = useScrollReveal();
+  const statsReveal = useScrollReveal();
+  const contactReveal = useScrollReveal();
+
+  return (
   <>
     <SEOHead
       title="B2B Fertilizer Manufacturing Services — Custom Formulation, Contract Mfg, Gujarat"
@@ -89,7 +98,10 @@ export const ServicesPage = () => (
 
     {/* ── Core Manufacturing Feature — big split section ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div 
+        ref={coreReveal.ref}
+        className={`grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${coreReveal.isVisible ? 'visible' : ''}`}
+      >
         {/* Left: real image */}
         <div className="relative overflow-hidden rounded-4xl border border-border shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
           <img
@@ -137,8 +149,11 @@ export const ServicesPage = () => (
     </section>
 
     {/* ── "One Stop Solutions" label + all 7 service cards ── */}
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-muted py-20 lg:py-28 section-wave">
+      <div 
+        ref={listReveal.ref}
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${listReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="mb-14 text-center">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
             What Is Our Expertise?
@@ -151,8 +166,10 @@ export const ServicesPage = () => (
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <ServiceCard key={service.title} service={service} />
+          {services.map((service, i) => (
+            <div key={service.title} {...staggerDelay(i, 100)}>
+              <ServiceCard service={service} />
+            </div>
           ))}
         </div>
       </div>
@@ -160,7 +177,7 @@ export const ServicesPage = () => (
 
     {/* ── Process Steps ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="mb-14 text-center">
+      <div ref={processReveal.ref} className={`mb-14 text-center reveal ${processReveal.isVisible ? 'visible' : ''}`}>
         <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
           How We Work
         </div>
@@ -171,10 +188,11 @@ export const ServicesPage = () => (
           A simple, transparent flow — from your first requirement to final dispatch.
         </p>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {processSteps.map((step) => (
+      <div className={`grid gap-6 md:grid-cols-2 lg:grid-cols-4 reveal-scale ${processReveal.isVisible ? 'visible' : ''}`}>
+        {processSteps.map((step, i) => (
           <div
             key={step.title}
+            {...staggerDelay(i, 100)}
             className="group relative overflow-hidden rounded-[28px] border border-border bg-surface-card p-7 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
           >
             {/* Large faded step number in background */}
@@ -195,15 +213,18 @@ export const ServicesPage = () => (
 
     {/* ── Infrastructure highlight band ── */}
     <section className="bg-secondary py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div 
+        ref={statsReveal.ref}
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { value: "190+ MT", label: "Daily Production Capacity" },
             { value: "24/7", label: "Round-the-Clock Operations" },
             { value: "ISO", label: "9001:2015 Certified Lab" },
             { value: "7+", label: "End-to-End Services" },
-          ].map((stat) => (
-            <div key={stat.label} className="group text-center">
+          ].map((stat, i) => (
+            <div key={stat.label} className="group text-center" {...staggerDelay(i, 100)}>
               <p className="font-heading text-5xl font-bold text-white">{stat.value}</p>
               <p className="mt-2 text-base text-white/80">{stat.label}</p>
               <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-all duration-300 group-hover:w-16" />
@@ -214,8 +235,11 @@ export const ServicesPage = () => (
     </section>
 
     {/* ── Contact CTA + Form ── */}
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-start">
+    <section className="bg-muted py-20 lg:py-28 section-wave">
+      <div 
+        ref={contactReveal.ref}
+        className={`mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-start reveal ${contactReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="space-y-7">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
             Let's Cooperate Together
@@ -281,4 +305,5 @@ export const ServicesPage = () => (
       </div>
     </section>
   </>
-);
+  );
+};

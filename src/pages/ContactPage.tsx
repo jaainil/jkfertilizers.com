@@ -65,7 +65,15 @@ const faqs = [
   },
 ];
 
-export const ContactPage = () => (
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
+
+export const ContactPage = () => {
+  const heroReveal = useScrollReveal();
+  const formsReveal = useScrollReveal();
+  const mapReveal = useScrollReveal();
+  const faqReveal = useScrollReveal();
+
+  return (
   <>
     <SEOHead
       title="Contact Us — B2B Fertilizer Granule Inquiry, Bulk Order & Export | Anand Gujarat"
@@ -76,7 +84,10 @@ export const ContactPage = () => (
       schema={[organizationSchema, contactPageSchema]}
     />
     {/* ── Hero — no PageHero, custom full-bleed ── */}
-    <section className="relative overflow-hidden bg-secondary">
+    <section 
+      ref={heroReveal.ref}
+      className={`relative overflow-hidden bg-secondary reveal ${heroReveal.isVisible ? 'visible' : ''}`}
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(158,205,46,0.12),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(5,119,194,0.15),transparent_40%)]" />
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="max-w-3xl space-y-6">
@@ -112,8 +123,8 @@ export const ContactPage = () => (
             { label: "190+ MT/Day Capacity" },
             { label: "24/7 Operations" },
             { label: "Anand, Gujarat — India" },
-          ].map((tag) => (
-            <span key={tag.label} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80">
+          ].map((tag, i) => (
+            <span key={tag.label} {...staggerDelay(i, 100)} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80">
               {tag.label}
             </span>
           ))}
@@ -122,8 +133,11 @@ export const ContactPage = () => (
     </section>
 
     {/* ── Contact Cards + Form ── */}
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 section-wave">
+      <div 
+        ref={formsReveal.ref}
+        className={`grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start reveal ${formsReveal.isVisible ? 'visible' : ''}`}
+      >
 
         {/* Left — contact info */}
         <div className="space-y-5">
@@ -140,11 +154,12 @@ export const ContactPage = () => (
           </div>
 
           <div className="grid gap-4">
-            {contactCards.map((card) => {
+            {contactCards.map((card, i) => {
               const Icon = card.icon;
               return (
                 <a
                   key={card.label}
+                  {...staggerDelay(i, 100)}
                   href={card.href}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
                   rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -199,7 +214,10 @@ export const ContactPage = () => (
 
     {/* ── Map + Address banner ── */}
     <section className="bg-muted py-0 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div 
+        ref={mapReveal.ref}
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${mapReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="grid lg:grid-cols-2">
           {/* Address card */}
           <div className="flex flex-col justify-center space-y-6 py-16 lg:pr-14">
@@ -255,22 +273,27 @@ export const ContactPage = () => (
     </section>
 
     {/* ── FAQ ── */}
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="mb-12 text-center">
-        <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-          Common Questions
-        </div>
-        <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          Frequently Asked Questions
-        </h2>
-      </div>
-      <div className="mx-auto max-w-4xl grid gap-4">
-        {faqs.map((faq) => (
-          <div key={faq.q} className="rounded-[24px] border border-border bg-surface-card p-7 shadow-[0_8px_30px_rgba(16,24,40,0.04)]">
-            <p className="font-heading text-lg font-semibold text-foreground">{faq.q}</p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">{faq.a}</p>
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 section-wave">
+      <div 
+        ref={faqReveal.ref}
+        className={`reveal ${faqReveal.isVisible ? 'visible' : ''}`}
+      >
+        <div className="mb-12 text-center">
+          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+            Common Questions
           </div>
-        ))}
+          <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div className={`mx-auto max-w-4xl grid gap-4 reveal-scale ${faqReveal.isVisible ? 'visible' : ''}`}>
+          {faqs.map((faq, i) => (
+            <div key={faq.q} {...staggerDelay(i, 100)} className="rounded-[24px] border border-border bg-surface-card p-7 shadow-[0_8px_30px_rgba(16,24,40,0.04)]">
+              <p className="font-heading text-lg font-semibold text-foreground">{faq.q}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{faq.a}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -294,4 +317,5 @@ export const ContactPage = () => (
       </div>
     </section>
   </>
-);
+  );
+};

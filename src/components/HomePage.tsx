@@ -12,6 +12,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, websiteSchema, homeFaqSchema } from "@/data/seoSchemas";
 import { getAllBlogs } from "@/lib/content";
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
 
 const company = {
   name: "Adit Biorganic",
@@ -157,7 +158,20 @@ const productTicker = [
   { name: "Bio-Pesticide Base Granules", img: "/images/products/bio-pesticide-base-granules.png" },
 ];
 
-const HomePage = () => (
+const HomePage = () => {
+  const heroReveal = useScrollReveal();
+  const statsReveal = useScrollReveal();
+  const facilityReveal = useScrollReveal();
+  const section1Reveal = useScrollReveal();
+  const aboutReveal = useScrollReveal();
+  const cardsReveal = useScrollReveal();
+  const section2Reveal = useScrollReveal();
+  const carouselReveal = useScrollReveal();
+  const servicesReveal = useScrollReveal();
+  const blogReveal = useScrollReveal();
+  const contactReveal = useScrollReveal();
+
+  return (
   <>
     <SEOHead
       title="India's #1 B2B Organic Fertilizer Granule Manufacturer | Anand, Gujarat"
@@ -186,8 +200,10 @@ const HomePage = () => (
         />
       </div>
 
-      {/* FIX 1.1 + 1.2: explicit grid-cols-1, tighter gap + padding on mobile */}
-      <div className="relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-28">
+      <div 
+        ref={heroReveal.ref}
+        className={`relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-28 reveal ${heroReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="space-y-6 sm:space-y-8">
           {/* Eyebrow pill */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
@@ -254,12 +270,13 @@ const HomePage = () => (
         </div>
 
         {/* Hero image — shorter on mobile, tall on desktop; eager-loads as LCP */}
-        <ImagePanel
-          src={images.hero}
-          alt="Aerial sustainable agriculture field"
-          eager
-          className="aspect-[4/3] min-h-52 sm:min-h-72 lg:aspect-[4/4.6] lg:min-h-[38rem]"
-          overlay={
+        <div className="ken-burns">
+          <ImagePanel
+            src={images.hero}
+            alt="Aerial sustainable agriculture field"
+            eager
+            className="aspect-[4/3] min-h-52 sm:min-h-72 lg:aspect-[4/4.6] lg:min-h-[38rem]"
+            overlay={
             <div className="grid gap-2 grid-cols-2">
               <div className="rounded-xl border border-white/30 bg-surface-overlay/92 p-3 shadow-[0_16px_50px_rgba(22,61,38,0.15)] backdrop-blur-sm sm:rounded-2xl sm:p-4">
                 <p className="type-label font-bold uppercase tracking-[0.22em] text-muted-foreground">Our promise</p>
@@ -277,18 +294,21 @@ const HomePage = () => (
             </div>
           }
         />
+        </div>
       </div>
     </section>
 
     {/* ── Stats Bar ── */}
-    {/* FIX 1.6: md:grid-cols-4 so tablets get 4 columns too */}
     <section className="relative z-10 -mt-10 px-4 pb-4 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-3 grid-cols-2 md:grid-cols-4 sm:gap-4">
+      <div 
+        ref={statsReveal.ref}
+        className={`mx-auto grid max-w-7xl gap-3 grid-cols-2 md:grid-cols-4 sm:gap-4 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
+      >
         {heroStats.map((item, i) => (
           <div
             key={item.label}
             className="group relative rounded-2xl border border-border bg-surface-card p-4 shadow-[0_12px_40px_rgba(22,61,38,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.14)] hover:border-primary/20 sm:rounded-[28px] sm:p-6"
-            style={{ animationDelay: `${i * 80}ms` }}
+            {...staggerDelay(i, 100)}
           >
             <div className="pointer-events-none absolute right-3 top-3 h-16 w-16 rounded-full bg-primary/5 blur-lg group-hover:bg-primary/10 transition-colors duration-300" />
             {/* FIX 1.7 + 1.8: text-2xl on mobile, text-3xl on sm+ */}
@@ -303,9 +323,11 @@ const HomePage = () => (
     </section>
 
     {/* ── Second Hero Panel ── */}
-    {/* FIX 1.9: text-3xl base, remove hard <br /> */}
     <section className="mx-auto max-w-7xl px-4 pt-14 pb-10 sm:px-6 sm:pt-20 sm:pb-12 lg:px-8 lg:pt-32 lg:pb-16">
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-10">
+      <div 
+        ref={facilityReveal.ref}
+        className={`grid grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-10 reveal ${facilityReveal.isVisible ? 'visible' : ''}`}
+      >
         <ImagePanel
           src={images.facilityOverview}
           alt="Adit Biorganic facility overview"
@@ -351,8 +373,10 @@ const HomePage = () => (
     </section>
 
     {/* ── Products Ticker / Marquee ── */}
-    {/* FIX 1.23: py-10 sm:py-12 lg:py-16 */}
-    <section className="py-10 sm:py-12 lg:py-16 overflow-x-hidden">
+    <section 
+      ref={section1Reveal.ref}
+      className={`py-10 sm:py-12 lg:py-16 overflow-x-hidden reveal ${section1Reveal.isVisible ? 'visible' : ''}`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-accent-foreground/70">
@@ -411,35 +435,39 @@ const HomePage = () => (
     </section>
 
     {/* ── About / Foundation section ── */}
-    {/* FIX 1.10 + 1.23: tighter section padding on mobile, smaller heading */}
-    <section className="py-14 sm:py-20 lg:py-28" style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}>
-      <div className="mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:items-center lg:gap-10">
-        <ImagePanel
-          src={images.factory}
-          alt="Manufacturing facility"
-          className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-80"
-          overlay={
-            <div className="rounded-2xl border border-white/30 bg-surface-overlay/95 p-4 shadow-[0_16px_50px_rgba(22,61,38,0.12)] backdrop-blur-sm sm:rounded-3xl sm:p-5">
-              <p className="type-label font-bold uppercase tracking-[0.22em] text-muted-foreground">Chairman's message</p>
-              <p className="mt-2 font-accent type-body-sm italic text-primary leading-6">
-                "Our mission is not just about business but about contributing positively to the environment."
-              </p>
-              <div className="mt-3 flex items-center gap-3 border-t border-border/60 pt-3">
-                <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center sm:h-8 sm:w-8">
-                  <Sprout className="h-3.5 w-3.5 text-primary sm:h-4 sm:w-4" />
+    <section className="py-14 sm:py-20 lg:py-28 section-wave" style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}>
+      <div 
+        ref={aboutReveal.ref}
+        className={`mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:items-center lg:gap-10 reveal ${aboutReveal.isVisible ? 'visible' : ''}`}
+      >
+        <div className="ken-burns">
+          <ImagePanel
+            src={images.factory}
+            alt="Manufacturing facility"
+            className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-80"
+            overlay={
+              <div className="rounded-2xl border border-white/30 bg-surface-overlay/95 p-4 shadow-[0_16px_50px_rgba(22,61,38,0.12)] backdrop-blur-sm sm:rounded-3xl sm:p-5">
+                <p className="type-label font-bold uppercase tracking-[0.22em] text-muted-foreground">Chairman's message</p>
+                <p className="mt-2 font-accent type-body-sm italic text-primary leading-6">
+                  "Our mission is not just about business but about contributing positively to the environment."
+                </p>
+                <div className="mt-3 flex items-center gap-3 border-t border-border/60 pt-3">
+                  <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center sm:h-8 sm:w-8">
+                    <Sprout className="h-3.5 w-3.5 text-primary sm:h-4 sm:w-4" />
+                  </div>
+                  <p className="type-body-sm font-semibold text-foreground">{company.founder}<span className="ml-1.5 font-normal text-muted-foreground">· {company.founderTitle}</span></p>
                 </div>
-                <p className="type-body-sm font-semibold text-foreground">{company.founder}<span className="ml-1.5 font-normal text-muted-foreground">· {company.founderTitle}</span></p>
               </div>
-            </div>
-          }
-        />
+            }
+          />
+        </div>
         <div className="space-y-5 sm:space-y-7">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
             <Leaf className="h-3 w-3" />
-            {company.subTagline}
+            Our Foundation
           </div>
-          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
-            The Foundation of Your Harvest is Built on <span className="text-primary">Quality</span>
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance sm:-mr-4">
+            India's Leading Organic Granule Manufacturer
           </h2>
           <p className="type-body text-muted-foreground">
             {company.aboutDetails}
@@ -470,9 +498,8 @@ const HomePage = () => (
     </section>
 
     {/* ── Core Expertise Cards ── */}
-    {/* FIX 1.12 + 1.23: section padding, lg:grid-cols-4 to use full width sooner */}
-    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-      <div className="mb-10 text-center sm:mb-14">
+    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={cardsReveal.ref}>
+      <div className={`mb-10 text-center sm:mb-14 reveal ${cardsReveal.isVisible ? 'visible' : ''}`}>
         <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
           <Award className="h-3.5 w-3.5" />
           Core strengths
@@ -484,22 +511,26 @@ const HomePage = () => (
           We believe superior crops start with superior soil. Our high-quality granular fertilizers are the key.
         </p>
       </div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
-        {expertiseCards.map((card) => (
-          <ExpertiseCard key={card.title} card={card} />
+      <div className={`grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 reveal-scale ${cardsReveal.isVisible ? 'visible' : ''}`}>
+        {expertiseCards.map((card, i) => (
+          <div key={card.title} {...staggerDelay(i, 100)}>
+            <ExpertiseCard card={card} />
+          </div>
         ))}
       </div>
     </section>
 
     {/* ── Why Choose Us ── */}
-    {/* FIX 1.13 + 1.23: heading size, section padding */}
-    <section className="relative py-14 sm:py-20 lg:py-28" style={{ background: "linear-gradient(135deg, #163D26 0%, #1E5233 60%, #2D7A4A 100%)" }}>
+    <section className="relative py-14 sm:py-20 lg:py-28 section-wave" style={{ background: "linear-gradient(135deg, #163D26 0%, #1E5233 60%, #2D7A4A 100%)" }}>
       <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         backgroundRepeat: "repeat",
         backgroundSize: "128px",
       }} />
-      <div className="relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-center lg:gap-10">
+      <div 
+        ref={section2Reveal.ref}
+        className={`relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-center lg:gap-10 reveal ${section2Reveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="space-y-5 sm:space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-white/80">
             <Leaf className="h-3 w-3 text-accent" />
@@ -554,8 +585,11 @@ const HomePage = () => (
     </section>
 
     {/* ── Products Carousel ── */}
-    {/* FIX 1.14 + 1.23 */}
-    <section className="py-14 sm:py-20 lg:py-28" style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}>
+    <section 
+      ref={carouselReveal.ref}
+      className={`py-14 sm:py-20 lg:py-28 reveal ${carouselReveal.isVisible ? 'visible' : ''}`} 
+      style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
@@ -623,9 +657,8 @@ const HomePage = () => (
     </section>
 
     {/* ── Services with Real Images ── */}
-    {/* FIX 1.17 + 1.23: sm:grid-cols-2 so tablets get 2 columns */}
-    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
-      <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
+    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={servicesReveal.ref}>
+      <div className={`mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between reveal ${servicesReveal.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.26em] text-accent-foreground/70">
             <Leaf className="h-3 w-3 text-accent" />
@@ -646,17 +679,21 @@ const HomePage = () => (
           <Link to="/services">View All Services</Link>
         </Button>
       </div>
-      {/* FIX 1.17: sm:grid-cols-2 added */}
-      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-        {services.slice(0, 6).map((service) => (
-          <ServiceCard key={service.title} service={service} />
+      <div className={`grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 reveal-scale ${servicesReveal.isVisible ? 'visible' : ''}`}>
+        {services.slice(0, 6).map((service, i) => (
+          <div key={service.title} {...staggerDelay(i, 100)} className="h-full">
+            <ServiceCard service={service} />
+          </div>
         ))}
       </div>
     </section>
 
     {/* ── Blog / Insights ── */}
-    {/* FIX 1.18 + 1.23: sm:grid-cols-2 added */}
-    <section className="py-14 sm:py-20 lg:py-28" style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}>
+    <section 
+      ref={blogReveal.ref}
+      className={`py-14 sm:py-20 lg:py-28 section-wave reveal ${blogReveal.isVisible ? 'visible' : ''}`} 
+      style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
@@ -679,16 +716,21 @@ const HomePage = () => (
           </Button>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {insightPosts.map((post) => (
-            <InsightCard key={post.slug} post={post} />
+          {insightPosts.map((post, i) => (
+            <div key={post.slug} {...staggerDelay(i, 150)}>
+              <InsightCard post={post} />
+            </div>
           ))}
         </div>
       </div>
     </section>
 
     {/* ── Contact / Inquiry ── */}
-    {/* FIX 1.19 + 1.21 + 1.23 */}
-    <section className="py-14 sm:py-20 lg:py-28" style={{ background: "linear-gradient(135deg, #163D26 0%, #1E5233 60%, #2D7A4A 100%)" }}>
+    <section 
+      ref={contactReveal.ref}
+      className={`py-14 sm:py-20 lg:py-28 reveal ${contactReveal.isVisible ? 'visible' : ''}`} 
+      style={{ background: "linear-gradient(135deg, #163D26 0%, #1E5233 60%, #2D7A4A 100%)" }}
+    >
       <div className="mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-start lg:gap-10">
         <div className="space-y-5 sm:space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-white/75">
@@ -747,6 +789,7 @@ const HomePage = () => (
       </div>
     </section>
   </>
-);
+  );
+};
 
 export { HomePage };

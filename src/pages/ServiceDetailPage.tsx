@@ -60,9 +60,12 @@ const mdxComponents = {
   ),
 };
 
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 export const ServiceDetailPage = () => {
   const { slug } = useParams();
   const service = getServiceBySlug(slug);
+  const pageReveal = useScrollReveal();
 
   if (!service) return <Navigate to="/services" replace />;
 
@@ -135,7 +138,10 @@ export const ServiceDetailPage = () => {
       )}
 
       {/* ── Content + Sidebar ── */}
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <div 
+        ref={pageReveal.ref}
+        className={`mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20 reveal ${pageReveal.isVisible ? 'visible' : ''}`}
+      >
         <div className="grid gap-12 lg:grid-cols-[1fr_300px] lg:items-start">
           {/* MDX body */}
           <article>

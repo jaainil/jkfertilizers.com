@@ -28,19 +28,26 @@ export const ExpertiseCard = ({ card }) => {
   const color = iconColors[card.icon] || iconColors.leaf;
 
   return (
-    <Card className="group h-full rounded-2xl border-border/60 bg-surface-card/95 shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20 overflow-hidden sm:rounded-[28px]">
+    <Card className="relative group h-full rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_64px_rgba(22,61,38,0.12)] hover:border-primary/30 overflow-hidden sm:rounded-[28px] hover:bg-white/80">
       {/* Top accent bar */}
       <div
-        className="h-1 w-full transition-all duration-500 group-hover:h-1.5"
+        className="h-1 w-full transition-all duration-700 opacity-70 group-hover:opacity-100 group-hover:h-1.5"
         style={{ background: `linear-gradient(to right, ${color}, transparent)` }}
       />
+      
+      {/* Background glow effect on hover */}
+      <div 
+        className="absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-[40px] transition-opacity duration-500 group-hover:opacity-20"
+        style={{ backgroundColor: color }}
+      />
+
       {/* FIX 4.1: p-5 on mobile, p-6 on sm, p-8 on lg */}
-      <CardContent className="p-5 sm:p-6 lg:p-8">
+      <CardContent className="relative z-10 p-5 sm:p-6 lg:p-8">
         <div
-          className="relative flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 sm:h-14 sm:w-14 sm:rounded-2xl"
+          className="relative flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-500 group-hover:scale-[1.15] group-hover:rotate-3 sm:h-14 sm:w-14 sm:rounded-2xl border border-white/50 shadow-inner"
           style={{ background: gradient }}
         >
-          <Icon className="h-6 w-6 sm:h-7 sm:w-7" style={{ color }} />
+          <Icon className="h-6 w-6 sm:h-7 sm:w-7 transition-colors duration-500" style={{ color }} />
         </div>
 
         <h3 className="mt-5 font-heading type-card-title font-bold text-foreground sm:mt-6">{card.title}</h3>

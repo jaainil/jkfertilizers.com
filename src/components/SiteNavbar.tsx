@@ -6,10 +6,10 @@ import { company, navigation } from "@/data/siteData";
 
 // Desktop nav pill — NOT reused on mobile
 const desktopLinkClassName = ({ isActive }: { isActive: boolean }) =>
-  `rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+  `relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 active:scale-95 ${
     isActive
-      ? "bg-primary/12 text-primary font-semibold"
-      : "text-foreground/75 hover:text-primary hover:bg-primary/6"
+      ? "bg-primary/10 text-primary font-semibold shadow-inner"
+      : "text-foreground/75 hover:text-primary hover:bg-primary/5 hover:-translate-y-0.5"
   }`;
 
 // FIX 2.1 + 2.6: separate mobile style — full-width flex rows, py-3 = 44px+ tap target
