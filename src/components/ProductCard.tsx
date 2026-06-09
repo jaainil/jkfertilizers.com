@@ -4,7 +4,7 @@ import { ArrowRight, Sprout } from "lucide-react";
 export const ProductCard = ({ product }) => (
   <Link
     to={`/products/${product.slug}`}
-    className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_70px_rgba(22,61,38,0.12)] hover:border-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:rounded-[28px]"
+    className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_70px_rgba(22,61,38,0.12)] hover:border-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:rounded-[28px] h-full"
   >
     {/* Image */}
     <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-52">
