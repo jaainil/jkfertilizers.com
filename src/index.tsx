@@ -4,6 +4,7 @@ import "@fontsource-variable/manrope";
 import "@fontsource-variable/outfit";
 import "@fontsource-variable/playfair-display";
 import "@/index.css";
+import "@/i18n";
 import App from "@/App";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);

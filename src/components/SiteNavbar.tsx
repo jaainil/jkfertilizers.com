@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Mail, MapPin, Menu, Phone, X, Leaf } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,7 @@ export const SiteNavbar = ({
   onMobileToggle: () => void;
   mobileOpen: boolean;
 }) => {
+  const { t } = useTranslation();
   return (
     <>
       {/* ── Top utility bar (desktop only) ── */}
@@ -65,7 +67,7 @@ export const SiteNavbar = ({
             data-testid="topbar-tagline"
           >
             <Leaf className="h-3 w-3" />
-            Manufacturers of Organic Fertilizers
+            {t("navbar.tagline")}
           </div>
         </div>
       </div>
@@ -83,22 +85,22 @@ export const SiteNavbar = ({
             <div>
               <p className="font-heading text-sm font-bold leading-tight text-foreground sm:text-base">{company.name}</p>
               {/* FIX 2.4: text-xs minimum (was text-[10px]) */}
-              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">Organic · Naturally</p>
+              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">{t("navbar.subTagline")}</p>
             </div>
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-0.5 lg:flex" data-testid="desktop-navigation">
-            {navigation.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={desktopLinkClassName}
-                data-testid={`nav-link-${item.label.toLowerCase()}`}
-              >
-                {item.label}
-              </NavLink>
-            ))}
+              {navigation.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={desktopLinkClassName}
+                  data-testid={`nav-link-${item.label.toLowerCase()}`}
+                >
+                  {item.tKey ? t(item.tKey) : item.label}
+                </NavLink>
+              ))}
           </nav>
 
           {/* Desktop CTAs */}
@@ -111,7 +113,7 @@ export const SiteNavbar = ({
             >
               <a href={`tel:${company.phoneRaw}`}>
                 <Phone className="mr-1.5 h-3.5 w-3.5" />
-                Call Us
+                {t("navbar.callUs")}
               </a>
             </Button>
             <Button
@@ -119,7 +121,7 @@ export const SiteNavbar = ({
               className="h-10 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(45,122,74,0.35)] hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(45,122,74,0.45)] transition-all duration-200"
               data-testid="header-contact-button"
             >
-              <Link to="/contact">Get In Touch!</Link>
+              <Link to="/contact">{t("navbar.getInTouch")}</Link>
             </Button>
           </div>
 
@@ -128,7 +130,7 @@ export const SiteNavbar = ({
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-surface-card text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-200 lg:hidden"
             onClick={onMobileToggle}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-label={mobileOpen ? t("navbar.closeMenu") : t("navbar.openMenu")}
             data-testid="mobile-menu-toggle-button"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -160,7 +162,7 @@ export const SiteNavbar = ({
                   onClick={onMobileToggle}
                   data-testid={`mobile-nav-link-${item.label.toLowerCase()}`}
                 >
-                  {item.label}
+                  {item.tKey ? t(item.tKey) : item.label}
                 </NavLink>
               ))}
             </div>
@@ -175,14 +177,14 @@ export const SiteNavbar = ({
                 data-testid="mobile-call-link"
               >
                 <Phone className="h-4 w-4" />
-                Call {company.phoneDisplay}
+                {t("navbar.call")} {company.phoneDisplay}
               </a>
               <Link
                 to="/contact"
                 onClick={onMobileToggle}
                 className="flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/6 px-4 py-3 text-sm font-semibold text-primary"
               >
-                Get In Touch!
+                {t("navbar.getInTouch")}
               </Link>
             </div>
           </div>

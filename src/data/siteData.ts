@@ -27,11 +27,11 @@ export const company = {
 };
 
 export const navigation = [
-  { label: "Home", path: "/" },
-  { label: "About Us", path: "/about" },
-  { label: "Product", path: "/products" },
-  { label: "Portfolio", path: "/portfolio" },
-  { label: "Our Services", path: "/services" },
-  { label: "Blog", path: "/blog" },
-  { label: "Contact Us", path: "/contact" },
+  { label: "Home", path: "/", tKey: "nav.home" },
+  { label: "About Us", path: "/about", tKey: "nav.about" },
+  { label: "Product", path: "/products", tKey: "nav.product" },
+  { label: "Portfolio", path: "/portfolio", tKey: "nav.portfolio" },
+  { label: "Our Services", path: "/services", tKey: "nav.services" },
+  { label: "Blog", path: "/blog", tKey: "nav.blog" },
+  { label: "Contact Us", path: "/contact", tKey: "nav.contact" },
 ];

@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "product": "Product",
+    "portfolio": "Portfolio",
+    "services": "Our Services",
+    "blog": "Blog",
+    "contact": "Contact Us"
+  },
+  "navbar": {
+    "tagline": "Manufacturers of Organic Fertilizers",
+    "subTagline": "Organic · Naturally",
+    "callUs": "Call Us",
+    "getInTouch": "Get In Touch!",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "call": "Call"
+  },
+  "footer": {
+    "ctaLabel": "Partner with us",
+    "ctaHeading": "Let's grow something great.",
+    "ctaDescription": "Partner with us for quality organic fertilizers and sustainable agricultural solutions.",
+    "getInTouch": "Get In Touch",
+    "callUsNow": "Call us now",
+    "companyDescription": "Leading manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules. Based in Gujarat — trusted by farmers and businesses across India since 2006.",
+    "fcoApproved": "FCO Approved Products",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "workingHours": "Working Hours",
+    "hours": "Mon - Fri: 8AM - 6PM, Sat: 9AM - 5PM",
+    "navigate": "Navigate",
+    "organicNaturally": "Organic, Naturally",
+    "productGroups": "Product Groups",
+    "viewAllProducts": "View all products",
+    "services": "Services",
+    "viewAllServices": "View all services",
+    "footerServices": {
+      "organicFertilizerManufacturing": "Organic Fertilizer Manufacturing",
+      "granuleTechnology": "Granule Technology",
+      "infrastructureLeasing": "Infrastructure Leasing",
+      "customPackagingSolutions": "Custom Packaging Solutions",
+      "jobWorkServices": "Job Work Services",
+      "warehouseStorage": "Warehouse & Storage"
+    },
+    "copyright": "© {{year}} J K Fertilizers. All Rights Reserved.",
+    "location": "Anand, Gujarat, India",
+    "privacy": "Confidentiality & Privacy",
+    "legal": "Legal Information",
+    "returns": "Return and Refund Policy",
+    "designedBy": "Designed & built by",
+    "creditCompany": "Aexaware Private Limited"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "hi": "Hindi",
+    "gu": "Gujarati"
+  },
+  "common": {
+    "skipToMain": "Skip to main content",
+    "backToTop": "Scroll back to top"
+  }
+}

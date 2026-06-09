@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "હોમ",
+    "about": "અમારા વિશે",
+    "product": "ઉત્પાદન",
+    "portfolio": "પોર્ટફોલિયો",
+    "services": "અમારી સેવાઓ",
+    "blog": "બ્લોગ",
+    "contact": "સંપર્ક કરો"
+  },
+  "navbar": {
+    "tagline": "ઓર્ગેનિક ફર્ટિલાઇઝરના નિર્માતા",
+    "subTagline": "ઓર્ગેનિક · કુદરતી રીતે",
+    "callUs": "અમને કોલ કરો",
+    "getInTouch": "સંપર્ક કરો!",
+    "openMenu": "મેનુ ખોલો",
+    "closeMenu": "મેનુ બંધ કરો",
+    "call": "કોલ કરો"
+  },
+  "footer": {
+    "ctaLabel": "અમારી સાથે ભાગીદારી કરો",
+    "ctaHeading": "ચાલો કંઈક સરસ ઉગાડીએ।",
+    "ctaDescription": "ગુણવત્તાયુક્ત ઓર્ગેનિક ફર્ટિલાઇઝર અને ટકાઉ કૃષિ ઉકેલો માટે અમારી સાથે ભાગીદારી કરો।",
+    "getInTouch": "સંપર્ક કરો",
+    "callUsNow": "હમણાં જ કોલ કરો",
+    "companyDescription": "ઓર્ગેનિક ફર્ટિલાઇઝર, બેસ ગ્રેન્યુલ અને કોટેડ બેસ ગ્રેન્યુલના અગ્રણી નિર્માતા। ગુજરાત આધારિત — 2006 થી ખેડૂતો અને વ્યવસાયો દ્વારા વિશ્વસનીય।",
+    "fcoApproved": "FCO મંજૂર ઉત્પાદનો",
+    "phone": "ફોન",
+    "email": "ઇમેઇલ",
+    "address": "સરનામું",
+    "workingHours": "કાર્ય સમય",
+    "hours": "સોમ - શુક્ર: સવારે 8 - સાંજે 6, શનિ: સવારે 9 - સાંજે 5",
+    "navigate": "નૅવિગેટ કરો",
+    "organicNaturally": "ઓર્ગેનિક, કુદરતી રીતે",
+    "productGroups": "ઉત્પાદન જૂથો",
+    "viewAllProducts": "બધા ઉત્પાદનો જુઓ",
+    "services": "સેવાઓ",
+    "viewAllServices": "બધી સેવાઓ જુઓ",
+    "footerServices": {
+      "organicFertilizerManufacturing": "ઓર્ગેનિક ફર્ટિલાઇઝર મેન્યુફેક્ચરિંગ",
+      "granuleTechnology": "ગ્રેન્યુલ ટેક્નોલોજી",
+      "infrastructureLeasing": "ઇન્ફ્રાસ્ટ્રક્ચર લીઝિંગ",
+      "customPackagingSolutions": "કસ્ટમ પેકેજિંગ ઉકેલો",
+      "jobWorkServices": "જોબ વર્ક સેવાઓ",
+      "warehouseStorage": "વેરહાઉસ અને સ્ટોરેજ"
+    },
+    "copyright": "© {{year}} જે કે ફર્ટિલાઇઝર્સ. બધા હકો અમારી પાસે રાખેલા છે।",
+    "location": "આણંદ, ગુજરાત, ભારત",
+    "privacy": "ગુપ્તતા અને ખાનગી",
+    "legal": "કાયદાકીય માહિતી",
+    "returns": "રિટર્ન અને રિફંડ પોલિસી",
+    "designedBy": "ડિઝાઇન અને બિલ્ડ",
+    "creditCompany": "એક્સાવેર પ્રાઇવેટ લિમિટેડ"
+  },
+  "languageSwitcher": {
+    "label": "ભાષા",
+    "en": "English",
+    "hi": "हिन्दी",
+    "gu": "ગુજરાતી"
+  },
+  "common": {
+    "skipToMain": "મુખ્ય સામગ્રી પર જાઓ",
+    "backToTop": "ટોચ પર પાછા જાઓ"
+  }
+}

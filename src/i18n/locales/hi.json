@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "होम",
+    "about": "हमारे बारे में",
+    "product": "उत्पाद",
+    "portfolio": "पोर्टफोलियो",
+    "services": "हमारी सेवाएं",
+    "blog": "ब्लॉग",
+    "contact": "संपर्क करें"
+  },
+  "navbar": {
+    "tagline": "जैविक उर्वरक के निर्माता",
+    "subTagline": "जैविक · स्वाभाविक रूप से",
+    "callUs": "हमें कॉल करें",
+    "getInTouch": "संपर्क करें!",
+    "openMenu": "मेनू खोलें",
+    "closeMenu": "मेनू बंद करें",
+    "call": "कॉल करें"
+  },
+  "footer": {
+    "ctaLabel": "हमारे साथ भागीदारी करें",
+    "ctaHeading": "आइए कुछ शानदार उगाएं।",
+    "ctaDescription": "गुणवत्तापूर्ण जैविक उर्वरकों और टिकाऊ कृषि समाधानों के लिए हमारे साथ भागीदारी करें।",
+    "getInTouch": "संपर्क करें",
+    "callUsNow": "अभी कॉल करें",
+    "companyDescription": "जैविक उर्वरक, बेस ग्रेन्यूल और कोटेड बेस ग्रेन्यूल के अग्रणी निर्माता। गुजरात स्थित — 2006 से किसानों और व्यवसायों द्वारा विश्वसनीय।",
+    "fcoApproved": "FCO अनुमोदित उत्पाद",
+    "phone": "फ़ोन",
+    "email": "ईमेल",
+    "address": "पता",
+    "workingHours": "कार्य समय",
+    "hours": "सोम - शुक्र: सुबह 8 - शाम 6, शनि: सुबह 9 - शाम 5",
+    "navigate": "नेविगेट करें",
+    "organicNaturally": "जैविक, स्वाभाविक रूप से",
+    "productGroups": "उत्पाद समूह",
+    "viewAllProducts": "सभी उत्पाद देखें",
+    "services": "सेवाएं",
+    "viewAllServices": "सभी सेवाएं देखें",
+    "footerServices": {
+      "organicFertilizerManufacturing": "जैविक उर्वरक निर्माण",
+      "granuleTechnology": "ग्रेन्यूल तकनीक",
+      "infrastructureLeasing": "बुनियादी ढांचा लीज",
+      "customPackagingSolutions": "कस्टम पैकेजिंग समाधान",
+      "jobWorkServices": "जॉब वर्क सेवाएं",
+      "warehouseStorage": "वेयरहाउस और भंडारण"
+    },
+    "copyright": "© {{year}} जे के फर्टिलाइजर्स। सर्वाधिकार सुरक्षित।",
+    "location": "आनंद, गुजरात, भारत",
+    "privacy": "गोपनीयता और निजता",
+    "legal": "कानूनी जानकारी",
+    "returns": "रिटर्न और रिफंड नीति",
+    "designedBy": "डिजाइन और निर्माण",
+    "creditCompany": "एक्सावेयर प्राइवेट लिमिटेड"
+  },
+  "languageSwitcher": {
+    "label": "भाषा",
+    "en": "English",
+    "hi": "हिन्दी",
+    "gu": "ગુજરાતી"
+  },
+  "common": {
+    "skipToMain": "मुख्य सामग्री पर जाएं",
+    "backToTop": "शीर्ष पर वापस जाएं"
+  }
+}

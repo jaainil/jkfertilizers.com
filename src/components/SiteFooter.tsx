@@ -1,20 +1,23 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, Mail, MapPin, Phone, Leaf, Award } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 import { company, navigation } from "@/data/siteData";
 
-const services = [
-  { label: "Organic Fertilizer Manufacturing", path: "/services/organic-fertilizer-manufacturing" },
-  { label: "Granule Technology", path: "/services/granule-technology" },
-  { label: "Infrastructure Leasing", path: "/services/infrastructure-leasing" },
-  { label: "Custom Packaging Solutions", path: "/services/custom-packaging-solutions" },
-  { label: "Job Work Services", path: "/services/job-work-services" },
-  { label: "Warehouse & Storage", path: "/services/warehouse-storage" },
-];
-
 export const SiteFooter = () => {
+  const { t } = useTranslation();
+
+  const services = [
+    { tKey: "footer.footerServices.organicFertilizerManufacturing", path: "/services/organic-fertilizer-manufacturing" },
+    { tKey: "footer.footerServices.granuleTechnology", path: "/services/granule-technology" },
+    { tKey: "footer.footerServices.infrastructureLeasing", path: "/services/infrastructure-leasing" },
+    { tKey: "footer.footerServices.customPackagingSolutions", path: "/services/custom-packaging-solutions" },
+    { tKey: "footer.footerServices.jobWorkServices", path: "/services/job-work-services" },
+    { tKey: "footer.footerServices.warehouseStorage", path: "/services/warehouse-storage" },
+  ];
+
   return (
     <footer
       className="relative overflow-hidden text-white"
@@ -41,35 +44,33 @@ export const SiteFooter = () => {
           <div>
             <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <span className="h-px w-8 bg-accent" />
-              {/* FIX 3.3: text-xs minimum */}
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent">Partner with us</p>
+              <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent">{t("footer.ctaLabel")}</p>
             </div>
-            {/* FIX 3.3: text-2xl base */}
             <h2 className="font-heading type-section-h2 font-bold text-white">
-              Let's grow something great.
+              {t("footer.ctaHeading")}
             </h2>
             <p className="mt-2 max-w-lg text-sm leading-7 text-white/55">
-              Partner with us for quality organic fertilizers and sustainable agricultural solutions.
+              {t("footer.ctaDescription")}
             </p>
           </div>
           {/* FIX 3.2: w-full on mobile, w-auto on sm+ */}
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button
-              asChild
-              className="h-12 w-full rounded-full px-7 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.3)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.4)] transition-all duration-300 sm:w-auto"
-              style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
-            >
-              <Link to="/contact">
-                Get In Touch <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="h-12 w-full rounded-full border-white/15 px-7 text-white hover:border-white/25 hover:bg-white/8 transition-all duration-300 sm:w-auto"
-            >
-              <a href={`tel:${company.phoneRaw}`}>Call us now</a>
-            </Button>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <Button
+                asChild
+                className="h-12 w-full rounded-full px-7 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.3)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.4)] transition-all duration-300 sm:w-auto"
+                style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
+              >
+                <Link to="/contact">
+                  {t("footer.getInTouch")} <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="h-12 w-full rounded-full border-white/15 px-7 text-white hover:border-white/25 hover:bg-white/8 transition-all duration-300 sm:w-auto"
+              >
+                <a href={`tel:${company.phoneRaw}`}>{t("footer.callUsNow")}</a>
+              </Button>
           </div>
         </div>
       </div>
@@ -101,14 +102,13 @@ export const SiteFooter = () => {
           </Link>
 
           <p className="text-sm leading-7 text-white/55" data-testid="footer-company-description">
-            Leading manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules. Based in Gujarat —
-            trusted by farmers and businesses across India since 2006.
+            {t("footer.companyDescription")}
           </p>
 
           {/* ISO badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/8 px-4 py-2">
             <Award className="h-3.5 w-3.5 text-accent" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/85">FCO Approved Products</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/85">{t("footer.fcoApproved")}</span>
           </div>
 
           {/* Contact cards */}
@@ -118,7 +118,7 @@ export const SiteFooter = () => {
                 <Phone className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Phone</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.phone")}</p>
                 <p className="font-semibold text-white">{company.phoneDisplay} / 92 / 91</p>
               </div>
             </div>
@@ -132,7 +132,7 @@ export const SiteFooter = () => {
                 <Mail className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Email</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.email")}</p>
                 <p className="min-w-0 break-all font-semibold text-white">{company.emails[0]}</p>
               </div>
             </a>
@@ -145,7 +145,7 @@ export const SiteFooter = () => {
                 <MapPin className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Address</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.address")}</p>
                 <p className="mt-0.5 min-w-0 break-words leading-6 text-white/65">{company.address}</p>
               </div>
             </div>
@@ -157,8 +157,8 @@ export const SiteFooter = () => {
                 </svg>
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Working Hours</p>
-                <p className="font-semibold text-white">Mon - Fri: 8AM - 6PM, Sat: 9AM - 5PM</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.workingHours")}</p>
+                <p className="font-semibold text-white">{t("footer.hours")}</p>
               </div>
             </div>
           </div>
@@ -166,38 +166,35 @@ export const SiteFooter = () => {
 
         {/* Navigation column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-links-block">
-          {/* FIX 3.5: text-xs, opacity /50 */}
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Navigate</p>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">{t("footer.navigate")}</p>
           <nav className="flex flex-col gap-0.5">
-            {[...navigation, { label: "Commitment", path: "/commitment" }].map((item) => (
+            {[...navigation, { label: "Commitment", path: "/commitment", tKey: "nav.about" }].map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                /* FIX 3.6: py-3 = 44px tap target */
                 className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
                 data-testid={`footer-link-${item.label.toLowerCase()}`}
               >
                 <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-5" />
-                {item.label}
+                {item.tKey ? t(item.tKey) : item.label}
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-2 pt-2">
             <Leaf className="h-3.5 w-3.5 text-primary/60" />
-            <p className="text-xs text-white/35 italic">Organic, Naturally</p>
+            <p className="text-xs text-white/35 italic">{t("footer.organicNaturally")}</p>
           </div>
         </div>
 
         {/* Products column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-products-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Product Groups</p>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">{t("footer.productGroups")}</p>
           <div className="flex flex-col gap-0.5">
             {products.slice(0, 6).map((product, index) => (
               <Link
                 key={product.slug}
                 to={`/products/${product.slug}`}
-                /* FIX 3.6: py-3 tap target */
                 className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
                 data-testid={`footer-product-link-${index}`}
               >
@@ -210,24 +207,23 @@ export const SiteFooter = () => {
             to="/products"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-primary/70 transition hover:text-primary"
           >
-            View all products <ArrowRight className="h-3 w-3" />
+            {t("footer.viewAllProducts")} <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
 
         {/* Services column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-services-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Services</p>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">{t("footer.services")}</p>
           <div className="flex flex-col gap-0.5">
             {services.map((svc, i) => (
               <Link
                 key={i}
                 to={svc.path}
-                /* FIX 3.6: py-3 tap target */
                 className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
                 data-testid={`footer-service-link-${i}`}
               >
                 <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-5" />
-                {svc.label}
+                {t(svc.tKey)}
               </Link>
             ))}
           </div>
@@ -235,7 +231,7 @@ export const SiteFooter = () => {
             to="/services"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-accent/70 transition hover:text-accent"
           >
-            View all services <ArrowRight className="h-3 w-3" />
+            {t("footer.viewAllServices")} <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
       </div>
@@ -245,15 +241,15 @@ export const SiteFooter = () => {
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/35">
               <p data-testid="footer-copyright-text">
-                © {new Date().getFullYear()} J K Fertilizers. All Rights Reserved.
+                {t("footer.copyright", { year: new Date().getFullYear() })}
               </p>
             <span className="hidden h-3 w-px bg-white/20 sm:block" />
-            <p>Anand, Gujarat, India</p>
+            <p>{t("footer.location")}</p>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/25">
-            <a href="/privacy" className="transition-colors hover:text-white/55">Confidentiality &amp; Privacy</a>
-            <a href="/legal" className="transition-colors hover:text-white/55">Legal Information</a>
-            <a href="/return-policy" className="transition-colors hover:text-white/55">Return and Refund Policy</a>
+            <a href="/privacy" className="transition-colors hover:text-white/55">{t("footer.privacy")}</a>
+            <a href="/legal" className="transition-colors hover:text-white/55">{t("footer.legal")}</a>
+            <a href="/return-policy" className="transition-colors hover:text-white/55">{t("footer.returns")}</a>
           </div>
           <a
             href="https://aexaware.com"
@@ -262,8 +258,8 @@ export const SiteFooter = () => {
             className="inline-flex items-center gap-1.5 text-xs text-white/25 transition-colors hover:text-white/55"
             data-testid="footer-credit"
           >
-            Designed &amp; built by
-            <span className="font-bold text-white/40 hover:text-white/65 transition-colors">Aexaware Private Limited</span>
+            {t("footer.designedBy")}
+            <span className="font-bold text-white/40 hover:text-white/65 transition-colors">{t("footer.creditCompany")}</span>
           </a>
         </div>
       </div>

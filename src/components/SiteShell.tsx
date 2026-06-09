@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { SiteNavbar } from "@/components/SiteNavbar";
 import { SiteFooter } from "@/components/SiteFooter";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export const SiteShell = ({ children }: { children: React.ReactNode }) => {
+  const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -41,7 +44,7 @@ export const SiteShell = ({ children }: { children: React.ReactNode }) => {
 
       {/* Accessibility Skip Link */}
       <a href="#main-content" className="skip-link">
-        Skip to main content
+        {t("common.skipToMain")}
       </a>
 
       <SiteNavbar
@@ -57,7 +60,7 @@ export const SiteShell = ({ children }: { children: React.ReactNode }) => {
       <button
         onClick={scrollToTop}
         className={`back-to-top ${showBackToTop ? "visible" : ""}`}
-        aria-label="Scroll back to top"
+        aria-label={t("common.backToTop")}
         aria-hidden={!showBackToTop}
         tabIndex={showBackToTop ? 0 : -1}
       >
@@ -74,6 +77,8 @@ export const SiteShell = ({ children }: { children: React.ReactNode }) => {
           <path d="m18 15-6-6-6 6" />
         </svg>
       </button>
+
+      <LanguageSwitcher />
     </div>
   );
 };
