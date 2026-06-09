@@ -1,34 +1,37 @@
 export const company = {
-  name: "Adit Biorganic",
-  tagline: "Organic Naturally",
-  subTagline: "Nurturing Farms, Preserving Nature",
-  missionTagline: "EVERY CROP COUNTS. EVERY FARMER MATTERS.",
-  legalTagline: "India's Leading B2B Fertilizer Manufacturer - ISO 9001:2015 Certified",
-  heroTitle: "The Future of Sustainable Agriculture",
+  name: "J K Fertilizers",
+  tagline: "Organic, Naturally",
+  subTagline: "Manufacturers of Organic Fertilizers",
+  missionTagline: "Empowering Farmers, Enriching Communities",
+  legalTagline: "Leading Manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules",
+  heroTitle: "Better Agriculture for Better Future",
   heroSubtitle:
-    "As pioneers in organic fertilizers, we provide nutrient-rich, sustainable solutions to enhance your crop yield and protect the land for generations to come.",
-  aboutIntro: "Leading manufacturer of premium organic fertilizer granules",
+    "Our mineral-coated granules bring sustainability to your fields, replacing chemicals with eco-friendly minerals.",
+  aboutIntro: "Manufacturers of Organic Fertilizers",
   aboutDetails:
-    "At Adit Biorganic, we are dedicated to sustainability by providing the agriculture industry with efficient and effective organic granular fertilizer solutions. As a leading ISO 9001:2015 certified manufacturer, we specialize in high-quality, customized nutrient base and coating granules. We partner with companies across India to produce the innovative, eco-friendly products that enhance soil health and maximize crop yield.",
+    "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond. As a leader in organic fertilizer innovation, we specialize in producing eco-friendly, mineral-coated granules and soil conditioners that enhance soil health and improve crop yield. Through ongoing research and development, we aim to empower growers with effective, environmentally sound solutions that support both productivity and sustainability.",
   mission:
-    "Our mission is to empower farmers and fertilizer brands with high-quality organic solutions that enhance soil health, improve crop yield, and promote environmental sustainability. We strive to be at the forefront of agricultural innovation, making a positive impact on the planet.",
+    "To sustainably advance agricultural productivity and soil health through innovative, eco-friendly fertilizer solutions.",
   chairmanMessage:
-    "I am proud to lead a team that is committed to excellence in organic agriculture. Our mission is not just about business but about contributing positively to the environment. With our innovative products and dedicated team, we aim to make a meaningful impact.",
+    "Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers has consistently grown through strategic investments in infrastructure and expansion of production capacity, with a focus on organic fertilizers and a commitment to sustainable agricultural practices.",
   philosophy:
-    "Quality You Can Trust, Results You Can See - Every product is manufactured using state-of-the-art technology under ISO 9001:2015 certified processes.",
-  phoneDisplay: "+91 98250 45894",
+    "Quality You Can Trust, Results You Can See - Every product is manufactured using state-of-the-art technology under certified processes.",
+  phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
-  emails: ["info@aditbiorganic.com", "sales@aditbiorganic.com"],
-  address: "S. No. 1152, Kanatalavdi Road, Adas, Anand, Gujarat - 388305",
-  founder: "Akash Dadhania",
+  phoneAlt: "+919825045892",
+  phoneAlt2: "+919825045891",
+  emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat",
+  founder: "Mr. Akash Dadhania",
   founderTitle: "Founder & Director",
 };
 
 export const navigation = [
   { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Products", path: "/products" },
-  { label: "Services", path: "/services" },
-  { label: "Insights", path: "/blog" },
-  { label: "Contact", path: "/contact" },
+  { label: "About Us", path: "/about" },
+  { label: "Product", path: "/products" },
+  { label: "Portfolio", path: "/portfolio" },
+  { label: "Our Services", path: "/services" },
+  { label: "Blog", path: "/blog" },
+  { label: "Contact Us", path: "/contact" },
 ];

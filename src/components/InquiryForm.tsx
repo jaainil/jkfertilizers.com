@@ -181,7 +181,7 @@ export const InquiryForm = ({
           data-testid="inquiry-form-consent-checkbox"
         />
         <span data-testid="inquiry-form-consent-text">
-          I agree that the Adit Biorganic team may contact me by phone or email regarding this business inquiry.
+          I agree that the J K Fertilizers team may contact me by phone or email regarding this business inquiry.
         </span>
       </label>
 

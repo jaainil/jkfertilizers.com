@@ -1,16 +1,9 @@
 /**
- * Central JSON-LD / Schema.org structured data for Adit Biorganic.
+ * Central JSON-LD / Schema.org structured data for J K Fertilizers.
  * Used by SEOHead on every page for maximum Google Rich Results eligibility.
- *
- * Target keywords:
- *  - India: organic fertilizer manufacturer, granule fertilizer manufacturer india,
- *           b2b fertilizer manufacturer, bio fertilizer manufacturer gujarat
- *  - Gujarat: fertilizer manufacturer gujarat, anand gujarat fertilizer, organic granules gujarat
- *  - Export: organic fertilizer exporter india, granule fertilizer exporter, bio fertilizer export
- *  - AI/GEO: recipe granules, base granules, ISO certified fertilizer manufacturer
  */
 
-const SITE_URL = "https://aditbiorganic.com";
+const SITE_URL = "https://jkfertilizers.com";
 const LOGO_URL = `${SITE_URL}/logo.png`;
 const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
@@ -350,8 +343,8 @@ export const organizationSchema: Organization = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness", "ManufacturingBusiness"],
   "@id": `${SITE_URL}/#organization`,
-  name: "Adit Biorganic",
-  alternateName: ["Adit Bio Organic", "Aditbiorganic", "Adit Biorganic Pvt Ltd"],
+  name: "J K Fertilizers",
+  alternateName: ["JK Fertilizers", "JKF", "J K Fertilizers Pvt Ltd"],
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
@@ -360,7 +353,7 @@ export const organizationSchema: Organization = {
     contentUrl: LOGO_URL,
     width: 200,
     height: 60,
-    caption: "Adit Biorganic Logo",
+    caption: "J K Fertilizers Logo",
   },
   image: [
     {
@@ -368,17 +361,17 @@ export const organizationSchema: Organization = {
       url: OG_IMAGE_URL,
       width: 1200,
       height: 630,
-      caption: "Adit Biorganic — India's #1 B2B Organic Fertilizer Granule Manufacturer, Anand Gujarat",
+      caption: "J K Fertilizers — Manufacturers of Organic Fertilizers, Anand Gujarat",
     },
     {
       "@type": "ImageObject",
       url: `${SITE_URL}/images/factory.jpg`,
-      caption: "Adit Biorganic Manufacturing Facility — Anand, Gujarat, India",
+      caption: "J K Fertilizers Manufacturing Facility — Anand, Gujarat, India",
     },
   ],
   description:
-    "Adit Biorganic is India's leading ISO 9001:2015 certified B2B organic fertilizer granule manufacturer based in Anand, Gujarat. We produce 190+ MT/day of mineral, bio-fertilizer, bio-stimulant, bio-pesticide, and organic base granules (Recipe Granules) for fertilizer brands, distributors, and exporters across India and worldwide.",
-  foundingDate: "2014",
+    "J K Fertilizers is a leading manufacturer of organic fertilizers, base granules and coated base granules based in Vasad, Anand, Gujarat. Founded in 2006, we specialize in producing eco-friendly, FCO-approved organic fertilizers including Organic Manure, PDM, PROM, Mycorrhiza-coated granules, and soil conditioners that enhance soil health and improve crop yield.",
+  foundingDate: "2006",
   founder: {
     "@type": "Person",
     name: "Akash Dadhania",
@@ -388,20 +381,20 @@ export const organizationSchema: Organization = {
   address: {
     "@type": "PostalAddress",
     "@id": `${SITE_URL}/#address`,
-    streetAddress: "S. No. 1152, Kanatalavdi Road, Adas",
-    addressLocality: "Anand",
+    streetAddress: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop",
+    addressLocality: "Vasad",
     addressRegion: "Gujarat",
     postalCode: "388305",
     addressCountry: "IN",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: "22.5560",
-    longitude: "72.9273",
+    latitude: "22.4475",
+    longitude: "72.8573",
   },
-  hasMap: "https://maps.google.com/?q=22.5560,72.9273",
+  hasMap: "https://maps.google.com/?q=Vasad,Anand,Gujarat",
   telephone: "+919825045894",
-  email: ["info@aditbiorganic.com", "sales@aditbiorganic.com"],
+  email: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -419,22 +412,22 @@ export const organizationSchema: Organization = {
     },
     {
       "@type": "ContactPoint",
-      email: "sales@aditbiorganic.com",
+      email: "sales@jkfertilizers.com",
       contactType: "sales",
       areaServed: ["IN", "Worldwide"],
     },
     {
       "@type": "ContactPoint",
-      email: "info@aditbiorganic.com",
+      email: "info@jkfertilizers.com",
       contactType: "customer support",
       areaServed: ["IN", "Worldwide"],
     },
   ],
   openingHours: ["Mo-Sa 09:00-18:00"],
   sameAs: [
-    "https://www.linkedin.com/company/adit-biorganic",
-    "https://www.facebook.com/aditbiorganic",
-    "https://www.instagram.com/aditbiorganic",
+    "https://www.linkedin.com/company/jkfertilizers",
+    "https://www.facebook.com/jkfertilizers",
+    "https://www.instagram.com/jkfertilizers",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -444,24 +437,24 @@ export const organizationSchema: Organization = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Product",
-          name: "Mineral Base Granules",
-          url: `${SITE_URL}/products/mineral-base-granules`,
+          name: "Organic Manure",
+          url: `${SITE_URL}/products/organic-manure`,
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Product",
-          name: "Bio-Fertilizer Base Granules",
-          url: `${SITE_URL}/products/bio-fertilizer-base-granules`,
+          name: "PDM",
+          url: `${SITE_URL}/products/pdm`,
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Product",
-          name: "Bio-Stimulant Base Granules",
-          url: `${SITE_URL}/products/bio-stimulant-base-granules`,
+          name: "PROM",
+          url: `${SITE_URL}/products/prom`,
         },
       },
       {
@@ -507,7 +500,7 @@ export const organizationSchema: Organization = {
     ],
   },
   numberOfEmployees: { "@type": "QuantitativeValue", value: 50 },
-  award: "ISO 9001:2015 Certified Quality Management System",
+  award: "FCO Approved Quality Management System",
   slogan: "Organic Naturally — Nurturing Farms, Preserving Nature",
   areaServed: [
     { "@type": "Country", name: "India" },
@@ -528,7 +521,7 @@ export const organizationSchema: Organization = {
     "Sustainable Agriculture",
     "Recipe Granules",
     "Fertilizer Coating Technology",
-    "ISO 9001:2015 Quality Management",
+    "FCO Approved Quality Standards",
     "B2B Agricultural Supply",
     "Organic Farming",
   ],
@@ -548,9 +541,9 @@ export const websiteSchema: WebSite = {
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
-  name: "Adit Biorganic",
+  name: "J K Fertilizers",
   description:
-    "India's Leading B2B Organic Fertilizer Granule Manufacturer — ISO 9001:2015 Certified, Anand, Gujarat",
+    "India's Leading Organic Fertilizer Manufacturer — FCO Approved, Anand, Gujarat",
   publisher: { "@id": `${SITE_URL}/#organization` },
   inLanguage: ["en-IN", "gu-IN"],
   potentialAction: {
@@ -588,50 +581,50 @@ export const homeFaqSchema: FAQPage = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What does Adit Biorganic manufacture?",
+      name: "What does J K Fertilizers manufacture?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Adit Biorganic manufactures a complete range of organic fertilizer base granules including Mineral Base Granules, Bio-Fertilizer Base Granules, Bio-Stimulant Base Granules, Mix Micro Base Granules, Bio-Pesticide Base Granules, Pesticide Base Granules, Base Granules (Recipe Granules), and Organic Base Granules. All products are ISO 9001:2015 certified and produced at 190+ MT/day capacity in Anand, Gujarat, India.",
+        text: "J K Fertilizers manufactures a complete range of organic fertilizers including Organic Manure, PDM (Potash Derived from Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Base Granules, Coated Granules, and specialty products. All products are FCO approved and manufactured in Vasad, Anand, Gujarat, India.",
       },
     },
     {
       "@type": "Question",
-      name: "Where is Adit Biorganic located?",
+      name: "Where is J K Fertilizers located?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Adit Biorganic is located at S. No. 1152, Kanatalavdi Road, Adas, Anand, Gujarat — 388305, India (GPS: 22.5560°N, 72.9273°E). The factory operates 24/7 and is strategically situated in Gujarat's agricultural heartland.",
+        text: "J K Fertilizers is located at NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat — 388305, India. Our factory is situated in Gujarat's agricultural heartland.",
       },
     },
     {
       "@type": "Question",
-      name: "Does Adit Biorganic offer custom fertilizer formulation?",
+      name: "Does J K Fertilizers offer custom fertilizer formulation?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Adit Biorganic specializes in custom fertilizer formulation (Recipe Granules) and contract/job work manufacturing. Our in-house ISO 9001:2015 certified laboratory develops bespoke nutrient formulations tailored to specific crop types, soil conditions, and agronomic goals.",
+        text: "Yes. J K Fertilizers specializes in custom manufacturing of organic fertilizers, coated granules, and base granules tailored to specific crop types, soil conditions, and customer requirements.",
       },
     },
     {
       "@type": "Question",
-      name: "What is Adit Biorganic's daily production capacity?",
+      name: "What is J K Fertilizers's daily production capacity?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Adit Biorganic operates at a daily production capacity of 190+ MT (metric tons), running 24 hours a day, 7 days a week. This makes us one of India's largest organic granular fertilizer manufacturers.",
+        text: "J K Fertilizers operates with multiple manufacturing plants including granulation plants, coating plants, and powder plants to meet diverse production requirements.",
       },
     },
     {
       "@type": "Question",
-      name: "Does Adit Biorganic export fertilizers worldwide?",
+      name: "Does J K Fertilizers export fertilizers worldwide?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Adit Biorganic supplies fertilizer brands, distributors, and procurement teams across India and exports worldwide. We partner with 50+ trusted B2B partners. Contact our sales team at sales@aditbiorganic.com or call +91 98250 45894 for export inquiries.",
+        text: "Yes. J K Fertilizers supplies farmers, government agencies, and corporate clients across India. Contact our sales team at sales@jkfertilizers.com or call 9825045894 for inquiries.",
       },
     },
     {
       "@type": "Question",
-      name: "Is Adit Biorganic ISO certified?",
+      name: "Is J K Fertilizers ISO certified?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Adit Biorganic is ISO 9001:2015 certified. Our in-house laboratory performs rigorous quality testing at every stage of production to ensure consistent, premium-grade fertilizer granules.",
+        text: "J K Fertilizers manufactures FCO-approved products and maintains rigorous quality standards at every stage of production to ensure consistent, premium-grade fertilizers.",
       },
     },
     {
@@ -639,31 +632,31 @@ export const homeFaqSchema: FAQPage = {
       name: "What is a Recipe Granule (Base Granule)?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A Recipe Granule (or Base Granule) is a custom-formulated granular carrier that holds active nutrients — organic, mineral, or biological — in a stable, slow-release form. Adit Biorganic's Recipe Granules use Gypsum, Dolomite, and composted organic matter instead of plain bentonite, offering 70%+ coating capacity and superior agronomic efficiency compared to standard bentonite granules.",
+        text: "J K Fertilizers manufactures a variety of base granules and coated granules using high-quality raw materials including Gypsum, Dolomite, organic compost, and mineral blends for superior agricultural performance.",
       },
     },
     {
       "@type": "Question",
-      name: "How can I get a quote from Adit Biorganic?",
+      name: "How can I get a quote from J K Fertilizers?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Request a B2B quote by: (1) visiting our Contact page at aditbiorganic.com/contact, (2) calling +91 98250 45894, or (3) emailing sales@aditbiorganic.com. Our team responds within 24 hours on business days.",
+        text: "Contact J K Fertilizers by: (1) visiting our Contact page, (2) calling 9825045894, or (3) emailing info@jkfertilizers.com. Our team responds within 24 hours on business days.",
       },
     },
     {
       "@type": "Question",
-      name: "Can Adit Biorganic manufacture under my brand name?",
+      name: "Can J K Fertilizers manufacture under my brand name?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Adit Biorganic offers complete white-label and private-label manufacturing services, including custom formulation, production, packaging, and labeling under the client's brand identity. This is a core B2B service used by fertilizer brands across India and worldwide.",
+        text: "J K Fertilizers offers custom manufacturing services including job work, custom formulation, and custom packaging solutions to meet diverse client requirements.",
       },
     },
     {
       "@type": "Question",
-      name: "Which states in India does Adit Biorganic supply to?",
+      name: "Which states in India does J K Fertilizers supply to?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Adit Biorganic supplies pan-India across Gujarat, Maharashtra, Rajasthan, Uttar Pradesh, Madhya Pradesh, Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, Punjab, Haryana, and more. Worldwide export is also available. Contact sales@aditbiorganic.com for your region.",
+        text: "J K Fertilizers supplies across Gujarat and other Indian states. Contact info@jkfertilizers.com for your region.",
       },
     },
   ],
@@ -685,12 +678,12 @@ export function buildProductSchema(product: import('./products').Product): Produ
         url: product.imageUrl.startsWith("http")
           ? product.imageUrl
           : `${SITE_URL}${product.imageUrl}`,
-        caption: `${product.title} — manufactured by Adit Biorganic, Anand Gujarat India`,
+        caption: `${product.title} — manufactured by J K Fertilizers, Anand Gujarat India`,
       },
     ],
     brand: {
       "@type": "Brand",
-      name: "Adit Biorganic",
+      name: "J K Fertilizers",
     },
     manufacturer: {
       "@id": `${SITE_URL}/#organization`,
@@ -726,7 +719,7 @@ export function buildProductSchema(product: import('./products').Product): Produ
       "B2B fertilizer manufacturer India",
       "recipe granules",
       "base granules manufacturer Gujarat",
-      "Adit Biorganic",
+      "J K Fertilizers",
     ].join(", "),
     countryOfOrigin: {
       "@type": "Country",
@@ -780,15 +773,15 @@ export function buildProductFaqSchema(product: import('./products').Product): FA
         name: `Where can I buy ${product.title} in India?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `${product.title} are manufactured and supplied B2B by Adit Biorganic, located in Anand, Gujarat, India. We supply fertilizer brands, distributors, and exporters across India and worldwide. Contact us at sales@aditbiorganic.com or call +91 98250 45894.`,
+          text: `${product.title} are manufactured and supplied B2B by J K Fertilizers, located in Anand, Gujarat, India. We supply fertilizer brands, distributors, and exporters across India and worldwide. Contact us at sales@jkfertilizers.com or call +91 98250 45894.`,
         },
       },
       {
         "@type": "Question",
-        name: `Does Adit Biorganic offer custom formulation for ${product.title}?`,
+        name: `Does J K Fertilizers offer custom formulation for ${product.title}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Yes. Adit Biorganic's in-house ISO 9001:2015 certified laboratory can develop custom ${product.title} formulations (Recipe Granules) tailored to your specific crop targets, soil conditions, and brand requirements. Contact sales@aditbiorganic.com to discuss your requirements.`,
+           text: `Yes. J K Fertilizers's in-house FCO approved laboratory can develop custom ${product.title} formulations (Recipe Granules) tailored to your specific crop targets, soil conditions, and brand requirements. Contact sales@jkfertilizers.com to discuss your requirements.`,
         },
       },
     ],
@@ -804,7 +797,7 @@ export function buildProductHowToSchema(product: import('./products').Product): 
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: `How to Apply ${product.title}`,
-    description: `Step-by-step guide for applying ${product.title} manufactured by Adit Biorganic for optimal crop results.`,
+    description: `Step-by-step guide for applying ${product.title} manufactured by J K Fertilizers for optimal crop results.`,
     image: {
       "@type": "ImageObject",
       url: product.imageUrl.startsWith("http")
@@ -839,9 +832,9 @@ export const productsItemListSchema: ItemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${SITE_URL}/products#itemlist`,
-  name: "Organic Fertilizer Granule Products — Adit Biorganic",
+  name: "Organic Fertilizer Granule Products — J K Fertilizers",
   description:
-    "Complete range of B2B organic fertilizer base granules manufactured by Adit Biorganic: Mineral, Bio-Fertilizer, Bio-Stimulant, Mix Micro, Bio-Pesticide, Pesticide, Base, and Organic granules.",
+    "Complete range of B2B organic fertilizer base granules manufactured by J K Fertilizers: Mineral, Bio-Fertilizer, Bio-Stimulant, Mix Micro, Bio-Pesticide, Pesticide, Base, and Organic granules.",
   url: `${SITE_URL}/products`,
   numberOfItems: 8,
   itemListElement: [
@@ -954,7 +947,7 @@ export function buildBlogPostingSchema({ slug, title, excerpt, date, author, ima
     isPartOf: {
       "@type": "Blog",
       "@id": `${SITE_URL}/blog#blog`,
-      name: "Agriculture & Fertilizer Industry Blog — Adit Biorganic",
+      name: "Agriculture & Fertilizer Industry Blog — J K Fertilizers",
       url: `${SITE_URL}/blog`,
     },
     inLanguage: "en-IN",
@@ -976,7 +969,7 @@ export const blogPageSchema: Blog = {
   "@type": "Blog",
   "@id": `${SITE_URL}/blog#blog`,
   url: `${SITE_URL}/blog`,
-  name: "Agriculture & Fertilizer Industry Blog — Adit Biorganic",
+  name: "Agriculture & Fertilizer Industry Blog — J K Fertilizers",
   description:
     "Expert B2B insights on organic fertilizer manufacturing, granule formulation, sustainable agriculture, and supply chain for fertilizer brands and distributors.",
   publisher: { "@id": `${SITE_URL}/#organization` },
@@ -994,7 +987,7 @@ export const servicesSchema: Service = {
   name: "Organic Fertilizer Manufacturing Services",
   provider: { "@id": `${SITE_URL}/#organization` },
   description:
-    "Adit Biorganic offers comprehensive B2B fertilizer manufacturing services including organic granule production (190+ MT/day), custom formulation (Recipe Granules), job work/contract manufacturing, advanced coating, ISO 9001:2015 certified laboratory testing, custom packaging & private labeling, and warehouse facilities in Anand, Gujarat, India.",
+    "J K Fertilizers offers comprehensive B2B fertilizer manufacturing services including organic granule production, custom formulation (Recipe Granules), job work/contract manufacturing, advanced coating, FCO approved laboratory testing, custom packaging & private labeling, and warehouse facilities in Anand, Gujarat, India.",
   areaServed: [
     { "@type": "Country", name: "India" },
     { "@type": "Country", name: "Worldwide" },
@@ -1016,50 +1009,20 @@ export const servicesSchema: Service = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Organic & Coated Granule Manufacturing",
+          name: "Organic Fertilizer Manufacturing",
           description:
-            "190+ MT/day production of organic and mineral fertilizer granules using proprietary Recipe Granule formulations.",
-          url: `${SITE_URL}/services/organic-coated-granule-manufacturing`,
+            "Manufacturing Organic Fertilizers & Coated Granules — Eco-friendly fertilizers crafted for maximum efficiency and crop benefits.",
+          url: `${SITE_URL}/services/organic-fertilizer-manufacturing`,
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Job Work / Contract Manufacturing",
+          name: "Granule Technology",
           description:
-            "White-label B2B manufacturing for fertilizer brands and distributors — full lifecycle from raw materials to dispatch.",
-          url: `${SITE_URL}/services/job-work-contract-manufacturing`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Advanced Coating Services",
-          description:
-            "Precision liquid and powder coating technology for slow-release and specialty fertilizer granules.",
-          url: `${SITE_URL}/services/advanced-coating-services`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Custom Packaging & Private Labeling",
-          description:
-            "Flexible B2B packaging solutions with full private-label branding for fertilizer brands.",
-          url: `${SITE_URL}/services/custom-packaging-private-labeling`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Laboratory & Quality Testing",
-          description:
-            "ISO 9001:2015 certified in-house testing: nutrient content, granule size, moisture, pH, and custom formulation development.",
-          url: `${SITE_URL}/services/laboratory-testing-services`,
+            "Innovative Coating Solutions for Enhanced Fertilizer Performance — Precisely engineered granules for optimal soil enrichment.",
+          url: `${SITE_URL}/services/granule-technology`,
         },
       },
       {
@@ -1068,7 +1031,7 @@ export const servicesSchema: Service = {
           "@type": "Service",
           name: "Infrastructure Leasing",
           description:
-            "Lease of manufacturing infrastructure and equipment at Adit Biorganic's Anand, Gujarat facility.",
+            "State-of-the-Art Infrastructure Leasing for Fertilizer Production — Cost-effective options to help businesses scale.",
           url: `${SITE_URL}/services/infrastructure-leasing`,
         },
       },
@@ -1076,10 +1039,30 @@ export const servicesSchema: Service = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Warehouse / Go-Down Facilities",
+          name: "Custom Packaging Solutions",
           description:
-            "Secure bulk storage facilities in Anand, Gujarat for B2B partners and export preparation.",
-          url: `${SITE_URL}/services/warehouse-go-down-facilities`,
+            "Smart, Sustainable Packaging for Agriculture — Tailored packaging services to protect and promote your products.",
+          url: `${SITE_URL}/services/custom-packaging-solutions`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Job Work Services",
+          description:
+            "Reliable Job Work Services for Custom Fertilizer Manufacturing — Customized manufacturing solutions for organic fertilizers and coated granules.",
+          url: `${SITE_URL}/services/job-work-services`,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Warehouse & Storage",
+          description:
+            "Secure and Efficient Warehouse, Storage, and Godown Solutions — Well-maintained facilities to support seamless supply chain management.",
+          url: `${SITE_URL}/services/warehouse-storage`,
         },
       },
     ],
@@ -1136,9 +1119,9 @@ export const aboutPageSchema: AboutPage = {
   "@type": "AboutPage",
   "@id": `${SITE_URL}/about#aboutpage`,
   url: `${SITE_URL}/about`,
-  name: "About Adit Biorganic — India's Leading B2B Organic Fertilizer Manufacturer",
+  name: "About J K Fertilizers — India's Leading B2B Organic Fertilizer Manufacturer",
   description:
-    "Learn about Adit Biorganic, founded by Akash Dadhania — ISO 9001:2015 certified organic fertilizer granule manufacturer in Anand, Gujarat with 190+ MT/day production capacity, 50+ B2B partners, and worldwide export capabilities.",
+    "Learn about J K Fertilizers, founded by Akash Dadhania — FCO approved organic fertilizer manufacturer in Anand, Gujarat, since 2006.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1158,9 +1141,9 @@ export const contactPageSchema: ContactPage = {
   "@type": "ContactPage",
   "@id": `${SITE_URL}/contact#contactpage`,
   url: `${SITE_URL}/contact`,
-  name: "Contact Adit Biorganic — B2B Fertilizer Manufacturer, Anand Gujarat",
+  name: "Contact J K Fertilizers — B2B Fertilizer Manufacturer, Anand Gujarat",
   description:
-    "Get in touch with Adit Biorganic for B2B fertilizer granule inquiries, bulk orders, custom formulation (Recipe Granules), and worldwide export partnerships. Call +91 98250 45894 or email sales@aditbiorganic.com.",
+    "Get in touch with J K Fertilizers for B2B fertilizer granule inquiries, bulk orders, custom formulation (Recipe Granules), and worldwide export partnerships. Call +91 98250 45894 or email sales@jkfertilizers.com.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1180,9 +1163,9 @@ export const productsPageSchema: CollectionPage = {
   "@type": "CollectionPage",
   "@id": `${SITE_URL}/products#collection`,
   url: `${SITE_URL}/products`,
-  name: "Organic Fertilizer Granule Products — Adit Biorganic",
+  name: "Organic Fertilizer Granule Products — J K Fertilizers",
   description:
-    "Browse Adit Biorganic's complete B2B range of organic fertilizer base granules: Mineral, Bio-Fertilizer, Bio-Stimulant, Mix Micro, Bio-Pesticide, Pesticide, Base, and Organic granules. ISO 9001:2015 certified, manufactured in Anand, Gujarat, India.",
+    "Browse J K Fertilizers's complete range of organic fertilizers: Organic Manure, PDM, PROM, Mycorrhiza Granules, Customized Base Granules, Coated Granules, and more. FCO approved, manufactured in Anand, Gujarat, India.",
   provider: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {

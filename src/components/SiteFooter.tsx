@@ -6,12 +6,12 @@ import { products } from "@/data/products";
 import { company, navigation } from "@/data/siteData";
 
 const services = [
-  { label: "Granule Manufacturing", path: "/services/organic-coated-granule-manufacturing" },
-  { label: "Contract Manufacturing", path: "/services/job-work-contract-manufacturing" },
-  { label: "Advanced Coating", path: "/services/advanced-coating-services" },
-  { label: "Lab & Testing", path: "/services/laboratory-testing-services" },
-  { label: "Custom Packaging", path: "/services/custom-packaging-private-labeling" },
-  { label: "Warehousing", path: "/services/warehouse-go-down-facilities" },
+  { label: "Organic Fertilizer Manufacturing", path: "/services/organic-fertilizer-manufacturing" },
+  { label: "Granule Technology", path: "/services/granule-technology" },
+  { label: "Infrastructure Leasing", path: "/services/infrastructure-leasing" },
+  { label: "Custom Packaging Solutions", path: "/services/custom-packaging-solutions" },
+  { label: "Job Work Services", path: "/services/job-work-services" },
+  { label: "Warehouse & Storage", path: "/services/warehouse-storage" },
 ];
 
 export const SiteFooter = () => {
@@ -49,7 +49,7 @@ export const SiteFooter = () => {
               Let's grow something great.
             </h2>
             <p className="mt-2 max-w-lg text-sm leading-7 text-white/55">
-              Manufacture under your brand. Scale with our facility. Build trust with every granule.
+              Partner with us for quality organic fertilizers and sustainable agricultural solutions.
             </p>
           </div>
           {/* FIX 3.2: w-full on mobile, w-auto on sm+ */}
@@ -60,7 +60,7 @@ export const SiteFooter = () => {
               style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
             >
               <Link to="/contact">
-                Become a partner <ArrowRight className="ml-2 h-4 w-4" />
+                Get In Touch <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button
@@ -87,7 +87,7 @@ export const SiteFooter = () => {
               <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md group-hover:bg-primary/30 transition-all duration-300" />
               <img
                 src="/logo.png"
-                alt="Adit Biorganic"
+                alt="J K Fertilizers"
                 className="relative h-10 w-auto rounded-xl object-contain brightness-0 invert sm:h-11"
               />
             </div>
@@ -101,32 +101,27 @@ export const SiteFooter = () => {
           </Link>
 
           <p className="text-sm leading-7 text-white/55" data-testid="footer-company-description">
-            India's leading ISO 9001:2015 certified B2B fertilizer granule manufacturer. Based in Anand, Gujarat —
-            trusted by brands across the country.
+            Leading manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules. Based in Gujarat —
+            trusted by farmers and businesses across India since 2006.
           </p>
 
           {/* ISO badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/8 px-4 py-2">
             <Award className="h-3.5 w-3.5 text-accent" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/85">ISO 9001:2015 Certified</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/85">FCO Approved Products</span>
           </div>
 
           {/* Contact cards */}
           <div className="space-y-3">
-            <a
-              href={`tel:${company.phoneRaw}`}
-              className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-all duration-200 hover:border-white/12 hover:bg-white/8 min-h-[44px]"
-              data-testid="footer-phone-card"
-            >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary transition-colors group-hover/card:bg-primary/30">
+            <div className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-all duration-200 min-h-[44px]">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
                 <Phone className="h-3.5 w-3.5" />
               </span>
               <div>
-                {/* FIX 3.4/3.5: text-xs minimum */}
                 <p className="text-xs uppercase tracking-[0.2em] text-white/40">Phone</p>
-                <p className="font-semibold text-white">{company.phoneDisplay}</p>
+                <p className="font-semibold text-white">{company.phoneDisplay} / 92 / 91</p>
               </div>
-            </a>
+            </div>
 
             <a
               href={`mailto:${company.emails[0]}`}
@@ -154,6 +149,18 @@ export const SiteFooter = () => {
                 <p className="mt-0.5 min-w-0 break-words leading-6 text-white/65">{company.address}</p>
               </div>
             </div>
+
+            <div className="flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/6 text-white/45">
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Working Hours</p>
+                <p className="font-semibold text-white">Mon - Fri: 8AM - 6PM, Sat: 9AM - 5PM</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -162,7 +169,7 @@ export const SiteFooter = () => {
           {/* FIX 3.5: text-xs, opacity /50 */}
           <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Navigate</p>
           <nav className="flex flex-col gap-0.5">
-            {navigation.map((item) => (
+            {[...navigation, { label: "Commitment", path: "/commitment" }].map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
@@ -178,7 +185,7 @@ export const SiteFooter = () => {
 
           <div className="flex items-center gap-2 pt-2">
             <Leaf className="h-3.5 w-3.5 text-primary/60" />
-            <p className="text-xs text-white/35 italic">Nurturing Farms, Preserving Nature</p>
+            <p className="text-xs text-white/35 italic">Organic, Naturally</p>
           </div>
         </div>
 
@@ -235,14 +242,18 @@ export const SiteFooter = () => {
 
       {/* ── Bottom bar ── */}
       <div className="relative border-t border-white/6">
-        {/* FIX 3.7: sm:flex-row so it flattens earlier than lg */}
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/35">
-            <p data-testid="footer-copyright-text">
-              © {new Date().getFullYear()} Adit Biorganic Pvt. Ltd. All rights reserved.
-            </p>
+              <p data-testid="footer-copyright-text">
+                © {new Date().getFullYear()} J K Fertilizers. All Rights Reserved.
+              </p>
             <span className="hidden h-3 w-px bg-white/20 sm:block" />
             <p>Anand, Gujarat, India</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/25">
+            <a href="/privacy" className="transition-colors hover:text-white/55">Confidentiality &amp; Privacy</a>
+            <a href="/legal" className="transition-colors hover:text-white/55">Legal Information</a>
+            <a href="/return-policy" className="transition-colors hover:text-white/55">Return and Refund Policy</a>
           </div>
           <a
             href="https://aexaware.com"

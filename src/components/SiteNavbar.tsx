@@ -65,7 +65,7 @@ export const SiteNavbar = ({
             data-testid="topbar-tagline"
           >
             <Leaf className="h-3 w-3" />
-            ISO 9001:2015 Certified
+            Manufacturers of Organic Fertilizers
           </div>
         </div>
       </div>
@@ -78,12 +78,12 @@ export const SiteNavbar = ({
           <Link to="/" className="group flex items-center gap-2.5 sm:gap-3" data-testid="site-logo-link">
             <div className="relative shrink-0">
               <div className="absolute inset-0 rounded-xl bg-primary/8 blur-md group-hover:bg-primary/12 transition-all duration-300" />
-              <img src="/logo.png" alt="Adit Biorganic" className="relative h-10 w-auto rounded-xl object-contain sm:h-11" />
+              <img src="/logo.png" alt="J K Fertilizers" className="relative h-10 w-auto rounded-xl object-contain sm:h-11" />
             </div>
             <div>
               <p className="font-heading text-sm font-bold leading-tight text-foreground sm:text-base">{company.name}</p>
               {/* FIX 2.4: text-xs minimum (was text-[10px]) */}
-              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">Organic · Certified · Trusted</p>
+              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">Organic · Naturally</p>
             </div>
           </Link>
 
@@ -111,7 +111,7 @@ export const SiteNavbar = ({
             >
               <a href={`tel:${company.phoneRaw}`}>
                 <Phone className="mr-1.5 h-3.5 w-3.5" />
-                Call now
+                Call Us
               </a>
             </Button>
             <Button
@@ -119,7 +119,7 @@ export const SiteNavbar = ({
               className="h-10 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(45,122,74,0.35)] hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(45,122,74,0.45)] transition-all duration-200"
               data-testid="header-contact-button"
             >
-              <Link to="/contact">Become a partner</Link>
+              <Link to="/contact">Get In Touch!</Link>
             </Button>
           </div>
 
@@ -182,7 +182,7 @@ export const SiteNavbar = ({
                 onClick={onMobileToggle}
                 className="flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/6 px-4 py-3 text-sm font-semibold text-primary"
               >
-                Become a partner
+                Get In Touch!
               </Link>
             </div>
           </div>

@@ -1,27 +1,12 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://aditbiorganic.com";
-const SITE_NAME = "Adit Biorganic";
+const SITE_URL = "https://jkfertilizers.com";
+const SITE_NAME = "J K Fertilizers";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
-const DEFAULT_TWITTER_HANDLE = "@AditBiorganic";
+const DEFAULT_TWITTER_HANDLE = "@JKFertilizers";
 const DEFAULT_KEYWORDS =
-  "organic fertilizer manufacturer India, granule fertilizer manufacturer Gujarat, B2B fertilizer manufacturer, bio fertilizer manufacturer Anand, organic fertilizer exporter India, fertilizer granules manufacturer, organic base granules, bio-stimulant granules, custom fertilizer formulation, contract fertilizer manufacturing, ISO certified fertilizer manufacturer";
+  "organic fertilizer manufacturer India, J K Fertilizers, organic manure, PDM fertilizer, PROM fertilizer, mycorrhiza granules, fertilizer manufacturer Gujarat, coated granules, base granules, organic fertilizer Anand, FCO approved fertilizer";
 
-/**
- * SEOHead — Comprehensive SEO + GEO head manager for every page.
- *
- * Props:
- *   title        {string}   Page title (appended with brand)
- *   description  {string}   Meta description (150–160 chars)
- *   canonical    {string}   Canonical URL path e.g. "/products"
- *   ogImage      {string}   Absolute URL to OG image (1200×630)
- *   ogType       {string}   "website" | "article" | "product"
- *   keywords     {string}   Comma-separated keywords
- *   schema       {object|Array}  JSON-LD structured data object(s)
- *   noindex      {boolean}  If true, sets noindex,nofollow
- *   article      {object}   Article meta: { publishedTime, modifiedTime, author, section, tags[] }
- *   product      {object}   Product meta: { price, currency, availability }
- */
 interface ArticleMeta {
   publishedTime?: string;
   modifiedTime?: string;
@@ -62,17 +47,16 @@ export function SEOHead({
   product,
 }: SEOHeadProps) {
   const fullTitle = title
-    ? `${title} | Adit Biorganic — India's #1 B2B Organic Fertilizer Manufacturer`
-    : "Adit Biorganic — India's #1 B2B Organic Fertilizer Granule Manufacturer | Anand, Gujarat";
+    ? `${title} | J K Fertilizers — Manufacturers of Organic Fertilizers`
+    : "J K Fertilizers — Manufacturers of Organic Fertilizers | Anand, Gujarat";
 
   const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
 
   const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`;
   const ogImageAlt = title
-    ? `${title} — Adit Biorganic, Organic Fertilizer Manufacturer Gujarat India`
-    : "Adit Biorganic — India's #1 B2B Organic Fertilizer Granule Manufacturer";
+    ? `${title} — J K Fertilizers, Organic Fertilizer Manufacturer Gujarat India`
+    : "J K Fertilizers — Manufacturers of Organic Fertilizers";
 
-  // Support single or array of schema objects
   const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
   const allKeywords = keywords
@@ -97,13 +81,13 @@ export function SEOHead({
       <link rel="canonical" href={canonicalUrl} />
 
       {/* ── Author / Brand ── */}
-      <meta name="author" content="Adit Biorganic" />
-      <meta name="copyright" content="© 2026 Adit Biorganic. All rights reserved." />
-      <meta name="publisher" content="Adit Biorganic" />
+      <meta name="author" content="J K Fertilizers" />
+      <meta name="copyright" content="© 2026 J K Fertilizers. All rights reserved." />
+      <meta name="publisher" content="J K Fertilizers" />
 
       {/* ── Business Classification ── */}
       <meta name="classification" content="Business, Agriculture, Organic Fertilizer Manufacturing" />
-      <meta name="category" content="Organic Fertilizer Manufacturer, B2B Agricultural Inputs" />
+      <meta name="category" content="Organic Fertilizer Manufacturer, Agricultural Inputs" />
       <meta name="coverage" content="Worldwide" />
       <meta name="distribution" content="Global" />
       <meta name="target" content="all" />
@@ -113,20 +97,20 @@ export function SEOHead({
 
       {/* ── Geo / Local targeting ── */}
       <meta name="geo.region" content="IN-GJ" />
-      <meta name="geo.placename" content="Anand, Gujarat, India" />
-      <meta name="geo.position" content="22.5560;72.9273" />
-      <meta name="ICBM" content="22.5560, 72.9273" />
+      <meta name="geo.placename" content="Vasad, Anand, Gujarat, India" />
+      <meta name="geo.position" content="22.4475;72.8573" />
+      <meta name="ICBM" content="22.4475, 72.8573" />
 
       {/* ── Dublin Core Metadata ── */}
       <meta name="DC.title" content={fullTitle} />
       <meta name="DC.description" content={description} />
-      <meta name="DC.publisher" content="Adit Biorganic" />
+      <meta name="DC.publisher" content="J K Fertilizers" />
       <meta name="DC.creator" content="Akash Dadhania" />
       <meta name="DC.language" content="en-IN" />
       <meta name="DC.coverage" content="India, Gujarat, Worldwide" />
-      <meta name="DC.rights" content="© 2026 Adit Biorganic" />
+      <meta name="DC.rights" content="© 2026 J K Fertilizers" />
       <meta name="DC.identifier" content={canonicalUrl} />
-      <meta name="DC.subject" content="Organic Fertilizer Manufacturing, B2B Agricultural Inputs, Gujarat India" />
+      <meta name="DC.subject" content="Organic Fertilizer Manufacturing, Agricultural Inputs, Gujarat India" />
       {article?.publishedTime && (
         <meta name="DC.date" content={article.publishedTime} />
       )}
@@ -150,9 +134,9 @@ export function SEOHead({
       <meta property="og:image:alt" content={ogImageAlt} />
 
       {/* ── Open Graph — Business ── */}
-      <meta property="og:see_also" content="https://www.linkedin.com/company/adit-biorganic" />
-      <meta property="og:see_also" content="https://www.facebook.com/aditbiorganic" />
-      <meta property="og:see_also" content="https://www.instagram.com/aditbiorganic" />
+      <meta property="og:see_also" content="https://www.linkedin.com/company/jkfertilizers" />
+      <meta property="og:see_also" content="https://www.facebook.com/jkfertilizers" />
+      <meta property="og:see_also" content="https://www.instagram.com/jkfertilizers" />
 
       {/* ── Open Graph — Article (for blog posts) ── */}
       {article && (
@@ -198,7 +182,7 @@ export function SEOHead({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImageUrl} />
       <meta name="twitter:image:alt" content={ogImageAlt} />
-      <meta name="twitter:domain" content="aditbiorganic.com" />
+      <meta name="twitter:domain" content="jkfertilizers.com" />
       
       {/* ── JSON-LD Structured Data ── */}
       {schemas.map((s) => (

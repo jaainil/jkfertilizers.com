@@ -8,9 +8,9 @@ import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, buildProductSchema, buildProductFaqSchema, buildProductHowToSchema, breadcrumbSchema } from "@/data/seoSchemas";
 
 const company = {
-  phoneDisplay: "+91 98250 45894",
+  phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
-  emails: ["info@aditbiorganic.com", "sales@aditbiorganic.com"],
+  emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
 };
 
 export const ProductDetailPage = () => {
@@ -30,12 +30,12 @@ export const ProductDetailPage = () => {
   return (
     <>
       <SEOHead
-        title={`${product.title} — B2B Organic Fertilizer Granules | Adit Biorganic Gujarat`}
-        description={`Buy ${product.title} in bulk from Adit Biorganic — ISO 9001:2015 certified ${product.category} fertilizer manufacturer in Anand, Gujarat, India. ${product.summary} B2B supply & worldwide export available.`}
+        title={`${product.title} — B2B Organic Fertilizer Granules | J K Fertilizers Gujarat`}
+        description={`Buy ${product.title} in bulk from J K Fertilizers — FCO approved ${product.category} fertilizer manufacturer in Anand, Gujarat, India. ${product.summary} Bulk supply available.`}
         canonical={`/products/${product.slug}`}
         ogImage={product.imageUrl}
         ogType="product"
-        keywords={`${product.title}, ${product.title} manufacturer india, ${product.title} gujarat, ${product.category} fertilizer granules manufacturer, organic fertilizer manufacturer india, b2b fertilizer manufacturer gujarat, buy ${product.title} bulk, adit biorganic`}
+        keywords={`${product.title}, ${product.title} manufacturer india, ${product.title} gujarat, ${product.category} fertilizer granules manufacturer, organic fertilizer manufacturer india, b2b fertilizer manufacturer gujarat, buy ${product.title} bulk, J K Fertilizers`}
         product={{
           availability: "in stock",
           currency: "INR",
@@ -160,7 +160,7 @@ export const ProductDetailPage = () => {
               What Are {product.title}?
             </h2>
             <p className="text-sm leading-8 text-muted-foreground">
-              Manufactured by Adit Biorganic under ISO 9001:2015 certified processes.
+              Manufactured by J K Fertilizers under FCO approved processes.
             </p>
             <div className="rounded-3xl border border-border bg-surface-card p-6 space-y-3">
               {product.specs.map((spec) => (
@@ -287,7 +287,7 @@ export const ProductDetailPage = () => {
                   Explore Other Product Lines
                 </h2>
                 <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-                  Browse the full Adit Biorganic portfolio — each granule line engineered for a specific agronomic purpose.
+                  Browse the full J K Fertilizers portfolio — each granule line engineered for a specific agronomic purpose.
                 </p>
               </div>
               <Button asChild variant="outline" className="h-11 rounded-full border-primary px-5 text-primary hover:bg-primary hover:text-white shrink-0 self-start lg:self-auto">

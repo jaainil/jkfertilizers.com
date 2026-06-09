@@ -13,6 +13,8 @@ import { BlogPage } from "@/pages/BlogPage";
 import { BlogPostPage } from "@/pages/BlogPostPage";
 import { ServiceDetailPage } from "@/pages/ServiceDetailPage";
 import { ContactPage } from "@/pages/ContactPage";
+import { PortfolioPage } from "@/pages/PortfolioPage";
+import { CommitmentPage } from "@/pages/CommitmentPage";
 import { HomePage } from "@/components/HomePage";
 
 const ScrollToTop = () => {
@@ -41,6 +43,8 @@ const AppRoutes = () => (
       <Route path="/services/:slug" element={<ServiceDetailPage />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/blog/:slug" element={<BlogPostPage />} />
+      <Route path="/portfolio" element={<PortfolioPage />} />
+      <Route path="/commitment" element={<CommitmentPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<HomePage />} />
     </Routes>

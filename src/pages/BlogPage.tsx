@@ -41,8 +41,8 @@ export const BlogPage = () => {
   return (
   <>
     <SEOHead
-      title="Agriculture & Fertilizer Industry Blog — Insights for B2B Brands | Adit Biorganic"
-      description="Expert insights on organic fertilizer manufacturing, custom granule formulation, B2B procurement tips, sustainable agriculture, and quality assurance. From Adit Biorganic — ISO 9001:2015 certified manufacturer, Anand, Gujarat."
+      title="Agriculture & Fertilizer Industry Blog — Insights for B2B Brands | J K Fertilizers"
+      description="Expert insights on organic fertilizer manufacturing, custom granule formulation, B2B procurement tips, sustainable agriculture, and quality assurance. From J K Fertilizers — FCO approved manufacturer, Anand, Gujarat."
       canonical="/blog"
       ogImage="/images/granules.jpg"
       keywords="fertilizer industry blog, organic agriculture insights, b2b fertilizer procurement, granule fertilizer trends, sustainable agriculture india, fertilizer manufacturing blog gujarat, custom formulation insights"

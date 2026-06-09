@@ -84,7 +84,7 @@ export const ServiceDetailPage = () => {
   return (
     <>
       <SEOHead
-        title={seoTitle || `${title} | Adit Biorganic Services`}
+        title={seoTitle || `${title} | J K Fertilizers Services`}
         description={seoDescription || description}
         canonical={`/services/${slug}`}
         ogImage={imageSrc}

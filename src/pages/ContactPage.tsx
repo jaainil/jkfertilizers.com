@@ -5,21 +5,23 @@ import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, contactPageSchema } from "@/data/seoSchemas";
 
 const company = {
-  name: "Adit Biorganic",
-  phoneDisplay: "+91 98250 45894",
+  name: "J K Fertilizers",
+  phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
-  emails: ["info@aditbiorganic.com", "sales@aditbiorganic.com"],
-  address: "S. No. 1152, Kanatalavdi Road, Adas, Anand, Gujarat - 388305",
-  founder: "Akash Dadhania",
+  phoneAlt: "9825045892",
+  phoneAlt2: "9825045891",
+  emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305",
+  founder: "Mr. Akash Dadhania",
   founderTitle: "Founder & Director",
 };
 
 const contactCards = [
   {
     icon: PhoneCall,
-    label: "Call and Order",
-    value: company.phoneDisplay,
-    sub: "Mon – Sat, 9 AM – 6 PM IST",
+    label: "Call Us",
+    value: "9825045894 / 9825045892",
+    sub: "Mon – Fri: 8AM – 6PM, Sat: 9AM – 5PM",
     href: `tel:${company.phoneRaw}`,
     accent: true,
   },
@@ -34,34 +36,34 @@ const contactCards = [
     icon: Mail,
     label: "Sales Inquiries",
     value: company.emails[1],
-    sub: "For B2B orders & partnerships",
+    sub: "For bulk orders & partnerships",
     href: `mailto:${company.emails[1]}`,
   },
   {
     icon: MapPin,
-    label: "Visit Our Facility",
+    label: "Visit Our Factory",
     value: company.address,
-    sub: "Adas, Anand, Gujarat – 388305",
-    href: "https://maps.google.com/?q=Adas,Anand,Gujarat",
+    sub: "Vasad, Anand, Gujarat",
+    href: "https://maps.google.com/?q=Vasad,Anand,Gujarat",
   },
 ];
 
 const faqs = [
   {
     q: "What is your minimum order quantity?",
-    a: "We cater to bulk B2B orders. Please get in touch with our sales team to discuss volume requirements and pricing.",
+    a: "We cater to bulk orders for large-scale farming, government agencies, and corporate clients. Please get in touch with our sales team to discuss volume requirements and pricing.",
   },
   {
-    q: "Can you create custom formulations?",
-    a: "Yes — custom 'Recipe Granule' formulations are our core expertise. We work with your specifications to develop the exact nutrient and coating profile you need.",
+    q: "How do I know which fertilizer is right for my crops?",
+    a: "Our team of agricultural experts can help you choose the right product based on your soil type, crop requirements, and farming goals. Contact us for a consultation.",
   },
   {
-    q: "How long does it take to fulfill an order?",
-    a: "With 190+ MT/day capacity running 24/7, we can accommodate even large, urgent orders. Lead times depend on formulation complexity and volume — contact us for a specific timeline.",
+    q: "Can I purchase your products in bulk?",
+    a: "Absolutely. We cater to bulk orders for large-scale farming operations, government agencies, and corporate clients. Contact our sales team for volume pricing.",
   },
   {
-    q: "Do you offer contract / white-label manufacturing?",
-    a: "Absolutely. We offer full contract manufacturing — your brand, our facility. From raw materials to packaged finished goods.",
+    q: "What are your working hours?",
+    a: "Our office hours are Monday to Friday, 8:00 AM to 6:00 PM and Saturday, 9:00 AM to 5:00 PM. Holidays are closed. Our manufacturing facility operates round the clock to meet production demands.",
   },
 ];
 
@@ -76,15 +78,15 @@ export const ContactPage = () => {
   return (
   <>
     <SEOHead
-      title="Contact Us — B2B Fertilizer Granule Inquiry, Bulk Order & Export | Anand Gujarat"
-      description="Contact Adit Biorganic for bulk fertilizer granule orders, custom formulation quotes, contract manufacturing, and export partnerships. Call +91 98250 45894 or email sales@aditbiorganic.com. Located in Anand, Gujarat — 388305, India."
+      title="Contact Us — J K Fertilizers | Organic Fertilizer Manufacturer | Anand, Gujarat"
+      description="Contact J K Fertilizers for organic fertilizer orders, bulk inquiries, and partnerships. Call 9825045894 or email info@jkfertilizers.com. Located in Vasad, Anand, Gujarat."
       canonical="/contact"
-      ogImage="/images/factory.jpg"
-      keywords="contact adit biorganic, fertilizer bulk order india, b2b fertilizer inquiry gujarat, organic fertilizer export inquiry, fertilizer manufacturer contact anand gujarat, get fertilizer quote india"
+      ogImage="/images/about-1.jpg"
+      keywords="contact J K Fertilizers, fertilizer order gujarat, organic fertilizer inquiry, fertilizer manufacturer contact anand gujarat, jkfertilizers.com"
       schema={[organizationSchema, contactPageSchema]}
     />
-    {/* ── Hero — no PageHero, custom full-bleed ── */}
-    <section 
+    {/* ── Hero ── */}
+    <section
       ref={heroReveal.ref}
       className={`relative overflow-hidden bg-secondary reveal ${heroReveal.isVisible ? 'visible' : ''}`}
     >
@@ -95,10 +97,10 @@ export const ContactPage = () => {
             Contact Us
           </div>
           <h1 className="font-heading text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Let's Cooperate Together
+            Contact Us Today To Work Together
           </h1>
           <p className="max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-            We will reply within <strong className="text-white">24 hours</strong> via email. Reach out for product inquiries, B2B partnerships, custom formulation requests, or manufacturing discussions.
+            We will reply within <strong className="text-white">24 hours</strong> via email. Reach out for product inquiries, bulk orders, or partnership discussions.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Button asChild className="h-12 rounded-full bg-accent px-7 text-secondary font-semibold hover:bg-accent/80">
@@ -116,13 +118,12 @@ export const ContactPage = () => {
           </div>
         </div>
 
-        {/* Floating contact pills */}
         <div className="mt-12 flex flex-wrap gap-4">
           {[
-            { label: "ISO 9001:2015 Certified", },
-            { label: "190+ MT/Day Capacity" },
-            { label: "24/7 Operations" },
-            { label: "Anand, Gujarat — India" },
+            { label: "Since 2006" },
+            { label: "FCO Approved" },
+            { label: "150+ Trusted Clients" },
+            { label: "Vasad, Anand — Gujarat" },
           ].map((tag, i) => (
             <span key={tag.label} {...staggerDelay(i, 100)} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80">
               {tag.label}
@@ -134,19 +135,17 @@ export const ContactPage = () => {
 
     {/* ── Contact Cards + Form ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 section-wave">
-      <div 
+      <div
         ref={formsReveal.ref}
         className={`grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start reveal ${formsReveal.isVisible ? 'visible' : ''}`}
       >
-
-        {/* Left — contact info */}
         <div className="space-y-5">
           <div className="space-y-2">
             <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
               Direct Contact
             </div>
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Reach the Team Your Way
+              Reach Us Your Way
             </h2>
             <p className="text-base leading-7 text-muted-foreground">
               Choose how you'd like to connect — call, email, or visit us.
@@ -191,19 +190,17 @@ export const ContactPage = () => {
             })}
           </div>
 
-          {/* Response time promise */}
           <div className="flex items-center gap-4 rounded-[24px] border border-border bg-muted p-5">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/20">
               <Clock3 className="h-5 w-5 text-primary" />
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Response time</p>
-              <p className="mt-0.5 text-sm font-medium text-foreground">We reply within 24 hours for all qualified B2B inquiries.</p>
+              <p className="mt-0.5 text-sm font-medium text-foreground">We reply within 24 hours for all inquiries.</p>
             </div>
           </div>
         </div>
 
-        {/* Right — inquiry form */}
         <InquiryForm
           title="Send Us a Message"
           description="Fill in your details below. Our team will follow up with the right commercial or technical conversation within 24 hours."
@@ -214,21 +211,20 @@ export const ContactPage = () => {
 
     {/* ── Map + Address banner ── */}
     <section className="bg-muted py-0 overflow-hidden">
-      <div 
+      <div
         ref={mapReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${mapReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="grid lg:grid-cols-2">
-          {/* Address card */}
           <div className="flex flex-col justify-center space-y-6 py-16 lg:pr-14">
             <div className="inline-flex w-fit rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
               Our Location
             </div>
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Visit Our Manufacturing Facility
+              Visit Our Factory
             </h2>
             <p className="text-base leading-8 text-muted-foreground">
-              Located in the heart of Gujarat's agricultural hub, our state-of-the-art manufacturing plant is open for B2B visits by appointment.
+              Located in Vasad, Anand, Gujarat — our manufacturing facility is easily accessible from NH 48. Factory visits welcome by appointment.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-4 rounded-[20px] border border-border bg-surface-card p-4">
@@ -242,19 +238,18 @@ export const ContactPage = () => {
                 <Clock3 className="h-5 w-5 shrink-0 text-primary" />
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Working Hours</p>
-                  <p className="mt-1 text-sm font-medium text-foreground">Mon – Sat, 9:00 AM – 6:00 PM IST · Factory: 24/7</p>
+                  <p className="mt-1 text-sm font-medium text-foreground">Mon – Sat, 8:00 AM – 6:00 PM</p>
                 </div>
               </div>
             </div>
             <Button asChild className="w-fit h-11 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
-              <a href="https://maps.app.goo.gl/46AzcF1tCehVLQGNA" target="_blank" rel="noopener noreferrer">
+              <a href="https://maps.google.com/?q=Vasad,Anand,Gujarat" target="_blank" rel="noopener noreferrer">
                 Open in Google Maps
                 <ArrowRight className="h-4 w-4" />
               </a>
             </Button>
           </div>
 
-          {/* Embedded map */}
           <div className="embed-map-responsive relative w-full" style={{ paddingBottom: '66.66666666666666%' }}>
             <div className="embed-map-container overflow-hidden bg-none absolute top-0 left-0 w-full h-full">
               <iframe
@@ -263,8 +258,8 @@ export const ContactPage = () => {
                 scrolling="no"
                 marginHeight={0}
                 marginWidth={0}
-                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=ADIT%20PVT%20LTD&t=h&z=17&ie=UTF8&iwloc=B&output=embed"
-                title="Adit Biorganic Location"
+                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Vasad%20Anand%20Gujarat&t=h&z=15&ie=UTF8&iwloc=B&output=embed"
+                title="J K Fertilizers Location"
               />
             </div>
           </div>
@@ -274,7 +269,7 @@ export const ContactPage = () => {
 
     {/* ── FAQ ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 section-wave">
-      <div 
+      <div
         ref={faqReveal.ref}
         className={`reveal ${faqReveal.isVisible ? 'visible' : ''}`}
       >
@@ -297,14 +292,39 @@ export const ContactPage = () => {
       </div>
     </section>
 
+    {/* ── Newsletter ── */}
+    <section className="bg-muted py-20 lg:py-28">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          Stay Updated
+        </div>
+        <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          Sign Up To Our Newsletter
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+          Subscribe to our Newsletter to be updated about our latest products and offers.
+        </p>
+        <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="h-12 flex-1 rounded-full border border-border bg-surface-card px-6 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+          />
+          <Button type="submit" className="h-12 rounded-full bg-primary px-8 text-white hover:bg-primary/90">
+            Subscribe
+          </Button>
+        </form>
+      </div>
+    </section>
+
     {/* ── Bottom CTA band ── */}
     <section className="bg-secondary py-16 lg:py-20">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Ready to become a B2B partner?
+          Ready to work with India's trusted fertilizer manufacturer?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-white/78">
-          India's most trusted organic granule manufacturer. ISO 9001:2015 certified. 190+ MT/day. 50+ partners across India.
+          Since 2006. 150+ trusted clients. 100% organic products.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">

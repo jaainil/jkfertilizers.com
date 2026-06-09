@@ -93,7 +93,7 @@ export const BlogPostPage = () => {
   return (
     <>
       <SEOHead
-        title={`${title} | Adit Biorganic Blog`}
+        title={`${title} | J K Fertilizers Blog`}
         description={excerpt}
         canonical={`/blog/${slug}`}
         ogImage={img}

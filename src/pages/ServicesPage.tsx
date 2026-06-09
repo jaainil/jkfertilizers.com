@@ -3,25 +3,25 @@ import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
 import { InquiryForm } from "@/components/InquiryForm";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Quote, Star } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, servicesSchema } from "@/data/seoSchemas";
 import { getAllServices } from "@/lib/content";
 
 const company = {
-  name: "Adit Biorganic",
-  phoneDisplay: "+91 98250 45894",
+  name: "J K Fertilizers",
+  phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
-  emails: ["info@aditbiorganic.com", "sales@aditbiorganic.com"],
-  address: "S. No. 1152, Kanatalavdi Road, Adas, Anand, Gujarat - 388305",
+  emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat",
 };
 
 const coreFeatures = [
-  "Custom \"Recipe\" Formulations",
-  "Mineral & Organic Base Materials",
-  "Superior Alternative to Bentonite",
-  "High-Volume 190+ MT/Day Capacity",
-  "Promotes Long-Term Soil Health",
+  "No Chemicals Used",
+  "No Preservatives Added",
+  "Sustainable Practices",
+  "Affordable Quality",
+  "Environmental Responsibility",
 ];
 
 const services = getAllServices();
@@ -29,32 +29,47 @@ const services = getAllServices();
 const processSteps = [
   {
     step: "01",
-    title: "Requirement Alignment",
-    description: "We understand your formulation goal, target application, packaging needs, and dispatch expectations.",
+    title: "Requirement Analysis",
+    description: "We understand your specific needs, crop requirements, and operational goals to recommend the right solution.",
   },
   {
     step: "02",
-    title: "Granule Design & Validation",
-    description: "Base selection, recipe development, and production checks are aligned before scale manufacturing begins.",
+    title: "Custom Manufacturing",
+    description: "Our state-of-the-art facilities produce high-quality organic fertilizers and coated granules tailored to your specifications.",
   },
   {
     step: "03",
-    title: "Controlled Production",
-    description: "Granulation, coating, drying, and handling follow a disciplined workflow built for repeatability and consistency.",
+    title: "Quality Testing",
+    description: "Every batch undergoes rigorous quality testing to ensure consistency, purity, and effectiveness before dispatch.",
   },
   {
     step: "04",
-    title: "Packing & Dispatch",
-    description: "Finished goods are prepared for warehouse movement, partner pickup, or onward distribution support.",
+    title: "Timely Delivery",
+    description: "Finished goods are carefully packed and dispatched with reliable logistics support for on-time delivery across India.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Sanjay Shah",
+    title: "Director, Green Leaf Agri Inputs",
+    quote: "Working with J K Fertilizers has been a game-changer for our business. Their high-quality, organic products have boosted our crop yields and improved soil health. We value their commitment to sustainability and look forward to continued collaboration.",
+  },
+  {
+    name: "Ms. Kavita Naik",
+    title: "General Agriculture Crop Consultant",
+    quote: "J K Fertilizers consistently delivers excellent products and services. Their organic solutions have significantly enhanced our farming operations, helping us achieve healthier crops and better soil quality.",
+  },
+  {
+    name: "Mr. S Suresh",
+    title: "Director, Bay Leaf Agro Products",
+    quote: "We've seen remarkable improvements in crop quality and sustainability thanks to J K Fertilizers. Their innovative, eco-friendly solutions align perfectly with our business goals. Their reliable support makes them an indispensable partner.",
   },
 ];
 
 const images = {
-  hero: "/images/hero.jpg",
-  factory: "/images/factory.jpg",
-  granules: "/images/granules.jpg",
-  lab: "/images/lab.jpg",
-  customizedGranules: "/images/customized-granules.jpg",
+  hero: "/images/services/hero.jpg",
+  commitment: "/images/services/manufacturing.jpg",
 };
 
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
@@ -69,21 +84,21 @@ export const ServicesPage = () => {
   return (
   <>
     <SEOHead
-      title="B2B Fertilizer Manufacturing Services — Custom Formulation, Contract Mfg, Gujarat"
-      description="Adit Biorganic offers 7 B2B fertilizer manufacturing services: organic granule production (190+ MT/day), custom formulation, job work/contract manufacturing, coating services, ISO lab testing, private label packaging & warehouse facilities. Anand, Gujarat, India."
+      title="Services — J K Fertilizers | Organic Fertilizer Manufacturing, Coated Granules & More | Gujarat"
+      description="J K Fertilizers offers comprehensive services: organic fertilizer manufacturing, granule technology, infrastructure leasing, custom packaging, job work, and warehouse facilities. Anand, Gujarat, India."
       canonical="/services"
-      ogImage="/images/service-bg-1.jpg"
-      keywords="fertilizer contract manufacturing india, custom fertilizer formulation gujarat, b2b fertilizer manufacturing services, job work fertilizer manufacturer, private label fertilizer india, fertilizer coating services, granule manufacturing services gujarat"
+      ogImage="/images/about-1.jpg"
+      keywords="organic fertilizer manufacturing services, granule technology, infrastructure leasing fertilizer, custom packaging agriculture, job work fertilizer manufacturer, warehouse storage gujarat"
       schema={[organizationSchema, servicesSchema]}
     />
     {/* ── Hero ── */}
     <PageHero
-      eyebrow="Our Services"
-      title="What Services Do We Provide?"
-      description="Comprehensive, end-to-end B2B manufacturing solutions — from custom recipe formulation and granule production to precision coating, quality testing, packaging, and warehousing."
-      imageSrc={images.lab}
-      imageAlt="Adit Biorganic laboratory and testing operations"
-      badges={["Contract Manufacturing", "ISO 9001:2015 Certified", "190+ MT/Day"]}
+      eyebrow="Services We Provide"
+      title="Our Services"
+      description="At J K Fertilizers, we are dedicated to ensuring the best quality products and services for our clients. Our offerings are designed to enhance agricultural productivity, maintain environmental sustainability, and cater to diverse industrial requirements."
+      imageSrc={images.hero}
+      imageAlt="J K Fertilizers services"
+      badges={["Organic Manufacturing", "Granule Technology", "Since 2006"]}
       primaryCta={
         <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
           <Link to="/contact">Discuss a requirement</Link>
@@ -96,39 +111,37 @@ export const ServicesPage = () => {
       }
     />
 
-    {/* ── Core Manufacturing Feature — big split section ── */}
+    {/* ── Our Commitment To Quality ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div 
+      <div
         ref={coreReveal.ref}
         className={`grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${coreReveal.isVisible ? 'visible' : ''}`}
       >
-        {/* Left: real image */}
         <div className="relative overflow-hidden rounded-4xl border border-border shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
           <img
-            src={images.customizedGranules}
-            alt="Advanced Custom Granule Manufacturing — Adit Biorganic"
+            src={images.commitment}
+            alt="J K Fertilizers — Our Commitment To Quality"
             className="h-full w-full object-cover"
             style={{ minHeight: "480px" }}
           />
           <div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent" />
           <div className="absolute bottom-5 left-5 right-5">
             <div className="rounded-3xl border border-white/25 bg-white/10 p-5 backdrop-blur-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">Our core expertise</p>
-              <p className="mt-1 font-heading text-lg font-semibold text-white">Custom "Recipe" Granule Manufacturing</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">Our Commitment To Quality</p>
+              <p className="mt-1 font-heading text-lg font-semibold text-white">We Always Bring The Best Products For Our Customers</p>
             </div>
           </div>
         </div>
 
-        {/* Right: content */}
         <div className="space-y-7">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            Our Core Manufacturing Service
+            Our Commitment To Quality
           </div>
           <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Advanced Custom Granule Manufacturing
+            We Always Bring The Best Products For Our Customers
           </h2>
           <p className="text-base leading-8 text-muted-foreground sm:text-lg">
-            We are specialists in manufacturing high-quality organic and mineral base granules. We move beyond standard bentonite to create custom <strong className="text-foreground">"Recipe Granules"</strong> from materials like Gypsum, Dolomite, and more — perfectly tailored to your specific nutrient and coating needs.
+            At J K Fertilizers, we are dedicated to ensuring the best quality products and services for our clients. Our offerings are designed to enhance agricultural productivity, maintain environmental sustainability, and cater to diverse industrial requirements.
           </p>
           <div className="space-y-3">
             {coreFeatures.map((f) => (
@@ -139,8 +152,8 @@ export const ServicesPage = () => {
             ))}
           </div>
           <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
-            <Link to="/products">
-              View Products
+            <Link to="/contact">
+              Contact Us
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -148,9 +161,9 @@ export const ServicesPage = () => {
       </div>
     </section>
 
-    {/* ── "One Stop Solutions" label + all 7 service cards ── */}
+    {/* ── All service cards ── */}
     <section className="bg-muted py-20 lg:py-28 section-wave">
-      <div 
+      <div
         ref={listReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${listReveal.isVisible ? 'visible' : ''}`}
       >
@@ -159,11 +172,8 @@ export const ServicesPage = () => {
             What Is Our Expertise?
           </div>
           <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            "One Stop Solutions"
+            Delivering sustainable, eco-friendly solutions to meet your agricultural and operational needs.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-            From granulation to dispatch, every step of your fertilizer manufacturing journey is handled under one roof.
-          </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
@@ -185,7 +195,7 @@ export const ServicesPage = () => {
           Our Operating Process
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-          A simple, transparent flow — from your first requirement to final dispatch.
+          A simple, transparent flow — from your first requirement to final delivery.
         </p>
       </div>
       <div className={`grid gap-6 md:grid-cols-2 lg:grid-cols-4 reveal-scale ${processReveal.isVisible ? 'visible' : ''}`}>
@@ -195,7 +205,6 @@ export const ServicesPage = () => {
             {...staggerDelay(i, 100)}
             className="group relative overflow-hidden rounded-[28px] border border-border bg-surface-card p-7 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
           >
-            {/* Large faded step number in background */}
             <p className="absolute -right-2 -top-4 font-heading text-8xl font-bold text-primary/5 select-none">
               {step.step}
             </p>
@@ -211,18 +220,51 @@ export const ServicesPage = () => {
       </div>
     </section>
 
+    {/* ── Testimonials ── */}
+    <section className="bg-muted py-20 lg:py-28 section-wave">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+            <Quote className="h-3 w-3 mr-2" />
+            Testimonials
+          </div>
+          <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            What Customers Says?
+          </h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <div key={t.name} className="flex flex-col rounded-[28px] border border-border bg-surface-card p-6 shadow-[0_12px_40px_rgba(22,61,38,0.06)] sm:p-8">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, s) => (
+                  <Star key={s} className="h-4 w-4 fill-accent text-accent" />
+                ))}
+              </div>
+              <p className="flex-1 type-body-sm italic text-muted-foreground leading-7">
+                "{t.quote}"
+              </p>
+              <div className="mt-6 border-t border-border pt-4">
+                <p className="font-heading text-sm font-bold text-foreground">{t.name}</p>
+                <p className="text-xs text-muted-foreground">{t.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* ── Infrastructure highlight band ── */}
     <section className="bg-secondary py-16 lg:py-20">
-      <div 
+      <div
         ref={statsReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { value: "190+ MT", label: "Daily Production Capacity" },
-            { value: "24/7", label: "Round-the-Clock Operations" },
-            { value: "ISO", label: "9001:2015 Certified Lab" },
-            { value: "7+", label: "End-to-End Services" },
+            { value: "150+", label: "Trusted Clients" },
+            { value: "15+", label: "Years of Experience" },
+            { value: "10000+", label: "Tons of Products" },
+            { value: "6+", label: "Service Offerings" },
           ].map((stat, i) => (
             <div key={stat.label} className="group text-center" {...staggerDelay(i, 100)}>
               <p className="font-heading text-5xl font-bold text-white">{stat.value}</p>
@@ -234,9 +276,34 @@ export const ServicesPage = () => {
       </div>
     </section>
 
+    {/* ── Newsletter ── */}
+    <section className="bg-secondary py-20 lg:py-28">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+          Stay Updated
+        </div>
+        <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          Sign Up To Our Newsletter
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+          Subscribe to our Newsletter to be updated about our latest products and offers.
+        </p>
+        <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="h-12 flex-1 rounded-full border border-white/20 bg-white/10 px-6 text-sm text-white placeholder:text-white/50 focus:border-white/40 focus:outline-none"
+          />
+          <Button type="submit" className="h-12 rounded-full bg-accent px-8 font-semibold text-secondary hover:bg-accent/80">
+            Subscribe
+          </Button>
+        </form>
+      </div>
+    </section>
+
     {/* ── Contact CTA + Form ── */}
     <section className="bg-muted py-20 lg:py-28 section-wave">
-      <div 
+      <div
         ref={contactReveal.ref}
         className={`mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-start reveal ${contactReveal.isVisible ? 'visible' : ''}`}
       >
@@ -250,7 +317,6 @@ export const ServicesPage = () => {
           <p className="text-base leading-8 text-muted-foreground sm:text-lg">
             We will reply within 24 hours via email. Share your requirement and our team will follow up with the right commercial or technical conversation.
           </p>
-          {/* Contact info cards */}
           <div className="grid gap-4">
             <a
               href={`tel:${company.phoneRaw}`}

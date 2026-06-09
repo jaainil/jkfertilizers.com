@@ -6,63 +6,62 @@ import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, aboutPageSchema } from "@/data/seoSchemas";
 
 const company = {
-  name: "Adit Biorganic",
-  tagline: "Organic Naturally",
-  subTagline: "Nurturing Farms, Preserving Nature",
-  missionTagline: "EVERY CROP COUNTS. EVERY FARMER MATTERS.",
-  legalTagline: "India's Leading B2B Fertilizer Manufacturer - ISO 9001:2015 Certified",
-  heroTitle: "The Future of Sustainable Agriculture",
+  name: "J K Fertilizers",
+  tagline: "Organic, Naturally",
+  subTagline: "Manufacturers of Organic Fertilizers",
+  missionTagline: "Empowering Farmers, Enriching Communities",
+  legalTagline: "Leading Manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules",
+  heroTitle: "Better Agriculture for Better Future",
   heroSubtitle:
-    "As pioneers in organic fertilizers, we provide nutrient-rich, sustainable solutions to enhance your crop yield and protect the land for generations to come.",
-  aboutIntro: "Leading manufacturer of premium organic fertilizer granules",
-  aboutDetails: "At Adit Biorganic, we are dedicated to sustainability by providing the agriculture industry with efficient and effective organic granular fertilizer solutions. As a leading ISO 9001:2015 certified manufacturer, we specialize in high-quality, customized nutrient base and coating granules. We partner with companies across India to produce the innovative, eco-friendly products that enhance soil health and maximize crop yield.",
-  mission: "Our mission is to empower farmers and fertilizer brands with high-quality organic solutions that enhance soil health, improve crop yield, and promote environmental sustainability. We strive to be at the forefront of agricultural innovation, making a positive impact on the planet.",
-  chairmanMessage: "I am proud to lead a team that is committed to excellence in organic agriculture. Our mission is not just about business but about contributing positively to the environment. With our innovative products and dedicated team, we aim to create a sustainable future for agriculture.",
-  philosophy: "Quality You Can Trust, Results You Can See - Every product is manufactured using state-of-the-art technology under ISO 9001:2015 certified processes.",
-  phoneDisplay: "+91 98250 45894",
+    "Pioneering sustainable agriculture since 2006 with eco-friendly, mineral-coated granules and soil conditioners.",
+  aboutDetails: "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond. As a leader in organic fertilizer innovation, we specialize in producing eco-friendly, mineral-coated granules and soil conditioners that enhance soil health and improve crop yield.",
+  mission: "To sustainably advance agricultural productivity and soil health through innovative, eco-friendly fertilizer solutions.",
+  chairmanMessage: "Founded in 2006, J K Fertilizers has consistently grown through strategic investments in infrastructure and expansion of production capacity, with a focus on organic fertilizers and a commitment to sustainable agricultural practices.",
+  philosophy: "Quality You Can Trust, Results You Can See - Every product is manufactured using state-of-the-art technology.",
+  phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
-  emails: ["info@aditbiorganic.com", "sales@aditbiorganic.com"],
-  address: "S. No. 1152, Kanatalavdi Road, Adas, Anand, Gujarat - 388305",
-  founder: "Akash Dadhania",
+  emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat",
+  founder: "Mr. Akash Dadhania",
   founderTitle: "Founder & Director",
 };
 
 const images = {
-  hero: "/images/hero.jpg",
-  factory: "/images/factory.jpg",
-  granules: "/images/granules.jpg",
-  soil: "/images/soil.jpg",
-  lab: "/images/lab.jpg",
-  partnership: "/images/partnership.jpg",
+  hero: "/images/about-1.jpg",
+  factory: "/images/about-2.jpg",
+  granules: "/images/about-3.jpg",
+  soil: "/images/about-4.jpg",
+  lab: "/images/about-5.jpg",
+  partnership: "/images/about-5.jpg",
 };
 
 const stats = [
-  { value: "190+", unit: "MT", label: "Daily Production Capacity" },
-  { value: "50+", unit: "", label: "Trusted B2B Partners" },
-  { value: "10+", unit: "Yrs", label: "Industry Experience" },
-  { value: "24/7", unit: "", label: "Operations" },
+  { value: "150", unit: "+", label: "Trusted Clients" },
+  { value: "15", unit: "+", label: "Years of Experience" },
+  { value: "10000", unit: "+", label: "Tons of Products" },
+  { value: "75", unit: "+", label: "Happy Clients" },
 ];
 
 const milestones = [
   {
-    year: "Est.",
-    title: "Company Founded",
-    desc: "Adit Biorganic was established with a bold mission — to pioneer sustainable organic granular fertilizer manufacturing in Gujarat.",
+    year: "2006",
+    title: "The Beginning of a Vision",
+    desc: "Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers commenced operations with its first organic manure plant. This humble beginning laid the foundation for a pioneering legacy in sustainable agriculture.",
   },
   {
-    year: "ISO",
-    title: "ISO 9001:2015 Certified",
-    desc: "Achieved ISO 9001:2015 certification for our in-house laboratory, setting the gold standard for quality assurance in every batch.",
+    year: "2010",
+    title: "Expanding Production Capacity",
+    desc: "Between 2010 and 2012, the company added a 400 MT granulation plant and a 200 MT powder plant, significantly increasing its production capabilities. In 2010, we established a 100 MT granule production unit, marking our transformation into a large-scale manufacturer.",
   },
   {
-    year: "190+",
-    title: "MT/Day Capacity",
-    desc: "Scaled our manufacturing to 190+ MT per day with 24/7 operations — making us one of India's highest-capacity organic granule producers.",
+    year: "2012",
+    title: "Adding a Granulation Plant",
+    desc: "Continuing our growth, we introduced a state-of-the-art 400 MT granulation plant in 2012. This advancement further strengthened our production capabilities, enabling us to cater to an expanding customer base effectively.",
   },
   {
-    year: "50+",
-    title: "B2B Partnerships",
-    desc: "Earned the trust of 50+ leading agricultural brands across India through consistent quality, volume, and customized formulations.",
+    year: "2018",
+    title: "Diversifying and Innovating",
+    desc: "In 2018, we set a new standard for excellence by adding multiple granule coating plants with capacities of 30, 60, and 100 MT, along with a 15,000-liter liquid plant. This marked our commitment to diversifying product offerings and enhancing production efficiency.",
   },
 ];
 
@@ -73,9 +72,9 @@ const expertiseItems = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21a48.25 48.25 0 01-8.135-.687c-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
       </svg>
     ),
-    title: "Custom Recipe Formulations",
-    value: "98%",
-    desc: "We manufacture unique mineral and organic 'Recipe Granules' tailored to your specific nutrient and coating requirements.",
+    title: "Organic Fertilizer Manufacturing",
+    value: "2006",
+    desc: "Pioneers in organic fertilizer manufacturing since 2006, specializing in eco-friendly mineral-coated granules and soil conditioners.",
   },
   {
     icon: (
@@ -83,9 +82,9 @@ const expertiseItems = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
-    title: "Guaranteed Quality Assurance",
-    value: "100%",
-    desc: "Our in-house, ISO 9001:2015 certified laboratory ensures every batch meets the highest standards for purity and consistency.",
+    title: "Trusted Quality & Reliability",
+    value: "150+",
+    desc: "Trusted by government, semi-government, PSU, and corporate clients since inception for consistent quality and reliable supply.",
   },
   {
     icon: (
@@ -93,9 +92,9 @@ const expertiseItems = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
       </svg>
     ),
-    title: "Environmentally Friendly",
+    title: "Sustainable Agriculture",
     value: "100%",
-    desc: "Our products are designed to enhance long-term soil health, support microbial life, and promote sustainable agriculture.",
+    desc: "Committed to eco-friendly, sustainable farming solutions that protect the environment and promote long-term soil health.",
   },
   {
     icon: (
@@ -103,38 +102,38 @@ const expertiseItems = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
       </svg>
     ),
-    title: "Reliable B2B Partnership",
-    value: "190+",
-    desc: "With 190+ MT/day capacity and 24/7 operations, we deliver cost-effective, high-volume manufacturing solutions on time.",
+    title: "Extensive Industry Experience",
+    value: "15+",
+    desc: "Over 15 years of manufacturing expertise with state-of-the-art granulation and coating facilities serving diverse agricultural sectors.",
   },
 ];
 
 const pillars = [
-  "Sustainable Inputs",
-  "Strict Quality Assurance",
-  "Custom Formulations",
-  "High-Volume Capacity",
-  "ISO 9001:2015 Certified",
-  "Eco-Friendly Production",
-  "24/7 Operations",
-  "B2B Trusted Partner",
+  "Organic Excellence",
+  "Sustainable Agriculture",
+  "FCO Approved Products",
+  "Trusted Quality",
+  "Eco-Friendly Solutions",
+  "Customer Centric",
+  "15+ Years Experience",
+  "Innovation in Fertilizers",
 ];
 
 const infrastructureItems = [
   {
     img: images.factory,
-    title: "State-of-the-Art Manufacturing Plant",
-    desc: "Our facility features advanced granulation, coating, drying, and packaging lines running 24/7 to meet the highest volumes without compromising quality.",
+    title: "Manufacturing Plant",
+    desc: "Our facility features advanced granulation, coating, drying, and packaging lines. We have multiple plants including a 400 MT granulation plant and coating plants with capacities of 30, 60, and 100 MT.",
   },
   {
     img: images.lab,
-    title: "In-House ISO-Certified Laboratory",
-    desc: "Every batch is tested in our on-site laboratory accredited under ISO 9001:2015, ensuring purity, consistency, and compliance before dispatch.",
+    title: "Quality Assurance",
+    desc: "Every batch is tested for quality and consistency before dispatch. Our commitment to quality has made us a trusted partner for government, semi-government, PSU, and corporate clients.",
   },
   {
     img: images.granules,
-    title: "Precision Granulation Technology",
-    desc: "Our granulation technology produces uniform, dust-free granules in custom sizes and formulations — the foundation for superior fertilizer products.",
+    title: "Precision Manufacturing",
+    desc: "Our granulation technology produces uniform, high-quality granules in custom formulations. Specializing in organic manure, PDM, PROM, mycorrhiza-coated granules, and more.",
   },
 ];
 
@@ -153,21 +152,21 @@ export const AboutPage = () => {
   return (
   <>
     <SEOHead
-      title="About Us — ISO Certified Organic Fertilizer Manufacturer, Anand Gujarat"
-      description="Learn about Adit Biorganic — India's leading ISO 9001:2015 certified B2B organic fertilizer granule manufacturer. Founded by Akash Dadhania in Anand, Gujarat. 190+ MT/day, 50+ B2B partners, 10+ years experience."
+      title="About Us — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006 | Anand, Gujarat"
+      description="Learn about J K Fertilizers — India's trusted organic fertilizer manufacturer since 2006. Founded by Mr. Akash Dadhania in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, and coated granules."
       canonical="/about"
-      ogImage="/images/factory.jpg"
-      keywords="about adit biorganic, organic fertilizer manufacturer gujarat, ISO 9001 fertilizer manufacturer india, fertilizer company anand gujarat, Akash Dadhania, b2b fertilizer manufacturer gujarat"
+      ogImage="/images/about-1.jpg"
+      keywords="about J K Fertilizers, organic fertilizer manufacturer gujarat, fertilizer company anand gujarat, Akash Dadhania, J K Fertilizers history, fertilizer manufacturer since 2006"
       schema={[organizationSchema, aboutPageSchema]}
     />
     {/* ── Hero ── */}
     <PageHero
-      eyebrow="About us"
-      title="Pioneers in Sustainable Agriculture Manufacturing"
-      description="We are dedicated to manufacturing superior organic fertilizers that empower our B2B partners and preserve the environment."
-      imageSrc={images.factory}
-      imageAlt="Adit Biorganic factory and operations"
-      badges={["ISO 9001:2015 Certified", "190+ MT/Day Capacity", "Anand, Gujarat"]}
+      eyebrow="About Us"
+      title="Delivering Premium Organic Solutions for Thriving Agriculture"
+      description="J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond."
+      imageSrc={images.hero}
+      imageAlt="J K Fertilizers facility"
+      badges={["Since 2006", "FCO Approved", "Anand, Gujarat"]}
       primaryCta={
         <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
           <Link to="/contact">Talk to our team</Link>
@@ -175,14 +174,14 @@ export const AboutPage = () => {
       }
       secondaryCta={
         <Button asChild variant="outline" className="h-12 rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
-          <Link to="/products">Review products</Link>
+          <Link to="/products">View our products</Link>
         </Button>
       }
     />
 
     {/* ── Stats Banner ── */}
     <section className="bg-secondary py-14 lg:py-16">
-      <div 
+      <div
         ref={statsReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
       >
@@ -203,25 +202,25 @@ export const AboutPage = () => {
 
     {/* ── Welcome / Who We Are ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div 
+      <div
         ref={welcomeReveal.ref}
         className={`grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center reveal ${welcomeReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-7">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            Welcome to Adit Biorganic
+            Welcome to J K Fertilizers
           </div>
           <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Advanced Custom Fertilizer Manufacturing
+            We have Over 15 Years of Expertise in Sustainable Agriculture
           </h2>
           <p className="text-base leading-8 text-muted-foreground sm:text-lg">
-            Adit Biorganic is an <strong className="text-foreground">ISO 9001:2015 certified</strong> company and a pioneer in sustainable agriculture. We specialize in manufacturing high-quality, customized nutrient base and coating granular fertilizers — and we are a trusted B2B partner for leading agricultural companies across India.
+            J K Fertilizers, headquartered in Gujarat, India, began its journey in <strong className="text-foreground">2006</strong>. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond. As a leader in organic fertilizer innovation, we specialize in producing eco-friendly, mineral-coated granules and soil conditioners that enhance soil health and improve crop yield.
           </p>
           <p className="text-base leading-8 text-muted-foreground sm:text-lg">
-            With over a decade of experience, our state-of-the-art facilities and 24/7 operations can produce over <strong className="text-foreground">190 MT per day</strong>. Our mission is to empower farmers and support our partners by providing innovative, eco-friendly solutions that enhance soil health and promote environmental sustainability.
+            Through ongoing research and development, we aim to empower growers with effective, environmentally sound solutions that support both productivity and sustainability.
           </p>
           <div className="flex flex-wrap gap-3 pt-1">
-            {["ISO 9001:2015", "190+ MT/Day", "10+ Years", "Anand, Gujarat"].map((tag) => (
+            {["Since 2006", "150+ Trusted Clients", "15+ Years", "Anand, Gujarat"].map((tag) => (
               <span key={tag} className="rounded-full border border-border bg-muted px-4 py-1.5 text-sm font-medium text-primary">
                 {tag}
               </span>
@@ -230,14 +229,14 @@ export const AboutPage = () => {
         </div>
         <ImagePanel
           src={images.soil}
-          alt="Hands holding healthy soil — the foundation of everything we make"
+          alt="J K Fertilizers — sustainable agriculture"
           testId="about-welcome-image-panel"
           className="aspect-[4/4.7] min-h-[360px]"
           overlay={
             <div className="rounded-[24px] border border-white/30 bg-surface-overlay/94 p-5 shadow-[0_16px_50px_rgba(15,23,42,0.12)]">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Our philosophy</p>
               <p className="mt-3 font-accent text-xl leading-8 text-primary">
-                "Quality You Can Trust, Results You Can See."
+                "Delivering Premium Organic Solutions for Thriving Agriculture"
               </p>
             </div>
           }
@@ -247,16 +246,16 @@ export const AboutPage = () => {
 
     {/* ── Mission + Chairman ── */}
     <section className="bg-muted py-20 lg:py-28 section-wave">
-      <div 
+      <div
         ref={missionReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${missionReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-12 text-center">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            Our Purpose
+            Important Historical Milestones
           </div>
           <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Mission & Leadership
+            Our History
           </h2>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
@@ -268,16 +267,16 @@ export const AboutPage = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                 </svg>
               </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Our Mission</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Mission Statement</p>
               <h3 className="mt-4 font-heading text-xl font-semibold leading-8 text-foreground">
-                Empowering farmers. Preserving the planet.
+                To sustainably advance agricultural productivity and soil health.
               </h3>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
                 {company.mission}
               </p>
             </div>
             <div className="mt-8 border-t border-border pt-6">
-              <p className="text-sm font-medium text-primary">ISO 9001:2015 Certified · Anand, Gujarat</p>
+              <p className="text-sm font-medium text-primary">Since 2006 · Anand, Gujarat</p>
             </div>
           </article>
 
@@ -291,9 +290,9 @@ export const AboutPage = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
               </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">A Message from Our Chairman</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">The Beginning of a Vision</p>
               <p className="mt-5 font-accent text-xl leading-9 text-white">
-                "{company.chairmanMessage}"
+                "Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers has consistently grown through strategic investments in infrastructure and expansion of production capacity, with a focus on organic fertilizers and a commitment to sustainable agricultural practices."
               </p>
               <div className="mt-8 flex items-center gap-4 border-t border-white/15 pt-6">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg font-bold text-white">
@@ -301,7 +300,7 @@ export const AboutPage = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-white">{company.founder}</p>
-                  <p className="text-sm text-white/65">{company.founderTitle}, Adit Biorganic</p>
+                  <p className="text-sm text-white/65">{company.founderTitle}, J K Fertilizers</p>
                 </div>
               </div>
             </div>
@@ -312,7 +311,7 @@ export const AboutPage = () => {
 
     {/* ── Manufacturing Expertise ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div 
+      <div
         ref={expertiseReveal.ref}
         className={`mb-14 text-center reveal ${expertiseReveal.isVisible ? 'visible' : ''}`}
       >
@@ -323,7 +322,7 @@ export const AboutPage = () => {
           Committed to Manufacturing the Best
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
-          We combine over a decade of experience with state-of-the-art technology to be the most trusted B2B partner in India.
+          With over 15 years of experience, we combine traditional expertise with modern technology to deliver premium organic fertilizer solutions.
         </p>
       </div>
       <div className={`grid gap-6 md:grid-cols-2 lg:grid-cols-4 reveal-scale ${expertiseReveal.isVisible ? 'visible' : ''}`}>
@@ -368,7 +367,7 @@ export const AboutPage = () => {
 
     {/* ── History / Timeline ── */}
     <section className="bg-muted py-20 lg:py-28 section-wave">
-      <div 
+      <div
         ref={historyReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${historyReveal.isVisible ? 'visible' : ''}`}
       >
@@ -380,21 +379,19 @@ export const AboutPage = () => {
                 Our History
               </div>
               <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-                Key Milestones in Our Manufacturing Journey
+                Important Historical Milestones
               </h2>
               <p className="text-base leading-8 text-muted-foreground">
-                For over a decade, Adit Biorganic has been a leader in agricultural innovation. We began with a mission to revolutionize sustainable farming. Today, we are one of India's most trusted B2B partners for high-quality, customized organic granular fertilizers.
+                Since 2006, J K Fertilizers has been a leader in agricultural innovation. We began with a mission to revolutionize sustainable farming. Today, we are one of India's most trusted manufacturers of high-quality organic fertilizers and coated granules.
               </p>
             </div>
             {/* Timeline */}
             <div className="relative space-y-0">
               {milestones.map((m, i) => (
                 <div key={m.title} className="relative flex items-start gap-4 sm:gap-6 pb-12 last:pb-0 group">
-                  {/* Vertical connecting line */}
                   {i !== milestones.length - 1 && (
                     <div className="absolute left-[11px] top-[26px] bottom-[-8px] w-0.5 bg-primary/20" />
                   )}
-                  {/* Circle */}
                   <div className="relative mt-[2px] shrink-0 flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-muted shadow-sm z-10 transition-transform duration-300 group-hover:scale-110">
                     <div className="h-2 w-2 rounded-full bg-primary" />
                   </div>
@@ -414,13 +411,13 @@ export const AboutPage = () => {
           {/* Right: factory image */}
           <ImagePanel
             src={images.factory}
-            alt="Adit Biorganic manufacturing facility — a decade of growth"
+            alt="J K Fertilizers manufacturing facility — over 15 years of growth"
             testId="about-history-image-panel"
             className="aspect-4/5 min-h-[400px] lg:sticky lg:top-24"
             overlay={
               <div className="rounded-[24px] border border-white/30 bg-secondary/90 p-5 shadow-[0_16px_50px_rgba(15,23,42,0.18)]">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">Where we operate</p>
-                <p className="mt-2 font-heading text-base font-semibold text-white">Anand, Gujarat — India</p>
+                <p className="mt-2 font-heading text-base font-semibold text-white">Vasad, Anand — Gujarat, India</p>
                 <p className="mt-1 text-sm text-white/65">{company.address}</p>
               </div>
             }
@@ -431,18 +428,18 @@ export const AboutPage = () => {
 
     {/* ── Infrastructure ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div 
+      <div
         ref={infraReveal.ref}
         className={`mb-14 text-center reveal ${infraReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-          Our Advanced Infrastructure
+          Our Infrastructure
         </div>
         <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          Built for Scale. Built for Quality.
+          Built for Quality. Built for Scale.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-          From state-of-the-art granulation lines to our in-house ISO-certified lab and spacious warehouses — every corner of our facility is engineered for excellence.
+          From our initial organic manure plant to advanced granulation and coating facilities — every expansion has been driven by our commitment to excellence.
         </p>
       </div>
       <div className={`grid gap-8 md:grid-cols-3 reveal-scale ${infraReveal.isVisible ? 'visible' : ''}`}>
@@ -468,7 +465,7 @@ export const AboutPage = () => {
 
     {/* ── Team + Products + Partnership ── */}
     <section className="bg-muted py-20 lg:py-28 section-wave">
-      <div 
+      <div
         ref={teamReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${teamReveal.isVisible ? 'visible' : ''}`}
       >
@@ -477,31 +474,31 @@ export const AboutPage = () => {
             What Makes Us Different
           </div>
           <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            People, Products & Partnerships
+            Trusted By Clients, Driven by Quality
           </h2>
         </div>
         <div className="grid gap-6 lg:grid-cols-3">
           {[
             {
               img: images.partnership,
-              title: "Our Expert Team",
-              badge: "People",
-              desc: "Our team comprises dedicated professionals with a shared passion for sustainable agriculture — from skilled technicians to agricultural experts — all working to deliver top-notch organic fertilizers.",
-              cta: { label: "Join us", href: "/contact" },
+              title: "Trusted By Government & Corporate",
+              badge: "Trusted",
+              desc: "We have been a trusted manufacturer for government, semi-government, PSU, and corporate clients since inception. Our commitment to quality and reliability has earned us their confidence.",
+              cta: { label: "Our clients", href: "/portfolio" },
             },
             {
               img: images.granules,
               title: "Our Products",
               badge: "Products",
-              desc: "A wide range of organic and mineral-based granular fertilizers including Mineral Base, Bio-Fertilizer, Bio-Stimulant, Micro-Nutrient, and Pesticide Base Granules — all custom-formulated.",
+              desc: "A wide range of organic fertilizers including Organic Manure, PDM, PROM, Mycorrhiza Granules, Coated Granules, Base Granules, and specialty products — all FCO approved.",
               cta: { label: "View products", href: "/products" },
             },
             {
               img: images.lab,
-              title: "B2B Partnerships",
-              badge: "Partnerships",
-              desc: "With a 190+ MT/day capacity, ISO-certified quality, and decades of manufacturing discipline, we are the trusted B2B backbone for leading fertilizer brands across India.",
-              cta: { label: "Partner with us", href: "/contact" },
+              title: "Sustainable Agricultural Solutions",
+              badge: "Sustainability",
+              desc: "With over 15 years of experience and state-of-the-art facilities, we deliver sustainable, eco-friendly solutions that enhance soil health and promote environmental well-being.",
+              cta: { label: "Learn more", href: "/services" },
             },
           ].map((item) => (
             <div
@@ -535,26 +532,26 @@ export const AboutPage = () => {
 
     {/* ── Quality Commitment Banner ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div 
+      <div
         ref={qualityReveal.ref}
         className={`grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${qualityReveal.isVisible ? 'visible' : ''}`}
       >
         <ImagePanel
           src={images.granules}
-          alt="Premium organic granular fertilizer granules — our core product"
+          alt="Premium organic fertilizer products"
           testId="about-granules-image-panel"
           className="aspect-4/4.5 min-h-[360px]"
           overlay={
             <div className="rounded-[24px] border border-white/30 bg-primary/90 p-5 shadow-[0_16px_50px_rgba(15,23,42,0.18)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">Production capacity</p>
-              <p className="mt-2 font-heading text-3xl font-bold text-white">190+ MT/Day</p>
-              <p className="mt-1 text-sm text-white/70">24/7 operations · 10+ years</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">Experience</p>
+              <p className="mt-2 font-heading text-3xl font-bold text-white">15+ Years</p>
+              <p className="mt-1 text-sm text-white/70">Trusted by 150+ clients · Since 2006</p>
             </div>
           }
         />
         <div className="space-y-7">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            100+ Organic Products
+            100% Organic Products
           </div>
           <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Committed to Quality & Sustainability
@@ -564,10 +561,10 @@ export const AboutPage = () => {
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              { title: "Sustainable Inputs", desc: "Eco-friendly raw materials that protect soil health" },
-              { title: "Strict Quality Assurance", desc: "ISO certified testing for every batch produced" },
-              { title: "Custom Formulations", desc: "Tailored nutrient solutions for your specific needs" },
-              { title: "High-Volume Capacity", desc: "190+ MT/day to meet even the largest orders" },
+              { title: "No Chemicals Used", desc: "100% organic products free from harmful chemicals" },
+              { title: "Sustainable Practices", desc: "Eco-friendly manufacturing that protects the environment" },
+              { title: "Customer Centric", desc: "Tailored solutions for every farmer's unique needs" },
+              { title: "Innovation Driven", desc: "Continuous R&D for better, sustainable products" },
             ].map((item) => (
               <div key={item.title} className="flex gap-3 rounded-[20px] border border-border bg-surface-card p-4">
                 <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent/20">
@@ -593,7 +590,7 @@ export const AboutPage = () => {
           Let's Cooperate Together
         </div>
         <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Ready to Partner with India's Most Trusted Fertilizer Manufacturer?
+          Ready to Partner with India's Trusted Fertilizer Manufacturer?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
           Contact us today. We will reply within 24 hours via email. Let's build a sustainable agricultural future together.
