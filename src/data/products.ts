@@ -32,7 +32,7 @@ export const products: Product[] = [
   {
     slug: "organic-manure",
     title: "Organic Manure",
-    imageUrl: "/images/products/organic-manure.png",
+    imageUrl: "/images/products/organic-manure.jpg",
     summary:
       "Certified, government-approved organic fertilizer under FCO. Natural, eco-friendly fertilizer crafted from nutrient-rich organic materials to enhance soil health and boost crop growth sustainably.",
     fit: ["FCO Approved", "Soil Health", "Sustainable Farming"],
@@ -74,14 +74,14 @@ export const products: Product[] = [
   {
     slug: "pdm",
     title: "PDM",
-    imageUrl: "/images/products/pdm.png",
+    imageUrl: "/images/products/pdm.jpg",
     summary:
       "PDM (Potash Derived from Molasses) is a certified FCO-approved, eco-friendly organic source of potash that enhances plant health, disease resistance, and crop yields.",
     fit: ["FCO Approved", "Potash Source", "Disease Resistance"],
     category: "Organic Fertilizers",
     tagline: "Organic potash for healthier, resilient crops.",
     description:
-      "PDM (Potash Derived from Molasses) is a certified, government-approved fertilizer under the Fertilizer Control Order (FCO), ensuring adherence to stringent quality and safety standards. Produced through a sustainable process, PDM is an eco-friendly, organic source of potash.\n\nThis premium fertilizer provides essential potassium to enhance plant health, improve disease resistance, and boost crop yields. PDM supports optimal root development, strengthens cell walls, and enhances water retention in plants, resulting in healthier, more resilient crops. Its slow-release nature ensures long-term soil fertility and consistent crop nutrition, making it ideal for both conventional and organic farming systems.",
+      "PDM (Potash Derived from Molasses) is a certified, government-approved fertilizer under the Fertilizer Control Order (FCO), ensuring adherence to stringent quality and safety standards. Produced through a sustainable process, PDM is an eco-friendly, organic source of potash.\n\nThis premium fertilizer provides essential potassium to enhance plant health, improve disease resistance, and boost crop yields. PDM supports optimal root development, strengthens cell walls, and enhances water retention in plants, resulting in healthier, more resilient crops. Its slow-release nature ensures long-term soil fertility and consistent crop nutrition, making it ideal for both conventional and organic farming systems. PDM is the perfect choice for farmers dedicated to sustainable agriculture and robust plant growth throughout the growing season.",
     howToApply: [
       {
         step: "01",
@@ -116,7 +116,7 @@ export const products: Product[] = [
   {
     slug: "prom",
     title: "PROM",
-    imageUrl: "/images/products/prom.png",
+    imageUrl: "/images/products/prom.jpg",
     summary:
       "PROM (Phosphate Rich Organic Manure) is a certified FCO-approved, eco-friendly phosphorus-rich organic fertilizer designed to enhance soil fertility and boost root development.",
     fit: ["FCO Approved", "Phosphorus Source", "Root Development"],
@@ -200,7 +200,7 @@ export const products: Product[] = [
   {
     slug: "customized-base-granules",
     title: "Customized Base Granules",
-    imageUrl: "/images/products/customized-base-granules.png",
+    imageUrl: "/images/products/base-granules.jpg",
     summary:
       "Tailored base granules manufactured to your exact specifications. Custom nutrient profiles using mineral and organic bases for diverse agricultural needs.",
     fit: ["Custom Formulation", "B2B Supply", "Multi-crop"],
@@ -242,7 +242,7 @@ export const products: Product[] = [
   {
     slug: "customized-coated-granules",
     title: "Customized Coated Granules",
-    imageUrl: "/images/products/customized-coated-granules.png",
+    imageUrl: "/images/products/customized-coated-granules.jpg",
     summary:
       "Precision-coated granules with active ingredients applied to base granules. Uniform coating for controlled release and enhanced field performance.",
     fit: ["Controlled Release", "Precision Coating", "Enhanced Performance"],
@@ -284,14 +284,14 @@ export const products: Product[] = [
   {
     slug: "coated-base-granules-bio-npk",
     title: "Coated Base Granules (BIO NPK)",
-    imageUrl: "/images/products/coated-base-granules-bio-npk.png",
+    imageUrl: "/images/products/coated-base-granules-bio-npk.jpg",
     summary:
       "Bio NPK coated granules that combine essential macro-nutrients with organic and biological actives for balanced crop nutrition and improved soil health.",
     fit: ["NPK Nutrition", "Bio Actives", "Balanced Growth"],
     category: "Coated Granules",
     tagline: "Balanced NPK nutrition with biological benefits.",
     description:
-      "Coated Base Granules (BIO NPK) combine essential nitrogen, phosphorus, and potassium with organic and biological active ingredients. These granules provide balanced macro-nutrient delivery while also supporting soil biological activity.\n\nThe BIO NPK coating enhances nutrient use efficiency, reduces environmental losses, and ensures that crops receive a steady supply of essential nutrients throughout their growth cycle.",
+      "Coated Base Granules (BIO NPK) offer a superior blend of nutrient-rich base granules coated with high-quality BIO NPK fertilizer. This advanced formulation enhances the release of essential nutrients—Nitrogen, Phosphorus, and Potassium—supporting robust plant growth, improving crop yield, and promoting soil fertility.\n\nWhether applied on Silica, Gypsum + Dolomite, or any other selected base granules, the BIO NPK coating ensures balanced and sustained nutrition for your crops. Customizable and eco-friendly, these granules provide an effective solution for farmers focused on enhancing crop productivity and sustainable farming practices.",
     howToApply: [
       {
         step: "01",
@@ -326,14 +326,14 @@ export const products: Product[] = [
   {
     slug: "coated-base-granules-mycorrhiza",
     title: "Coated Base Granules (Mycorrhiza)",
-    imageUrl: "/images/products/coated-base-granules-mycorrhiza.png",
+    imageUrl: "/images/products/coated-base-granules-mycorrhiza.jpg",
     summary:
       "Mycorrhiza-coated base granules that combine the benefits of beneficial fungi with a nutrient-rich carrier for enhanced root development and soil health.",
     fit: ["Mycorrhiza", "Root Health", "Sustainable"],
     category: "Coated Granules",
     tagline: "Mycorrhiza-powered granules for deeper roots.",
     description:
-      "Coated Base Granules (Mycorrhiza) combine the power of beneficial mycorrhizal fungi with a nutrient-rich base granule carrier. These granules provide an easy-to-use, farmer-friendly solution for enhancing root development and nutrient uptake.\n\nThe mycorrhiza coating ensures that beneficial fungi are delivered directly to the root zone, where they form symbiotic relationships with crops — extending root systems and improving access to water and nutrients.",
+      "Coated Base Granules (Mycorrhiza) combine the strength of nutrient-rich base granules with the exceptional benefits of high-quality mycorrhiza coating. This unique formulation enhances nutrient uptake, improves root health, and boosts plant resilience.\n\nWhether coated on using any mineral, or other selected base granules, the mycorrhiza layer fosters a symbiotic relationship between plants and beneficial fungi, leading to healthier crops and improved yields. Customizable and eco-friendly, these granules are perfect for farmers aiming for sustainable and high-performance agricultural solutions.",
     howToApply: [
       {
         step: "01",
@@ -368,7 +368,7 @@ export const products: Product[] = [
   {
     slug: "pancharatna-base-granules",
     title: "Pancharatna Base Granules",
-    imageUrl: "/images/products/pancharatna-base-granules.png",
+    imageUrl: "/images/products/pancharatna-base-granules.jpg",
     summary:
       "Premium multi-nutrient base granules enriched with five essential components for comprehensive soil health and crop nutrition.",
     fit: ["Multi-nutrient", "Premium", "All Crops"],
@@ -410,7 +410,7 @@ export const products: Product[] = [
   {
     slug: "organic-carbon-base-granules",
     title: "Organic Carbon Base Granules",
-    imageUrl: "/images/products/organic-carbon-base-granules.png",
+    imageUrl: "/images/products/organic-carbon-base-granules.jpg",
     summary:
       "Carbon-rich base granules that replenish soil organic matter, feed beneficial microbes, and improve soil structure and water holding capacity.",
     fit: ["Soil Carbon", "Microbial Health", "Soil Structure"],
@@ -452,7 +452,7 @@ export const products: Product[] = [
   {
     slug: "humic-based-granules",
     title: "Humic Based Granules",
-    imageUrl: "/images/products/humic-based-granules.png",
+    imageUrl: "/images/products/humic-based-granules.jpg",
     summary:
       "Humic acid enriched granules that improve nutrient uptake, stimulate root growth, and enhance soil microbial activity for better crop performance.",
     fit: ["Humic Acids", "Root Stimulation", "Nutrient Uptake"],
@@ -494,7 +494,7 @@ export const products: Product[] = [
   {
     slug: "enriched-base-granules",
     title: "Enriched Base Granules",
-    imageUrl: "/images/products/enriched-base-granules.png",
+    imageUrl: "/images/products/enriched-base-granules.jpg",
     summary:
       "Nutrient-enriched base granules fortified with additional micronutrients and organic actives for targeted crop nutrition and enhanced soil fertility.",
     fit: ["Nutrient Fortified", "Micronutrients", "Targeted Nutrition"],
@@ -536,7 +536,7 @@ export const products: Product[] = [
   {
     slug: "other-nutrients-base-granules",
     title: "Other Nutrients Base Granules",
-    imageUrl: "/images/products/other-nutrients-base-granules.png",
+    imageUrl: "/images/products/other-nutrients-base-granules.jpg",
     summary:
       "Specialty base granules formulated with specific secondary nutrients and trace elements for specialized crop nutrition requirements.",
     fit: ["Secondary Nutrients", "Specialty", "Custom"],
@@ -578,7 +578,7 @@ export const products: Product[] = [
   {
     slug: "base-granules",
     title: "Base Granules",
-    imageUrl: "/images/products/base-granules.png",
+    imageUrl: "/images/products/base-granules.jpg",
     summary:
       "High-quality multi-purpose base granules that serve as the foundation for various fertilizer formulations. Made from premium mineral and organic inputs.",
     fit: ["Multi-purpose", "Carrier", "Foundation"],
@@ -618,16 +618,16 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "diatomite-silicon",
-    title: "Diatomite Silicon",
-    imageUrl: "/images/products/diatomite-silicon.png",
+    slug: "plant-available-silica",
+    title: "Plant Available Silica",
+    imageUrl: "/images/products/plant-available-silica.jpg",
     summary:
-      "Natural diatomite-based silicon supplement that strengthens plant cell walls, improves stress tolerance, and enhances crop quality and yield.",
+      "A natural silicon supplement designed to deliver bioavailable silica to plants in a sustained, efficient release to strengthen plant cell walls, improve stress tolerance, and enhance crop quality and yield.",
     fit: ["Silicon Supplement", "Stress Tolerance", "Crop Quality"],
     category: "Mineral Supplement",
-    tagline: "Nature's silicon for stronger, healthier crops.",
+    tagline: "Bioavailable silica for stronger, stress-tolerant crops.",
     description:
-      "Diatomite Silicon is a natural silicon supplement derived from diatomaceous earth. Silicon is a beneficial element that strengthens plant cell walls, improves resistance to pests and diseases, and enhances tolerance to environmental stresses like drought and salinity.\n\nJ K Fertilizers' Diatomite Silicon granules provide a slow-release source of plant-available silicon, ensuring crops receive this valuable element throughout the growing season for improved quality and yield.",
+      "Plant Available Silica is formulated to deliver silica in a form that plants can efficiently absorb and utilize. It helps strengthen plant cell walls, which enhances structural integrity and boosts resilience against environmental stresses like drought, pests, and diseases.\n\nThe silica supports better root development, enhances photosynthesis, and improves nutrient absorption, leading to higher crop yields.",
     howToApply: [
       {
         step: "01",

@@ -129,16 +129,10 @@ const services = [
 
 const insightPosts = getAllBlogs().slice(0, 3);
 
-const productTickerProducts = [
-  { name: "Organic Manure", img: "/images/products/organic-manure.png" },
-  { name: "PDM", img: "/images/products/pdm.png" },
-  { name: "PROM", img: "/images/products/prom.png" },
-  { name: "Mycorrhiza Granules", img: "/images/products/mycorrhiza-granules.png" },
-  { name: "Base Granules", img: "/images/products/base-granules.png" },
-  { name: "Coated Granules", img: "/images/products/customized-coated-granules.png" },
-  { name: "Pancharatna Granules", img: "/images/products/pancharatna-base-granules.png" },
-  { name: "Diatomite Silicon", img: "/images/products/diatomite-silicon.png" },
-];
+const productTickerProducts = products.map((p) => ({
+  name: p.title,
+  img: p.imageUrl,
+}));
 
 const testimonials = [
   {
