@@ -29,6 +29,7 @@ export const company = {
 export const navigation = [
   { label: "Home", path: "/", tKey: "nav.home" },
   { label: "About Us", path: "/about", tKey: "nav.about" },
+  { label: "Our History", path: "/history", tKey: "nav.history" },
   { label: "Product", path: "/products", tKey: "nav.product" },
   { label: "Portfolio", path: "/portfolio", tKey: "nav.portfolio" },
   { label: "Our Services", path: "/services", tKey: "nav.services" },

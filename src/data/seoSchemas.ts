@@ -1176,3 +1176,25 @@ export const productsPageSchema: CollectionPage = {
     ],
   },
 };
+
+/* ─────────────────────────────────────────────
+   16. History Page Schema
+   ───────────────────────────────────────────── */
+export const historyPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}/history#historypage`,
+  url: `${SITE_URL}/history`,
+  name: "Our History — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006",
+  description:
+    "Explore the history and growth milestones of J K Fertilizers. From our organic manure plant in 2006 to a Daily Production Capacity of 700 MT in Vasad, Anand, Gujarat.",
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "en-IN",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Our History", item: `${SITE_URL}/history` },
+    ],
+  },
+};

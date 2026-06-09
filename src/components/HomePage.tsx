@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star } from "lucide-react";
+import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star, Play } from "lucide-react";
+import { toast } from "sonner";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { ImagePanel } from "@/components/ImagePanel";
@@ -42,10 +43,10 @@ const company = {
 };
 
 const heroStats = [
-  { value: "150", unit: "+", label: "Trusted Clients" },
+  { value: "100", unit: "+", label: "Agricultural Products" },
+  { value: "150", unit: "+", label: "Trust By Clients" },
   { value: "15", unit: "+", label: "Years of Experience" },
   { value: "10000", unit: "+", label: "Tons of Products" },
-  { value: "75", unit: "+", label: "Happy Clients" },
 ];
 
 const expertiseCards = [
@@ -197,21 +198,25 @@ const faqs = [
 
 const images = {
   hero: "/images/hero.jpg",
-  factory: "/images/factory.jpg",
+  factory: "/images/j-k-infra.jpg",
   granules: "/images/granules.jpg",
   soil: "/images/soil.jpg",
   lab: "/images/lab.jpg",
   partnership: "/images/partnership.jpg",
   facilityOverview: "/images/facility-overview.jpg",
-  biopestGranulesHero: "/images/bio-pesticide-granules-hero.jpg",
+  biopestGranulesHero: "/images/dsc00371.jpg",
+  whyChoose: "/images/dsc00161.jpg",
+  faq: "/images/dsc00514.jpg",
   productsOverview: "/images/products-overview.png",
 };
 
 const HomePage = () => {
   const heroReveal = useScrollReveal();
   const statsReveal = useScrollReveal();
+  const promoReveal = useScrollReveal();
   const facilityReveal = useScrollReveal();
   const section1Reveal = useScrollReveal();
+  const quoteReveal = useScrollReveal();
   const aboutReveal = useScrollReveal();
   const cardsReveal = useScrollReveal();
   const section2Reveal = useScrollReveal();
@@ -365,6 +370,85 @@ const HomePage = () => {
       </div>
     </section>
 
+    {/* ── Promo Cards Grid ── */}
+    <section
+      ref={promoReveal.ref}
+      className={`relative py-10 px-4 sm:px-6 lg:px-8 reveal ${promoReveal.isVisible ? 'visible' : ''}`}
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
+          {/* Card 1 */}
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all duration-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+              <Sprout className="h-6 w-6" />
+            </div>
+            <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
+              Innovative Solutions for Modern Agriculture
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Explore our innovative organic fertilizers designed for higher yields and healthier soils.
+            </p>
+            <div className="mt-6">
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
+              >
+                Read More
+                <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-accent/5 blur-2xl group-hover:bg-accent/10 transition-all duration-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white">
+              <Award className="h-6 w-6" />
+            </div>
+            <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
+              Quality You Can Rely On
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Our ISO-certified facility ensures every product is premium-grade and effective for all crops.
+            </p>
+            <div className="mt-6">
+              <Link
+                to="/commitment"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
+              >
+                Read More
+                <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all duration-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+              <Leaf className="h-6 w-6" />
+            </div>
+            <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
+              A Range of Products for Every Need
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              From soil conditioners to micronutrients, we offer solutions tailored for diverse agricultural needs.
+            </p>
+            <div className="mt-6">
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
+              >
+                Read More
+                <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* ── Second Hero Panel ── */}
     <section className="mx-auto max-w-7xl px-4 pt-14 pb-10 sm:px-6 sm:pt-20 sm:pb-12 lg:px-8 lg:pt-32 lg:pb-16">
       <div
@@ -476,6 +560,35 @@ const HomePage = () => {
       </div>
     </section>
 
+    {/* ── Quote Banner ── */}
+    <section
+      ref={quoteReveal.ref}
+      className={`relative overflow-hidden py-16 sm:py-24 reveal ${quoteReveal.isVisible ? 'visible' : ''}`}
+      style={{ background: "linear-gradient(135deg, #163D26 0%, #0F2A1A 100%)" }}
+    >
+      <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "128px",
+      }} />
+      <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[100px]" />
+      <div className="absolute -right-32 -bottom-32 h-[500px] w-[500px] rounded-full bg-accent/5 blur-[100px]" />
+      
+      <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+        <Quote className="mx-auto h-12 w-12 text-accent/30 rotate-180 sm:h-16 sm:w-16" />
+        <h2 className="mt-6 font-heading text-2xl font-extrabold italic leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl text-balance">
+          "Agriculture Is The Most Healthful, Most Useful And Most Noble Employment Of Man"
+        </h2>
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <span className="h-px w-8 bg-accent/40" />
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.25em] text-accent">
+            George Washington
+          </p>
+          <span className="h-px w-8 bg-accent/40" />
+        </div>
+      </div>
+    </section>
+
     {/* ── About / Foundation section ── */}
     <section className="py-14 sm:py-20 lg:py-28 section-wave" style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}>
       <div
@@ -539,21 +652,57 @@ const HomePage = () => {
       </div>
     </section>
 
-    {/* ── Core Expertise Cards ── */}
+    {/* ── Why Choose J K Fertilizers ── */}
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={cardsReveal.ref}>
-      <div className={`mb-10 text-center sm:mb-14 reveal ${cardsReveal.isVisible ? 'visible' : ''}`}>
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
-          <Award className="h-3.5 w-3.5" />
-          Why Choose J K Fertilizers?
+      <div className={`grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center reveal ${cardsReveal.isVisible ? 'visible' : ''}`}>
+        <div className="relative group overflow-hidden rounded-[28px]">
+          <ImagePanel
+            src={images.whyChoose}
+            alt="Why Choose J K Fertilizers"
+            className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
+            overlay={
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  toast.info("Video Presentation", {
+                    description: "To view our corporate video presentation, please reach out to us at info@jkfertilizers.com or call 9825045894.",
+                    duration: 5000,
+                  });
+                }}
+                className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-primary shadow-lg hover:scale-110 hover:bg-accent hover:text-white transition-all duration-300 z-20 cursor-pointer"
+              >
+                <Play className="h-6 w-6 fill-current translate-x-0.5" />
+              </button>
+            }
+          />
         </div>
-        <h2 className="mt-5 font-heading type-section-h2 font-bold tracking-tight text-foreground sm:mt-6 text-balance">
-          Nurturing Crops with <span className="text-primary">Nature's Care</span>
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
-          At J K Fertilizers, we believe in sustainable farming practices that promote healthy, chemical-free crops.
-        </p>
+        <div className="space-y-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
+            <Award className="h-3.5 w-3.5" />
+            Why Choose J K Fertilizers?
+          </div>
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
+            Nurturing Crops with <span className="text-primary">Nature’s Care</span>
+          </h2>
+          <p className="type-body text-muted-foreground">
+            At J K Fertilizers, we believe in sustainable farming practices that promote healthy, chemical-free crops. Our mission is to transform agriculture by offering eco-friendly fertilizers and soil solutions that enhance crop yield without harmful chemicals or GMOs.
+          </p>
+          <div className="pt-2">
+            <Button
+              asChild
+              className="h-12 rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 transition-all duration-300"
+            >
+              <Link to="/about">
+                More Why Choose Us
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
       </div>
-      <div className={`grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 reveal-scale ${cardsReveal.isVisible ? 'visible' : ''}`}>
+
+      {/* Grid of benefits cards */}
+      <div className={`grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 mt-16 reveal-scale ${cardsReveal.isVisible ? 'visible' : ''}`}>
         {expertiseCards.map((card, i) => (
           <div key={card.title} {...staggerDelay(i, 100)}>
             <ExpertiseCard card={card} />
@@ -819,21 +968,36 @@ const HomePage = () => {
           Frequently Asked Questions
         </h2>
         <p className="mx-auto mt-3 max-w-xl type-body text-muted-foreground">
-          We are here to help you. Generally asked questions.
+          Most Frequently Asked Questions About The Farm. We are here to help you. Generally asked questions.
         </p>
       </div>
-      <div className="mx-auto max-w-4xl grid gap-4">
-        {faqs.map((faq) => (
-          <div key={faq.q} className="rounded-[24px] border border-border bg-surface-card p-6 shadow-[0_8px_30px_rgba(16,24,40,0.04)] sm:p-7">
-            <p className="font-heading text-lg font-semibold text-foreground">{faq.q}</p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">{faq.a}</p>
-          </div>
-        ))}
-      </div>
-      <div className="mt-8 text-center">
-        <p className="type-body-sm text-muted-foreground">
-          You didn't find your question? <Link to="/contact" className="text-primary font-semibold hover:underline">Connect with us today!</Link>
-        </p>
+      <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+        <div className="space-y-4">
+          {faqs.map((faq) => (
+            <div key={faq.q} className="rounded-[24px] border border-border bg-surface-card p-6 shadow-[0_8px_30px_rgba(16,24,40,0.04)] sm:p-7">
+              <p className="font-heading text-lg font-semibold text-foreground">{faq.q}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+        <div className="relative group overflow-hidden rounded-[28px]">
+          <ImagePanel
+            src={images.faq}
+            alt="J K Fertilizers farm support"
+            className="aspect-[4/3] min-h-52 sm:min-h-64"
+            overlay={
+              <div className="rounded-2xl border border-white/20 bg-white/8 p-4 backdrop-blur-md">
+                <p className="font-heading text-sm font-bold text-white">You didn't find your question?</p>
+                <p className="mt-1 text-xs text-white/80">See more questions or connect with us today!</p>
+                <div className="mt-3">
+                  <Button asChild className="h-10 rounded-full bg-accent text-secondary hover:bg-accent/90 px-5 text-xs font-bold shadow-sm">
+                    <Link to="/contact">Read More</Link>
+                  </Button>
+                </div>
+              </div>
+            }
+          />
+        </div>
       </div>
     </section>
 

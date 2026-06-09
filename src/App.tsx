@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { SiteShell } from "@/components/SiteShell";
 import { Toaster } from "@/components/ui/sonner";
 import { AboutPage } from "@/pages/AboutPage";
+import { HistoryPage } from "@/pages/HistoryPage";
 import { ProductsPage } from "@/pages/ProductsPage";
 import { ProductDetailPage } from "@/pages/ProductDetailPage";
 import { ServicesPage } from "@/pages/ServicesPage";
@@ -37,6 +38,7 @@ const AppRoutes = () => (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/history" element={<HistoryPage />} />
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/products/:slug" element={<ProductDetailPage />} />
       <Route path="/services" element={<ServicesPage />} />
