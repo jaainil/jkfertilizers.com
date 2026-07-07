@@ -78,20 +78,13 @@ const expertiseCards = [
 
 const services = [
   {
-    title: "Organic Fertilizer Manufacturing",
-    concept: "Eco-friendly fertilizers",
-    description:
-      "Eco-friendly fertilizers crafted for maximum efficiency and crop benefits. Manufacturing organic fertilizers with sustainable practices.",
-    icon: "leaf",
-    imageSrc: "/images/service-bg-1.jpg",
-  },
-  {
     title: "Granule Technology",
     concept: "Precision engineering",
     description:
       "Precisely engineered granules for optimal soil enrichment and nutrient availability. Advanced granulation technology for superior performance.",
     icon: "factory",
     imageSrc: "/images/service-bg-2.jpg",
+    slug: "granule-technology",
   },
   {
     title: "Infrastructure Leasing",
@@ -100,6 +93,7 @@ const services = [
       "Cost-effective options to help businesses scale operations seamlessly with state-of-the-art infrastructure for fertilizer production.",
     icon: "shield",
     imageSrc: "/images/service-bg-3.jpg",
+    slug: "infrastructure-leasing",
   },
   {
     title: "Custom Packaging Solutions",
@@ -108,6 +102,7 @@ const services = [
       "Tailored packaging services to protect and promote your products with brand-forward presentation and market-ready finishing.",
     icon: "package",
     imageSrc: "/images/service-bg-4.jpg",
+    slug: "custom-packaging-solutions",
   },
   {
     title: "Job Work Services",
@@ -116,6 +111,7 @@ const services = [
       "Specialized job work services providing customized manufacturing solutions for organic fertilizers and coated granules.",
     icon: "warehouse",
     imageSrc: "/images/service-bg-5.jpg",
+    slug: "job-work-services",
   },
   {
     title: "Warehouse & Storage",
@@ -124,6 +120,7 @@ const services = [
       "Well-maintained warehouse, storage, and godown facilities to support seamless supply chain management for agricultural inputs.",
     icon: "warehouse",
     imageSrc: "/images/service-bg-6.jpg",
+    slug: "warehouse-storage",
   },
 ];
 

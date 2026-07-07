@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { ArrowRight, Mail, MapPin, Phone, Leaf, Award } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -7,15 +6,12 @@ import { products } from "@/data/products";
 import { company, navigation } from "@/data/siteData";
 
 export const SiteFooter = () => {
-  const { t } = useTranslation();
-
   const services = [
-    { tKey: "footer.footerServices.organicFertilizerManufacturing", path: "/services/organic-fertilizer-manufacturing" },
-    { tKey: "footer.footerServices.granuleTechnology", path: "/services/granule-technology" },
-    { tKey: "footer.footerServices.infrastructureLeasing", path: "/services/infrastructure-leasing" },
-    { tKey: "footer.footerServices.customPackagingSolutions", path: "/services/custom-packaging-solutions" },
-    { tKey: "footer.footerServices.jobWorkServices", path: "/services/job-work-services" },
-    { tKey: "footer.footerServices.warehouseStorage", path: "/services/warehouse-storage" },
+    { label: "Coating", path: "/services/granule-technology" },
+    { label: "Infrastructure Leasing", path: "/services/infrastructure-leasing" },
+    { label: "Packaging", path: "/services/custom-packaging-solutions" },
+    { label: "Job Work", path: "/services/job-work-services" },
+    { label: "Warehouse & Storage", path: "/services/warehouse-storage" },
   ];
 
   return (
@@ -44,44 +40,42 @@ export const SiteFooter = () => {
           <div>
             <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <span className="h-px w-8 bg-accent" />
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent">{t("footer.ctaLabel")}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent">Partner with us</p>
             </div>
             <h2 className="font-heading type-section-h2 font-bold text-white">
-              {t("footer.ctaHeading")}
+              Let's grow something great.
             </h2>
             <p className="mt-2 max-w-lg text-sm leading-7 text-white/55">
-              {t("footer.ctaDescription")}
+              Partner with us for quality organic fertilizers and sustainable agricultural solutions.
             </p>
           </div>
-          {/* FIX 3.2: w-full on mobile, w-auto on sm+ */}
-            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <Button
-                asChild
-                className="h-12 w-full rounded-full px-7 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.3)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.4)] transition-all duration-300 sm:w-auto"
-                style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
-              >
-                <Link to="/contact">
-                  {t("footer.getInTouch")} <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="h-12 w-full rounded-full border-white/15 px-7 text-white hover:border-white/25 hover:bg-white/8 transition-all duration-300 sm:w-auto"
-              >
-                <a href={`tel:${company.phoneRaw}`}>{t("footer.callUsNow")}</a>
-              </Button>
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <Button
+              asChild
+              className="h-12 w-full rounded-full px-7 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.3)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.4)] transition-all duration-300 sm:w-auto"
+              style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
+            >
+              <Link to="/contact">
+                Get In Touch <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 w-full rounded-full border-white/15 px-7 text-white hover:border-white/25 hover:bg-white/8 transition-all duration-300 sm:w-auto"
+            >
+              <a href={`tel:${company.phoneRaw}`}>Call us now</a>
+            </Button>
           </div>
         </div>
       </div>
 
       {/* ── Main grid ── */}
-      {/* FIX 3.1: sm:grid-cols-2 so links pair up on tablets, gap-8 on mobile */}
       <div
         className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 sm:py-14 lg:grid-cols-[1.6fr_1fr_1fr_1fr] lg:gap-8 lg:px-8 lg:py-16"
         data-testid="footer-main-grid"
       >
-        {/* Brand column — full width on mobile, full width on sm (span 2), normal on lg */}
+        {/* Brand column */}
         <div className="space-y-6 sm:col-span-2 lg:col-span-1 lg:space-y-7" data-testid="footer-company-block">
           <Link to="/" className="group inline-flex items-center gap-3">
             <div className="relative shrink-0">
@@ -96,19 +90,18 @@ export const SiteFooter = () => {
               <p className="font-heading text-base font-bold text-white transition-colors group-hover:text-accent">
                 {company.name}
               </p>
-              {/* FIX 3.4: text-xs minimum (was text-[10px]), opacity /60 */}
               <p className="text-xs uppercase tracking-[0.24em] text-white/60">{company.tagline}</p>
             </div>
           </Link>
 
           <p className="text-sm leading-7 text-white/55" data-testid="footer-company-description">
-            {t("footer.companyDescription")}
+            Leading manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules. Based in Gujarat — trusted by farmers and businesses across India since 2006.
           </p>
 
           {/* ISO badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/8 px-4 py-2">
             <Award className="h-3.5 w-3.5 text-accent" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/85">{t("footer.fcoApproved")}</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/85">FCO Approved Products</span>
           </div>
 
           {/* Contact cards */}
@@ -118,7 +111,7 @@ export const SiteFooter = () => {
                 <Phone className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.phone")}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Phone</p>
                 <p className="font-semibold text-white">{company.phoneDisplay} / 92 / 91</p>
               </div>
             </div>
@@ -131,7 +124,7 @@ export const SiteFooter = () => {
                 <Mail className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.email")}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Email</p>
                 <p className="min-w-0 break-all font-semibold text-white">
                   <a href={`mailto:${company.emails[0]}`} className="hover:text-accent hover:underline transition-colors">{company.emails[0]}</a>
                   <span className="text-white/30 mx-2">|</span>
@@ -148,7 +141,7 @@ export const SiteFooter = () => {
                 <MapPin className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.address")}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Address</p>
                 <p className="mt-0.5 min-w-0 break-words leading-6 text-white/65">{company.address}</p>
               </div>
             </div>
@@ -160,8 +153,8 @@ export const SiteFooter = () => {
                 </svg>
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.workingHours")}</p>
-                <p className="font-semibold text-white">{t("footer.hours")}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Working Hours</p>
+                <p className="font-semibold text-white">Mon - Sat: 9AM - 6PM</p>
               </div>
             </div>
           </div>
@@ -169,9 +162,9 @@ export const SiteFooter = () => {
 
         {/* Navigation column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-links-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">{t("footer.navigate")}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Navigate</p>
           <nav className="flex flex-col gap-0.5">
-            {[...navigation, { label: "Commitment", path: "/commitment", tKey: "nav.about" }].map((item) => (
+            {[...navigation, { label: "Commitment", path: "/commitment" }].map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
@@ -179,20 +172,20 @@ export const SiteFooter = () => {
                 data-testid={`footer-link-${item.label.toLowerCase()}`}
               >
                 <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-5" />
-                {item.tKey ? t(item.tKey) : item.label}
+                {item.label}
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-2 pt-2">
             <Leaf className="h-3.5 w-3.5 text-primary/60" />
-            <p className="text-xs text-white/35 italic">{t("footer.organicNaturally")}</p>
+            <p className="text-xs text-white/35 italic">Organic, Naturally</p>
           </div>
         </div>
 
         {/* Products column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-products-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">{t("footer.productGroups")}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Product Groups</p>
           <div className="flex flex-col gap-0.5">
             {products.slice(0, 6).map((product, index) => (
               <Link
@@ -210,13 +203,13 @@ export const SiteFooter = () => {
             to="/products"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-primary/70 transition hover:text-primary"
           >
-            {t("footer.viewAllProducts")} <ArrowRight className="h-3 w-3" />
+            View all products <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
 
         {/* Services column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-services-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">{t("footer.services")}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Services</p>
           <div className="flex flex-col gap-0.5">
             {services.map((svc, i) => (
               <Link
@@ -226,7 +219,7 @@ export const SiteFooter = () => {
                 data-testid={`footer-service-link-${i}`}
               >
                 <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-5" />
-                {t(svc.tKey)}
+                {svc.label}
               </Link>
             ))}
           </div>
@@ -234,7 +227,7 @@ export const SiteFooter = () => {
             to="/services"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-accent/70 transition hover:text-accent"
           >
-            {t("footer.viewAllServices")} <ArrowRight className="h-3 w-3" />
+            View all services <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
       </div>
@@ -243,16 +236,16 @@ export const SiteFooter = () => {
       <div className="relative border-t border-white/6">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/35">
-              <p data-testid="footer-copyright-text">
-                {t("footer.copyright", { year: new Date().getFullYear() })}
-              </p>
+            <p data-testid="footer-copyright-text">
+              © {new Date().getFullYear()} J K Fertilizers. All Rights Reserved.
+            </p>
             <span className="hidden h-3 w-px bg-white/20 sm:block" />
-            <p>{t("footer.location")}</p>
+            <p>Anand, Gujarat, India</p>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/25">
-            <a href="/privacy" className="transition-colors hover:text-white/55">{t("footer.privacy")}</a>
-            <a href="/legal" className="transition-colors hover:text-white/55">{t("footer.legal")}</a>
-            <a href="/return-policy" className="transition-colors hover:text-white/55">{t("footer.returns")}</a>
+            <a href="/privacy" className="transition-colors hover:text-white/55">Confidentiality & Privacy</a>
+            <a href="/legal" className="transition-colors hover:text-white/55">Legal Information</a>
+            <a href="/return-policy" className="transition-colors hover:text-white/55">Return and Refund Policy</a>
           </div>
           <a
             href="https://aexaware.com"
@@ -261,8 +254,8 @@ export const SiteFooter = () => {
             className="inline-flex items-center gap-1.5 text-xs text-white/25 transition-colors hover:text-white/55"
             data-testid="footer-credit"
           >
-            {t("footer.designedBy")}
-            <span className="font-bold text-white/40 hover:text-white/65 transition-colors">{t("footer.creditCompany")}</span>
+            Designed & built by
+            <span className="font-bold text-white/40 hover:text-white/65 transition-colors">Aexaware Private Limited</span>
           </a>
         </div>
       </div>

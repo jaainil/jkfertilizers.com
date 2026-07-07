@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { Mail, MapPin, Menu, Phone, X, Leaf, ChevronDown, ChevronRight, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -87,7 +86,6 @@ export const SiteNavbar = ({
   onMobileToggle: () => void;
   mobileOpen: boolean;
 }) => {
-  const { t } = useTranslation();
   const [hoveredProductSlug, setHoveredProductSlug] = useState<string | null>(null);
   const [menuForceClosed, setMenuForceClosed] = useState(false);
 
@@ -131,7 +129,7 @@ export const SiteNavbar = ({
             data-testid="topbar-tagline"
           >
             <Leaf className="h-3 w-3" />
-            {t("navbar.tagline")}
+            Manufacturers of Organic Fertilizers
           </div>
         </div>
       </div>
@@ -149,7 +147,7 @@ export const SiteNavbar = ({
             <div>
               <p className="font-heading text-sm font-bold leading-tight text-foreground sm:text-base">{company.name}</p>
               {/* FIX 2.4: text-xs minimum (was text-[10px]) */}
-              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">{t("navbar.subTagline")}</p>
+              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">Organic · Naturally</p>
             </div>
           </Link>
 
@@ -195,7 +193,7 @@ export const SiteNavbar = ({
                           }`
                         }
                       >
-                        {item.tKey ? t(item.tKey) : item.label}
+                        {item.label}
                         <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:rotate-180" />
                       </NavLink>
 
@@ -308,7 +306,7 @@ export const SiteNavbar = ({
                 return (
                   <div key={item.label} className="group relative">
                     <NavLink
-                      to={item.tKey === "nav.about" ? "/about" : "/services"}
+                      to={item.label === "About Us" ? "/about" : "/services"}
                       className={({ isActive }) =>
                         `relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 active:scale-95 ${
                           isActive
@@ -317,7 +315,7 @@ export const SiteNavbar = ({
                         }`
                       }
                     >
-                      {item.tKey ? t(item.tKey) : item.label}
+                      {item.label}
                       <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:rotate-180" />
                     </NavLink>
 
@@ -343,7 +341,7 @@ export const SiteNavbar = ({
                             data-testid={`nav-sublink-${subItem.label.toLowerCase()}`}
                           >
                             <span className="text-sm font-semibold">
-                              {subItem.tKey ? t(subItem.tKey) : subItem.label}
+                              {subItem.label}
                             </span>
                             {subItem.description && (
                               <span className="mt-0.5 text-xs text-muted-foreground leading-normal">
@@ -365,7 +363,7 @@ export const SiteNavbar = ({
                   className={desktopLinkClassName}
                   data-testid={`nav-link-${item.label.toLowerCase()}`}
                 >
-                  {item.tKey ? t(item.tKey) : item.label}
+                  {item.label}
                 </NavLink>
               );
             })}
@@ -381,7 +379,7 @@ export const SiteNavbar = ({
             >
               <a href={`tel:${company.phoneRaw}`}>
                 <Phone className="mr-1.5 h-3.5 w-3.5" />
-                {t("navbar.callUs")}
+                Call Us
               </a>
             </Button>
             <Button
@@ -389,7 +387,7 @@ export const SiteNavbar = ({
               className="h-10 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(45,122,74,0.35)] hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(45,122,74,0.45)] transition-all duration-200"
               data-testid="header-contact-button"
             >
-              <Link to="/contact">{t("navbar.getInTouch")}</Link>
+              <Link to="/contact">Get In Touch!</Link>
             </Button>
           </div>
 
@@ -398,7 +396,7 @@ export const SiteNavbar = ({
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-surface-card text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-200 lg:hidden"
             onClick={onMobileToggle}
-            aria-label={mobileOpen ? t("navbar.closeMenu") : t("navbar.openMenu")}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             data-testid="mobile-menu-toggle-button"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -457,9 +455,9 @@ export const SiteNavbar = ({
                     ];
 
                     return (
-                      <div key={item.label} className="flex flex-col gap-1 py-1">
+                      <div className="flex flex-col gap-1 py-1">
                         <div className="px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/80">
-                          {item.tKey ? t(item.tKey) : item.label}
+                          {item.label}
                         </div>
                         <div className="pl-3 flex flex-col gap-3 border-l border-primary/20 ml-5">
                           {mobileProductGroups.map((group) => (
@@ -486,9 +484,9 @@ export const SiteNavbar = ({
                   }
 
                   return (
-                    <div key={item.label} className="flex flex-col gap-1 py-1">
+                    <div className="flex flex-col gap-1 py-1">
                       <div className="px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/80">
-                        {item.tKey ? t(item.tKey) : item.label}
+                        {item.label}
                       </div>
                       <div className="pl-3 flex flex-col gap-0.5 border-l border-primary/20 ml-5">
                         {item.children.map((subItem) => (
@@ -499,7 +497,7 @@ export const SiteNavbar = ({
                             onClick={onMobileToggle}
                             data-testid={`mobile-nav-sublink-${subItem.label.toLowerCase()}`}
                           >
-                            {subItem.tKey ? t(subItem.tKey) : subItem.label}
+                            {subItem.label}
                           </NavLink>
                         ))}
                       </div>
@@ -515,7 +513,7 @@ export const SiteNavbar = ({
                     onClick={onMobileToggle}
                     data-testid={`mobile-nav-link-${item.label.toLowerCase()}`}
                   >
-                    {item.tKey ? t(item.tKey) : item.label}
+                    {item.label}
                   </NavLink>
                 );
               })}
@@ -531,14 +529,14 @@ export const SiteNavbar = ({
                 data-testid="mobile-call-link"
               >
                 <Phone className="h-4 w-4" />
-                {t("navbar.call")} {company.phoneDisplay}
+                Call {company.phoneDisplay}
               </a>
               <Link
                 to="/contact"
                 onClick={onMobileToggle}
                 className="flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/6 px-4 py-3 text-sm font-semibold text-primary"
               >
-                {t("navbar.getInTouch")}
+                Get In Touch!
               </Link>
             </div>
           </div>

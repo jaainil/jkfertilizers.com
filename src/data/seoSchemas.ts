@@ -1009,16 +1009,6 @@ export const servicesSchema: Service = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Organic Fertilizer Manufacturing",
-          description:
-            "Manufacturing Organic Fertilizers & Coated Granules — Eco-friendly fertilizers crafted for maximum efficiency and crop benefits.",
-          url: `${SITE_URL}/services/organic-fertilizer-manufacturing`,
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
           name: "Granule Technology",
           description:
             "Innovative Coating Solutions for Enhanced Fertilizer Performance — Precisely engineered granules for optimal soil enrichment.",

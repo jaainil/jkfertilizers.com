@@ -15,13 +15,15 @@ export const ServiceCard = ({ service }) => {
   const Icon = iconMap[service.icon] || FileText;
   const href = service.slug ? `/services/${service.slug}` : "/services";
 
+  const cardImage = service.imageSrc || service.image;
+
   // Image-backed card
-  if (service.imageSrc) {
+  if (cardImage) {
     return (
       <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-[30px]">
         <article className="relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border/50 shadow-[0_16px_48px_rgba(22,61,38,0.08)] transition-all duration-300 group-hover:shadow-[0_24px_72px_rgba(22,61,38,0.16)] group-hover:border-primary/20 sm:min-h-[340px] sm:rounded-[30px]">
           <img
-            src={service.imageSrc}
+            src={cardImage}
             alt={service.title}
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
