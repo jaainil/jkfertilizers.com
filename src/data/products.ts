@@ -26,6 +26,7 @@ export interface Product {
   howToApply: HowToApplyStep[];
   benefits: ProductBenefit[];
   specs: ProductSpec[];
+  gallery?: string[];
 }
 
 export const products: Product[] = [
@@ -666,3 +667,104 @@ export const getProductBySlug = (slug: string): Product | undefined =>
 
 export const getRelatedProducts = (slug: string): Product[] =>
   products.filter((p) => p.slug !== slug);
+
+export const getProductGallery = (slug: string): string[] => {
+  switch (slug) {
+    case "organic-manure":
+      return [
+        "/images/products/Organic Manure/DSC00605-scaled.jpeg",
+        "/images/products/Organic Manure/DSC00606-2-scaled.jpeg",
+        "/images/products/Organic Manure/DSC00608-2-scaled.jpeg",
+        "/images/products/Organic Manure/DSC00618-scaled.jpeg",
+        "/images/products/Organic Manure/DSC00620-scaled.jpeg"
+      ];
+    case "pdm":
+      return [
+        "/images/products/PDM/DSC00618-scaled.jpeg",
+        "/images/products/PDM/DSC00619-scaled.jpeg",
+        "/images/products/PDM/DSC00621-scaled.jpeg"
+      ];
+    case "prom":
+      return [
+        "/images/products/PROM/PROM.jpeg"
+      ];
+    case "customized-base-granules":
+      return [
+        "/images/products/Base Granules/Customized Base Granules/Gypsum-Dolo-NPK-Consortia-11-1.jpeg",
+        "/images/products/Base Granules/Customized Base Granules/Gypsum-Dolo-NPK-Consortia-7-1.jpeg",
+        "/images/products/Base Granules/Customized Base Granules/IMG20240608113512-scaled.jpeg",
+        "/images/products/Base Granules/Customized Base Granules/Plant-Available-Silica-scaled.jpeg",
+        "/images/products/Base Granules/Customized Base Granules/Silica-Micorihhza-7-1.jpeg",
+        "/images/products/Base Granules/Customized Base Granules/Silica-Micorihhza-8-1.jpeg"
+      ];
+    case "customized-coated-granules":
+      return [
+        "/images/products/Coated Granules/Customized Coated Granules/Gypsum-Dolo-NPK-Consortia-11-1.jpeg",
+        "/images/products/Coated Granules/Customized Coated Granules/Gypsum-Dolo-NPK-Consortia-7-1.jpeg",
+        "/images/products/Coated Granules/Customized Coated Granules/IMG20240608113512-scaled.jpeg",
+        "/images/products/Coated Granules/Customized Coated Granules/Plant-Available-Silica-scaled.jpeg",
+        "/images/products/Coated Granules/Customized Coated Granules/Silica-Micorihhza-7-1.jpeg",
+        "/images/products/Coated Granules/Customized Coated Granules/Silica-Micorihhza-8-1.jpeg"
+      ];
+    case "coated-base-granules-bio-npk":
+      return [
+        "/images/products/Coated Granules/Coated Base Granules (BIO NPK)/Gypsum-Dolo-NPK-Consortia-10.jpeg",
+        "/images/products/Coated Granules/Coated Base Granules (BIO NPK)/Gypsum-Dolo-NPK-Consortia-11.jpeg",
+        "/images/products/Coated Granules/Coated Base Granules (BIO NPK)/Gypsum-Dolo-NPK-Consortia-4.jpeg",
+        "/images/products/Coated Granules/Coated Base Granules (BIO NPK)/Gypsum-Dolo-NPK-Consortia-7.jpeg"
+      ];
+    case "coated-base-granules-mycorrhiza":
+      return [
+        "/images/products/Coated Granules/Coated Base Granules (Mycorrhiza)/Silica-Micorihhza-5.jpeg",
+        "/images/products/Coated Granules/Coated Base Granules (Mycorrhiza)/Silica-Micorihhza-6.jpeg",
+        "/images/products/Coated Granules/Coated Base Granules (Mycorrhiza)/Silica-Micorihhza-7.jpeg",
+        "/images/products/Coated Granules/Coated Base Granules (Mycorrhiza)/Silica-Micorihhza-8.jpeg"
+      ];
+    case "pancharatna-base-granules":
+      return [
+        "/images/products/Base Granules/Pancharatna Base Granules/DSC00585-2-scaled.jpeg",
+        "/images/products/Base Granules/Pancharatna Base Granules/DSC00585-scaled.jpeg",
+        "/images/products/Base Granules/Pancharatna Base Granules/DSC00587-scaled.jpeg",
+        "/images/products/Base Granules/Pancharatna Base Granules/DSC00589-scaled.jpeg"
+      ];
+    case "organic-carbon-base-granules":
+      return [
+        "/images/products/Base Granules/Organic Carbon Base Granules/DSC00608-scaled.jpeg",
+        "/images/products/Base Granules/Organic Carbon Base Granules/DSC00623-scaled.jpeg",
+        "/images/products/Base Granules/Organic Carbon Base Granules/DSC00624-scaled.jpeg",
+        "/images/products/Base Granules/Organic Carbon Base Granules/DSC00626-scaled.jpeg"
+      ];
+    case "humic-based-granules":
+      return [
+        "/images/products/Base Granules/Humic Based Granules/DSC00623-scaled.jpeg",
+        "/images/products/Base Granules/Humic Based Granules/DSC00624-scaled.jpeg"
+      ];
+    case "enriched-base-granules":
+      return [
+        "/images/products/Base Granules/Enriched Base Granules/DSC00634-1-scaled.jpeg",
+        "/images/products/Base Granules/Enriched Base Granules/DSC00635-1-scaled.jpeg",
+        "/images/products/Base Granules/Enriched Base Granules/DSC00636-scaled.jpeg"
+      ];
+    case "other-nutrients-base-granules":
+      return [
+        "/images/products/Base Granules/Other Nutrients Base Granules/DSC00598-scaled.jpeg",
+        "/images/products/Base Granules/Other Nutrients Base Granules/DSC00634-scaled.jpeg",
+        "/images/products/Base Granules/Other Nutrients Base Granules/DSC00635-scaled.jpeg",
+        "/images/products/Base Granules/Other Nutrients Base Granules/DSC00636-scaled.jpeg"
+      ];
+    case "base-granules":
+      return [
+        "/images/products/Base Granules/Base Granules/DSC00629-1-scaled.jpeg",
+        "/images/products/Base Granules/Base Granules/DSC00629-2-scaled.jpeg"
+      ];
+    case "plant-available-silica":
+      return [
+        "/images/products/Base Granules/Diatomite Silicon/DSC00628-scaled.jpeg",
+        "/images/products/Base Granules/Diatomite Silicon/DSC00629-1-scaled.jpeg",
+        "/images/products/Base Granules/Diatomite Silicon/DSC00630-2-scaled.jpeg",
+        "/images/products/Base Granules/Diatomite Silicon/DSC00631-1-scaled.jpeg"
+      ];
+    default:
+      return [];
+  }
+};

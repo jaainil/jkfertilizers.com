@@ -89,6 +89,12 @@ export const SiteNavbar = ({
 }) => {
   const { t } = useTranslation();
   const [hoveredProductSlug, setHoveredProductSlug] = useState<string | null>(null);
+  const [menuForceClosed, setMenuForceClosed] = useState(false);
+
+  const handleLinkClick = () => {
+    setMenuForceClosed(true);
+    setTimeout(() => setMenuForceClosed(false), 300);
+  };
   return (
     <>
       {/* ── Top utility bar (desktop only) ── */}
@@ -195,8 +201,11 @@ export const SiteNavbar = ({
 
                       {/* Mega Dropdown Panel */}
                       <div 
-                        className="absolute left-1/2 top-full z-50 pt-2 w-[920px] -translate-x-[48%] scale-95 opacity-0 pointer-events-none transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto"
+                        className={`absolute left-1/2 top-full z-50 pt-2 w-[920px] -translate-x-[48%] scale-95 opacity-0 pointer-events-none transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto ${
+                          menuForceClosed ? "hidden pointer-events-none opacity-0" : ""
+                        }`}
                         onMouseLeave={() => setHoveredProductSlug(null)}
+                        onClick={handleLinkClick}
                       >
                         <div className="overflow-hidden rounded-2xl border border-border bg-surface-card p-6 shadow-2xl ring-1 ring-black/5 grid grid-cols-[270px_1fr] gap-6 animate-in fade-in slide-in-from-top-2 duration-300">
                           {/* Left Panel: Featured Card */}
@@ -313,7 +322,12 @@ export const SiteNavbar = ({
                     </NavLink>
 
                     {/* Dropdown Menu Panel */}
-                    <div className="absolute left-1/2 top-full z-50 pt-2 w-80 -translate-x-1/2 scale-95 opacity-0 pointer-events-none transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto">
+                    <div 
+                      className={`absolute left-1/2 top-full z-50 pt-2 w-80 -translate-x-1/2 scale-95 opacity-0 pointer-events-none transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto ${
+                        menuForceClosed ? "hidden pointer-events-none opacity-0" : ""
+                      }`}
+                      onClick={handleLinkClick}
+                    >
                       <div className="overflow-hidden rounded-2xl border border-border bg-surface-card p-2 shadow-xl ring-1 ring-black/5">
                         {item.children.map((subItem) => (
                           <NavLink

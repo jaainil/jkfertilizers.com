@@ -1,9 +1,9 @@
+import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, MoveRight, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, MoveRight, Phone, X, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { getProductBySlug, getRelatedProducts } from "@/data/products";
+import { getProductBySlug, getRelatedProducts, getProductGallery } from "@/data/products";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, buildProductSchema, buildProductFaqSchema, buildProductHowToSchema, breadcrumbSchema } from "@/data/seoSchemas";
 
@@ -18,6 +18,11 @@ export const ProductDetailPage = () => {
   const navigate = useNavigate();
   const product = getProductBySlug(slug);
   const related = getRelatedProducts(slug).slice(0, 3);
+  const gallery = getProductGallery(slug || "");
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     if (!product) {
@@ -26,6 +31,8 @@ export const ProductDetailPage = () => {
   }, [product, navigate]);
 
   if (!product) return null;
+
+  const allImages = [product.imageUrl, ...(gallery || [])];
 
   return (
     <>
@@ -114,23 +121,60 @@ export const ProductDetailPage = () => {
             </div>
           </div>
 
-          {/* Right: image */}
-          <div className="mt-12 lg:mt-0">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.4)]">
+          {/* Right: Interactive Gallery */}
+          <div className="mt-12 lg:mt-0 space-y-4">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.4)] bg-neutral-900 aspect-[4/3]">
               <img
-                src={product.imageUrl}
+                src={allImages[selectedImageIndex]}
                 alt={product.title}
-                className="h-full w-full object-cover"
-                style={{ aspectRatio: "4/3" }}
+                className="h-full w-full object-cover transition-all duration-300"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
+              
+              {/* Zoom Button "+" */}
+              <button
+                onClick={() => {
+                  setActiveImageIndex(selectedImageIndex);
+                  setLightboxOpen(true);
+                }}
+                className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 hover:scale-105 active:scale-95 transition-all duration-200 backdrop-blur-xs"
+                aria-label="Zoom image"
+              >
+                <span className="text-2xl font-light leading-none">+</span>
+              </button>
+
+              <div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
                 <div className="rounded-[20px] border border-white/20 bg-secondary/70 p-4 backdrop-blur-md">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">Product line</p>
-                  <p className="mt-1 font-heading text-lg font-semibold text-white">{product.title}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">Product Showcase</p>
+                  <p className="mt-1 font-heading text-base font-semibold text-white">
+                    {selectedImageIndex === 0 ? "Default View" : `Detail View ${selectedImageIndex}`}
+                  </p>
                 </div>
               </div>
             </div>
+
+            {/* Thumbnails list */}
+            {allImages.length > 1 && (
+              <div className="flex flex-wrap gap-2.5 pt-1">
+                {allImages.map((imgUrl, idx) => (
+                  <button
+                    key={imgUrl}
+                    onClick={() => setSelectedImageIndex(idx)}
+                    className={`relative overflow-hidden rounded-2xl border-2 aspect-square w-16 sm:w-20 transition-all duration-200 ${
+                      selectedImageIndex === idx
+                        ? "border-accent scale-105 shadow-md shadow-accent/25"
+                        : "border-white/10 opacity-70 hover:opacity-100 hover:scale-102"
+                    }`}
+                  >
+                    <img
+                      src={imgUrl}
+                      alt={`${product.title} thumb ${idx}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -181,6 +225,55 @@ export const ProductDetailPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal Overlay */}
+      {lightboxOpen && allImages && allImages.length > 0 && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md animate-in fade-in duration-200">
+          {/* Close button */}
+          <button
+            onClick={() => setLightboxOpen(false)}
+            className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-all duration-200"
+            aria-label="Close lightbox"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {/* Navigation left */}
+          {allImages.length > 1 && (
+            <button
+              onClick={() => setActiveImageIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1))}
+              className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-all duration-200"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+          )}
+
+          {/* Main Showcase Image */}
+          <div className="max-h-[80vh] max-w-[85vw] overflow-hidden rounded-xl bg-neutral-900 border border-white/10 shadow-2xl flex flex-col justify-center items-center">
+            <img
+              src={allImages[activeImageIndex]}
+              alt={`${product.title} slide`}
+              className="max-h-[70vh] w-auto max-w-full object-contain"
+            />
+            {/* Caption */}
+            <div className="w-full bg-neutral-900/90 py-3 text-center text-xs font-medium text-white/80 border-t border-white/5">
+              Image {activeImageIndex + 1} of {allImages.length} — {product.title}
+            </div>
+          </div>
+
+          {/* Navigation right */}
+          {allImages.length > 1 && (
+            <button
+              onClick={() => setActiveImageIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1))}
+              className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-all duration-200"
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          )}
+        </div>
+      )}
 
       {/* How to Apply */}
       <section className="bg-muted py-20 lg:py-28">
