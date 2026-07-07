@@ -366,11 +366,11 @@ export const organizationSchema: Organization = {
     {
       "@type": "ImageObject",
       url: `${SITE_URL}/images/factory.jpg`,
-      caption: "J K Fertilizers Manufacturing Facility — Anand, Gujarat, India",
+      caption: "J K Fertilizers Manufacturing Facility — Anand, Gujarat, INDIA",
     },
   ],
   description:
-    "J K Fertilizers is a leading manufacturer of organic fertilizers, base granules and coated base granules based in Vasad, Anand, Gujarat. Founded in 2006, we specialize in producing eco-friendly, FCO-approved organic fertilizers including Organic Manure, PDM, PROM, Mycorrhiza-coated granules, and soil conditioners that enhance soil health and improve crop yield.",
+    "J K Fertilizers is a leading manufacturer of organic fertilizers, base granules and coated base granules based in Vasad, Anand, Gujarat, INDIA. Founded in 2006, we specialize in producing eco-friendly, FCO-approved organic fertilizers including Organic Manure, PDM, PROM, Mycorrhiza-coated granules, and soil conditioners that enhance soil health and improve crop yield.",
   foundingDate: "2006",
   founder: {
     "@type": "Person",
@@ -584,7 +584,7 @@ export const homeFaqSchema: FAQPage = {
       name: "What does J K Fertilizers manufacture?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "J K Fertilizers manufactures a complete range of organic fertilizers including Organic Manure, PDM (Potash Derived from Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Base Granules, Coated Granules, and specialty products. All products are FCO approved and manufactured in Vasad, Anand, Gujarat, India.",
+        text: "J K Fertilizers manufactures a complete range of organic fertilizers including Organic Manure, PDM (Potash Derived from Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Base Granules, Coated Granules, and specialty products. All products are FCO approved and manufactured in Vasad, Anand, Gujarat, INDIA.",
       },
     },
     {
@@ -592,7 +592,7 @@ export const homeFaqSchema: FAQPage = {
       name: "Where is J K Fertilizers located?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "J K Fertilizers is located at NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat — 388305, India. Our factory is situated in Gujarat's agricultural heartland.",
+        text: "J K Fertilizers is located at NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305 INDIA. Our factory is situated in Gujarat's agricultural heartland.",
       },
     },
     {
@@ -1187,7 +1187,7 @@ export const historyPageSchema = {
   url: `${SITE_URL}/history`,
   name: "Our History — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006",
   description:
-    "Explore the history and growth milestones of J K Fertilizers. From our organic manure plant in 2006 to a Daily Production Capacity of 700 MT in Vasad, Anand, Gujarat.",
+    "Explore the history and growth milestones of J K Fertilizers. From our organic manure plant in 2006 to a Daily Production Capacity of 700 MT in Vasad, Anand, Gujarat, INDIA.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {

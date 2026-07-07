@@ -123,19 +123,22 @@ export const SiteFooter = () => {
               </div>
             </div>
 
-            <a
-              href={`mailto:${company.emails[0]}`}
-              className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-all duration-200 hover:border-white/12 hover:bg-white/8 min-h-[44px]"
+            <div
+              className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-all duration-200 min-h-[44px]"
               data-testid="footer-email-card"
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent transition-colors group-hover/card:bg-accent/25">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
                 <Mail className="h-3.5 w-3.5" />
               </span>
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-white/40">{t("footer.email")}</p>
-                <p className="min-w-0 break-all font-semibold text-white">{company.emails[0]}</p>
+                <p className="min-w-0 break-all font-semibold text-white">
+                  <a href={`mailto:${company.emails[0]}`} className="hover:text-accent hover:underline transition-colors">{company.emails[0]}</a>
+                  <span className="text-white/30 mx-2">|</span>
+                  <a href={`mailto:${company.emails[1]}`} className="hover:text-accent hover:underline transition-colors">{company.emails[1]}</a>
+                </p>
               </div>
-            </a>
+            </div>
 
             <div
               className="flex items-start gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm"

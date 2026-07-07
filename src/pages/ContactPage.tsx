@@ -11,7 +11,7 @@ const company = {
   phoneAlt: "9825045892",
   phoneAlt2: "9825045891",
   emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
-  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305",
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305 INDIA",
   founder: "Mr. Akash Dadhania",
   founderTitle: "Founder & Director",
 };
@@ -21,7 +21,7 @@ const contactCards = [
     icon: PhoneCall,
     label: "Call Us",
     value: "9825045894 / 9825045892",
-    sub: "Mon – Fri: 8AM – 6PM, Sat: 9AM – 5PM",
+    sub: "Mon – Sat: 9:00 AM – 6:00 PM",
     href: `tel:${company.phoneRaw}`,
     accent: true,
   },
@@ -43,7 +43,7 @@ const contactCards = [
     icon: MapPin,
     label: "Visit Our Factory",
     value: company.address,
-    sub: "Vasad, Anand, Gujarat",
+    sub: "Vasad, Anand, Gujarat, INDIA",
     href: "https://maps.google.com/?q=Vasad,Anand,Gujarat",
   },
 ];
@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: "What are your working hours?",
-    a: "Our office hours are Monday to Friday, 8:00 AM to 6:00 PM and Saturday, 9:00 AM to 5:00 PM. Holidays are closed. Our manufacturing facility operates round the clock to meet production demands.",
+    a: "Our office hours are Monday to Saturday, 9:00 AM to 6:00 PM. Holidays are closed. Our manufacturing facility operates round the clock to meet production demands.",
   },
 ];
 
@@ -79,7 +79,7 @@ export const ContactPage = () => {
   <>
     <SEOHead
       title="Contact Us — J K Fertilizers | Organic Fertilizer Manufacturer | Anand, Gujarat"
-      description="Contact J K Fertilizers for organic fertilizer orders, bulk inquiries, and partnerships. Call 9825045894 or email info@jkfertilizers.com. Located in Vasad, Anand, Gujarat."
+      description="Contact J K Fertilizers for organic fertilizer orders, bulk inquiries, and partnerships. Call 9825045894 or email sales@jkfertilizers.com. Located in Vasad, Anand, Gujarat, INDIA."
       canonical="/contact"
       ogImage="/images/about-1.jpg"
       keywords="contact J K Fertilizers, fertilizer order gujarat, organic fertilizer inquiry, fertilizer manufacturer contact anand gujarat, jkfertilizers.com"
@@ -123,7 +123,7 @@ export const ContactPage = () => {
             { label: "Since 2006" },
             { label: "FCO Approved" },
             { label: "150+ Trusted Clients" },
-            { label: "Vasad, Anand — Gujarat" },
+            { label: "Vasad, Anand — Gujarat, INDIA" },
           ].map((tag, i) => (
             <span key={tag.label} {...staggerDelay(i, 100)} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80">
               {tag.label}
@@ -224,7 +224,7 @@ export const ContactPage = () => {
               Visit Our Factory
             </h2>
             <p className="text-base leading-8 text-muted-foreground">
-              Located in Vasad, Anand, Gujarat — our manufacturing facility is easily accessible from NH 48. Factory visits welcome by appointment.
+              Located in Vasad, Anand, Gujarat, INDIA — our manufacturing facility is easily accessible from NH 48. Factory visits welcome by appointment.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-4 rounded-[20px] border border-border bg-surface-card p-4">
@@ -238,7 +238,7 @@ export const ContactPage = () => {
                 <Clock3 className="h-5 w-5 shrink-0 text-primary" />
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Working Hours</p>
-                  <p className="mt-1 text-sm font-medium text-foreground">Mon – Sat, 8:00 AM – 6:00 PM</p>
+                  <p className="mt-1 text-sm font-medium text-foreground">Mon – Sat, 9:00 AM – 6:00 PM</p>
                 </div>
               </div>
             </div>

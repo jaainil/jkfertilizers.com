@@ -21,7 +21,7 @@ const company = {
   phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
   emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
-  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat",
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305 INDIA",
   founder: "Mr. Akash Dadhania",
   founderTitle: "Founder & Director",
 };
@@ -313,7 +313,7 @@ export const AboutPage = () => {
           overlay={
             <div className="rounded-[24px] border border-white/30 bg-secondary/90 p-5 shadow-[0_16px_50px_rgba(15,23,42,0.18)]">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">Our Headquarters</p>
-              <p className="mt-2 font-heading text-base font-semibold text-white">Vasad, Anand — Gujarat, India</p>
+              <p className="mt-2 font-heading text-base font-semibold text-white">Vasad, Anand — Gujarat, INDIA</p>
               <p className="mt-1 text-sm text-white/65">{company.address}</p>
             </div>
           }
@@ -419,6 +419,8 @@ export const AboutPage = () => {
           <span>{company.address}</span>
           <span>·</span>
           <a href={`mailto:${company.emails[0]}`} className="hover:text-white/90 transition-colors">{company.emails[0]}</a>
+          <span>·</span>
+          <a href={`mailto:${company.emails[1]}`} className="hover:text-white/90 transition-colors">{company.emails[1]}</a>
         </div>
       </div>
     </section>

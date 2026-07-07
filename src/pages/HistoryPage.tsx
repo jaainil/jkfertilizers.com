@@ -16,7 +16,7 @@ const company = {
   mission: "To sustainably advance agricultural productivity and soil health through innovative, eco-friendly fertilizer solutions.",
   phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
-  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat",
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305 INDIA",
 };
 
 const timeline = [

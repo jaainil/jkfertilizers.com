@@ -97,7 +97,7 @@ export function SEOHead({
 
       {/* ── Geo / Local targeting ── */}
       <meta name="geo.region" content="IN-GJ" />
-      <meta name="geo.placename" content="Vasad, Anand, Gujarat, India" />
+      <meta name="geo.placename" content="Vasad, Anand, Gujarat, INDIA" />
       <meta name="geo.position" content="22.4475;72.8573" />
       <meta name="ICBM" content="22.4475, 72.8573" />
 
@@ -110,7 +110,7 @@ export function SEOHead({
       <meta name="DC.coverage" content="India, Gujarat, Worldwide" />
       <meta name="DC.rights" content="© 2026 J K Fertilizers" />
       <meta name="DC.identifier" content={canonicalUrl} />
-      <meta name="DC.subject" content="Organic Fertilizer Manufacturing, Agricultural Inputs, Gujarat India" />
+      <meta name="DC.subject" content="Organic Fertilizer Manufacturing, Agricultural Inputs, Gujarat INDIA" />
       {article?.publishedTime && (
         <meta name="DC.date" content={article.publishedTime} />
       )}

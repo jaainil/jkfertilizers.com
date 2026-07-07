@@ -21,7 +21,7 @@ export const company = {
   phoneAlt: "+919825045892",
   phoneAlt2: "+919825045891",
   emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
-  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat",
+  address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305 INDIA",
   founder: "Mr. Akash Dadhania",
   founderTitle: "Founder & Director",
 };
