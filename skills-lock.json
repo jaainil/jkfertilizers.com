@@ -7555,10 +7555,10 @@
       "computedHash": "f74850e40641f54e3fb4408347691b0d757611d00d7b936ea45b733de90ac406"
     },
     "seo-audit": {
-      "source": "agricidaniel/claude-seo",
+      "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
       "skillPath": "skills/seo-audit/SKILL.md",
-      "computedHash": "0552e675991bdf00060c3452105f5db637f719e6e44a49483da6266050c08681"
+      "computedHash": "606da61224d9d5687020816292c88152a7fcb27ce375b22f92f429e074f07f34"
     },
     "seo-authority-builder": {
       "source": "sickn33/antigravity-awesome-skills",
