@@ -35,7 +35,7 @@ export const SiteShell = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground">
+    <div className="min-h-screen w-full overflow-x-clip bg-background text-foreground">
       {/* Scroll Progress Bar */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
 

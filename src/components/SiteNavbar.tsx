@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Mail, MapPin, Menu, Phone, X, Leaf, ChevronDown, ChevronRight, ArrowRight } from "lucide-react";
 
@@ -12,14 +12,6 @@ const desktopLinkClassName = ({ isActive }: { isActive: boolean }) =>
     isActive
       ? "bg-primary/10 text-primary font-semibold shadow-inner"
       : "text-foreground/75 hover:text-primary hover:bg-primary/5 hover:-translate-y-0.5"
-  }`;
-
-// FIX 2.1 + 2.6: separate mobile style — full-width flex rows, py-3 = 44px+ tap target
-const mobileLinkClassName = ({ isActive }: { isActive: boolean }) =>
-  `flex w-full items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
-    isActive
-      ? "bg-primary/10 text-primary font-semibold"
-      : "text-foreground/75 hover:text-primary hover:bg-primary/5"
   }`;
 
 interface NavSubItem {
@@ -88,11 +80,36 @@ export const SiteNavbar = ({
 }) => {
   const [hoveredProductSlug, setHoveredProductSlug] = useState<string | null>(null);
   const [menuForceClosed, setMenuForceClosed] = useState(false);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Track scroll for enhanced sticky shadow
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      setOpenMobileSection(null);
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   const handleLinkClick = () => {
     setMenuForceClosed(true);
     setTimeout(() => setMenuForceClosed(false), 300);
   };
+
+  const toggleMobileSection = (label: string) => {
+    setOpenMobileSection((prev) => (prev === label ? null : label));
+  };
+
   return (
     <>
       {/* ── Top utility bar (desktop only) ── */}
@@ -135,18 +152,23 @@ export const SiteNavbar = ({
       </div>
 
       {/* ── Sticky header ── */}
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-surface-overlay/90 backdrop-blur-2xl shadow-[0_1px_0_0_rgba(45,122,74,0.06),0_4px_24px_rgba(22,61,38,0.04)]">
+      <header
+        className={`sticky top-0 z-50 border-b border-border/60 bg-surface-overlay/95 backdrop-blur-2xl transition-shadow duration-300 ${
+          isScrolled
+            ? "shadow-[0_4px_32px_rgba(22,61,38,0.12)]"
+            : "shadow-[0_1px_0_0_rgba(45,122,74,0.06),0_4px_24px_rgba(22,61,38,0.04)]"
+        }`}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-3.5 lg:px-8">
 
           {/* Logo */}
-          <Link to="/" className="group flex items-center gap-2.5 sm:gap-3" data-testid="site-logo-link">
+          <Link to="/" className="group flex items-center gap-2.5 sm:gap-3 shrink-0" data-testid="site-logo-link">
             <div className="relative shrink-0">
               <div className="absolute inset-0 rounded-xl bg-primary/8 blur-md group-hover:bg-primary/12 transition-all duration-300" />
               <img src="/logo.png" alt="J K Fertilizers" className="relative h-10 w-auto rounded-xl object-contain sm:h-11" />
             </div>
             <div>
               <p className="font-heading text-sm font-bold leading-tight text-foreground sm:text-base">{company.name}</p>
-              {/* FIX 2.4: text-xs minimum (was text-[10px]) */}
               <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">Organic · Naturally</p>
             </div>
           </Link>
@@ -391,85 +413,141 @@ export const SiteNavbar = ({
             </Button>
           </div>
 
-          {/* FIX 2.3: h-11 w-11 = 44px touch target, h-5 w-5 icon */}
+          {/* Mobile hamburger button — 44px touch target */}
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-surface-card text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-200 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-surface-card text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-200 lg:hidden shrink-0"
             onClick={onMobileToggle}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
             data-testid="mobile-menu-toggle-button"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
+      </header>
 
-        {/* FIX 2.2: backdrop overlay closes menu on tap-outside */}
-        {mobileOpen && (
-          <div
-            className="fixed inset-0 z-[-1] lg:hidden"
+      {/* ── Mobile Drawer (full-height slide-in from right) ── */}
+      {/* Backdrop */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={onMobileToggle}
+        aria-hidden="true"
+      />
+
+      {/* Drawer panel */}
+      <div
+        className={`fixed inset-y-0 right-0 z-50 flex w-[88vw] max-w-sm flex-col bg-background shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        data-testid="mobile-navigation-panel"
+        aria-modal="true"
+        role="dialog"
+        aria-label="Navigation menu"
+      >
+        {/* Drawer header */}
+        <div className="flex items-center justify-between border-b border-border/60 bg-surface-card px-5 py-4 shrink-0">
+          <Link to="/" onClick={onMobileToggle} className="flex items-center gap-2.5">
+            <img src="/logo.png" alt="J K Fertilizers" className="h-9 w-auto rounded-lg object-contain" />
+            <div>
+              <p className="font-heading text-sm font-bold text-foreground">{company.name}</p>
+              <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">Organic · Naturally</p>
+            </div>
+          </Link>
+          <button
+            type="button"
             onClick={onMobileToggle}
-            aria-hidden="true"
-          />
-        )}
-
-        {/* Mobile nav panel */}
-        {mobileOpen && (
-          <div
-            className="border-t border-border/50 bg-surface-card/98 backdrop-blur-xl px-4 py-4 lg:hidden"
-            data-testid="mobile-navigation-panel"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-foreground/70 hover:border-primary/40 hover:text-primary transition-all duration-200"
+            aria-label="Close menu"
           >
-            {/* FIX 2.6: full-width links, py-3 tap targets via mobileLinkClassName */}
-            <div className="flex flex-col gap-1">
-              {navMenu.map((item) => {
-                if (item.children) {
-                  if (item.tKey === "nav.product") {
-                    const mobileProductGroups = [
-                      {
-                        title: "Organic & Bio",
-                        items: [
-                          { label: "Organic Manure", path: "/products/organic-manure" },
-                          { label: "PROM", path: "/products/prom" },
-                          { label: "PDM", path: "/products/pdm" },
-                          { label: "Mycorrhiza Biofertilizer", path: "/products/mycorrhiza-granules-biofertilizers" },
-                        ]
-                      },
-                      {
-                        title: "Coated & Specialty",
-                        items: [
-                          { label: "Customized Coated Granules", path: "/products/customized-coated-granules" },
-                          { label: "Coated Bio NPK", path: "/products/coated-base-granules-bio-npk" },
-                          { label: "Coated Mycorrhiza", path: "/products/coated-base-granules-mycorrhiza" },
-                          { label: "Plant Available Silica", path: "/products/plant-available-silica" },
-                        ]
-                      },
-                      {
-                        title: "Base Granules",
-                        items: [
-                          { label: "Customized Base Granules", path: "/products/customized-base-granules" },
-                          { label: "Organic Carbon Base", path: "/products/organic-carbon-base-granules" },
-                          { label: "Pancharatna Base", path: "/products/pancharatna-base-granules" },
-                          { label: "Humic Based Granules", path: "/products/humic-based-granules" },
-                          { label: "Enriched Base Granules", path: "/products/enriched-base-granules" },
-                        ]
-                      }
-                    ];
+            <X className="h-4.5 w-4.5" />
+          </button>
+        </div>
 
-                    return (
-                      <div className="flex flex-col gap-1 py-1">
-                        <div className="px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/80">
-                          {item.label}
-                        </div>
-                        <div className="pl-3 flex flex-col gap-3 border-l border-primary/20 ml-5">
-                          {mobileProductGroups.map((group) => (
-                            <div key={group.title} className="flex flex-col gap-1">
-                              <span className="px-4 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60">{group.title}</span>
-                              <div className="pl-2 flex flex-col gap-0.5">
+        {/* Drawer body — scrollable */}
+        <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-4">
+          <nav className="flex flex-col gap-0.5">
+            {navMenu.map((item) => {
+              if (item.children) {
+                const isOpen = openMobileSection === item.label;
+                return (
+                  <div key={item.label} className="flex flex-col">
+                    {/* Section header — tappable to expand */}
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileSection(item.label)}
+                      className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-sm font-semibold transition-all duration-200 ${
+                        isOpen
+                          ? "bg-primary/8 text-primary"
+                          : "text-foreground/80 hover:bg-primary/5 hover:text-primary"
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={`h-4 w-4 opacity-60 transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Accordion body */}
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      {item.tKey === "nav.product" ? (
+                        // Products — grouped
+                        <div className="mt-1 mb-2 ml-3 border-l-2 border-primary/20 pl-3 flex flex-col gap-3">
+                          {[
+                            {
+                              title: "Organic & Bio",
+                              items: [
+                                { label: "Organic Manure", path: "/products/organic-manure" },
+                                { label: "PROM", path: "/products/prom" },
+                                { label: "PDM", path: "/products/pdm" },
+                                { label: "Mycorrhiza Biofertilizer", path: "/products/mycorrhiza-granules-biofertilizers" },
+                              ],
+                            },
+                            {
+                              title: "Coated & Specialty",
+                              items: [
+                                { label: "Customized Coated Granules", path: "/products/customized-coated-granules" },
+                                { label: "Coated Bio NPK", path: "/products/coated-base-granules-bio-npk" },
+                                { label: "Coated Mycorrhiza", path: "/products/coated-base-granules-mycorrhiza" },
+                                { label: "Plant Available Silica", path: "/products/plant-available-silica" },
+                              ],
+                            },
+                            {
+                              title: "Base Granules",
+                              items: [
+                                { label: "Customized Base Granules", path: "/products/customized-base-granules" },
+                                { label: "Organic Carbon Base", path: "/products/organic-carbon-base-granules" },
+                                { label: "Pancharatna Base", path: "/products/pancharatna-base-granules" },
+                                { label: "Humic Based Granules", path: "/products/humic-based-granules" },
+                                { label: "Enriched Base Granules", path: "/products/enriched-base-granules" },
+                              ],
+                            },
+                          ].map((group) => (
+                            <div key={group.title}>
+                              <p className="px-1 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground/60">
+                                {group.title}
+                              </p>
+                              <div className="flex flex-col gap-0.5">
                                 {group.items.map((subItem) => (
                                   <NavLink
                                     key={subItem.path}
                                     to={subItem.path}
-                                    className={mobileLinkClassName}
                                     onClick={onMobileToggle}
+                                    className={({ isActive }) =>
+                                      `flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ${
+                                        isActive
+                                          ? "bg-primary/10 text-primary"
+                                          : "text-foreground/70 hover:bg-primary/5 hover:text-primary"
+                                      }`
+                                    }
                                     data-testid={`mobile-nav-sublink-${subItem.label.toLowerCase()}`}
                                   >
                                     {subItem.label}
@@ -478,70 +556,98 @@ export const SiteNavbar = ({
                               </div>
                             </div>
                           ))}
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <div className="flex flex-col gap-1 py-1">
-                      <div className="px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/80">
-                        {item.label}
-                      </div>
-                      <div className="pl-3 flex flex-col gap-0.5 border-l border-primary/20 ml-5">
-                        {item.children.map((subItem) => (
                           <NavLink
-                            key={subItem.path}
-                            to={subItem.path}
-                            className={mobileLinkClassName}
+                            to="/products"
                             onClick={onMobileToggle}
-                            data-testid={`mobile-nav-sublink-${subItem.label.toLowerCase()}`}
+                            className="mt-1 flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-bold text-primary hover:bg-primary/5 transition-colors duration-200"
                           >
-                            {subItem.label}
+                            View All Products <ArrowRight className="h-3.5 w-3.5" />
                           </NavLink>
-                        ))}
-                      </div>
+                        </div>
+                      ) : (
+                        // Other items with children
+                        <div className="mt-1 mb-2 ml-3 border-l-2 border-primary/20 pl-3 flex flex-col gap-0.5">
+                          {item.children.map((subItem) => (
+                            <NavLink
+                              key={subItem.path}
+                              to={subItem.path}
+                              onClick={onMobileToggle}
+                              className={({ isActive }) =>
+                                `flex flex-col rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ${
+                                  isActive
+                                    ? "bg-primary/10 text-primary"
+                                    : "text-foreground/70 hover:bg-primary/5 hover:text-primary"
+                                }`
+                              }
+                              data-testid={`mobile-nav-sublink-${subItem.label.toLowerCase()}`}
+                            >
+                              <span className="font-semibold">{subItem.label}</span>
+                              {subItem.description && (
+                                <span className="mt-0.5 text-xs text-muted-foreground">{subItem.description}</span>
+                              )}
+                            </NavLink>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  );
-                }
-
-                return (
-                  <NavLink
-                    key={item.path}
-                    to={item.path!}
-                    className={mobileLinkClassName}
-                    onClick={onMobileToggle}
-                    data-testid={`mobile-nav-link-${item.label.toLowerCase()}`}
-                  >
-                    {item.label}
-                  </NavLink>
+                  </div>
                 );
-              })}
-            </div>
+              }
 
-            <div className="mt-4 h-px bg-border/60" />
+              return (
+                <NavLink
+                  key={item.path}
+                  to={item.path!}
+                  onClick={onMobileToggle}
+                  className={({ isActive }) =>
+                    `flex w-full items-center rounded-xl px-4 py-3.5 text-sm font-semibold transition-colors duration-200 ${
+                      isActive
+                        ? "bg-primary/8 text-primary"
+                        : "text-foreground/80 hover:bg-primary/5 hover:text-primary"
+                    }`
+                  }
+                  data-testid={`mobile-nav-link-${item.label.toLowerCase()}`}
+                >
+                  {item.label}
+                </NavLink>
+              );
+            })}
+          </nav>
 
-            {/* Mobile CTAs */}
-            <div className="mt-4 flex flex-col gap-3">
-              <a
-                href={`tel:${company.phoneRaw}`}
-                className="flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(45,122,74,0.3)]"
-                data-testid="mobile-call-link"
-              >
-                <Phone className="h-4 w-4" />
-                Call {company.phoneDisplay}
-              </a>
-              <Link
-                to="/contact"
-                onClick={onMobileToggle}
-                className="flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/6 px-4 py-3 text-sm font-semibold text-primary"
-              >
-                Get In Touch!
-              </Link>
-            </div>
+          {/* Divider */}
+          <div className="my-5 h-px bg-border/60" />
+
+          {/* Quick contact strip */}
+          <div className="mb-3 rounded-xl bg-primary/5 border border-primary/10 px-4 py-3 flex flex-col gap-1.5">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground">Quick Contact</p>
+            <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-2 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors">
+              <Phone className="h-3.5 w-3.5 text-primary" />{company.phoneDisplay}
+            </a>
+            <a href={`mailto:${company.emails[0]}`} className="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors truncate">
+              <Mail className="h-3.5 w-3.5 text-primary shrink-0" />{company.emails[0]}
+            </a>
           </div>
-        )}
-      </header>
+        </div>
+
+        {/* Drawer footer CTAs — always pinned at bottom */}
+        <div className="shrink-0 border-t border-border/60 bg-surface-card px-4 py-4 flex flex-col gap-2.5">
+          <a
+            href={`tel:${company.phoneRaw}`}
+            className="flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-3.5 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(45,122,74,0.3)] hover:bg-primary/90 active:scale-[0.98] transition-all duration-200"
+            data-testid="mobile-call-link"
+          >
+            <Phone className="h-4 w-4" />
+            Call {company.phoneDisplay}
+          </a>
+          <Link
+            to="/contact"
+            onClick={onMobileToggle}
+            className="flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/6 px-4 py-3.5 text-sm font-semibold text-primary hover:bg-primary/10 active:scale-[0.98] transition-all duration-200"
+          >
+            Get In Touch!
+          </Link>
+        </div>
+      </div>
     </>
   );
 };
