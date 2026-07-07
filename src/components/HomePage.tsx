@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star, Play } from "lucide-react";
+import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star } from "lucide-react";
 import { toast } from "sonner";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
@@ -651,20 +651,6 @@ const HomePage = () => {
             src={images.whyChoose}
             alt="Why Choose J K Fertilizers"
             className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
-            overlay={
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  toast.info("Video Presentation", {
-                    description: "To view our corporate video presentation, please reach out to us at info@jkfertilizers.com or call 9825045894.",
-                    duration: 5000,
-                  });
-                }}
-                className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-primary shadow-lg hover:scale-110 hover:bg-accent hover:text-white transition-all duration-300 z-20 cursor-pointer"
-              >
-                <Play className="h-6 w-6 fill-current translate-x-0.5" />
-              </button>
-            }
           />
         </div>
         <div className="space-y-6">
