@@ -46,8 +46,13 @@ export function SEOHead({
   article,
   product,
 }: SEOHeadProps) {
+  // Only append brand suffix when the passed title doesn't already reference JK Fertilizers.
+  // This prevents 130-150 char duplicate titles like:
+  // "Contact Us — J K Fertilizers | ... | J K Fertilizers — Manufacturers of Organic Fertilizers"
   const fullTitle = title
-    ? `${title} | J K Fertilizers — Manufacturers of Organic Fertilizers`
+    ? title.includes("J K Fertilizers")
+      ? title
+      : `${title} | J K Fertilizers`
     : "J K Fertilizers — Manufacturers of Organic Fertilizers | Anand, Gujarat";
 
   const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : SITE_URL;

@@ -183,7 +183,7 @@ export const CommitmentPage = () => {
         <div className="overflow-hidden rounded-[24px]">
           <img
             src="/images/commitment-1.jpg"
-            alt="Machinery"
+            alt="J K Fertilizers granule coating machinery at Vasad plant"
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
           />
@@ -191,7 +191,7 @@ export const CommitmentPage = () => {
         <div className="overflow-hidden rounded-[24px]">
           <img
             src="/images/commitment-2.jpg"
-            alt="Heap Formation"
+            alt="Organic fertilizer heap formation at J K Fertilizers, Vasad, Gujarat"
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
           />
@@ -199,7 +199,7 @@ export const CommitmentPage = () => {
         <div className="overflow-hidden rounded-[24px]">
           <img
             src="/images/commitment-3.jpg"
-            alt="Machinery"
+            alt="Fertilizer production line and processing equipment at J K Fertilizers"
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
           />

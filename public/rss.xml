@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/">
+
+  <channel>
+    <title>J K Fertilizers - Blog &amp; Insights</title>
+    <link>https://jkfertilizers.com</link>
+    <description>Expert insights on organic fertilizers, sustainable agriculture, granule technology and B2B supply from J K Fertilizers, Gujarat.</description>
+    <language>en-IN</language>
+    <managingEditor>info@jkfertilizers.com (J K Fertilizers)</managingEditor>
+    <webMaster>info@jkfertilizers.com (J K Fertilizers)</webMaster>
+    <lastBuildDate>Thu, 23 May 2024 00:00:00 GMT</lastBuildDate>
+    <pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
+    <ttl>10080</ttl>
+    <image>
+      <url>https://jkfertilizers.com/logo.png</url>
+      <title>J K Fertilizers - Blog &amp; Insights</title>
+      <link>https://jkfertilizers.com</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    <atom:link href="https://jkfertilizers.com/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>The 4 Non-Negotiables for Dependable B2B Granule Supply</title>
+    <link>https://jkfertilizers.com/blog/b2b-supply-non-negotiables</link>
+    <guid isPermaLink="true">https://jkfertilizers.com/blog/b2b-supply-non-negotiables</guid>
+    <description>Capacity, testing discipline, dispatch capability, and formulation flexibility are the non-negotiables for dependable B2B supply.</description>
+    <author>info@jkfertilizers.com (J K Fertilizers)</author>
+    <category>B2B procurement</category>
+    <pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
+      <enclosure url="https://jkfertilizers.com/images/soil.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Quality Systems That Reduce Downstream Risk for Distributors</title>
+    <link>https://jkfertilizers.com/blog/quality-systems-for-large-distribution</link>
+    <guid isPermaLink="true">https://jkfertilizers.com/blog/quality-systems-for-large-distribution</guid>
+    <description>Repeatable batches, controlled handling, and clear process discipline reduce downstream risk for large distribution networks.</description>
+    <author>info@jkfertilizers.com (J K Fertilizers)</author>
+    <category>Quality systems</category>
+    <pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
+      <enclosure url="https://jkfertilizers.com/images/lab.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>Why a Stronger Base Granule Sharpens Your Brand Promise</title>
+    <link>https://jkfertilizers.com/blog/stronger-base-granule-brand-promise</link>
+    <guid isPermaLink="true">https://jkfertilizers.com/blog/stronger-base-granule-brand-promise</guid>
+    <description>A stronger base granule can improve consistency, reduce compromise in formulation strategy, and sharpen your brand promise in the market.</description>
+    <author>info@jkfertilizers.com (J K Fertilizers)</author>
+    <category>Custom manufacturing</category>
+    <pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
+      <enclosure url="https://jkfertilizers.com/images/granules.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>What Animal Nutrition Teaches Us About Crop Nutrition</title>
+    <link>https://jkfertilizers.com/blog/animal-nutrition-crop-nutrition-link</link>
+    <guid isPermaLink="true">https://jkfertilizers.com/blog/animal-nutrition-crop-nutrition-link</guid>
+    <description>Understanding the link between animal nutrition and output quality — lessons that apply equally well to crop nutrition and soil health.</description>
+    <author>info@jkfertilizers.com (J K Fertilizers)</author>
+    <category>Agriculture</category>
+    <pubDate>Wed, 08 May 2024 00:00:00 GMT</pubDate>
+      <enclosure url="https://jkfertilizers.com/images/factory.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>How Fertilizer Application Timing Impacts Yield and Shelf Life</title>
+    <link>https://jkfertilizers.com/blog/granular-fertilizer-timing-yield</link>
+    <guid isPermaLink="true">https://jkfertilizers.com/blog/granular-fertilizer-timing-yield</guid>
+    <description>Timing and soil conditions are everything. How granular fertilizer application windows impact final yield quality and shelf life.</description>
+    <author>info@jkfertilizers.com (J K Fertilizers)</author>
+    <category>Farming</category>
+    <pubDate>Wed, 08 May 2024 00:00:00 GMT</pubDate>
+      <enclosure url="https://jkfertilizers.com/images/hero.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title>How Organic Farming Philosophy Shapes Our Granule Design</title>
+    <link>https://jkfertilizers.com/blog/organic-farming-philosophy-granule-design</link>
+    <guid isPermaLink="true">https://jkfertilizers.com/blog/organic-farming-philosophy-granule-design</guid>
+    <description>From livestock nutrition to soil regeneration — how organic farming philosophy drives our approach to granular fertilizer design.</description>
+    <author>info@jkfertilizers.com (J K Fertilizers)</author>
+    <category>Organic farming</category>
+    <pubDate>Wed, 08 May 2024 00:00:00 GMT</pubDate>
+      <enclosure url="https://jkfertilizers.com/images/partnership.jpg" type="image/jpeg" length="0" />
+  </item>
+  </channel>
+</rss>

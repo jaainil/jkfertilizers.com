@@ -924,13 +924,15 @@ export function buildBlogPostingSchema({ slug, title, excerpt, date, author, ima
     description: excerpt || title,
     url: postUrl,
     datePublished: date || "2026-01-01",
-    dateModified: date || "2026-03-12",
-    author: {
-      "@type": "Person",
-      name: author || "Akash Dadhania",
-      jobTitle: "Founder & Director",
-      worksFor: { "@id": `${SITE_URL}/#organization` },
-    },
+    dateModified: date || "2026-01-01",
+    author: author === "J K Fertilizers" || !author
+      ? { "@id": `${SITE_URL}/#organization` }
+      : {
+          "@type": "Person",
+          name: author,
+          jobTitle: "Author",
+          worksFor: { "@id": `${SITE_URL}/#organization` },
+        },
     publisher: {
       "@id": `${SITE_URL}/#organization`,
     },

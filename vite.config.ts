@@ -10,7 +10,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
-const BASE_URL = 'https://aditbiorganic.com';
+const BASE_URL = 'https://jkfertilizers.com';
 const BUILD_DATE = new Date();
 const ROOT_DIR = process.cwd();
 
@@ -43,10 +43,11 @@ const productSlugs = Array.from(
 const blogSlugs = Array.from(new Set(readMdxSlugs(blogDir)));
 const serviceSlugs = Array.from(new Set(readMdxSlugs(servicesDir)));
 
-const staticRoutes = ['/about', '/products', '/services', '/blog', '/contact'];
+const staticRoutes = ['/about', '/history', '/products', '/services', '/portfolio', '/blog', '/contact'];
 
 const dynamicRoutes = Array.from(
   new Set([
+    '/',
     ...staticRoutes,
     ...productSlugs.map((slug) => `/products/${slug}`),
     ...serviceSlugs.map((slug) => `/services/${slug}`),
@@ -60,6 +61,8 @@ const priorityMap: Record<string, number> = {
   '/products': 0.9,
   '/services': 0.85,
   '/about': 0.8,
+  '/portfolio': 0.75,
+  '/history': 0.7,
   '/blog': 0.75,
   ...Object.fromEntries(
     productSlugs.map((slug) => [`/products/${slug}`, 0.85] as const),
@@ -74,6 +77,11 @@ const changefreqMap: Record<string, string> = {
   '/': 'weekly',
   '/products': 'weekly',
   '/blog': 'weekly',
+  '/contact': 'monthly',
+  '/about': 'monthly',
+  '/history': 'yearly',
+  '/portfolio': 'monthly',
+  '/services': 'monthly',
   '*': 'monthly',
 };
 
@@ -101,11 +109,11 @@ export default defineConfig({
         'icon-512.png',
       ],
       manifest: {
-        name: 'Adit Biorganic - Premium Organic Solutions',
-        short_name: 'Adit Biorganic',
+        name: 'J K Fertilizers — Organic Fertilizer Manufacturer',
+        short_name: 'JK Fertilizers',
         description:
-          'Sustainable biotechnology products for modern agriculture and healthcare.',
-        theme_color: '#4f46e5',
+          'Leading manufacturer of organic fertilizers, base granules and coated granules in Gujarat, India. FCO approved. Since 2006.',
+        theme_color: '#163D26',
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
@@ -170,8 +178,8 @@ export default defineConfig({
       outDir: 'dist',
       content: `/*
 =================================================
-  Adit Biorganic - Premium Organic Solutions
-  Copyright © ${BUILD_DATE.getFullYear()} Adit Biorganic
+  J K Fertilizers — jkfertilizers.com
+  Copyright © ${BUILD_DATE.getFullYear()} J K Fertilizers
   Built with Vite + React
   Version: ${process.env.npm_package_version || '0.1.0'}
   Build Date: ${BUILD_DATE.toISOString()}

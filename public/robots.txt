@@ -1,6 +1,6 @@
-# robots.txt for Adit Biorganic
-# Last updated: 2026-03-12
-# Website: https://aditbiorganic.com
+# robots.txt for J K Fertilizers
+# Last updated: 2026-07-07
+# Website: https://jkfertilizers.com
 
 # Allow all search engines and AI bots
 User-agent: *
@@ -91,4 +91,7 @@ Disallow: /.git/
 Disallow: /node_modules/
 
 # Sitemap location
-Sitemap: https://aditbiorganic.com/sitemap.xml
+Sitemap: https://jkfertilizers.com/sitemap.xml
+
+# RSS Feed
+Sitemap: https://jkfertilizers.com/rss.xml

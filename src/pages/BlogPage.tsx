@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
-import { organizationSchema } from "@/data/seoSchemas";
+import { organizationSchema, blogPageSchema } from "@/data/seoSchemas";
 import { getAllBlogs } from "@/lib/content";
 
 const allPosts = getAllBlogs();
@@ -46,7 +46,7 @@ export const BlogPage = () => {
       canonical="/blog"
       ogImage="/images/granules.jpg"
       keywords="fertilizer industry blog, organic agriculture insights, b2b fertilizer procurement, granule fertilizer trends, sustainable agriculture india, fertilizer manufacturing blog gujarat, custom formulation insights"
-      schema={[organizationSchema]}
+      schema={[organizationSchema, blogPageSchema]}
     />
     {/* ── Hero ── */}
     <section className="relative overflow-hidden border-b border-border bg-background">
