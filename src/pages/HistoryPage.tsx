@@ -147,7 +147,7 @@ export const HistoryPage = () => {
                 className={`relative grid grid-cols-1 md:grid-cols-[1fr_100px_1fr] items-center gap-8 md:gap-0 reveal ${
                   timelineReveal.isVisible ? "visible" : ""
                 }`}
-                {...staggerDelay(idx, 100)}
+                {...staggerDelay(idx)}
               >
                 {/* Timeline vertical line connector segment */}
                 <div

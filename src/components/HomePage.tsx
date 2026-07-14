@@ -348,7 +348,7 @@ const HomePage = () => {
           <div
             key={item.label}
             className="group relative rounded-2xl border border-border bg-surface-card p-4 shadow-[0_12px_40px_rgba(22,61,38,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.14)] hover:border-primary/20 sm:rounded-[28px] sm:p-6"
-            {...staggerDelay(i, 100)}
+            {...staggerDelay(i)}
           >
             <div className="pointer-events-none absolute right-3 top-3 h-16 w-16 rounded-full bg-primary/5 blur-lg group-hover:bg-primary/10 transition-colors duration-300" />
             <p className="font-heading text-2xl font-extrabold text-primary sm:text-3xl">
@@ -681,7 +681,7 @@ const HomePage = () => {
       {/* Grid of benefits cards */}
       <div className={`grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 mt-16 reveal-scale ${cardsReveal.isVisible ? 'visible' : ''}`}>
         {expertiseCards.map((card, i) => (
-          <div key={card.title} {...staggerDelay(i, 100)}>
+          <div key={card.title} {...staggerDelay(i)}>
             <ExpertiseCard card={card} />
           </div>
         ))}
@@ -891,7 +891,7 @@ const HomePage = () => {
       </div>
       <div className={`grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 reveal-scale ${servicesReveal.isVisible ? 'visible' : ''}`}>
         {services.slice(0, 6).map((service, i) => (
-          <div key={service.title} {...staggerDelay(i, 100)} className="h-full">
+          <div key={service.title} {...staggerDelay(i)} className="h-full">
             <ServiceCard service={service} />
           </div>
         ))}
@@ -927,7 +927,7 @@ const HomePage = () => {
         </div>
         <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {insightPosts.map((post, i) => (
-            <div key={post.slug} {...staggerDelay(i, 150)}>
+            <div key={post.slug} {...staggerDelay(i)}>
               <InsightCard post={post} />
             </div>
           ))}

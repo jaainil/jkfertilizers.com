@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { HelmetProvider } from "react-helmet-async";
-import { ThemeProvider } from "next-themes";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import { SiteShell } from "@/components/SiteShell";
@@ -56,12 +55,10 @@ const AppRoutes = () => (
 export default function App() {
   return (
     <HelmetProvider>
-      <ThemeProvider attribute="class" forcedTheme="light">
-        <BrowserRouter>
-          <AppRoutes />
-          <Toaster position="top-right" />
-        </BrowserRouter>
-      </ThemeProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Toaster position="top-right" />
+      </BrowserRouter>
     </HelmetProvider>
   );
 }

@@ -177,7 +177,7 @@ export const ServicesPage = () => {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
-            <div key={service.title} {...staggerDelay(i, 100)} className="h-full flex flex-col">
+            <div key={service.title} {...staggerDelay(i)} className="h-full flex flex-col">
               <ServiceCard service={service} />
             </div>
           ))}
@@ -202,7 +202,7 @@ export const ServicesPage = () => {
         {processSteps.map((step, i) => (
           <div
             key={step.title}
-            {...staggerDelay(i, 100)}
+            {...staggerDelay(i)}
             className="group relative overflow-hidden rounded-[28px] border border-border bg-surface-card p-7 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
           >
             <p className="absolute -right-2 -top-4 font-heading text-8xl font-bold text-primary/5 select-none">
@@ -266,7 +266,7 @@ export const ServicesPage = () => {
             { value: "10000+", label: "Tons of Products" },
             { value: "6+", label: "Service Offerings" },
           ].map((stat, i) => (
-            <div key={stat.label} className="group text-center" {...staggerDelay(i, 100)}>
+            <div key={stat.label} className="group text-center" {...staggerDelay(i)}>
               <p className="font-heading text-5xl font-bold text-white">{stat.value}</p>
               <p className="mt-2 text-base text-white/80">{stat.label}</p>
               <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-all duration-300 group-hover:w-16" />

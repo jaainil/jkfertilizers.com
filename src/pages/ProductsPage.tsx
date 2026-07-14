@@ -81,7 +81,7 @@ export const ProductsPage = () => {
         className={`grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 reveal-scale ${listReveal.isVisible ? 'visible' : ''}`}
       >
         {products.map((product, i) => (
-          <div key={product.slug} {...staggerDelay(i, 100)} className="h-full flex flex-col">
+          <div key={product.slug} {...staggerDelay(i)} className="h-full flex flex-col">
             <ProductCard product={product} />
           </div>
         ))}
@@ -101,7 +101,7 @@ export const ProductsPage = () => {
           <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">Top-Rated High-Demand Agricultural Products from J K Fertilizer</h2>
           <div className="grid gap-4">
           {productHighlights.map((item, i) => (
-            <div key={item.slice(0, 20)} {...staggerDelay(i, 100)} className="flex items-start gap-3 rounded-[24px] border border-border bg-surface-card p-5">
+            <div key={item.slice(0, 20)} {...staggerDelay(i)} className="flex items-start gap-3 rounded-[24px] border border-border bg-surface-card p-5">
               <svg className="mt-1 h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>

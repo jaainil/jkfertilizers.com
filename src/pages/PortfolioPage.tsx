@@ -121,7 +121,7 @@ export const PortfolioPage = () => {
       >
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
-            <div key={s.label} className="group text-center" {...staggerDelay(i, 100)}>
+            <div key={s.label} className="group text-center" {...staggerDelay(i)}>
               <p className="font-heading text-5xl font-bold text-white">
                 {s.value}
               </p>
@@ -151,7 +151,7 @@ export const PortfolioPage = () => {
           {portfolioItems.map((item, i) => (
             <div
               key={item.title}
-              {...staggerDelay(i, 100)}
+              {...staggerDelay(i)}
               className="group overflow-hidden rounded-[24px] border border-border bg-surface-card shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)]"
             >
               <div className="relative h-44 overflow-hidden bg-gradient-to-br from-muted to-surface-card p-4 sm:h-48">

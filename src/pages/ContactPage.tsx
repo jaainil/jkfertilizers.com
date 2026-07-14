@@ -125,7 +125,7 @@ export const ContactPage = () => {
             { label: "150+ Trusted Clients" },
             { label: "Vasad, Anand — Gujarat, INDIA" },
           ].map((tag, i) => (
-            <span key={tag.label} {...staggerDelay(i, 100)} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80">
+            <span key={tag.label} {...staggerDelay(i)} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80">
               {tag.label}
             </span>
           ))}
@@ -158,7 +158,7 @@ export const ContactPage = () => {
               return (
                 <a
                   key={card.label}
-                  {...staggerDelay(i, 100)}
+                  {...staggerDelay(i)}
                   href={card.href}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
                   rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -283,7 +283,7 @@ export const ContactPage = () => {
         </div>
         <div className={`mx-auto max-w-4xl grid gap-4 reveal-scale ${faqReveal.isVisible ? 'visible' : ''}`}>
           {faqs.map((faq, i) => (
-            <div key={faq.q} {...staggerDelay(i, 100)} className="rounded-[24px] border border-border bg-surface-card p-7 shadow-[0_8px_30px_rgba(16,24,40,0.04)]">
+            <div key={faq.q} {...staggerDelay(i)} className="rounded-[24px] border border-border bg-surface-card p-7 shadow-[0_8px_30px_rgba(16,24,40,0.04)]">
               <p className="font-heading text-lg font-semibold text-foreground">{faq.q}</p>
               <p className="mt-3 text-sm leading-7 text-muted-foreground">{faq.a}</p>
             </div>

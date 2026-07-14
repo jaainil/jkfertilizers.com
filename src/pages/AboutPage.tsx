@@ -116,7 +116,7 @@ export const AboutPage = () => {
       >
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
-            <div key={s.label} className="group text-center" {...staggerDelay(i, 100)}>
+            <div key={s.label} className="group text-center" {...staggerDelay(i)}>
               <p className="font-heading text-5xl font-bold text-white">
                 {s.value}
                 {s.unit && <span className="text-accent ml-1 text-3xl">{s.unit}</span>}

@@ -55,8 +55,7 @@ export function useScrollReveal({
  * Caps the maximum index to prevent extremely long delays on long lists.
  * Returns className + style for a child at a given index.
  */
-export function staggerDelay(index: number, _passedDelay?: number) {
-  // Ignore any passed delay and force a fast stagger of 50ms.
+export function staggerDelay(index: number) {
   // Cap at 8 items to prevent elements waiting more than 400ms to appear.
   const clampedIndex = Math.min(index, 8);
   const strictBaseDelay = 50;
