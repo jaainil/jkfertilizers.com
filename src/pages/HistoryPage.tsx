@@ -126,9 +126,6 @@ export const HistoryPage = () => {
 
       {/* ── Timeline Section ── */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 relative overflow-hidden">
-        {/* Timeline central line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-border/80 hidden md:block" />
-
         <div className="text-center mb-16">
           <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
             Key Milestones
@@ -152,6 +149,16 @@ export const HistoryPage = () => {
                 }`}
                 {...staggerDelay(idx, 100)}
               >
+                {/* Timeline vertical line connector segment */}
+                <div
+                  className={`absolute left-1/2 w-0.5 -translate-x-1/2 bg-border/80 hidden md:block ${
+                    idx === 0
+                      ? "top-1/2 bottom-[-6rem]"
+                      : idx === timeline.length - 1
+                      ? "top-0 bottom-1/2"
+                      : "top-0 bottom-[-6rem]"
+                  }`}
+                />
                 {/* Left side: text for even, image for odd */}
                 <div className={`order-1 ${isEven ? "md:order-1 md:text-right md:pr-12" : "md:order-3 md:pl-12"}`}>
                   {isEven ? (
