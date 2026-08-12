@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 import { SiteShell } from "@/components/SiteShell";
 import { Toaster } from "@/components/ui/sonner";
@@ -17,23 +18,29 @@ import { PortfolioPage } from "@/pages/PortfolioPage";
 import { CommitmentPage } from "@/pages/CommitmentPage";
 import { HomePage } from "@/components/HomePage";
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+// Initialize GA4
+ReactGA.initialize("G-L1BQM1V3E3");
+
+const AnalyticsAndScrollTracker = () => {
+  const { pathname, search } = useLocation();
   const savedPathNameRef = useRef<string>(pathname);
 
   useEffect(() => {
+    // Send GA4 pageview on route change (for Single Page App routing)
+    ReactGA.send({ hitType: "pageview", page: pathname + search, title: document.title });
+
     if (savedPathNameRef.current !== pathname) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       savedPathNameRef.current = pathname;
     }
-  }, [pathname]);
+  }, [pathname, search]);
 
   return null;
 };
 
 const AppRoutes = () => (
   <SiteShell>
-    <ScrollToTop />
+    <AnalyticsAndScrollTracker />
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
