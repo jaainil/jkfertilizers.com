@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "@fontsource-variable/manrope";
-import "@fontsource-variable/outfit";
-import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/manrope/wght.css";
+import "@fontsource-variable/outfit/wght.css";
+import "@fontsource-variable/playfair-display/wght.css";
 import "@/index.css";
 import App from "@/App";
 
