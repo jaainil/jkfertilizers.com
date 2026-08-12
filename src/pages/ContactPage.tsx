@@ -258,7 +258,7 @@ export const ContactPage = () => {
                 title="J K Fertilizers Location"
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
