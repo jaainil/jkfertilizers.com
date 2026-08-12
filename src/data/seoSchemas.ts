@@ -392,7 +392,7 @@ export const organizationSchema: Organization = {
     latitude: "22.4475",
     longitude: "72.8573",
   },
-  hasMap: "https://maps.google.com/?q=Vasad,Anand,Gujarat",
+  hasMap: "https://maps.app.goo.gl/wxxAwGrF7c3Yn6VSA",
   telephone: "+919825045894",
   email: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
   contactPoint: [

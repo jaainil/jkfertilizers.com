@@ -43,8 +43,8 @@ const contactCards = [
     icon: MapPin,
     label: "Visit Our Factory",
     value: company.address,
-    sub: "Vasad, Anand, Gujarat, INDIA",
-    href: "https://maps.google.com/?q=Vasad,Anand,Gujarat",
+    sub: "Factory visits welcome by appointment",
+    href: "https://maps.app.goo.gl/wxxAwGrF7c3Yn6VSA",
   },
 ];
 
@@ -243,7 +243,7 @@ export const ContactPage = () => {
               </div>
             </div>
             <Button asChild className="w-fit h-11 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
-              <a href="https://maps.google.com/?q=Vasad,Anand,Gujarat" target="_blank" rel="noopener noreferrer">
+              <a href="https://maps.app.goo.gl/wxxAwGrF7c3Yn6VSA" target="_blank" rel="noopener noreferrer">
                 Open in Google Maps
                 <ArrowRight className="h-4 w-4" />
               </a>
@@ -254,12 +254,11 @@ export const ContactPage = () => {
             <div className="embed-map-container overflow-hidden bg-none absolute top-0 left-0 w-full h-full">
               <iframe
                 className="embed-map-frame absolute top-0 left-0 w-full h-full border-0"
-                frameBorder="0"
-                scrolling="no"
-                marginHeight={0}
-                marginWidth={0}
-                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Vasad%20Anand%20Gujarat&t=h&z=15&ie=UTF8&iwloc=B&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.448936258878!2d73.0451195771029!3d22.487333479552614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4adc746987e9%3A0xed5c255f41da256b!2sJ%20K%20Fertilizers!5e0!3m2!1sen!2sin!4v1786533611967!5m2!1sen!2sin"
                 title="J K Fertilizers Location"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
           </div>
