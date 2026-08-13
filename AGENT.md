@@ -22,7 +22,7 @@
 | Build tool | Vite 8 |
 | Styling | Tailwind CSS v4 (via `@tailwindcss/vite`) |
 | Routing | React Router DOM v7 |
-| Content (blog/services) | MDX (`@mdx-js/rollup` + `@mdx-js/react`) |
+| Content (blog/products/services) | MDX (`@mdx-js/rollup` + `@mdx-js/react`) |
 | Forms | Formspree (`@formspree/react` v3) — form ID: `mjybrvgp` |
 | SEO | `react-helmet-async` + custom `SEOHead` component |
 | Analytics | Google Analytics 4 (`react-ga4`, ID: `G-L1BQM1V3E3`) |
@@ -54,25 +54,7 @@ bun run rss        # Regenerate RSS feed only
 jkfertilizers.com/
 ├── public/
 │   ├── images/
-│   │   ├── products/          # Product images (see Section 8)
-│   │   │   ├── *.jpg / *.png  # Flat cover images (legacy fallbacks only)
-│   │   │   ├── Organic Manure/
-│   │   │   ├── PDM/
-│   │   │   ├── PROM/
-│   │   │   ├── Base Granules/
-│   │   │   │   ├── Base Granules/
-│   │   │   │   ├── Customized Base Granules/
-│   │   │   │   ├── Diatomite Silicon/        ← plant-available-silica
-│   │   │   │   ├── Enriched Base Granules/
-│   │   │   │   ├── Humic Based Granules/
-│   │   │   │   ├── Organic Carbon Base Granules/
-│   │   │   │   ├── Other Nutrients Base Granules/
-│   │   │   │   └── Pancharatna Base Granules/
-│   │   │   └── Coated Granules/
-│   │   │       ├── Coated Base Granules (BIO NPK)/
-│   │   │       ├── Coated Base Granules (Mycorrhiza)/
-│   │   │       └── Customized Coated Granules/
-│   │   └── about-*.jpg        # About/team/factory photos
+│   │   └── about-*.jpg        # About/team/factory photos (products/services images live in src/content/)
 │   └── favicon.ico, icon-192.png, icon-512.png, apple-touch-icon.png
 │
 ├── src/
@@ -81,13 +63,14 @@ jkfertilizers.com/
 │   ├── index.css              # Global styles + design tokens (TW v4)
 │   │
 │   ├── data/
-│   │   ├── products.ts        # All product data + gallery helpers
+│   │   ├── products.ts        # Product MDX loader + gallery helpers (see Section 8)
 │   │   ├── siteData.ts        # company info, navigation array
 │   │   └── seoSchemas.ts      # JSON-LD structured data builders
 │   │
 │   ├── content/
 │   │   ├── blog/              # .mdx files — one per blog post
-│   │   └── services/          # .mdx files — one per service page
+│   │   ├── products/          # one folder per product: <slug>/index.mdx + all its images
+│   │   └── services/          # one folder per service: <slug>/index.mdx + all its images
 │   │
 │   ├── hooks/
 │   │   └── useScrollReveal.ts # IntersectionObserver scroll reveal
@@ -243,7 +226,20 @@ const myReveal = useScrollReveal();
 
 ## 8. Products Data Architecture
 
-**File:** `src/data/products.ts`
+**Each product is a folder:** `src/content/products/<slug>/`
+
+```
+src/content/products/pdm/
+├── index.mdx     ← frontmatter: title, imageUrl (cover filename), summary, fit[],
+│                    category, tagline, description, howToApply[], benefits[], specs[]
+├── pdm.jpg       ← cover image (referenced by imageUrl)
+└── *.jpeg        ← gallery photos (auto-discovered)
+```
+
+**Loader:** `src/data/products.ts` — reads everything via `import.meta.glob` (eager):
+- `../content/products/*/index.mdx` → product data (frontmatter is the single source of truth)
+- `../content/products/*/*.{jpg,jpeg,png,webp,avif,gif,svg}` → gallery URLs (bundled, hashed)
+- `imageUrl` in frontmatter is just the **filename** of the cover inside the folder — the loader resolves it to the bundled URL.
 
 ### All 15 Products
 
@@ -265,51 +261,21 @@ const myReveal = useScrollReveal();
 | `base-granules` | Base Granules |
 | `plant-available-silica` | Plant Available Silica |
 
-### Gallery Auto-Discovery
-
-Gallery images are auto-discovered at build time via `import.meta.glob`:
-
-```ts
-const _allPublicImages = import.meta.glob(
-  '/public/images/products/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}',
-  { eager: true }
-);
-// Keys become browser URLs by stripping "/public"
-```
-
-Slug → folder mapping (`productFolderMap`):
-
-| Slug | Folder |
-|---|---|
-| `organic-manure` | `Organic Manure` |
-| `pdm` | `PDM` |
-| `prom` | `PROM` |
-| `customized-base-granules` | `Base Granules/Customized Base Granules` |
-| `customized-coated-granules` | `Coated Granules/Customized Coated Granules` |
-| `coated-base-granules-bio-npk` | `Coated Granules/Coated Base Granules (BIO NPK)` |
-| `coated-base-granules-mycorrhiza` | `Coated Granules/Coated Base Granules (Mycorrhiza)` |
-| `pancharatna-base-granules` | `Base Granules/Pancharatna Base Granules` |
-| `organic-carbon-base-granules` | `Base Granules/Organic Carbon Base Granules` |
-| `humic-based-granules` | `Base Granules/Humic Based Granules` |
-| `enriched-base-granules` | `Base Granules/Enriched Base Granules` |
-| `other-nutrients-base-granules` | `Base Granules/Other Nutrients Base Granules` |
-| `base-granules` | `Base Granules/Base Granules` |
-| `plant-available-silica` | `Base Granules/Diatomite Silicon` |
-
 ### Exported Helpers
 
 ```ts
+products: Product[]                            // all products, glob-driven
 getProductBySlug(slug): Product | undefined
-getRelatedProducts(slug): Product[]          // all except current
-getProductGallery(slug): string[]            // auto-discovered gallery images
-getProductCoverImage(slug, imageUrl): string // first gallery photo or imageUrl fallback
+getRelatedProducts(slug): Product[]            // all except current
+getProductGallery(slug): string[]              // auto-discovered gallery images
+getProductCoverImage(slug, imageUrl): string   // declared cover, or first gallery photo
 ```
 
 ### Adding a New Product
 
-1. Add product object to `products[]` in `products.ts`
-2. Add `"your-slug": "Folder Name"` to `productFolderMap`
-3. Create `public/images/products/Folder Name/` and drop images in — auto-discovered, no file listing needed
+1. Create `src/content/products/<slug>/index.mdx` with the frontmatter fields above
+2. Drop the cover + gallery images into the same folder
+3. Done — product appears on /products, homepage marquee, mega menu, and sitemap automatically
 
 ---
 
@@ -317,7 +283,7 @@ getProductCoverImage(slug, imageUrl): string // first gallery photo or imageUrl 
 
 - **`@/` alias** → `src/`
 - **MDX** with frontmatter via remark plugins
-- **Sitemap** auto-generated from product/blog/service slugs (reads from `products.ts` at build time)
+- **Sitemap** auto-generated from product/blog/service slugs (product/service slugs = folder names under `src/content/`)
 - **PWA** service worker — caches all assets including images
 - **`import.meta.glob('/public/**')`** works — Vite resolves from project root
 
@@ -328,8 +294,18 @@ getProductCoverImage(slug, imageUrl): string // first gallery photo or imageUrl 
 ### Blog — `src/content/blog/*.mdx`
 Frontmatter: `title`, `date`, `excerpt`, `coverImage`, `tags`
 
-### Services — `src/content/services/*.mdx`
+### Services — `src/content/services/<slug>/index.mdx`
 Slugs: `custom-packaging-solutions`, `granule-technology`, `infrastructure-leasing`, `job-work-services`, `warehouse-storage`
+
+Frontmatter: `title`, `concept`, `description`, `image` (cover **filename** inside the folder — resolved by the loader).
+Images live in the same folder and are auto-discovered; `getServiceGallery(slug)` in `src/lib/content.ts` returns them (used by `ServiceDetailPage` — no hardcoded image lists).
+Body (MDX) is the long-form service content.
+
+### Adding a New Service
+
+1. Create `src/content/services/<slug>/index.mdx` with frontmatter
+2. Drop cover + gallery images into the same folder
+3. Done — appears on /services and sitemap automatically
 
 ---
 
@@ -430,8 +406,8 @@ Commits are made as `emergent-agent-e1 <github@emergent.sh>` — this is the AI 
 | Content type | What to do |
 |---|---|
 | New blog post | Drop `slug.mdx` in `src/content/blog/` with frontmatter (`title`, `date`, `excerpt`, `author`, `topic`, `img`, `tags`) — auto-discovered |
-| New service page | Drop `slug.mdx` in `src/content/services/` — auto-discovered |
-| New product | Add to `products[]` in `products.ts`, add to `productFolderMap`, create folder in `public/images/products/` |
-| New product images | Drop files into the product's folder — auto-discovered by `import.meta.glob`, no code change needed |
+| New service page | Create `src/content/services/<slug>/` with `index.mdx` + images — auto-discovered |
+| New product | Create `src/content/products/<slug>/` with `index.mdx` + images — auto-discovered |
+| New product/service images | Drop files into the content folder — auto-discovered by `import.meta.glob`, no code change needed |
 | Rebuild sitemap | Automatic on `bun run build` |
 | Update RSS | Run `bun run rss` after adding blog posts |

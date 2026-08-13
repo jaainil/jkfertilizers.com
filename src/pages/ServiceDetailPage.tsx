@@ -3,7 +3,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
-import { getServiceBySlug, getAllServices } from "@/lib/content";
+import { getServiceBySlug, getAllServices, getServiceGallery } from "@/lib/content";
 import { organizationSchema, buildServiceSchema } from "@/data/seoSchemas";
 import { useState } from "react";
 
@@ -63,42 +63,6 @@ const mdxComponents = {
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const SERVICE_IMAGES: Record<string, string[]> = {
-  "granule-technology": [
-    "/images/Service/Coating/Machinery-9-scaled.jpeg",
-    "/images/Service/Coating/DSC00412-scaled.jpeg"
-  ],
-  "infrastructure-leasing": [
-    "/images/Service/Infrastructure Leasing/Drone-View-J-K-3-scaled.jpeg",
-    "/images/Service/Infrastructure Leasing/DSC00334-scaled.jpeg",
-    "/images/Service/Infrastructure Leasing/DSC00224-scaled.jpeg",
-    "/images/Service/Infrastructure Leasing/DSC00627-scaled.jpg",
-    "/images/Service/Infrastructure Leasing/6-5.jpeg",
-    "/images/Service/Infrastructure Leasing/DSC00263-scaled.jpeg"
-  ],
-  "job-work-services": [
-    "/images/Service/Job Work/Job-Work-2-scaled.jpeg",
-    "/images/Service/Job Work/DSC00459-scaled.jpeg",
-    "/images/Service/Job Work/Infra-scaled.jpeg",
-    "/images/Service/Job Work/DSC00269-scaled.jpeg",
-    "/images/Service/Job Work/DSC00275-scaled.jpeg"
-  ],
-  "custom-packaging-solutions": [
-    "/images/Service/Packaging/DSC00358-scaled.jpeg",
-    "/images/Service/Packaging/DSC00356-scaled.jpeg",
-    "/images/Service/Packaging/DSC00269-scaled.jpeg",
-    "/images/Service/Packaging/DSC00200-scaled.jpeg"
-  ],
-  "warehouse-storage": [
-    "/images/Service/Warehouse, Storage and Godown Facilities/Drone-View-Heaps-scaled.jpeg",
-    "/images/Service/Warehouse, Storage and Godown Facilities/DSC00127-scaled.jpeg",
-    "/images/Service/Warehouse, Storage and Godown Facilities/DSC00263-1-scaled.jpeg",
-    "/images/Service/Warehouse, Storage and Godown Facilities/DSC00185-scaled.jpeg",
-    "/images/Service/Warehouse, Storage and Godown Facilities/DSC00261-1-scaled.jpeg",
-    "/images/Service/Warehouse, Storage and Godown Facilities/DSC00388-scaled.jpeg",
-    "/images/Service/Warehouse, Storage and Godown Facilities/Warehousing-2-scaled.jpeg"
-  ]
-};
 
 const ServiceImageGallery = ({ images, title }: { images: string[]; title: string }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -300,7 +264,7 @@ export const ServiceDetailPage = () => {
       </section>
 
       {/* ── Interactive Image Gallery ── */}
-      <ServiceImageGallery images={SERVICE_IMAGES[slug || ""] || []} title={title} />
+      <ServiceImageGallery images={getServiceGallery(slug || "")} title={title} />
 
       {/* ── Content + Sidebar ── */}
       <div 

@@ -62,8 +62,27 @@ export function getBlogBySlug(slug: string): BlogPost | undefined {
 }
 
 // ─── Services ────────────────────────────────────────────────────────────────
+//
+// Each service lives in its own folder:
+//   src/content/services/<slug>/index.mdx   ← all details
+//   src/content/services/<slug>/*.{jpg,png} ← all images for that service
 
-const serviceModules = import.meta.glob("../content/services/*.mdx", { eager: true });
+const serviceModules = import.meta.glob("../content/services/*/index.mdx", { eager: true });
+
+const serviceImageModules = import.meta.glob(
+  "../content/services/*/*.{jpg,jpeg,png,webp,avif,gif,svg,JPG,JPEG,PNG,WEBP,AVIF,GIF,SVG}",
+  { eager: true, query: "?url", import: "default" }
+);
+
+const serviceGalleryBySlug: Record<string, string[]> = {};
+const serviceUrlByFile: Record<string, Record<string, string>> = {};
+for (const [path, url] of Object.entries(serviceImageModules)) {
+  const rel = path.replace("../content/services/", "");
+  const slug = rel.split("/")[0];
+  (serviceGalleryBySlug[slug] ??= []).push(url as string);
+  (serviceUrlByFile[slug] ??= {})[rel.split("/").pop()!] = url as string;
+}
+for (const imgs of Object.values(serviceGalleryBySlug)) imgs.sort();
 
 interface ServiceModule {
   frontmatter: Record<string, unknown>;
@@ -82,13 +101,18 @@ interface Service {
 }
 
 /**
- * Returns all services in file order (alphabetical by filename).
+ * Returns all services in file order (alphabetical by folder name).
  * @returns Array of services with slug and frontmatter data
  */
 export function getAllServices(): Service[] {
   return Object.entries(serviceModules).map(([path, mod]: [string, ServiceModule]) => {
-    const slug = path.replace("../content/services/", "").replace(".mdx", "");
-    return { slug, ...mod.frontmatter, Component: mod.default };
+    const slug = path.replace("../content/services/", "").replace("/index.mdx", "");
+    const fm = { ...mod.frontmatter } as Record<string, unknown>;
+    // image may be a local filename inside the service folder — resolve it.
+    if (typeof fm.image === "string" && !fm.image.startsWith("/")) {
+      fm.image = serviceUrlByFile[slug]?.[fm.image] ?? fm.image;
+    }
+    return { slug, ...fm, Component: mod.default };
   });
 }
 
@@ -98,4 +122,12 @@ export function getAllServices(): Service[] {
  */
 export function getServiceBySlug(slug: string): Service | undefined {
   return getAllServices().find((s) => s.slug === slug);
+}
+
+/**
+ * Returns all gallery images for a service slug, auto-discovered from its folder.
+ * @param slug - The service slug
+ */
+export function getServiceGallery(slug: string): string[] {
+  return serviceGalleryBySlug[slug] ?? [];
 }

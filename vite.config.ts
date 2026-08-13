@@ -38,7 +38,11 @@ const productSlugs = existsSync(productsDir)
   : [];
 
 const blogSlugs = Array.from(new Set(readMdxSlugs(blogDir)));
-const serviceSlugs = Array.from(new Set(readMdxSlugs(servicesDir)));
+const serviceSlugs = existsSync(servicesDir)
+  ? readdirSync(servicesDir).filter((entry) =>
+      existsSync(path.join(servicesDir, entry, 'index.mdx')),
+    )
+  : [];
 
 const staticRoutes = ['/about', '/history', '/products', '/services', '/portfolio', '/blog', '/contact'];
 

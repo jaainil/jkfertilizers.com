@@ -68,8 +68,8 @@ const testimonials = [
 ];
 
 const images = {
-  hero: "/images/services/hero.jpg",
-  commitment: "/images/services/manufacturing.jpg",
+  hero: "/images/hero-services.jpg",
+  commitment: "/images/manufacturing.jpg",
 };
 
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
