@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star } from "lucide-react";
 import { toast } from "sonner";
-import { products } from "@/data/products";
+import { products, getProductCoverImage } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { ImagePanel } from "@/components/ImagePanel";
 import { ExpertiseCard } from "@/components/ExpertiseCard";
@@ -128,7 +128,7 @@ const insightPosts = getAllBlogs().slice(0, 3);
 
 const productTickerProducts = products.map((p) => ({
   name: p.title,
-  img: p.imageUrl,
+  img: getProductCoverImage(p.slug, p.imageUrl),
 }));
 
 const testimonials = [
@@ -518,8 +518,8 @@ const HomePage = () => {
           <div className="flex shrink-0 animate-[marquee_35s_linear_infinite] items-center gap-0">
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
               <div key={`ticker-1-${i}`} className="flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white p-2 shadow-[0_4px_16px_rgba(22,61,38,0.1)] sm:h-20 sm:w-20 sm:rounded-2xl">
-                  <img src={p.img} alt={p.name} className="h-full w-full object-contain" loading="lazy" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white shadow-[0_4px_16px_rgba(22,61,38,0.1)] overflow-hidden sm:h-20 sm:w-20 sm:rounded-2xl">
+                  <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-lg sm:rounded-xl" loading="lazy" />
                 </div>
                 <span className="whitespace-nowrap font-heading text-xs font-semibold text-foreground sm:text-sm">{p.name}</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:h-2 sm:w-2 sm:ml-2" />
@@ -529,8 +529,8 @@ const HomePage = () => {
           <div aria-hidden className="flex shrink-0 animate-[marquee_35s_linear_infinite] items-center gap-0">
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
               <div key={`ticker-2-${i}`} className="flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white p-2 shadow-[0_4px_16px_rgba(22,61,38,0.1)] sm:h-20 sm:w-20 sm:rounded-2xl">
-                  <img src={p.img} alt={p.name} className="h-full w-full object-contain" loading="lazy" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white shadow-[0_4px_16px_rgba(22,61,38,0.1)] overflow-hidden sm:h-20 sm:w-20 sm:rounded-2xl">
+                  <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-lg sm:rounded-xl" loading="lazy" />
                 </div>
                 <span className="whitespace-nowrap font-heading text-xs font-semibold text-foreground sm:text-sm">{p.name}</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:h-2 sm:w-2 sm:ml-2" />

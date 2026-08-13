@@ -26,19 +26,16 @@ function readMdxSlugs(dirPath: string): string[] {
     .map((file) => file.replace(/\.mdx$/, ''));
 }
 
-const productsFile = path.resolve(ROOT_DIR, 'src/data/products.ts');
+const productsDir = path.resolve(ROOT_DIR, 'src/content/products');
 const blogDir = path.resolve(ROOT_DIR, 'src/content/blog');
 const servicesDir = path.resolve(ROOT_DIR, 'src/content/services');
 
-const productsSource = readTextIfExists(productsFile);
-
-const productSlugs = Array.from(
-  new Set(
-    [...productsSource.matchAll(/slug:\s*["']([^"']+)["']/g)].map(
-      (match): string => match[1],
-    ),
-  ),
-);
+// Each product is a folder containing index.mdx — the folder name is the slug.
+const productSlugs = existsSync(productsDir)
+  ? readdirSync(productsDir).filter((entry) =>
+      existsSync(path.join(productsDir, entry, 'index.mdx')),
+    )
+  : [];
 
 const blogSlugs = Array.from(new Set(readMdxSlugs(blogDir)));
 const serviceSlugs = Array.from(new Set(readMdxSlugs(servicesDir)));
