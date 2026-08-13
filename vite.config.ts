@@ -18,14 +18,6 @@ function readTextIfExists(filePath: string): string {
   return existsSync(filePath) ? readFileSync(filePath, 'utf8') : '';
 }
 
-function readMdxSlugs(dirPath: string): string[] {
-  if (!existsSync(dirPath)) return [];
-
-  return readdirSync(dirPath)
-    .filter((file) => file.endsWith('.mdx'))
-    .map((file) => file.replace(/\.mdx$/, ''));
-}
-
 const productsDir = path.resolve(ROOT_DIR, 'src/content/products');
 const blogDir = path.resolve(ROOT_DIR, 'src/content/blog');
 const servicesDir = path.resolve(ROOT_DIR, 'src/content/services');
@@ -37,7 +29,11 @@ const productSlugs = existsSync(productsDir)
     )
   : [];
 
-const blogSlugs = Array.from(new Set(readMdxSlugs(blogDir)));
+const blogSlugs = existsSync(blogDir)
+  ? readdirSync(blogDir).filter((entry) =>
+      existsSync(path.join(blogDir, entry, 'index.mdx')),
+    )
+  : [];
 const serviceSlugs = existsSync(servicesDir)
   ? readdirSync(servicesDir).filter((entry) =>
       existsSync(path.join(servicesDir, entry, 'index.mdx')),

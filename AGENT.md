@@ -68,7 +68,7 @@ jkfertilizers.com/
 │   │   └── seoSchemas.ts      # JSON-LD structured data builders
 │   │
 │   ├── content/
-│   │   ├── blog/              # .mdx files — one per blog post
+│   │   ├── blog/              # one folder per post: <slug>/index.mdx + its images
 │   │   ├── products/          # one folder per product: <slug>/index.mdx + all its images
 │   │   └── services/          # one folder per service: <slug>/index.mdx + all its images
 │   │
@@ -291,8 +291,10 @@ getProductCoverImage(slug, imageUrl): string   // declared cover, or first galle
 
 ## 10. Content (MDX)
 
-### Blog — `src/content/blog/*.mdx`
-Frontmatter: `title`, `date`, `excerpt`, `coverImage`, `tags`
+### Blog — `src/content/blog/<slug>/index.mdx`
+Frontmatter: `title`, `date`, `dateDisplay`, `excerpt`, `author`, `topic`, `img` (cover **filename** inside the folder — resolved by the loader), `featured`, `tags`
+
+Note: blog cover images are copies — the originals in `public/images/` (hero.jpg, soil.jpg, etc.) are shared with other pages, so they are NOT deleted from public.
 
 ### Services — `src/content/services/<slug>/index.mdx`
 Slugs: `custom-packaging-solutions`, `granule-technology`, `infrastructure-leasing`, `job-work-services`, `warehouse-storage`
@@ -405,7 +407,7 @@ Commits are made as `emergent-agent-e1 <github@emergent.sh>` — this is the AI 
 ### Adding new content
 | Content type | What to do |
 |---|---|
-| New blog post | Drop `slug.mdx` in `src/content/blog/` with frontmatter (`title`, `date`, `excerpt`, `author`, `topic`, `img`, `tags`) — auto-discovered |
+| New blog post | Create `src/content/blog/<slug>/` with `index.mdx` + cover image — auto-discovered; run `bun run rss` |
 | New service page | Create `src/content/services/<slug>/` with `index.mdx` + images — auto-discovered |
 | New product | Create `src/content/products/<slug>/` with `index.mdx` + images — auto-discovered |
 | New product/service images | Drop files into the content folder — auto-discovered by `import.meta.glob`, no code change needed |

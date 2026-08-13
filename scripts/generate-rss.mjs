@@ -73,12 +73,12 @@ function loadPosts() {
     return [];
   }
 
-  const files = readdirSync(BLOG_DIR).filter(f => f.endsWith('.mdx'));
+  const files = readdirSync(BLOG_DIR)
+    .filter(f => existsSync(join(BLOG_DIR, f, 'index.mdx')));
 
   return files
-    .map(file => {
-      const slug = file.replace(/\.mdx$/, '');
-      const raw  = readFileSync(join(BLOG_DIR, file), 'utf8');
+    .map(slug => {
+      const raw  = readFileSync(join(BLOG_DIR, slug, 'index.mdx'), 'utf8');
       const fm   = parseFrontmatter(raw);
 
       return {

@@ -6,16 +6,34 @@
  *   the `frontmatter` named export that remark-mdx-frontmatter generates.
  *   The slug is derived from the file name automatically.
  *
- * To add a new blog post:  create src/content/blog/<slug>.mdx  — done.
- * To add a new service:    create src/content/services/<slug>.mdx — done.
+ * To add a new blog post:  create src/content/blog/<slug>/index.mdx  — done.
+ * To add a new service:    create src/content/services/<slug>/index.mdx — done.
+ * To add a new product:    create src/content/products/<slug>/index.mdx — done.
+ * Images go in the same folder and are auto-discovered.
  * Then run `bun run sitemap` to regenerate sitemap.xml.
  */
 
 import type { ComponentType } from "react";
 
 // ─── Blog ────────────────────────────────────────────────────────────────────
+//
+// Each post lives in its own folder:
+//   src/content/blog/<slug>/index.mdx   ← all details
+//   src/content/blog/<slug>/*.{jpg,png} ← images for that post (img = cover filename)
 
-const blogModules = import.meta.glob("../content/blog/*.mdx", { eager: true });
+const blogModules = import.meta.glob("../content/blog/*/index.mdx", { eager: true });
+
+const blogImageModules = import.meta.glob(
+  "../content/blog/*/*.{jpg,jpeg,png,webp,avif,gif,svg,JPG,JPEG,PNG,WEBP,AVIF,GIF,SVG}",
+  { eager: true, query: "?url", import: "default" }
+);
+
+const blogUrlByFile: Record<string, Record<string, string>> = {};
+for (const [path, url] of Object.entries(blogImageModules)) {
+  const rel = path.replace("../content/blog/", "");
+  const slug = rel.split("/")[0];
+  (blogUrlByFile[slug] ??= {})[rel.split("/").pop()!] = url as string;
+}
 
 interface BlogModule {
   frontmatter: Record<string, unknown>;
@@ -43,8 +61,13 @@ interface BlogPost {
 export function getAllBlogs(): BlogPost[] {
   return Object.entries(blogModules)
     .map(([path, mod]: [string, BlogModule]) => {
-      const slug = path.replace("../content/blog/", "").replace(".mdx", "");
-      return { slug, ...mod.frontmatter, Component: mod.default };
+      const slug = path.replace("../content/blog/", "").replace("/index.mdx", "");
+      const fm = { ...mod.frontmatter } as Record<string, unknown>;
+      // img may be a local filename inside the post folder — resolve it.
+      if (typeof fm.img === "string" && !fm.img.startsWith("/")) {
+        fm.img = blogUrlByFile[slug]?.[fm.img] ?? fm.img;
+      }
+      return { slug, ...fm, Component: mod.default };
     })
     .sort((a: BlogPost, b: BlogPost) => {
       const dateA = a.date ? new Date(a.date).getTime() : 0;
