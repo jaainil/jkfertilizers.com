@@ -768,3 +768,10 @@ export const getProductGallery = (slug: string): string[] => {
       return [];
   }
 };
+
+// Returns the best single cover image for cards and previews.
+// Mirrors the ProductDetailPage logic: prefer first gallery photo, fall back to imageUrl.
+export const getProductCoverImage = (slug: string, imageUrl: string): string => {
+  const gallery = getProductGallery(slug);
+  return gallery.length > 0 ? gallery[0] : imageUrl;
+};

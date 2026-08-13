@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Sprout } from "lucide-react";
+import { getProductCoverImage } from "@/data/products";
 
 export const ProductCard = ({ product }) => (
   <Link
@@ -9,7 +10,7 @@ export const ProductCard = ({ product }) => (
     {/* Image */}
     <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-52">
       <img
-        src={product.imageUrl}
+        src={getProductCoverImage(product.slug, product.imageUrl)}
         alt={product.title}
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"

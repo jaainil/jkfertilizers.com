@@ -4,7 +4,7 @@ import { Mail, MapPin, Menu, Phone, X, Leaf, ChevronDown, ChevronRight, ArrowRig
 
 import { Button } from "@/components/ui/button";
 import { company, navigation } from "@/data/siteData";
-import { products } from "@/data/products";
+import { products, getProductCoverImage } from "@/data/products";
 
 // Desktop nav pill — NOT reused on mobile
 const desktopLinkClassName = ({ isActive }: { isActive: boolean }) =>
@@ -233,7 +233,7 @@ export const SiteNavbar = ({
                             <div>
                               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted shadow-sm">
                                 <img
-                                  src={activeProduct.imageUrl}
+                                  src={getProductCoverImage(activeProduct.slug, activeProduct.imageUrl)}
                                   alt={activeProduct.title}
                                   className="h-full w-full object-cover transition-all duration-300"
                                 />

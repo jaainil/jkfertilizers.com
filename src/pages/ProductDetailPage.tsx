@@ -30,9 +30,17 @@ export const ProductDetailPage = () => {
     }
   }, [product, navigate]);
 
+  // Reset gallery state whenever the product slug changes
+  useEffect(() => {
+    setSelectedImageIndex(0);
+    setActiveImageIndex(0);
+    setLightboxOpen(false);
+  }, [slug]);
+
   if (!product) return null;
 
-  const allImages = [product.imageUrl, ...(gallery || [])];
+  // If there are gallery photos, show only them. Fall back to the cover image when no gallery exists.
+  const allImages = gallery && gallery.length > 0 ? gallery : [product.imageUrl];
 
   return (
     <>
@@ -158,7 +166,7 @@ export const ProductDetailPage = () => {
               <div className="flex flex-wrap gap-2.5 pt-1">
                 {allImages.map((imgUrl, idx) => (
                   <button
-                    key={imgUrl}
+                    key={idx}
                     onClick={() => setSelectedImageIndex(idx)}
                     className={`relative overflow-hidden rounded-2xl border-2 aspect-square w-16 sm:w-20 transition-all duration-200 ${
                       selectedImageIndex === idx

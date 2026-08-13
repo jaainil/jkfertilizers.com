@@ -33,8 +33,8 @@ export const InquiryForm = ({
   }, [state.succeeded]);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     if (!consent) {
+      e.preventDefault();
       const msg = "Please confirm that our team may contact you about your inquiry.";
       setConsentError(msg);
       toast.error(msg);
