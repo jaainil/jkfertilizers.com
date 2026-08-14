@@ -1,0 +1,43 @@
+{
+  "catalog": {
+    "name": "J K Fertilizers Machine-Readable Catalog",
+    "description": "API and structured documentation catalog for AI agents, crawlers, and programmatic consumers per RFC 9727 and RFC 8288.",
+    "version": "1.0.0",
+    "homepage": "https://jkfertilizers.com",
+    "publisher": {
+      "name": "J K Fertilizers",
+      "url": "https://jkfertilizers.com",
+      "contact": "sales@jkfertilizers.com"
+    },
+    "endpoints": [
+      {
+        "rel": "describedby",
+        "title": "LLM & Agent Knowledge Summary (llms.txt)",
+        "href": "https://jkfertilizers.com/llms.txt",
+        "type": "text/markdown",
+        "description": "Structured overview of products, manufacturing services, and specifications."
+      },
+      {
+        "rel": "describedby",
+        "title": "B2B Pricing & Commercial Terms",
+        "href": "https://jkfertilizers.com/pricing.md",
+        "type": "text/markdown",
+        "description": "B2B pricing, volume tiers, MOQ, payment terms, and delivery schedules."
+      },
+      {
+        "rel": "service-desc",
+        "title": "XML Sitemap with Image Metadata",
+        "href": "https://jkfertilizers.com/sitemap.xml",
+        "type": "application/xml",
+        "description": "Full URL catalog of all products, services, articles, and pages."
+      },
+      {
+        "rel": "alternate",
+        "title": "RSS News & Insights Feed",
+        "href": "https://jkfertilizers.com/rss.xml",
+        "type": "application/rss+xml",
+        "description": "Latest agriculture insights, technical articles, and company announcements."
+      }
+    ]
+  }
+}

@@ -49,12 +49,17 @@
   RewriteRule . /index.html [L]
 </IfModule>
 
-# Security headers
+# Security and Discovery headers
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Link Response Headers for Agent Discovery (RFC 8288 / RFC 9727 Section 3)
+  <FilesMatch "^(index\.html)?$">
+    Header set Link '</llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog"'
+  </FilesMatch>
 </IfModule>
 
 # Protect sensitive files
