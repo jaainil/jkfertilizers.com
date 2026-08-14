@@ -460,7 +460,7 @@ export const ProductDetailPage = () => {
 
       {/* Related Products Carousel */}
       {related.length > 0 && (
-        <section className="bg-muted py-20 lg:py-28">
+        <section className="bg-muted py-20 lg:py-28 overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 flex flex-col gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
               <div className="space-y-4">
@@ -482,7 +482,7 @@ export const ProductDetailPage = () => {
               </Button>
             </div>
 
-            <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            <Carousel opts={{ align: "start", loop: true }} className="w-full relative">
               <CarouselContent className="-ml-6 items-stretch">
                 {related.map((relProduct) => (
                   <CarouselItem key={relProduct.slug} className="pl-6 md:basis-1/2 lg:basis-1/3">
@@ -523,8 +523,8 @@ export const ProductDetailPage = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="-left-4 top-1/2 -translate-y-1/2" />
-              <CarouselNext className="-right-4 top-1/2 -translate-y-1/2" />
+              <CarouselPrevious className="hidden sm:inline-flex -left-4 lg:-left-6 top-1/2 -translate-y-1/2 bg-surface-card border-border shadow-md hover:bg-muted" />
+              <CarouselNext className="hidden sm:inline-flex -right-4 lg:-right-6 top-1/2 -translate-y-1/2 bg-surface-card border-border shadow-md hover:bg-muted" />
             </Carousel>
           </div>
         </section>
