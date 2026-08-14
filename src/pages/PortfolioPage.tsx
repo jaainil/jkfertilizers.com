@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
 import { ImagePanel } from "@/components/ImagePanel";
 import { SEOHead } from "@/components/SEOHead";
-import { organizationSchema } from "@/data/seoSchemas";
+import { organizationSchema, portfolioPageSchema, portfolioItemListSchema } from "@/data/seoSchemas";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const company = {
@@ -92,7 +92,7 @@ export const PortfolioPage = () => {
       canonical="/portfolio"
       ogImage="/images/about-4.jpg"
       keywords="J K Fertilizers portfolio, organic fertilizer products, FCO approved fertilizers, mycorrhiza granules gujarat, prom fertilizer, pdm fertilizer"
-      schema={[organizationSchema]}
+      schema={[organizationSchema, portfolioPageSchema, portfolioItemListSchema]}
     />
     <PageHero
       eyebrow="Portfolio"

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
 import { SEOHead } from "@/components/SEOHead";
-import { organizationSchema } from "@/data/seoSchemas";
+import { organizationSchema, commitmentPageSchema } from "@/data/seoSchemas";
 import { Leaf, Award, Shield } from "lucide-react";
 
 const company = {
@@ -75,7 +75,7 @@ export const CommitmentPage = () => {
       canonical="/commitment"
       ogImage="/images/commitment-1.jpg"
       keywords="J K Fertilizers commitment, sustainable agriculture, organic farming commitment, eco-friendly fertilizers, quality assurance"
-      schema={[organizationSchema]}
+      schema={[organizationSchema, commitmentPageSchema]}
     />
     <PageHero
       eyebrow="Why Can You Trust Us?"

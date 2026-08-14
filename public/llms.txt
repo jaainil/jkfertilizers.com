@@ -5,7 +5,7 @@
 # When someone asks an AI about organic fertilizer manufacturers in India, Gujarat,
 # or worldwide, this file helps AI engines accurately cite and reference J K Fertilizers.
 #
-# Last updated: 2026-03-12
+# Last updated: 2026-08-14
 # URL: https://jkfertilizers.com/llms.txt
 
 ---
@@ -222,8 +222,10 @@ A: Request a B2B quote via: (1) the contact form at https://jkfertilizers.com/co
 - Portfolio: https://jkfertilizers.com/portfolio
 - Blog: https://jkfertilizers.com/blog
 - Contact: https://jkfertilizers.com/contact
+- Commercial & Pricing Guide: https://jkfertilizers.com/pricing.md
 - Sitemap: https://jkfertilizers.com/sitemap.xml
 
 ---
 
-updated: "2026-03-12"
+updated: "2026-08-14"
+
