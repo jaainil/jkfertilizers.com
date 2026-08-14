@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-robots.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs && node scripts/prerender.mjs",
+    "build": "vite build && node scripts/generate-robots.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs && node scripts/generate-markdown.mjs && node scripts/generate-skills-index.mjs && node scripts/prerender.mjs",
     "robots": "node scripts/generate-robots.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "rss": "node scripts/generate-rss.mjs",
+    "markdown": "node scripts/generate-markdown.mjs",
+    "skills": "node scripts/generate-skills-index.mjs",
     "prerender": "node scripts/prerender.mjs",
     "preview": "vite preview"
   },

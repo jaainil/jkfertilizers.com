@@ -1,0 +1,97 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "J K Fertilizers Public API & Discovery Catalog",
+    "version": "1.0.0",
+    "description": "Public machine-readable endpoints and product data for J K Fertilizers (Anand, Gujarat, India).",
+    "contact": {
+      "name": "J K Fertilizers Support",
+      "email": "sales@jkfertilizers.com",
+      "url": "https://jkfertilizers.com/contact"
+    },
+    "license": {
+      "name": "Proprietary",
+      "url": "https://jkfertilizers.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://jkfertilizers.com",
+      "description": "Production Server"
+    }
+  ],
+  "paths": {
+    "/llms.txt": {
+      "get": {
+        "summary": "AI Agent Overview & Knowledge Base",
+        "description": "Structured summary of products, manufacturing services, and specifications per llmstxt.org.",
+        "responses": {
+          "200": {
+            "description": "Markdown knowledge file",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pricing.md": {
+      "get": {
+        "summary": "B2B Pricing & Commercial Terms",
+        "description": "B2B price tiers, MOQ, payment options, and delivery information.",
+        "responses": {
+          "200": {
+            "description": "Markdown pricing sheet",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "summary": "Full URL & Media Catalog",
+        "description": "XML sitemap containing all 36 indexable URLs and image metadata.",
+        "responses": {
+          "200": {
+            "description": "XML Sitemap",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rss.xml": {
+      "get": {
+        "summary": "Agriculture Insights RSS Feed",
+        "description": "RSS 2.0 feed with latest technical articles and agronomy guides.",
+        "responses": {
+          "200": {
+            "description": "RSS Feed",
+            "content": {
+              "application/rss+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

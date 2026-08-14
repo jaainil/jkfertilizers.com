@@ -143,12 +143,18 @@ function generateRobotsTxt() {
 # robots.txt for J K Fertilizers
 # Website: ${SITE_URL}
 # Last updated: ${dateStr}
-# =================================================\n\n`;
+# =================================================
+
+# ─── Content Signals (IETF draft / contentsignals.org) ───
+# Explicitly allowing AI training, search indexing, and AI retrieval
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
+`;
 
   for (const group of crawlers) {
     text += `# ─── ${group.category} ───\n`;
     for (const bot of group.bots) {
-      text += `User-agent: ${bot}\nAllow: /\n\n`;
+      text += `User-agent: ${bot}\nAllow: /\nContent-Signal: ai-train=yes, search=yes, ai-input=yes\n\n`;
     }
   }
 

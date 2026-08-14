@@ -4,208 +4,274 @@
 # Last updated: 2026-08-14
 # =================================================
 
+# ─── Content Signals (IETF draft / contentsignals.org) ───
+# Explicitly allowing AI training, search indexing, and AI retrieval
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
 # ─── Universal Fallback ───
 User-agent: *
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Google Search & Media Bots ───
 User-agent: Googlebot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Googlebot-Image
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Googlebot-Video
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Googlebot-News
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Google-InspectionTool
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Storebot-Google
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: GoogleOther
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Google-Extended
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Mediapartners-Google
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: AdsBot-Google
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── OpenAI (ChatGPT & SearchGPT) ───
 User-agent: GPTBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: ChatGPT-User
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: OAI-SearchBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Anthropic (Claude) ───
 User-agent: ClaudeBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Claude-Web
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: anthropic-ai
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Perplexity AI ───
 User-agent: PerplexityBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Perplexity-User
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Google Gemini AI ───
 User-agent: Gemini-Web
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Google-Extended
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Microsoft Bing & Copilot ───
 User-agent: Bingbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: msnbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: msnbot-media
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: BingPreview
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Apple & Siri Bots ───
 User-agent: Applebot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Applebot-Extended
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Meta (Facebook / Instagram / Llama AI) ───
 User-agent: Meta-ExternalAgent
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Meta-ExternalFetcher
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: FacebookBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: facebookexternalhit
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── xAI (Grok) ───
 User-agent: xAI-Bot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Cohere AI ───
 User-agent: cohere-ai
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: cohere-training-data-crawler
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── DeepSeek AI ───
 User-agent: DeepSeekBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── ByteDance & TikTok ───
 User-agent: Bytespider
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Amazon ───
 User-agent: Amazonbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Independent Search & AI Engines ───
 User-agent: BraveBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: DuckDuckBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: YouBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: YandexBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: YandexImages
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Baiduspider
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Sogou web spider
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: NaverBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Yeti
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: SeznamBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Qwantify
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: MojeekBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Research, Open Knowledge & Archiving Bots ───
 User-agent: CCBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: ia_archiver
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: SemanticScholarBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Diffbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Scrapy
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Social Media Previews & Messengers ───
 User-agent: LinkedInBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Twitterbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: WhatsApp
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: TelegramBot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Pinterestbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Slackbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: Discordbot
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: SkypeUriPreview
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ─── Sitemap & Discovery ───
 Sitemap: https://jkfertilizers.com/sitemap.xml

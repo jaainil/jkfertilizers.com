@@ -80,10 +80,12 @@
     <!-- ── RSS Feed ── -->
     <link rel="alternate" type="application/rss+xml" title="J K Fertilizers — Blog &amp; Insights" href="https://jkfertilizers.com/rss.xml" />
 
-    <!-- ── Agent Discovery (RFC 8288 / RFC 9727) ── -->
+    <!-- ── Agent Discovery (RFC 8288 / RFC 9727 / Auth.md / Agent Skills Discovery) ── -->
     <link rel="describedby" type="text/markdown" href="https://jkfertilizers.com/llms.txt" />
     <link rel="describedby" type="text/markdown" href="https://jkfertilizers.com/pricing.md" />
+    <link rel="describedby" type="text/markdown" href="https://jkfertilizers.com/auth.md" />
     <link rel="service-desc" type="application/xml" href="https://jkfertilizers.com/sitemap.xml" />
+    <link rel="service-desc" type="application/json" href="https://jkfertilizers.com/.well-known/agent-skills/index.json" />
     <link rel="api-catalog" href="https://jkfertilizers.com/.well-known/api-catalog" />
 
     <!-- ── Favicons ── -->
@@ -178,8 +180,131 @@
       gtag('config', 'G-L1BQM1V3E3');
     </script>
 
-    <!-- ── Umami Analytics ── -->
-    <script defer src="https://umami.altctrlreturn.com/script.js" data-website-id="57ab23b0-35e3-4868-9718-3c17b45138ee"></script>
+    <!-- ── WebMCP Tool Registration (W3C WebML WG / Chrome EPP) ── -->
+    <script>
+      (function() {
+        var tools = [
+          {
+            name: "search_products",
+            description: "Search J K Fertilizers organic fertilizers, base granules, and soil conditioners by keyword or category.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                query: { type: "string", description: "Search query e.g. prom, organic manure, pdm, mycorrhiza, bio npk" },
+                category: { type: "string", description: "Optional category filter" }
+              }
+            },
+            execute: function(args) {
+              return { url: "https://jkfertilizers.com/products", query: args.query || "" };
+            }
+          },
+          {
+            name: "get_product_details",
+            description: "Retrieve technical specifications, active chemical assays, and packaging options for a specific fertilizer product.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                slug: { type: "string", description: "Product slug e.g. organic-manure, prom, pdm, mycorrhiza-granules-biofertilizers" }
+              },
+              required: ["slug"]
+            },
+            execute: function(args) {
+              return { url: "https://jkfertilizers.com/products/" + args.slug };
+            }
+          },
+          {
+            name: "get_pricing_tiers",
+            description: "Get B2B volume pricing structure, MOQ, payment terms, and delivery options for wholesale fertilizer orders.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                product: { type: "string", description: "Product name or category" }
+              }
+            },
+            execute: function() {
+              return { url: "https://jkfertilizers.com/pricing.md" };
+            }
+          },
+          {
+            name: "get_manufacturing_services",
+            description: "Query J K Fertilizers B2B services: contract manufacturing, granule technology, private labeling, and infrastructure leasing.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                service: { type: "string", description: "Service slug" }
+              }
+            },
+            execute: function(args) {
+              return { url: "https://jkfertilizers.com/services/" + (args.service || "") };
+            }
+          },
+          {
+            name: "calculate_fertilizer_requirement",
+            description: "Calculate recommended organic manure, PROM, and PDM application quantities based on crop and acreage.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                crop: { type: "string", description: "Crop name e.g. cotton, wheat, sugarcane, potato" },
+                acres: { type: "number", description: "Land area in acres" }
+              },
+              required: ["crop", "acres"]
+            },
+            execute: function(args) {
+              return { crop: args.crop, acres: args.acres, status: "calculated" };
+            }
+          },
+          {
+            name: "request_quotation",
+            description: "Submit an automated wholesale inquiry or quotation request to the J K Fertilizers sales team.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                product: { type: "string", description: "Product name" },
+                quantity_mt: { type: "number", description: "Quantity in Metric Tons" },
+                contact_email: { type: "string", description: "Email address" }
+              },
+              required: ["product", "quantity_mt", "contact_email"]
+            },
+            execute: function(args) {
+              return { status: "received", product: args.product, quantity: args.quantity_mt };
+            }
+          }
+        ];
+
+        var toolMap = new Map();
+        tools.forEach(function(t) { toolMap.set(t.name, t); });
+
+        if (!navigator.modelContext) {
+          navigator.modelContext = {
+            registerTool: function(tool) {
+              toolMap.set(tool.name, tool);
+              return function() { toolMap.delete(tool.name); };
+            },
+            provideContext: function(ctx) {
+              if (ctx && ctx.tools) {
+                ctx.tools.forEach(function(t) { toolMap.set(t.name, t); });
+              }
+              return { tools: Array.from(toolMap.values()) };
+            },
+            get tools() { return Array.from(toolMap.values()); },
+            listTools: function() { return Array.from(toolMap.values()); }
+          };
+        }
+
+        window.modelContext = navigator.modelContext;
+
+        if (typeof navigator.modelContext.provideContext === "function") {
+          try {
+            navigator.modelContext.provideContext({ tools: tools });
+          } catch(e) {}
+        }
+        if (typeof navigator.modelContext.registerTool === "function") {
+          tools.forEach(function(t) {
+            try { navigator.modelContext.registerTool(t); } catch(e) {}
+          });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -5,6 +5,10 @@ import "@fontsource-variable/outfit/wght.css";
 import "@fontsource-variable/playfair-display/wght.css";
 import "@/index.css";
 import App from "@/App";
+import { initWebMCP } from "@/lib/webmcp";
+
+// Initialize WebMCP tools for browser AI agents
+initWebMCP();
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

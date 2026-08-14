@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "b2b-procurement",
+      "type": "skill-md",
+      "description": "Guidelines and commercial workflows for autonomous agents procuring bulk organic fertilizers, base granules, and customized soil conditioners from J K Fertilizers.",
+      "url": "https://jkfertilizers.com/.well-known/agent-skills/b2b-procurement/SKILL.md",
+      "digest": "sha256:d738817a3cf7eb6598baa46f64467763ddf1b02aa72b96f84c6528be12cc09f4"
+    },
+    {
+      "name": "contract-manufacturing",
+      "type": "skill-md",
+      "description": "Workflows for agri-input companies to lease granulation infrastructure, request custom granule formulations, and contract private-label packaging.",
+      "url": "https://jkfertilizers.com/.well-known/agent-skills/contract-manufacturing/SKILL.md",
+      "digest": "sha256:fa1f963e4d38658bc7b2f65ccff3613fa7569b2c6a4400c89ea8ec17008fdfcc"
+    },
+    {
+      "name": "product-catalog",
+      "type": "skill-md",
+      "description": "Technical assay query skill for inspecting organic fertilizers, nutrient specifications, granule hardness, and FCO compliance parameters.",
+      "url": "https://jkfertilizers.com/.well-known/agent-skills/product-catalog/SKILL.md",
+      "digest": "sha256:6f981b6652d962fb8d90ad5ac8fa1f50ab09cda22655cfc73360a1b89ffabc16"
+    }
+  ]
+}
