@@ -27,6 +27,22 @@ export interface ProductSpec {
   value: string;
 }
 
+export interface ComparisonRow {
+  feature: string;
+  traditional: string;
+  ours: string;
+}
+
+export interface ProductComparison {
+  title?: string;
+  headers?: {
+    feature?: string;
+    traditional?: string;
+    ours?: string;
+  };
+  rows: ComparisonRow[];
+}
+
 export interface Product {
   slug: string;
   title: string;
@@ -39,6 +55,7 @@ export interface Product {
   howToApply: HowToApplyStep[];
   benefits: ProductBenefit[];
   specs: ProductSpec[];
+  comparison?: ProductComparison;
   gallery?: string[];
   Component?: ComponentType;
 }

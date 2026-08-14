@@ -57,6 +57,7 @@ const navMenu: NavItem[] = [
       { label: "Other Nutrients Base Granules", path: "/products/other-nutrients-base-granules" },
       { label: "Base Granules", path: "/products/base-granules" },
       { label: "Plant Available Silica", path: "/products/plant-available-silica" },
+      { label: "Diatomite Silicon", path: "/products/diatomite-silicon" },
     ],
   },
   {
@@ -193,6 +194,7 @@ export const SiteNavbar = ({
                   ];
 
                   const catBase = [
+                    { label: "Diatomite Silicon", path: "/products/diatomite-silicon", slug: "diatomite-silicon", desc: "FCO approved silica granules" },
                     { label: "Customized Base Granules", path: "/products/customized-base-granules", slug: "customized-base-granules", desc: "Dolomite & compost recipes" },
                     { label: "Organic Carbon Base", path: "/products/organic-carbon-base-granules", slug: "organic-carbon-base-granules", desc: "Humus & carbon enrichment" },
                     { label: "Pancharatna Base", path: "/products/pancharatna-base-granules", slug: "pancharatna-base-granules", desc: "5-in-1 nutrient foundation" },
@@ -523,6 +525,7 @@ export const SiteNavbar = ({
                             {
                               title: "Base Granules",
                               items: [
+                                { label: "Diatomite Silicon", path: "/products/diatomite-silicon" },
                                 { label: "Customized Base Granules", path: "/products/customized-base-granules" },
                                 { label: "Organic Carbon Base", path: "/products/organic-carbon-base-granules" },
                                 { label: "Pancharatna Base", path: "/products/pancharatna-base-granules" },

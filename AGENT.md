@@ -229,41 +229,93 @@ const myReveal = useScrollReveal();
 **Each product is a folder:** `src/content/products/<slug>/`
 
 ```
-src/content/products/pdm/
+src/content/products/diatomite-silicon/
 ├── index.mdx     ← frontmatter: title, imageUrl (cover filename), summary, fit[],
-│                    category, tagline, description, howToApply[], benefits[], specs[]
-├── pdm.jpg       ← cover image (referenced by imageUrl)
-└── *.jpeg        ← gallery photos (auto-discovered)
+│                    category, tagline, description, howToApply[], benefits[], specs[],
+│                    comparison? { title, headers, rows[] }
+├── 1.png         ← cover image (referenced by imageUrl)
+└── *.png         ← gallery photos (auto-discovered)
 ```
 
 **Loader:** `src/data/products.ts` — reads everything via `import.meta.glob` (eager):
 - `../content/products/*/index.mdx` → product data (frontmatter is the single source of truth)
 - `../content/products/*/*.{jpg,jpeg,png,webp,avif,gif,svg}` → gallery URLs (bundled, hashed)
 - `imageUrl` in frontmatter is just the **filename** of the cover inside the folder — the loader resolves it to the bundled URL.
+- `comparison` in frontmatter provides optional technical comparison data against traditional alternatives (rendered on `ProductDetailPage`).
 
-### All 15 Products
+### All 16 Products
 
-| Slug | Title |
-|---|---|
-| `organic-manure` | Organic Manure |
-| `pdm` | PDM (Potash Derived from Molasses) |
-| `prom` | PROM (Phosphate Rich Organic Manure) |
-| `mycorrhiza-granules-biofertilizers` | Mycorrhiza Biofertilizer |
-| `customized-base-granules` | Customized Base Granules |
-| `customized-coated-granules` | Customized Coated Granules |
-| `coated-base-granules-bio-npk` | Coated Base Granules Bio NPK |
-| `coated-base-granules-mycorrhiza` | Coated Base Granules Mycorrhiza |
-| `pancharatna-base-granules` | Pancharatna Base Granules |
-| `organic-carbon-base-granules` | Organic Carbon Base Granules |
-| `humic-based-granules` | Humic Based Granules |
-| `enriched-base-granules` | Enriched Base Granules |
-| `other-nutrients-base-granules` | Other Nutrients Base Granules |
-| `base-granules` | Base Granules |
-| `plant-available-silica` | Plant Available Silica |
+| Slug | Title | Category |
+|---|---|---|
+| `organic-manure` | Organic Manure | Organic Fertilizers |
+| `pdm` | PDM (Potash Derived from Molasses) | Organic Fertilizers |
+| `prom` | PROM (Phosphate Rich Organic Manure) | Organic Fertilizers |
+| `mycorrhiza-granules-biofertilizers` | Mycorrhiza Biofertilizer | Biofertilizers |
+| `customized-base-granules` | Customized Base Granules | Base Granules |
+| `customized-coated-granules` | Customized Coated Granules | Coated Granules |
+| `coated-base-granules-bio-npk` | Coated Base Granules Bio NPK | Coated Granules |
+| `coated-base-granules-mycorrhiza` | Coated Base Granules Mycorrhiza | Coated Granules |
+| `pancharatna-base-granules` | Pancharatna Base Granules | Base Granules |
+| `organic-carbon-base-granules` | Organic Carbon Base Granules | Base Granules |
+| `humic-based-granules` | Humic Based Granules | Base Granules |
+| `enriched-base-granules` | Enriched Base Granules | Base Granules |
+| `other-nutrients-base-granules` | Other Nutrients Base Granules | Base Granules |
+| `base-granules` | Base Granules | Base Granules |
+| `plant-available-silica` | Plant Available Silica | Base Granules |
+| `diatomite-silicon` | Diatomite Silicon | Base Granules |
 
-### Exported Helpers
+### Exported Helpers & Types
 
 ```ts
+export interface HowToApplyStep {
+  step: string;     // e.g. "01", "02", "03"
+  title: string;    // Step headline
+  detail: string;   // Actionable instructions
+}
+
+export interface ProductBenefit {
+  title: string;    // Benefit headline
+  detail: string;   // Technical advantage explanation
+}
+
+export interface ProductSpec {
+  label: string;    // e.g. "Product Type", "Certification", "Form", "Heavy Metal"
+  value: string;    // e.g. "FCO Approved", "Low (< 10%)", "Uniform Round Granules"
+}
+
+export interface ComparisonRow {
+  feature: string;      // e.g. "Customizable Base Material", "Heavy Metal Content"
+  traditional: string;  // e.g. "High (more than 18%)"
+  ours: string;         // e.g. "Low (less than or around 10%)"
+}
+
+export interface ProductComparison {
+  title?: string;
+  headers?: {
+    feature?: string;      // default: "Feature"
+    traditional?: string;  // default: "Bentonite Granules"
+    ours?: string;         // default: "Our Recipe Granules"
+  };
+  rows: ComparisonRow[];
+}
+
+export interface Product {
+  slug: string;
+  title: string;
+  imageUrl: string;
+  summary: string;
+  fit: string[];
+  category: string;
+  tagline: string;
+  description: string;
+  howToApply: HowToApplyStep[];
+  benefits: ProductBenefit[];
+  specs: ProductSpec[];
+  comparison?: ProductComparison;
+  gallery?: string[];
+  Component?: ComponentType;
+}
+
 products: Product[]                            // all products, glob-driven
 getProductBySlug(slug): Product | undefined
 getRelatedProducts(slug): Product[]            // all except current
@@ -271,11 +323,98 @@ getProductGallery(slug): string[]              // auto-discovered gallery images
 getProductCoverImage(slug, imageUrl): string   // declared cover, or first gallery photo
 ```
 
+### Complete Product Frontmatter Parameter Reference
+
+Every product `src/content/products/<slug>/index.mdx` accepts the following frontmatter fields:
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `title` | `string` | **Yes** | Full product display name (e.g. `"Diatomite Silicon"`). |
+| `imageUrl` | `string` | **Yes** | Filename of the cover image inside the folder (e.g. `"1.png"`). Resolved automatically by Vite. |
+| `summary` | `string` | **Yes** | 1–2 sentence summary used on listing cards, hero overview, and meta tags. |
+| `tagline` | `string` | **Yes** | Subtitle / slogan displayed directly under the h1 title on the detail page. |
+| `category` | `string` | **Yes** | Category label (e.g. `"Base Granules"`, `"Coated Granules"`, `"Organic Fertilizers"`). |
+| `fit` | `string[]` | **Yes** | Array of 3–5 badge tags (e.g. `["FCO Approved", "Soil Health", "Sustainable Farming"]`). |
+| `description` | `string` (multiline `\|`) | **Yes** | 2–3 paragraph long-form description of the product, mechanisms, and agronomic value. |
+| `howToApply` | `HowToApplyStep[]` | **Yes** | 3-step application guide. Each item must have `step` (`"01"`), `title`, and `detail`. |
+| `benefits` | `ProductBenefit[]` | **Yes** | List of key agronomic benefits. Each item must have `title` and `detail`. |
+| `specs` | `ProductSpec[]` | **Yes** | Quick-spec attributes rendered in the top spec bar & sidebar card. Each item has `label` and `value`. |
+| `comparison` | `ProductComparison` | *Optional* | Technical head-to-head comparison table rendered on `ProductDetailPage`. |
+| `comparison.title` | `string` | *Optional* | Heading for the comparison section. |
+| `comparison.headers` | `object` | *Optional* | Column header labels (`feature`, `traditional`, `ours`). |
+| `comparison.rows` | `ComparisonRow[]` | *Optional* | Array of rows comparing attributes (`feature`, `traditional`, `ours`). |
+
+#### Full Frontmatter Example with Comparison Table
+
+```yaml
+---
+title: "Diatomite Silicon"
+imageUrl: "1.png"
+summary: "A certified, government-approved fertilizer under FCO enriched with silica to improve soil health and crop resilience."
+fit:
+  - "FCO Approved"
+  - "Silica Enriched"
+  - "Crop Resilience"
+  - "Soil Health"
+  - "Sustainable Farming"
+category: "Base Granules"
+tagline: "A Government-Approved FCO Product"
+description: |
+  Diatomite Silicon is a certified, government-approved fertilizer under the Fertilizer Control Order (FCO), guaranteeing quality and compliance. This high-quality, mineral-based product is enriched with silica to improve soil health and crop performance sustainably.
+
+  Designed to enhance plant resilience against environmental stress, it promotes robust growth, improves nutrient uptake, and strengthens crops.
+howToApply:
+  - step: "01"
+    title: "Direct Soil Application"
+    detail: "Apply directly to the soil during basal application or field preparation."
+  - step: "02"
+    title: "Fertilizer Blending"
+    detail: "Blend seamlessly with NPK or organic fertilizers."
+  - step: "03"
+    title: "Broadcasting"
+    detail: "Broadcast evenly across fields and incorporate into topsoil."
+benefits:
+  - title: "FCO Certified Quality"
+    detail: "Government-approved under the Fertilizer Control Order (FCO)."
+  - title: "Enhanced Crop Resilience"
+    detail: "Strengthens cellular walls against lodging, pests, and drought."
+specs:
+  - label: "Product Type"
+    value: "Diatomite Silicon Granules"
+  - label: "Category"
+    value: "Base Granules"
+  - label: "Certification"
+    value: "FCO Approved (Govt. of India)"
+  - label: "Heavy Metal"
+    value: "Low (< 10%)"
+comparison:
+  title: "Comprehensive Comparison: Traditional Bentonite Granules vs. Advanced Custom Mineral-Based Granules"
+  headers:
+    feature: "Feature"
+    traditional: "Bentonite Granules"
+    ours: "Our Recipe Granules"
+  rows:
+    - feature: "Customizable Base Material"
+      traditional: "Yes"
+      ours: "Yes (Ca, Mg, Phosphorus, Silica, and other minerals)"
+    - feature: "Enhanced Nutrient Addition"
+      traditional: "No (coating only)"
+      ours: "Yes (can be integrated into the base)"
+    - feature: "Heavy Metal Content"
+      traditional: "High (more than 18%)"
+      ours: "Low (less than or around 10%)"
+    - feature: "Order Flexibility"
+      traditional: "Yes (Bulk Orders)"
+      ours: "Yes (customizable quantities per demand)"
+---
+```
+
 ### Adding a New Product
 
-1. Create `src/content/products/<slug>/index.mdx` with the frontmatter fields above
+1. Create `src/content/products/<slug>/index.mdx` with the frontmatter fields above (optionally including `comparison: { title, headers, rows }`)
 2. Drop the cover + gallery images into the same folder
-3. Done — product appears on /products, homepage marquee, mega menu, and sitemap automatically
+3. Add the product route/link to `src/components/SiteNavbar.tsx`
+4. Done — product appears on /products, homepage marquee, mega menu, and sitemap automatically
 
 ---
 

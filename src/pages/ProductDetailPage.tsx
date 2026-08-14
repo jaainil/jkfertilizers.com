@@ -349,6 +349,60 @@ export const ProductDetailPage = () => {
         </div>
       </section>
 
+      {/* Comparison Table Section if available */}
+      {product.comparison && (
+        <section className="bg-muted/70 py-20 lg:py-28 border-t border-border">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+                Technical Comparison
+              </div>
+              <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                {product.comparison.title || "Product Comparison"}
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
+                See how our engineered custom mineral-based granules outperform traditional alternatives.
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-border bg-muted/50 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      <th className="py-4 px-6 sm:px-8 font-heading text-foreground">
+                        {product.comparison.headers?.feature || "Feature"}
+                      </th>
+                      <th className="py-4 px-6 sm:px-8 w-1/3">
+                        {product.comparison.headers?.traditional || "Bentonite Granules"}
+                      </th>
+                      <th className="py-4 px-6 sm:px-8 w-1/3 bg-primary/5 text-primary font-bold">
+                        {product.comparison.headers?.ours || "Our Recipe Granules"}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border text-sm">
+                    {product.comparison.rows.map((row, idx) => (
+                      <tr key={idx} className="hover:bg-muted/30 transition-colors">
+                        <td className="py-4 px-6 sm:px-8 font-medium text-foreground">
+                          {row.feature}
+                        </td>
+                        <td className="py-4 px-6 sm:px-8 text-muted-foreground">
+                          {row.traditional}
+                        </td>
+                        <td className="py-4 px-6 sm:px-8 font-medium text-primary bg-primary/[0.02]">
+                          {row.ours}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA band */}
       <section className="bg-primary py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-8">
