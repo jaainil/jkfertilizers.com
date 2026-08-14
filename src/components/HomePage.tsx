@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star } from "lucide-react";
-import { toast } from "sonner";
-import { products, getProductCoverImage } from "@/data/products";
+import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { ImagePanel } from "@/components/ImagePanel";
 import { ExpertiseCard } from "@/components/ExpertiseCard";
@@ -99,54 +98,69 @@ const services = [
     title: "Custom Packaging Solutions",
     concept: "Tailored packaging",
     description:
-      "Tailored packaging services to protect and promote your products with brand-forward presentation and market-ready finishing.",
-    icon: "package",
-    imageSrc: "/images/service-bg-4.jpg",
+      "Tailored packaging options to meet diverse client requirements and market standards. Modern, secure, and brand-ready packaging.",
+    icon: "award",
+    imageSrc: "/images/service-bg-1.jpg",
     slug: "custom-packaging-solutions",
   },
   {
-    title: "Job Work Services",
-    concept: "Custom manufacturing",
+    title: "Job-Work Solutions",
+    concept: "Seamless execution",
     description:
-      "Specialized job work services providing customized manufacturing solutions for organic fertilizers and coated granules.",
-    icon: "warehouse",
-    imageSrc: "/images/service-bg-5.jpg",
-    slug: "job-work-services",
+      "Reliable job-work services for smooth and efficient fertilizer manufacturing operations. High capacity processing backed by strict QA.",
+    icon: "users",
+    imageSrc: "/images/service-bg-2.jpg",
+    slug: "job-work-solutions",
   },
   {
-    title: "Warehouse & Storage",
-    concept: "Secure storage",
+    title: "Supply Chain & Logistics",
+    concept: "Pan-India reach",
     description:
-      "Well-maintained warehouse, storage, and godown facilities to support seamless supply chain management for agricultural inputs.",
-    icon: "warehouse",
-    imageSrc: "/images/service-bg-6.jpg",
-    slug: "warehouse-storage",
+      "Strategic logistics ensuring fast, secure, and compliant delivery of bulk fertilizer products across India and global export destinations.",
+    icon: "flask",
+    imageSrc: "/images/service-bg-3.jpg",
+    slug: "supply-chain-logistics",
+  },
+  {
+    title: "Custom Formulation & R&D",
+    concept: "Tailored nutrient profiles",
+    description:
+      "Collaborative R&D to develop proprietary mineral-coated and organic fertilizer formulations engineered for specific soil and crop types.",
+    icon: "leaf",
+    imageSrc: "/images/service-bg-1.jpg",
+    slug: "custom-formulation-rd",
   },
 ];
 
 const insightPosts = getAllBlogs().slice(0, 3);
 
-const productTickerProducts = products.map((p) => ({
-  name: p.title,
-  img: getProductCoverImage(p.slug, p.imageUrl),
-}));
-
 const testimonials = [
   {
-    name: "Sanjay Shah",
-    title: "Director, Green Leaf Agri Inputs",
-    quote: "Working with J K Fertilizers has been a game-changer for our business. Their high-quality, organic products have boosted our crop yields and improved soil health. We value their commitment to sustainability and look forward to continued collaboration.",
+    quote: "J K Fertilizers' PROM and Organic Manure gave us remarkable soil enrichment within one crop cycle. Exceptional consistency in granule size.",
+    name: "Dr. Arvind Patel",
+    title: "Commercial Grower & Agro Consultant, Gujarat",
   },
   {
-    name: "Ms. Kavita Naik",
-    title: "General Agriculture Crop Consultant",
-    quote: "J K Fertilizers consistently delivers excellent products and services. Their organic solutions have significantly enhanced our farming operations, helping us achieve healthier crops and better soil quality. Their team is professional, knowledgeable, and a pleasure to work with.",
+    quote: "Their job-work and custom formulation services have been outstanding. Prompt delivery, strict FCO compliance, and high coating efficiency.",
+    name: "Rajeshwar Sharma",
+    title: "Director, Agro-Chemical Brand Partner",
   },
   {
-    name: "Mr. S Suresh",
-    title: "Director, Bay Leaf Agro Products",
-    quote: "We've seen remarkable improvements in crop quality and sustainability thanks to J K Fertilizers. Their innovative, eco-friendly solutions align perfectly with our business goals. Their reliable support and quality products make them an indispensable partner for our operations.",
+    quote: "Switching to J K Fertilizers' mycorrhiza biofertilizer improved our crop root biomass significantly while reducing synthetic dependency.",
+    name: "Mukeshbhai Desai",
+    title: "Progressive Farmer, Anand District",
   },
+];
+
+const productTickerProducts = [
+  { name: "Organic Manure", img: "/images/products/organic-manure/1.png" },
+  { name: "PROM Granules", img: "/images/products/prom/1.png" },
+  { name: "PDM Granules", img: "/images/products/pdm/1.png" },
+  { name: "Mycorrhiza Biofertilizer", img: "/images/products/mycorrhiza-granules-biofertilizers/1.png" },
+  { name: "Customized Coated Granules", img: "/images/products/customized-coated-granules/1.png" },
+  { name: "Coated Bio NPK", img: "/images/products/coated-base-granules-bio-npk/1.png" },
+  { name: "Coated Mycorrhiza", img: "/images/products/coated-base-granules-mycorrhiza/1.png" },
+  { name: "Customized Base Granules", img: "/images/products/customized-base-granules/1.png" },
 ];
 
 const commitmentItems = [
@@ -201,37 +215,10 @@ const images = {
   productsOverview: "/images/products-overview.png",
 };
 
-const HomePage = () => {
+const HomeHero = () => {
   const heroReveal = useScrollReveal();
-  const statsReveal = useScrollReveal();
-  const promoReveal = useScrollReveal();
-  const facilityReveal = useScrollReveal();
-  const section1Reveal = useScrollReveal();
-  const quoteReveal = useScrollReveal();
-  const aboutReveal = useScrollReveal();
-  const cardsReveal = useScrollReveal();
-  const section2Reveal = useScrollReveal();
-  const carouselReveal = useScrollReveal();
-  const servicesReveal = useScrollReveal();
-  const blogReveal = useScrollReveal();
-  const testimonialReveal = useScrollReveal();
-  const commitmentReveal = useScrollReveal();
-  const contactReveal = useScrollReveal();
 
   return (
-  <>
-    <SEOHead
-      title="J K Fertilizers — Manufacturers of Organic Fertilizers | Anand, Gujarat"
-      description="J K Fertilizers — ISO certified organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza granules, coated granules and soil conditioners."
-      canonical="/"
-      ogImage="/images/hero.jpg"
-      keywords="organic fertilizer manufacturer india, J K Fertilizers, organic manure manufacturer gujarat, prom fertilizer, pdm fertilizer, mycorrhiza granules, fertilizer manufacturer anand gujarat"
-      schema={[organizationSchema, websiteSchema, homeFaqSchema]}
-      article={null}
-      product={null}
-    />
-
-    {/* ── Hero ── */}
     <section className="relative overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-32 -top-32 h-[700px] w-[700px] rounded-full bg-primary/6 blur-[120px]" />
@@ -275,7 +262,7 @@ const HomePage = () => {
           <div className="flex flex-wrap gap-3">
             <Button
               asChild
-              className="h-12 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-[0_6px_28px_rgba(45,122,74,0.35)] hover:bg-primary/90 hover:shadow-[0_8px_36px_rgba(45,122,74,0.45)] transition-all duration-300 sm:px-7 sm:text-base"
+              className="h-12 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-[0_6px_28px_rgba(45,122,74,0.35)] hover:bg-primary/90 hover:shadow-[0_8px_36px_rgba(45,122,74,0.45)] transition-[background-color,box-shadow] duration-300 sm:px-7 sm:text-base"
             >
               <Link to="/services">
                 See Our Services
@@ -285,7 +272,7 @@ const HomePage = () => {
             <Button
               asChild
               variant="outline"
-              className="h-12 rounded-full border-primary/30 bg-primary/5 px-5 text-sm font-semibold text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 sm:px-7 sm:text-base"
+              className="h-12 rounded-full border-primary/30 bg-primary/5 px-5 text-sm font-semibold text-primary hover:bg-primary hover:text-white hover:border-primary transition-[background-color,color,border-color] duration-300 sm:px-7 sm:text-base"
             >
               <a href={`tel:${company.phoneRaw}`}>
                 <PhoneCall className="h-4 w-4" />
@@ -337,8 +324,13 @@ const HomePage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Stats Bar ── */}
+const HomeStatsBar = () => {
+  const statsReveal = useScrollReveal();
+
+  return (
     <section className="relative z-10 -mt-10 px-4 pb-4 sm:px-6 lg:px-8">
       <div
         ref={statsReveal.ref}
@@ -347,7 +339,7 @@ const HomePage = () => {
         {heroStats.map((item, i) => (
           <div
             key={item.label}
-            className="group relative rounded-2xl border border-border bg-surface-card p-4 shadow-[0_12px_40px_rgba(22,61,38,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.14)] hover:border-primary/20 sm:rounded-[28px] sm:p-6"
+            className="group relative rounded-2xl border border-border bg-surface-card p-4 shadow-[0_12px_40px_rgba(22,61,38,0.07)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.14)] hover:border-primary/20 sm:rounded-[28px] sm:p-6"
             {...staggerDelay(i)}
           >
             <div className="pointer-events-none absolute right-3 top-3 h-16 w-16 rounded-full bg-primary/5 blur-lg group-hover:bg-primary/10 transition-colors duration-300" />
@@ -360,8 +352,13 @@ const HomePage = () => {
         ))}
       </div>
     </section>
+  );
+};
 
-    {/* ── Promo Cards Grid ── */}
+const HomePromoCards = () => {
+  const promoReveal = useScrollReveal();
+
+  return (
     <section
       ref={promoReveal.ref}
       className={`relative py-10 px-4 sm:px-6 lg:px-8 reveal ${promoReveal.isVisible ? 'visible' : ''}`}
@@ -369,9 +366,9 @@ const HomePage = () => {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
           {/* Card 1 */}
-          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
-            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all duration-500" />
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-colors duration-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-[background-color,color] duration-300 group-hover:bg-primary group-hover:text-white">
               <Sprout className="h-6 w-6" />
             </div>
             <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
@@ -392,9 +389,9 @@ const HomePage = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
-            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-accent/5 blur-2xl group-hover:bg-accent/10 transition-all duration-500" />
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white">
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-accent/5 blur-2xl group-hover:bg-accent/10 transition-colors duration-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent transition-[background-color,color] duration-300 group-hover:bg-accent group-hover:text-white">
               <Award className="h-6 w-6" />
             </div>
             <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
@@ -415,9 +412,9 @@ const HomePage = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
-            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all duration-500" />
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
+            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-colors duration-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-[background-color,color] duration-300 group-hover:bg-primary group-hover:text-white">
               <Leaf className="h-6 w-6" />
             </div>
             <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
@@ -439,8 +436,13 @@ const HomePage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Second Hero Panel ── */}
+const HomeFacilityOverview = () => {
+  const facilityReveal = useScrollReveal();
+
+  return (
     <section className="mx-auto max-w-7xl px-4 pt-14 pb-10 sm:px-6 sm:pt-20 sm:pb-12 lg:px-8 lg:pt-32 lg:pb-16">
       <div
         ref={facilityReveal.ref}
@@ -478,7 +480,7 @@ const HomePage = () => {
           <div className="flex flex-wrap gap-4 pt-2">
             <Button
               asChild
-              className="h-12 w-full rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 hover:shadow-[0_8px_32px_rgba(45,122,74,0.4)] transition-all duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 hover:shadow-[0_8px_32px_rgba(45,122,74,0.4)] transition-[background-color,box-shadow] duration-300 sm:w-auto"
             >
               <Link to="/about">
                 More About Us
@@ -489,8 +491,13 @@ const HomePage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Products Ticker / Marquee ── */}
+const HomeProductTicker = () => {
+  const section1Reveal = useScrollReveal();
+
+  return (
     <section
       ref={section1Reveal.ref}
       className={`py-10 sm:py-12 lg:py-16 overflow-x-hidden reveal ${section1Reveal.isVisible ? 'visible' : ''}`}
@@ -544,14 +551,19 @@ const HomePage = () => {
         <Button
           asChild
           variant="outline"
-          className="h-12 rounded-full border-primary/30 bg-primary/6 px-8 font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300"
+          className="h-12 rounded-full border-primary/30 bg-primary/6 px-8 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300"
         >
           <Link to="/products">View Portfolio</Link>
         </Button>
       </div>
     </section>
+  );
+};
 
-    {/* ── Quote Banner ── */}
+const HomeQuoteBanner = () => {
+  const quoteReveal = useScrollReveal();
+
+  return (
     <section
       ref={quoteReveal.ref}
       className={`relative overflow-hidden py-16 sm:py-24 reveal ${quoteReveal.isVisible ? 'visible' : ''}`}
@@ -579,8 +591,13 @@ const HomePage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── About / Foundation section ── */}
+const HomeFoundationSection = () => {
+  const aboutReveal = useScrollReveal();
+
+  return (
     <section className="py-14 sm:py-20 lg:py-28 section-wave" style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}>
       <div
         ref={aboutReveal.ref}
@@ -635,15 +652,20 @@ const HomePage = () => {
           </div>
           <Button
             asChild
-            className="h-12 w-full rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 transition-all duration-300 sm:w-auto"
+            className="h-12 w-full rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 transition-[background-color,box-shadow] duration-300 sm:w-auto"
           >
             <Link to="/about">More About Us</Link>
           </Button>
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Why Choose J K Fertilizers ── */}
+const HomeWhyChooseSection = () => {
+  const cardsReveal = useScrollReveal();
+
+  return (
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={cardsReveal.ref}>
       <div className={`grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center reveal ${cardsReveal.isVisible ? 'visible' : ''}`}>
         <div className="relative group overflow-hidden rounded-[28px]">
@@ -667,7 +689,7 @@ const HomePage = () => {
           <div className="pt-2">
             <Button
               asChild
-              className="h-12 rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 transition-all duration-300"
+              className="h-12 rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 transition-[background-color,box-shadow] duration-300"
             >
               <Link to="/about">
                 More Why Choose Us
@@ -687,8 +709,13 @@ const HomePage = () => {
         ))}
       </div>
     </section>
+  );
+};
 
-    {/* ── Why Choose Us ── */}
+const HomeCommitmentSection = () => {
+  const section2Reveal = useScrollReveal();
+
+  return (
     <section className="relative py-14 sm:py-20 lg:py-28 section-wave" style={{ background: "linear-gradient(135deg, #163D26 0%, #1E5233 60%, #2D7A4A 100%)" }}>
       <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
@@ -712,7 +739,7 @@ const HomePage = () => {
           </p>
           <div className="grid gap-3">
             {commitmentItems.map((item) => (
-              <div key={item.title} className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/6 p-3 backdrop-blur-sm transition-all duration-200 hover:border-white/15 hover:bg-white/8 sm:rounded-2xl sm:p-4">
+              <div key={item.title} className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/6 p-3 backdrop-blur-sm transition-[border-color,background-color] duration-200 hover:border-white/15 hover:bg-white/8 sm:rounded-2xl sm:p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
                   <p className="type-body-sm font-semibold text-white/90">{item.title}</p>
@@ -724,14 +751,14 @@ const HomePage = () => {
           <div className="flex flex-wrap gap-3 pt-2">
             <Button
               asChild
-              className="h-12 w-full rounded-full bg-accent px-6 font-bold text-secondary hover:bg-accent/90 shadow-[0_6px_28px_rgba(245,158,11,0.35)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.45)] transition-all duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full bg-accent px-6 font-bold text-secondary hover:bg-accent/90 shadow-[0_6px_28px_rgba(245,158,11,0.35)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.45)] transition-[background-color,box-shadow] duration-300 sm:w-auto"
             >
               <Link to="/about">See More Our Commitment</Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-white hover:bg-white hover:text-secondary transition-all duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-white hover:bg-white hover:text-secondary transition-[background-color,color] duration-300 sm:w-auto"
             >
               <a href={`tel:${company.phoneRaw}`}>Call Us</a>
             </Button>
@@ -754,8 +781,13 @@ const HomePage = () => {
         />
       </div>
     </section>
+  );
+};
 
-    {/* ── Products Carousel ── */}
+const HomeProductsCarousel = () => {
+  const carouselReveal = useScrollReveal();
+
+  return (
     <section
       ref={carouselReveal.ref}
       className={`py-14 sm:py-20 lg:py-28 reveal ${carouselReveal.isVisible ? 'visible' : ''}`}
@@ -778,7 +810,7 @@ const HomePage = () => {
           <Button
             asChild
             variant="outline"
-            className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 sm:w-auto lg:shrink-0"
+            className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300 sm:w-auto lg:shrink-0"
           >
             <Link to="/products">View Portfolio</Link>
           </Button>
@@ -793,7 +825,7 @@ const HomePage = () => {
               <CarouselItem key={product.slug} className="pl-4 sm:pl-6 basis-[88%] sm:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/products/${product.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_64px_rgba(22,61,38,0.12)] hover:border-primary/20 sm:rounded-[28px]"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_64px_rgba(22,61,38,0.12)] hover:border-primary/20 sm:rounded-[28px]"
                 >
                   <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-48 lg:h-56">
                     <img
@@ -826,8 +858,13 @@ const HomePage = () => {
         </Carousel>
       </div>
     </section>
+  );
+};
 
-    {/* ── Testimonials ── */}
+const HomeTestimonialsSection = () => {
+  const testimonialReveal = useScrollReveal();
+
+  return (
     <section
       ref={testimonialReveal.ref}
       className={`py-14 sm:py-20 lg:py-28 reveal ${testimonialReveal.isVisible ? 'visible' : ''}`}
@@ -843,7 +880,7 @@ const HomePage = () => {
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
+          {testimonials.map((t) => (
             <div
               key={t.name}
               className="flex flex-col rounded-[28px] border border-border bg-surface-card p-6 shadow-[0_12px_40px_rgba(22,61,38,0.06)] sm:p-8"
@@ -865,8 +902,13 @@ const HomePage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Services ── */}
+const HomeServicesSection = () => {
+  const servicesReveal = useScrollReveal();
+
+  return (
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={servicesReveal.ref}>
       <div className={`mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between reveal ${servicesReveal.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl space-y-3 sm:space-y-4">
@@ -884,7 +926,7 @@ const HomePage = () => {
         <Button
           asChild
           variant="outline"
-          className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 sm:w-auto lg:shrink-0"
+          className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300 sm:w-auto lg:shrink-0"
         >
           <Link to="/services">View All Services</Link>
         </Button>
@@ -897,8 +939,13 @@ const HomePage = () => {
         ))}
       </div>
     </section>
+  );
+};
 
-    {/* ── Blog / Insights ── */}
+const HomeBlogSection = () => {
+  const blogReveal = useScrollReveal();
+
+  return (
     <section
       ref={blogReveal.ref}
       className={`py-14 sm:py-20 lg:py-28 section-wave reveal ${blogReveal.isVisible ? 'visible' : ''}`}
@@ -920,7 +967,7 @@ const HomePage = () => {
           <Button
             asChild
             variant="outline"
-            className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300 sm:w-auto lg:shrink-0"
+            className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300 sm:w-auto lg:shrink-0"
           >
             <Link to="/blog">View All Articles</Link>
           </Button>
@@ -934,8 +981,11 @@ const HomePage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── FAQ ── */}
+const HomeFaqSection = () => {
+  return (
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
       <div className="mb-12 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
@@ -977,8 +1027,13 @@ const HomePage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Contact / Inquiry ── */}
+const HomeContactSection = () => {
+  const contactReveal = useScrollReveal();
+
+  return (
     <section
       ref={contactReveal.ref}
       className={`py-14 sm:py-20 lg:py-28 reveal ${contactReveal.isVisible ? 'visible' : ''}`}
@@ -1015,14 +1070,14 @@ const HomePage = () => {
           <div className="flex flex-wrap gap-3">
             <Button
               asChild
-              className="h-12 w-full rounded-full bg-accent px-6 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.35)] hover:bg-accent/90 hover:shadow-[0_8px_36px_rgba(245,158,11,0.45)] transition-all duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full bg-accent px-6 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.35)] hover:bg-accent/90 hover:shadow-[0_8px_36px_rgba(245,158,11,0.45)] transition-[background-color,box-shadow] duration-300 sm:w-auto"
             >
               <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-white hover:bg-white hover:text-secondary transition-all duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-white hover:bg-white hover:text-secondary transition-[background-color,color] duration-300 sm:w-auto"
             >
               <Link to="/contact">Open contact page</Link>
             </Button>
@@ -1035,7 +1090,38 @@ const HomePage = () => {
         />
       </div>
     </section>
-  </>
+  );
+};
+
+const HomePage = () => {
+  return (
+    <>
+      <SEOHead
+        title="J K Fertilizers — Manufacturers of Organic Fertilizers | Anand, Gujarat"
+        description="J K Fertilizers — ISO certified organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza granules, coated granules and soil conditioners."
+        canonical="/"
+        ogImage="/images/hero.jpg"
+        keywords="organic fertilizer manufacturer india, J K Fertilizers, organic manure manufacturer gujarat, prom fertilizer, pdm fertilizer, mycorrhiza granules, fertilizer manufacturer anand gujarat"
+        schema={[organizationSchema, websiteSchema, homeFaqSchema]}
+        article={null}
+        product={null}
+      />
+      <HomeHero />
+      <HomeStatsBar />
+      <HomePromoCards />
+      <HomeFacilityOverview />
+      <HomeProductTicker />
+      <HomeQuoteBanner />
+      <HomeFoundationSection />
+      <HomeWhyChooseSection />
+      <HomeCommitmentSection />
+      <HomeProductsCarousel />
+      <HomeTestimonialsSection />
+      <HomeServicesSection />
+      <HomeBlogSection />
+      <HomeFaqSection />
+      <HomeContactSection />
+    </>
   );
 };
 

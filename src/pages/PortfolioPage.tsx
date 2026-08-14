@@ -126,7 +126,7 @@ export const PortfolioPage = () => {
                 {s.value}
               </p>
               <p className="mt-2 text-base text-white/80">{s.label}</p>
-              <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-all duration-300 group-hover:w-16" />
+              <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
         </div>
@@ -152,7 +152,7 @@ export const PortfolioPage = () => {
             <div
               key={item.title}
               {...staggerDelay(i)}
-              className="group overflow-hidden rounded-[24px] border border-border bg-surface-card shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)]"
+              className="group overflow-hidden rounded-[24px] border border-border bg-surface-card shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)]"
             >
               <div className="relative h-44 overflow-hidden bg-gradient-to-br from-muted to-surface-card p-4 sm:h-48">
                 <img

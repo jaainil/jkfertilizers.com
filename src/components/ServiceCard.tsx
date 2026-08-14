@@ -21,7 +21,7 @@ export const ServiceCard = ({ service }) => {
   if (cardImage) {
     return (
       <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-[30px]">
-        <article className="relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border/50 shadow-[0_16px_48px_rgba(22,61,38,0.08)] transition-all duration-300 group-hover:shadow-[0_24px_72px_rgba(22,61,38,0.16)] group-hover:border-primary/20 sm:min-h-[340px] sm:rounded-[30px]">
+        <article className="relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border/50 shadow-[0_16px_48px_rgba(22,61,38,0.08)] transition-[box-shadow,border-color] duration-300 group-hover:shadow-[0_24px_72px_rgba(22,61,38,0.16)] group-hover:border-primary/20 sm:min-h-[340px] sm:rounded-[30px]">
           <img
             src={cardImage}
             alt={service.title}
@@ -65,7 +65,7 @@ export const ServiceCard = ({ service }) => {
   // Text-only card
   return (
     <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-[30px]">
-      <article className="relative flex h-full flex-col rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md p-5 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(22,61,38,0.12)] hover:border-primary/30 sm:rounded-[30px] sm:p-7 hover:bg-white/80 overflow-hidden">
+      <article className="relative flex h-full flex-col rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md p-5 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color,background-color] duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(22,61,38,0.12)] hover:border-primary/30 sm:rounded-[30px] sm:p-7 hover:bg-white/80 overflow-hidden">
         
         {/* Glow effect on hover */}
         <div 
@@ -81,7 +81,7 @@ export const ServiceCard = ({ service }) => {
             <h3 className="font-heading type-card-title font-bold text-foreground group-hover:text-primary transition-colors duration-300">{service.title}</h3>
           </div>
           <div
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white transition-all duration-500 group-hover:scale-[1.12] group-hover:rotate-6 sm:h-14 sm:w-14 sm:rounded-2xl border border-white/20 shadow-inner group-hover:shadow-[0_8px_20px_rgba(45,122,74,0.3)]"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white transition-[transform,box-shadow] duration-500 group-hover:scale-[1.12] group-hover:rotate-6 sm:h-14 sm:w-14 sm:rounded-2xl border border-white/20 shadow-inner group-hover:shadow-[0_8px_20px_rgba(45,122,74,0.3)]"
             style={{ background: "linear-gradient(135deg, #2D7A4A, #163D26)" }}
           >
             <Icon className="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-500" />

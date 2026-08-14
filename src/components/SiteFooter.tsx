@@ -52,7 +52,7 @@ export const SiteFooter = () => {
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <Button
               asChild
-              className="h-12 w-full rounded-full px-7 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.3)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.4)] transition-all duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full px-7 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.3)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.4)] transition-shadow duration-300 sm:w-auto"
               style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
             >
               <Link to="/contact">
@@ -62,7 +62,7 @@ export const SiteFooter = () => {
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full rounded-full border-white/15 px-7 text-white hover:border-white/25 hover:bg-white/8 transition-all duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full border-white/15 px-7 text-white hover:border-white/25 hover:bg-white/8 transition-colors duration-300 sm:w-auto"
             >
               <a href={`tel:${company.phoneRaw}`}>Call us now</a>
             </Button>
@@ -79,7 +79,7 @@ export const SiteFooter = () => {
         <div className="space-y-6 sm:col-span-2 lg:col-span-1 lg:space-y-7" data-testid="footer-company-block">
           <Link to="/" className="group inline-flex items-center gap-3">
             <div className="relative shrink-0">
-              <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md group-hover:bg-primary/30 transition-all duration-300" />
+              <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md group-hover:bg-primary/30 transition-colors duration-300" />
               <img
                 src="/logo.png"
                 alt="J K Fertilizers"
@@ -106,7 +106,7 @@ export const SiteFooter = () => {
 
           {/* Contact cards */}
           <div className="space-y-3">
-            <div className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-all duration-200 min-h-[44px]">
+            <div className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-colors duration-200 min-h-[44px]">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
                 <Phone className="h-3.5 w-3.5" />
               </span>
@@ -117,7 +117,7 @@ export const SiteFooter = () => {
             </div>
 
             <div
-              className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-all duration-200 min-h-[44px]"
+              className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-colors duration-200 min-h-[44px]"
               data-testid="footer-email-card"
             >
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
@@ -171,7 +171,7 @@ export const SiteFooter = () => {
                 className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
                 data-testid={`footer-link-${item.label.toLowerCase()}`}
               >
-                <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-5" />
+                <span className="h-px w-0 bg-accent transition-[width] duration-300 group-hover:w-5" />
                 {item.label}
               </Link>
             ))}
@@ -194,7 +194,7 @@ export const SiteFooter = () => {
                 className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
                 data-testid={`footer-product-link-${index}`}
               >
-                <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-5" />
+                <span className="h-px w-0 bg-primary transition-[width] duration-300 group-hover:w-5" />
                 {product.title}
               </Link>
             ))}
@@ -218,7 +218,7 @@ export const SiteFooter = () => {
                 className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
                 data-testid={`footer-service-link-${i}`}
               >
-                <span className="h-px w-0 bg-accent transition-all duration-300 group-hover:w-5" />
+                <span className="h-px w-0 bg-accent transition-[width] duration-300 group-hover:w-5" />
                 {svc.label}
               </Link>
             ))}

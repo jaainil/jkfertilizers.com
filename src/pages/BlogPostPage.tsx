@@ -197,7 +197,7 @@ export const BlogPostPage = () => {
                 <Link
                   key={p.slug}
                   to={`/blog/${p.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-[24px] border border-border bg-surface-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-[24px] border border-border bg-surface-card shadow-sm transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="relative h-44 overflow-hidden">
                     <img

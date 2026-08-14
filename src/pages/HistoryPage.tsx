@@ -241,7 +241,7 @@ export const HistoryPage = () => {
             <CarouselContent className="-ml-4 sm:-ml-6 items-stretch">
               {machineryGallery.map((img, index) => (
                 <CarouselItem key={index} className="pl-4 sm:pl-6 basis-[90%] sm:basis-1/2 lg:basis-1/4">
-                  <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-surface-card shadow-sm hover:shadow-md transition-all duration-300">
+                  <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-surface-card shadow-sm hover:shadow-md transition-shadow duration-300">
                     <div className="relative aspect-video shrink-0 overflow-hidden">
                       <img
                         src={img.src}

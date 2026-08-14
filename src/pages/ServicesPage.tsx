@@ -203,7 +203,7 @@ export const ServicesPage = () => {
           <div
             key={step.title}
             {...staggerDelay(i)}
-            className="group relative overflow-hidden rounded-[28px] border border-border bg-surface-card p-7 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
+            className="group relative overflow-hidden rounded-[28px] border border-border bg-surface-card p-7 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
           >
             <p className="absolute -right-2 -top-4 font-heading text-8xl font-bold text-primary/5 select-none">
               {step.step}
@@ -269,7 +269,7 @@ export const ServicesPage = () => {
             <div key={stat.label} className="group text-center" {...staggerDelay(i)}>
               <p className="font-heading text-5xl font-bold text-white">{stat.value}</p>
               <p className="mt-2 text-base text-white/80">{stat.label}</p>
-              <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-all duration-300 group-hover:w-16" />
+              <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
         </div>

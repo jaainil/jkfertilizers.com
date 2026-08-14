@@ -5,7 +5,7 @@ import { getProductCoverImage } from "@/data/products";
 export const ProductCard = ({ product }) => (
   <Link
     to={`/products/${product.slug}`}
-    className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_70px_rgba(22,61,38,0.12)] hover:border-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:rounded-[28px] h-full"
+    className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_70px_rgba(22,61,38,0.12)] hover:border-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:rounded-[28px] h-full"
   >
     {/* Image */}
     <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-52">
@@ -36,7 +36,7 @@ export const ProductCard = ({ product }) => (
         </h3>
         {/* FIX 6.3: relative + overflow-hidden wrapper so no absolute escape */}
         <div
-          className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl text-white transition-all duration-300 group-hover:scale-110 sm:h-10 sm:w-10 sm:rounded-2xl"
+          className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl text-white transition-transform duration-300 group-hover:scale-110 sm:h-10 sm:w-10 sm:rounded-2xl"
           style={{ background: "linear-gradient(135deg, #2D7A4A, #163D26)" }}
         >
           <Sprout className="h-4 w-4 sm:h-5 sm:w-5" />

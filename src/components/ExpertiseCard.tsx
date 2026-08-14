@@ -28,10 +28,10 @@ export const ExpertiseCard = ({ card }) => {
   const color = iconColors[card.icon] || iconColors.leaf;
 
   return (
-    <Card className="relative group h-full rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_64px_rgba(22,61,38,0.12)] hover:border-primary/30 overflow-hidden sm:rounded-[28px] hover:bg-white/80">
+    <Card className="relative group h-full rounded-2xl border border-white/40 bg-white/60 backdrop-blur-md shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color,background-color] duration-500 hover:-translate-y-2 hover:shadow-[0_24px_64px_rgba(22,61,38,0.12)] hover:border-primary/30 overflow-hidden sm:rounded-[28px] hover:bg-white/80">
       {/* Top accent bar */}
       <div
-        className="h-1 w-full transition-all duration-700 opacity-70 group-hover:opacity-100 group-hover:h-1.5"
+        className="h-1 w-full transition-[height,opacity] duration-700 opacity-70 group-hover:opacity-100 group-hover:h-1.5"
         style={{ background: `linear-gradient(to right, ${color}, transparent)` }}
       />
       
@@ -54,7 +54,7 @@ export const ExpertiseCard = ({ card }) => {
         <p className="mt-3 type-body-sm text-muted-foreground sm:mt-4">{card.description}</p>
 
         <div
-          className="mt-5 h-px w-0 transition-all duration-500 group-hover:w-full sm:mt-6"
+          className="mt-5 h-px w-0 transition-[width] duration-500 group-hover:w-full sm:mt-6"
           style={{ background: `linear-gradient(to right, ${color}40, transparent)` }}
         />
       </CardContent>

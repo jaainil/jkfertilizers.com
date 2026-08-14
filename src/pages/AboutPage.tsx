@@ -4,6 +4,9 @@ import { PageHero } from "@/components/PageHero";
 import { ImagePanel } from "@/components/ImagePanel";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, aboutPageSchema } from "@/data/seoSchemas";
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
+import { CheckCircle2, ArrowRight, Leaf, Eye, Compass, Play } from "lucide-react";
+import { toast } from "sonner";
 
 const company = {
   name: "J K Fertilizers",
@@ -58,57 +61,36 @@ const pillars = [
   "Innovation in Fertilizers",
 ];
 
-import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
-import { CheckCircle2, ArrowRight, Leaf, Award, Shield, Eye, Compass, Play } from "lucide-react";
-import { toast } from "sonner";
+const valuesList = [
+  {
+    title: "Sustainability",
+    desc: "Creating products that protect and enrich the environment.",
+  },
+  {
+    title: "Absolute Quality",
+    desc: "Ensuring unmatched product integrity through rigorous standards.",
+  },
+  {
+    title: "Innovation",
+    desc: "Continuously improving to serve farmers better.",
+  },
+  {
+    title: "Customer-Centricity",
+    desc: "Prioritizing client needs with tailored solutions.",
+  },
+];
 
-export const AboutPage = () => {
+const foundingChecklist = [
+  "Sustainable Agriculture Practices",
+  "ISO-Certified Product Excellence",
+  "Customer-Centric Solutions",
+  "Innovation in Fertilizers",
+  "Trusted Long-Term Partnerships",
+];
+
+const AboutStats = () => {
   const statsReveal = useScrollReveal();
-  const welcomeReveal = useScrollReveal();
-  const missionReveal = useScrollReveal();
-  const ethicsReveal = useScrollReveal();
-  const foundingReveal = useScrollReveal();
-  const actionReveal = useScrollReveal();
-
-  const handleTourClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    toast.info("Factory Tour Request", {
-      description: "To schedule a factory tour at our Vasad facility, please reach out to us at info@jkfertilizers.com or call 9825045894.",
-      duration: 5000,
-    });
-  };
-
   return (
-  <>
-    <SEOHead
-      title="About Us — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006 | Anand, Gujarat"
-      description="Learn about J K Fertilizers — India's trusted organic fertilizer manufacturer since 2006. Founded by Mr. Akash Dadhania in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, and coated granules."
-      canonical="/about"
-      ogImage="/images/dsc00161.jpg"
-      keywords="about J K Fertilizers, organic fertilizer manufacturer gujarat, fertilizer company anand gujarat, Akash Dadhania, J K Fertilizers history, fertilizer manufacturer since 2006"
-      schema={[organizationSchema, aboutPageSchema]}
-    />
-    {/* ── Hero ── */}
-    <PageHero
-      eyebrow="About Us"
-      title="At J K Fertilizers, we’re dedicated to leading sustainable agriculture with solutions that combat soil degradation"
-      description="providing high-quality organic products that enhance crop health, safety, and sustainability for a thriving, eco-friendly future."
-      imageSrc={images.hero}
-      imageAlt="J K Fertilizers facility"
-      badges={["Since 2006", "FCO Approved", "Anand, Gujarat"]}
-      primaryCta={
-        <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
-          <Link to="/contact">Talk to our team</Link>
-        </Button>
-      }
-      secondaryCta={
-        <Button asChild variant="outline" className="h-12 rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
-          <Link to="/products">View our products</Link>
-        </Button>
-      }
-    />
-
-    {/* ── Stats Banner ── */}
     <section className="bg-secondary py-14 lg:py-16">
       <div
         ref={statsReveal.ref}
@@ -122,14 +104,18 @@ export const AboutPage = () => {
                 {s.unit && <span className="text-accent ml-1 text-3xl">{s.unit}</span>}
               </p>
               <p className="mt-2 text-base text-white/80">{s.label}</p>
-              <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-all duration-300 group-hover:w-16" />
+              <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Welcome / Who We Are with 2x2 Gallery ── */}
+const AboutWelcome = () => {
+  const welcomeReveal = useScrollReveal();
+  return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div
         ref={welcomeReveal.ref}
@@ -173,8 +159,12 @@ export const AboutPage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Mission & Vision ── */}
+const AboutMissionVision = () => {
+  const missionReveal = useScrollReveal();
+  return (
     <section className="bg-muted py-20 lg:py-28 section-wave">
       <div
         ref={missionReveal.ref}
@@ -182,7 +172,7 @@ export const AboutPage = () => {
       >
         <div className="grid gap-8 md:grid-cols-2">
           {/* Mission Card */}
-          <article className="flex flex-col rounded-[32px] border border-border bg-surface-card p-8 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
+          <article className="flex flex-col rounded-[32px] border border-border bg-surface-card p-8 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
             <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
               <Compass className="h-7 w-7" />
             </div>
@@ -196,7 +186,7 @@ export const AboutPage = () => {
           </article>
 
           {/* Vision Card */}
-          <article className="flex flex-col rounded-[32px] border border-border bg-surface-card p-8 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
+          <article className="flex flex-col rounded-[32px] border border-border bg-surface-card p-8 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
             <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/20 text-accent-foreground">
               <Eye className="h-7 w-7" />
             </div>
@@ -211,8 +201,12 @@ export const AboutPage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Ethics in Action ── */}
+const AboutEthics = () => {
+  const ethicsReveal = useScrollReveal();
+  return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28" ref={ethicsReveal.ref}>
       <div className={`grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center reveal ${ethicsReveal.isVisible ? 'visible' : ''}`}>
         <div className="space-y-7">
@@ -251,25 +245,8 @@ export const AboutPage = () => {
 
         {/* 2x2 Values List */}
         <div className="grid gap-4 sm:grid-cols-2">
-          {[
-            {
-              title: "Sustainability",
-              desc: "Creating products that protect and enrich the environment.",
-            },
-            {
-              title: "Absolute Quality",
-              desc: "Ensuring unmatched product integrity through rigorous standards.",
-            },
-            {
-              title: "Innovation",
-              desc: "Continuously improving to serve farmers better.",
-            },
-            {
-              title: "Customer-Centricity",
-              desc: "Prioritizing client needs with tailored solutions.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-2xl border border-border bg-surface-card p-5 shadow-sm transition-all duration-300 hover:shadow-md">
+          {valuesList.map((item) => (
+            <div key={item.title} className="rounded-2xl border border-border bg-surface-card p-5 shadow-sm transition-shadow duration-300 hover:shadow-md">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary mb-3">
                 <Leaf className="h-4 w-4" />
               </div>
@@ -280,30 +257,35 @@ export const AboutPage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Sustainability Pillars Ticker ── */}
-    <section className="overflow-hidden border-y border-border bg-secondary py-6">
-      <div className="flex gap-0 animate-none">
-        <div className="flex shrink-0 animate-marquee items-center gap-0">
-          {[...pillars, ...pillars].map((p, idx) => (
-            <span key={`marquee-p1-${idx}`} className="flex items-center gap-4 px-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              {p}
-            </span>
-          ))}
-        </div>
-        <div aria-hidden className="flex shrink-0 animate-marquee items-center gap-0">
-          {[...pillars, ...pillars].map((p, idx) => (
-            <span key={`marquee-p2-${idx}`} className="flex items-center gap-4 px-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              {p}
-            </span>
-          ))}
-        </div>
+const AboutPillarsTicker = () => (
+  <section className="overflow-hidden border-y border-border bg-secondary py-6">
+    <div className="flex gap-0 animate-none">
+      <div className="flex shrink-0 animate-marquee items-center gap-0">
+        {[...pillars, ...pillars].map((p, idx) => (
+          <span key={`marquee-p1-${idx}`} className="flex items-center gap-4 px-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            {p}
+          </span>
+        ))}
       </div>
-    </section>
+      <div aria-hidden className="flex shrink-0 animate-marquee items-center gap-0">
+        {[...pillars, ...pillars].map((p, idx) => (
+          <span key={`marquee-p2-${idx}`} className="flex items-center gap-4 px-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            {p}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
-    {/* ── Founding Roots ── */}
+const AboutFoundingRoots = () => {
+  const foundingReveal = useScrollReveal();
+  return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28" ref={foundingReveal.ref}>
       <div className={`grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center reveal ${foundingReveal.isVisible ? 'visible' : ''}`}>
         <ImagePanel
@@ -330,13 +312,7 @@ export const AboutPage = () => {
           </p>
 
           <div className="grid gap-3 pt-2">
-            {[
-              "Sustainable Agriculture Practices",
-              "ISO-Certified Product Excellence",
-              "Customer-Centric Solutions",
-              "Innovation in Fertilizers",
-              "Trusted Long-Term Partnerships",
-            ].map((item) => (
+            {foundingChecklist.map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
                 <span className="text-sm font-medium text-foreground">{item}</span>
@@ -352,8 +328,21 @@ export const AboutPage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Action cards (Harvesting Hope! & Built on Integrity) ── */}
+const AboutActionCards = () => {
+  const actionReveal = useScrollReveal();
+
+  const handleTourClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast.info("Factory Tour Request", {
+      description: "To schedule a factory tour at our Vasad facility, please reach out to us at info@jkfertilizers.com or call 9825045894.",
+      duration: 5000,
+    });
+  };
+
+  return (
     <section className="bg-muted py-20 lg:py-28 section-wave" ref={actionReveal.ref}>
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${actionReveal.isVisible ? 'visible' : ''}`}>
         <div className="grid gap-8 md:grid-cols-2">
@@ -394,36 +383,79 @@ export const AboutPage = () => {
         </div>
       </div>
     </section>
-
-    {/* ── Footer-like CTA ── */}
-    <section className="bg-secondary py-20 lg:py-28">
-      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
-          Let's Cooperate Together
-        </div>
-        <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Ready to Partner with India's Trusted Fertilizer Manufacturer?
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-          Contact us today. We will reply within 24 hours via email. Let's build a sustainable agricultural future together.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
-            <Link to="/contact">Get In Touch</Link>
-          </Button>
-          <Button asChild variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-8 text-white hover:bg-white hover:text-secondary">
-            <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
-          </Button>
-        </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-white/60">
-          <span>{company.address}</span>
-          <span>·</span>
-          <a href={`mailto:${company.emails[0]}`} className="hover:text-white/90 transition-colors">{company.emails[0]}</a>
-          <span>·</span>
-          <a href={`mailto:${company.emails[1]}`} className="hover:text-white/90 transition-colors">{company.emails[1]}</a>
-        </div>
-      </div>
-    </section>
-  </>
   );
 };
+
+const AboutCta = () => (
+  <section className="bg-secondary py-20 lg:py-28">
+    <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+        Let's Cooperate Together
+      </div>
+      <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        Ready to Partner with India's Trusted Fertilizer Manufacturer?
+      </h2>
+      <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+        Contact us today. We will reply within 24 hours via email. Let's build a sustainable agricultural future together.
+      </p>
+      <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
+          <Link to="/contact">Get In Touch</Link>
+        </Button>
+        <Button asChild variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-8 text-white hover:bg-white hover:text-secondary">
+          <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
+        </Button>
+      </div>
+      <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-white/60">
+        <span>{company.address}</span>
+        <span>·</span>
+        <a href={`mailto:${company.emails[0]}`} className="hover:text-white/90 transition-colors">{company.emails[0]}</a>
+        <span>·</span>
+        <a href={`mailto:${company.emails[1]}`} className="hover:text-white/90 transition-colors">{company.emails[1]}</a>
+      </div>
+    </div>
+  </section>
+);
+
+export const AboutPage = () => {
+  return (
+    <>
+      <SEOHead
+        title="About Us — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006 | Anand, Gujarat"
+        description="Learn about J K Fertilizers — India's trusted organic fertilizer manufacturer since 2006. Founded by Mr. Akash Dadhania in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, and coated granules."
+        canonical="/about"
+        ogImage="/images/dsc00161.jpg"
+        keywords="about J K Fertilizers, organic fertilizer manufacturer gujarat, fertilizer company anand gujarat, Akash Dadhania, J K Fertilizers history, fertilizer manufacturer since 2006"
+        schema={[organizationSchema, aboutPageSchema]}
+      />
+      {/* ── Hero ── */}
+      <PageHero
+        eyebrow="About Us"
+        title="At J K Fertilizers, we’re dedicated to leading sustainable agriculture with solutions that combat soil degradation"
+        description="providing high-quality organic products that enhance crop health, safety, and sustainability for a thriving, eco-friendly future."
+        imageSrc={images.hero}
+        imageAlt="J K Fertilizers facility"
+        badges={["Since 2006", "FCO Approved", "Anand, Gujarat"]}
+        primaryCta={
+          <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
+            <Link to="/contact">Talk to our team</Link>
+          </Button>
+        }
+        secondaryCta={
+          <Button asChild variant="outline" className="h-12 rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
+            <Link to="/products">View our products</Link>
+          </Button>
+        }
+      />
+      <AboutStats />
+      <AboutWelcome />
+      <AboutMissionVision />
+      <AboutEthics />
+      <AboutPillarsTicker />
+      <AboutFoundingRoots />
+      <AboutActionCards />
+      <AboutCta />
+    </>
+  );
+};
+

@@ -3,6 +3,7 @@ import { InquiryForm } from "@/components/InquiryForm";
 import { PhoneCall, Mail, MapPin, Clock3, ArrowRight } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, contactPageSchema } from "@/data/seoSchemas";
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
 
 const company = {
   name: "J K Fertilizers",
@@ -67,25 +68,10 @@ const faqs = [
   },
 ];
 
-import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
-
-export const ContactPage = () => {
+const ContactHero = () => {
   const heroReveal = useScrollReveal();
-  const formsReveal = useScrollReveal();
-  const mapReveal = useScrollReveal();
-  const faqReveal = useScrollReveal();
 
   return (
-  <>
-    <SEOHead
-      title="Contact Us — J K Fertilizers | Organic Fertilizer Manufacturer | Anand, Gujarat"
-      description="Contact J K Fertilizers for organic fertilizer orders, bulk inquiries, and partnerships. Call 9825045894 or email sales@jkfertilizers.com. Located in Vasad, Anand, Gujarat, INDIA."
-      canonical="/contact"
-      ogImage="/images/about-1.jpg"
-      keywords="contact J K Fertilizers, fertilizer order gujarat, organic fertilizer inquiry, fertilizer manufacturer contact anand gujarat, jkfertilizers.com"
-      schema={[organizationSchema, contactPageSchema]}
-    />
-    {/* ── Hero ── */}
     <section
       ref={heroReveal.ref}
       className={`relative overflow-hidden bg-secondary reveal ${heroReveal.isVisible ? 'visible' : ''}`}
@@ -132,8 +118,13 @@ export const ContactPage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Contact Cards + Form ── */}
+const ContactDirectSection = () => {
+  const formsReveal = useScrollReveal();
+
+  return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 section-wave">
       <div
         ref={formsReveal.ref}
@@ -162,7 +153,7 @@ export const ContactPage = () => {
                   href={card.href}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
                   rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`group flex items-start gap-4 rounded-[24px] border p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+                  className={`group flex items-start gap-4 rounded-[24px] border p-5 shadow-sm transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-md ${
                     card.accent
                       ? "border-primary/30 bg-primary text-white"
                       : "border-border bg-surface-card"
@@ -208,8 +199,13 @@ export const ContactPage = () => {
         />
       </div>
     </section>
+  );
+};
 
-    {/* ── Map + Address banner ── */}
+const ContactLocationSection = () => {
+  const mapReveal = useScrollReveal();
+
+  return (
     <section className="bg-muted py-0 overflow-hidden">
       <div
         ref={mapReveal.ref}
@@ -265,8 +261,13 @@ export const ContactPage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── FAQ ── */}
+const ContactFaqSection = () => {
+  const faqReveal = useScrollReveal();
+
+  return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 section-wave">
       <div
         ref={faqReveal.ref}
@@ -290,51 +291,73 @@ export const ContactPage = () => {
         </div>
       </div>
     </section>
+  );
+};
 
-    {/* ── Newsletter ── */}
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-          Stay Updated
-        </div>
-        <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          Sign Up To Our Newsletter
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-          Subscribe to our Newsletter to be updated about our latest products and offers.
-        </p>
-        <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="h-12 flex-1 rounded-full border border-border bg-surface-card px-6 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
-          />
-          <Button type="submit" className="h-12 rounded-full bg-primary px-8 text-white hover:bg-primary/90">
-            Subscribe
-          </Button>
-        </form>
+const ContactNewsletterSection = () => (
+  <section className="bg-muted py-20 lg:py-28">
+    <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+        Stay Updated
       </div>
-    </section>
+      <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        Sign Up To Our Newsletter
+      </h2>
+      <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+        Subscribe to our Newsletter to be updated about our latest products and offers.
+      </p>
+      <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="h-12 flex-1 rounded-full border border-border bg-surface-card px-6 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
+        />
+        <Button type="submit" className="h-12 rounded-full bg-primary px-8 text-white hover:bg-primary/90">
+          Subscribe
+        </Button>
+      </form>
+    </div>
+  </section>
+);
 
-    {/* ── Bottom CTA band ── */}
-    <section className="bg-secondary py-16 lg:py-20">
-      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Ready to work with India's trusted fertilizer manufacturer?
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-white/78">
-          Since 2006. 150+ trusted clients. 100% organic products.
-        </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
-            <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
-          </Button>
-          <Button asChild variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-8 text-white hover:bg-white hover:text-secondary">
-            <a href={`mailto:${company.emails[1]}`}>Email Sales Team</a>
-          </Button>
-        </div>
+const ContactCtaBand = () => (
+  <section className="bg-secondary py-16 lg:py-20">
+    <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 className="font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        Ready to work with India's trusted fertilizer manufacturer?
+      </h2>
+      <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-white/78">
+        Since 2006. 150+ trusted clients. 100% organic products.
+      </p>
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
+          <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
+        </Button>
+        <Button asChild variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-8 text-white hover:bg-white hover:text-secondary">
+          <a href={`mailto:${company.emails[1]}`}>Email Sales Team</a>
+        </Button>
       </div>
-    </section>
-  </>
+    </div>
+  </section>
+);
+
+export const ContactPage = () => {
+  return (
+    <>
+      <SEOHead
+        title="Contact Us — J K Fertilizers | Organic Fertilizer Manufacturer | Anand, Gujarat"
+        description="Contact J K Fertilizers for organic fertilizer orders, bulk inquiries, and partnerships. Call 9825045894 or email sales@jkfertilizers.com. Located in Vasad, Anand, Gujarat, INDIA."
+        canonical="/contact"
+        ogImage="/images/about-1.jpg"
+        keywords="contact J K Fertilizers, fertilizer order gujarat, organic fertilizer inquiry, fertilizer manufacturer contact anand gujarat, jkfertilizers.com"
+        schema={[organizationSchema, contactPageSchema]}
+      />
+      <ContactHero />
+      <ContactDirectSection />
+      <ContactLocationSection />
+      <ContactFaqSection />
+      <ContactNewsletterSection />
+      <ContactCtaBand />
+    </>
   );
 };

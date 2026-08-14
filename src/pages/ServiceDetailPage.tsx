@@ -87,7 +87,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
         <img
           src={images[activeIndex]}
           alt={`${title} - Gallery Image ${activeIndex + 1}`}
-          className="h-full w-full object-cover transition-all duration-500 cursor-zoom-in"
+          className="h-full w-full object-cover transition-transform duration-500 cursor-zoom-in"
           onClick={() => setLightboxOpen(true)}
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
@@ -95,7 +95,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
         {/* Hover zoom-in hint */}
         <button
           onClick={() => setLightboxOpen(true)}
-          className="absolute right-4 top-4 rounded-full bg-black/50 p-2.5 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-all duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
+          className="absolute right-4 top-4 rounded-full bg-black/50 p-2.5 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
           aria-label="View Fullscreen"
         >
           <Maximize2 className="h-4.5 w-4.5" />
@@ -106,14 +106,14 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
           <>
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-all duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-all duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
               aria-label="Next image"
             >
               <ChevronRight className="h-6 w-6" />
@@ -134,7 +134,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-xl border-2 transition-all duration-300 snap-start hover:opacity-90 cursor-pointer ${
+              className={`relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-xl border-2 transition-[border-color,transform,box-shadow,opacity] duration-300 snap-start hover:opacity-90 cursor-pointer ${
                 idx === activeIndex
                   ? "border-primary scale-[1.02] shadow-md ring-2 ring-primary/20"
                   : "border-transparent opacity-60"
@@ -153,12 +153,12 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
       {/* Fullscreen Lightbox Modal */}
       {lightboxOpen && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md animate-in fade-in duration-300"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md animate-in fade-in"
           onClick={() => setLightboxOpen(false)}
         >
           <button
             onClick={() => setLightboxOpen(false)}
-            className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-all duration-200 cursor-pointer"
+            className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors duration-200 cursor-pointer"
             aria-label="Close"
           >
             <X className="h-6 w-6" />
@@ -168,14 +168,14 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white hover:bg-white/20 transition-all duration-200 flex items-center justify-center cursor-pointer"
+                className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white hover:bg-white/20 transition-colors duration-200 flex items-center justify-center cursor-pointer"
                 aria-label="Previous"
               >
                 <ChevronLeft className="h-8 w-8" />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white hover:bg-white/20 transition-all duration-200 flex items-center justify-center cursor-pointer"
+                className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white hover:bg-white/20 transition-colors duration-200 flex items-center justify-center cursor-pointer"
                 aria-label="Next"
               >
                 <ChevronRight className="h-8 w-8" />
@@ -288,7 +288,7 @@ export const ServiceDetailPage = () => {
               <Link
                 key={s.slug}
                 to={`/services/${s.slug}`}
-                className="group flex items-start gap-3 rounded-[18px] border border-border bg-surface-card p-4 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-md"
+                className="group flex items-start gap-3 rounded-[18px] border border-border bg-surface-card p-4 shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-primary/30 hover:shadow-md"
               >
                 <div className="flex-1">
                   <p className="text-xs font-semibold text-primary">{s.concept}</p>

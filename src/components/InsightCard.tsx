@@ -17,7 +17,7 @@ export const InsightCard = ({ post }: { post: InsightPost }) => (
     to={post.slug ? `/blog/${post.slug}` : "/blog"}
     className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-[28px]"
   >
-    <Card className="h-full rounded-2xl border-border/60 bg-surface-card shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_24px_60px_rgba(22,61,38,0.11)] group-hover:border-primary/20 overflow-hidden sm:rounded-[28px]">
+    <Card className="h-full rounded-2xl border-border/60 bg-surface-card shadow-[0_8px_32px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_24px_60px_rgba(22,61,38,0.11)] group-hover:border-primary/20 overflow-hidden sm:rounded-[28px]">
       {post.img && (
         <div className="relative h-40 w-full overflow-hidden sm:h-48">
           <img

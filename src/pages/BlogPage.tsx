@@ -131,7 +131,7 @@ export const BlogPage = () => {
           <Link
             key={post.slug}
             to={`/blog/${post.slug}`}
-            className="group flex flex-col overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
+            className="group flex flex-col overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
           >
             {/* Image */}
             <div className="relative h-48 overflow-hidden">
@@ -170,7 +170,7 @@ export const BlogPage = () => {
               <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{post.excerpt}</p>
               <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
                 <p className="text-xs text-muted-foreground">By {post.author}</p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-all duration-200 group-hover:gap-2">
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-[gap] duration-200 group-hover:gap-2">
                   Continue Reading
                   <ArrowRight className="h-3.5 w-3.5" />
                 </span>
@@ -196,7 +196,7 @@ export const BlogPage = () => {
           {audienceCards.map((card) => (
             <div
               key={card.title}
-              className="group overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
+              className="group overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
             >
               <div className="relative h-44 overflow-hidden">
                 <img
@@ -210,7 +210,7 @@ export const BlogPage = () => {
               </div>
               <div className="p-6">
                 <p className="text-sm leading-7 text-muted-foreground">{card.description}</p>
-                <Link to="/contact" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-200 hover:gap-2.5">
+                <Link to="/contact" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-[gap] duration-200 hover:gap-2.5">
                   Get in touch <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
