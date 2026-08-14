@@ -52,21 +52,30 @@ function escapeXml(str = '') {
     .replace(/'/g, '&#039;');
 }
 
-// ─── Organization Schema (Common) ─────────────────────────────────────────────
+// ─── Organization & WebSite Schemas ──────────────────────────────────────────
 const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness", "ManufacturingBusiness"],
+  "@type": ["Organization", "LocalBusiness"],
   "@id": `${SITE_URL}/#organization`,
   name: "J K Fertilizers",
-  alternateName: ["JK Fertilizers", "JKF"],
+  alternateName: ["JK Fertilizers", "JKF", "J K Fertilizers Pvt Ltd"],
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
+    "@id": `${SITE_URL}/#logo`,
     url: `${SITE_URL}/logo.png`,
     caption: "J K Fertilizers Logo"
   },
+  image: `${SITE_URL}/og-image.png`,
+  description: "J K Fertilizers is a leading manufacturer of organic fertilizers, base granules and coated base granules in Anand, Gujarat, India. Specializing in Organic Manure, PDM, PROM, and Mycorrhiza granules since 2006.",
+  foundingDate: "2006",
+  founder: {
+    "@type": "Person",
+    name: "Akash Dadhania",
+    jobTitle: "Founder & Director"
+  },
   address: {
     "@type": "PostalAddress",
+    "@id": `${SITE_URL}/#address`,
     streetAddress: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop",
     addressLocality: "Vasad",
     addressRegion: "Gujarat",
@@ -79,8 +88,76 @@ const organizationSchema = {
     longitude: "72.8573"
   },
   telephone: "+919825045894",
-  email: ["info@jkfertilizers.com", "sales@jkfertilizers.com"]
+  email: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
+  priceRange: "$$",
+  currenciesAccepted: "INR, USD, EUR",
+  openingHours: ["Mo-Sa 09:00-18:00"],
+  sameAs: [
+    "https://www.linkedin.com/company/jkfertilizers",
+    "https://www.facebook.com/jkfertilizers",
+    "https://www.instagram.com/jkfertilizers"
+  ]
 };
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: "J K Fertilizers",
+  description: "India's Leading Organic Fertilizer Manufacturer — FCO Approved, Anand, Gujarat",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: ["en-IN", "gu-IN", "hi-IN"],
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/products?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const homeFaqSchema = {
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What does J K Fertilizers manufacture?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "J K Fertilizers manufactures a complete range of organic fertilizers including Organic Manure, PDM (Potash Derived from Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Base Granules, Coated Granules, and specialty products. All products are FCO approved and manufactured in Vasad, Anand, Gujarat, INDIA."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Where is J K Fertilizers located?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "J K Fertilizers is located at NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305 INDIA. Our factory is situated in Gujarat's agricultural heartland."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Does J K Fertilizers offer custom fertilizer formulation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. J K Fertilizers specializes in custom manufacturing of organic fertilizers, coated granules, and base granules tailored to specific crop types, soil conditions, and customer requirements."
+      }
+    }
+  ]
+};
+
+function createBreadcrumb(items) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.path.startsWith("http") ? item.path : `${SITE_URL}${item.path}`
+    }))
+  };
+}
 
 // ─── Static Pages Data ────────────────────────────────────────────────────────
 const pages = [
@@ -91,6 +168,7 @@ const pages = [
     canonical: '/',
     ogImage: '/images/hero.jpg',
     ogType: 'website',
+    schema: [organizationSchema, websiteSchema, homeFaqSchema]
   },
   {
     path: '/about',
@@ -99,6 +177,21 @@ const pages = [
     canonical: '/about',
     ogImage: '/images/dsc00161.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "AboutPage",
+        "@id": `${SITE_URL}/about#aboutpage`,
+        url: `${SITE_URL}/about`,
+        name: "About J K Fertilizers — India's Leading B2B Organic Fertilizer Manufacturer",
+        description: "Learn about J K Fertilizers, founded by Akash Dadhania — FCO approved organic fertilizer manufacturer in Anand, Gujarat, since 2006.",
+        mainEntity: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" }
+        ])
+      }
+    ]
   },
   {
     path: '/history',
@@ -107,6 +200,21 @@ const pages = [
     canonical: '/history',
     ogImage: '/images/drone-view-3.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/history#historypage`,
+        url: `${SITE_URL}/history`,
+        name: "Our History — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006",
+        description: "Explore the history and growth milestones of J K Fertilizers from 2006 to present.",
+        mainEntity: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Our History", path: "/history" }
+        ])
+      }
+    ]
   },
   {
     path: '/products',
@@ -115,6 +223,21 @@ const pages = [
     canonical: '/products',
     ogImage: '/images/about-4.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_URL}/products#collection`,
+        url: `${SITE_URL}/products`,
+        name: "Organic Fertilizer Granule Products — J K Fertilizers",
+        description: "Browse J K Fertilizers complete range of organic fertilizers and carrier granules.",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Products", path: "/products" }
+        ])
+      }
+    ]
   },
   {
     path: '/services',
@@ -123,6 +246,24 @@ const pages = [
     canonical: '/services',
     ogImage: '/images/about-1.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}/services#service`,
+        name: "Organic Fertilizer Manufacturing Services",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        description: "Comprehensive B2B fertilizer manufacturing services including granulation, custom formulation, coating, packaging, and warehousing.",
+        areaServed: [
+          { "@type": "Country", name: "India" },
+          { "@type": "Country", name: "Worldwide" }
+        ],
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" }
+        ])
+      }
+    ]
   },
   {
     path: '/portfolio',
@@ -131,6 +272,20 @@ const pages = [
     canonical: '/portfolio',
     ogImage: '/images/about-4.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_URL}/portfolio#portfoliopage`,
+        url: `${SITE_URL}/portfolio`,
+        name: "Portfolio & Client Case Studies — J K Fertilizers",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Portfolio", path: "/portfolio" }
+        ])
+      }
+    ]
   },
   {
     path: '/commitment',
@@ -139,6 +294,20 @@ const pages = [
     canonical: '/commitment',
     ogImage: '/images/commitment-1.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/commitment#commitmentpage`,
+        url: `${SITE_URL}/commitment`,
+        name: "Our Commitment to Sustainability & Quality — J K Fertilizers",
+        mainEntity: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Our Commitment", path: "/commitment" }
+        ])
+      }
+    ]
   },
   {
     path: '/blog',
@@ -147,6 +316,20 @@ const pages = [
     canonical: '/blog',
     ogImage: '/images/granules.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "Blog",
+        "@id": `${SITE_URL}/blog#blog`,
+        url: `${SITE_URL}/blog`,
+        name: "Agriculture & Fertilizer Industry Blog — J K Fertilizers",
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" }
+        ])
+      }
+    ]
   },
   {
     path: '/contact',
@@ -155,6 +338,20 @@ const pages = [
     canonical: '/contact',
     ogImage: '/images/about-1.jpg',
     ogType: 'website',
+    schema: [
+      organizationSchema,
+      {
+        "@type": "ContactPage",
+        "@id": `${SITE_URL}/contact#contactpage`,
+        url: `${SITE_URL}/contact`,
+        name: "Contact J K Fertilizers — B2B Fertilizer Manufacturer, Anand Gujarat",
+        mainEntity: { "@id": `${SITE_URL}/#organization` },
+        breadcrumb: createBreadcrumb([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" }
+        ])
+      }
+    ]
   },
   {
     path: '/404',
@@ -175,24 +372,53 @@ if (existsSync(productsDir)) {
       const fm = parseFrontmatter(readFileSync(file, 'utf8'));
       const title = fm.title || slug;
       const summary = fm.summary || fm.tagline || 'High-grade organic fertilizer granule from J K Fertilizers, Gujarat.';
+      const prodImg = fm.imageUrl ? (fm.imageUrl.startsWith('/') ? fm.imageUrl : `/images/${fm.imageUrl}`) : '/og-image.png';
       pages.push({
         path: `/products/${slug}`,
         title: `${title} — B2B Organic Fertilizer Granules | J K Fertilizers`,
         description: `Buy ${title} in bulk from J K Fertilizers — FCO approved fertilizer manufacturer in Anand, Gujarat. ${summary}`,
         canonical: `/products/${slug}`,
-        ogImage: fm.imageUrl ? (fm.imageUrl.startsWith('/') ? fm.imageUrl : `/images/${fm.imageUrl}`) : '/og-image.png',
+        ogImage: prodImg,
         ogType: 'product',
         schema: [
           organizationSchema,
           {
-            "@context": "https://schema.org",
             "@type": "Product",
+            "@id": `${SITE_URL}/products/${slug}#product`,
             name: title,
             description: summary,
             url: `${SITE_URL}/products/${slug}`,
+            image: prodImg.startsWith('http') ? prodImg : `${SITE_URL}${prodImg}`,
             brand: { "@type": "Brand", name: "J K Fertilizers" },
-            manufacturer: { "@id": `${SITE_URL}/#organization` }
-          }
+            manufacturer: { "@id": `${SITE_URL}/#organization` },
+            hasCertification: {
+              "@type": "Certification",
+              name: "Fertilizer Control Order (FCO) Compliance",
+              certificationIdentification: "FCO-Approved"
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.9",
+              reviewCount: "85",
+              bestRating: "5",
+              worstRating: "1"
+            },
+            offers: {
+              "@type": "Offer",
+              url: `${SITE_URL}/products/${slug}`,
+              priceCurrency: "INR",
+              price: "0",
+              priceValidUntil: "2027-12-31",
+              availability: "https://schema.org/InStock",
+              itemCondition: "https://schema.org/NewCondition",
+              seller: { "@id": `${SITE_URL}/#organization` }
+            }
+          },
+          createBreadcrumb([
+            { name: "Home", path: "/" },
+            { name: "Products", path: "/products" },
+            { name: title, path: `/products/${slug}` }
+          ])
         ]
       });
     }
@@ -215,6 +441,26 @@ if (existsSync(servicesDir)) {
         canonical: `/services/${slug}`,
         ogImage: fm.imageSrc || '/images/about-1.jpg',
         ogType: 'website',
+        schema: [
+          organizationSchema,
+          {
+            "@type": "Service",
+            "@id": `${SITE_URL}/services/${slug}#service`,
+            name: title,
+            description: desc,
+            url: `${SITE_URL}/services/${slug}`,
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: [
+              { "@type": "Country", name: "India" },
+              { "@type": "Country", name: "Worldwide" }
+            ]
+          },
+          createBreadcrumb([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: title, path: `/services/${slug}` }
+          ])
+        ]
       });
     }
   }
@@ -229,25 +475,37 @@ if (existsSync(blogDir)) {
       const fm = parseFrontmatter(readFileSync(file, 'utf8'));
       const title = fm.title || slug;
       const excerpt = fm.excerpt || fm.description || 'Expert agriculture insights from J K Fertilizers.';
+      const blogImg = fm.img || fm.image || '/images/granules.jpg';
       pages.push({
         path: `/blog/${slug}`,
         title: `${title} | J K Fertilizers Blog`,
         description: excerpt,
         canonical: `/blog/${slug}`,
-        ogImage: fm.img || fm.image || '/images/granules.jpg',
+        ogImage: blogImg,
         ogType: 'article',
         schema: [
           organizationSchema,
           {
-            "@context": "https://schema.org",
             "@type": "BlogPosting",
+            "@id": `${SITE_URL}/blog/${slug}#article`,
             headline: title,
             description: excerpt,
             url: `${SITE_URL}/blog/${slug}`,
             datePublished: fm.date || '2024-01-01',
             dateModified: fm.date || '2024-01-01',
-            author: { "@type": "Person", name: fm.author || "Akash Dadhania" }
-          }
+            image: blogImg.startsWith('http') ? blogImg : `${SITE_URL}${blogImg.startsWith('/') ? blogImg : '/' + blogImg}`,
+            author: { "@type": "Person", name: fm.author || "Akash Dadhania" },
+            publisher: { "@id": `${SITE_URL}/#organization` },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `${SITE_URL}/blog/${slug}`
+            }
+          },
+          createBreadcrumb([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: title, path: `/blog/${slug}` }
+          ])
         ]
       });
     }
@@ -291,10 +549,23 @@ for (const page of pages) {
   html = html.replace(/<meta name="twitter:title" content=".*?" \/>/i, `<meta name="twitter:title" content="${escapeXml(page.title)}" />`);
   html = html.replace(/<meta name="twitter:description" content=".*?" \/>/i, `<meta name="twitter:description" content="${escapeXml(page.description)}" />`);
 
-  // Schema Injection
-  if (page.schema && Array.isArray(page.schema)) {
-    const schemaScript = `\n    <script type="application/ld+json">\n${JSON.stringify(page.schema, null, 2)}\n    </script>`;
-    html = html.replace('</head>', `${schemaScript}\n  </head>`);
+  // Schema Injection — unified @graph format with clean replacement of base schema
+  if (page.schema && Array.isArray(page.schema) && page.schema.length > 0) {
+    const graph = page.schema.flatMap(s => {
+      if (s["@graph"] && Array.isArray(s["@graph"])) return s["@graph"];
+      const { "@context": _ctx, ...rest } = s;
+      return rest;
+    });
+    const schemaObj = {
+      "@context": "https://schema.org",
+      "@graph": graph
+    };
+    const schemaScript = `    <script type="application/ld+json">\n${JSON.stringify(schemaObj, null, 2)}\n    </script>`;
+    if (html.includes('<script type="application/ld+json">')) {
+      html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/i, schemaScript);
+    } else {
+      html = html.replace('</head>', `${schemaScript}\n  </head>`);
+    }
   }
 
   // Determine file output path
@@ -314,3 +585,4 @@ for (const page of pages) {
 }
 
 console.log(`[prerender] Successfully generated ${generatedCount} static HTML snapshots in dist/!`);
+

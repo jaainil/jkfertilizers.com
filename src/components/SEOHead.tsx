@@ -190,11 +190,27 @@ export function SEOHead({
       <meta name="twitter:domain" content="jkfertilizers.com" />
       
       {/* ── JSON-LD Structured Data ── */}
-      {schemas.map((s) => (
-        <script key={JSON.stringify(s)} type="application/ld+json">
-          {JSON.stringify(s, null, 0)}
+      {schemas.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify(
+            schemas.length === 1 && ("@graph" in (schemas[0] as Record<string, unknown>))
+              ? schemas[0]
+              : {
+                  "@context": "https://schema.org",
+                  "@graph": schemas.flatMap((s) => {
+                    const obj = s as Record<string, unknown>;
+                    if (Array.isArray(obj["@graph"])) {
+                      return obj["@graph"];
+                    }
+                    const { "@context": _, ...rest } = obj;
+                    return rest;
+                  }),
+                },
+            null,
+            0
+          )}
         </script>
-      ))}
+      )}
     </Helmet>
   );
 }

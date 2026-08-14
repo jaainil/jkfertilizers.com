@@ -4,88 +4,15 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@mdx-js/rollup';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
-import Sitemap from 'vite-plugin-sitemap';
 import banner from 'vite-plugin-banner';
 import { VitePWA } from 'vite-plugin-pwa';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
-const BASE_URL = 'https://jkfertilizers.com';
 const BUILD_DATE = new Date();
 const ROOT_DIR = process.cwd();
 
-function readTextIfExists(filePath: string): string {
-  return existsSync(filePath) ? readFileSync(filePath, 'utf8') : '';
-}
-
-const productsDir = path.resolve(ROOT_DIR, 'src/content/products');
-const blogDir = path.resolve(ROOT_DIR, 'src/content/blog');
-const servicesDir = path.resolve(ROOT_DIR, 'src/content/services');
-
-// Each product is a folder containing index.mdx — the folder name is the slug.
-const productSlugs = existsSync(productsDir)
-  ? readdirSync(productsDir).filter((entry) =>
-      existsSync(path.join(productsDir, entry, 'index.mdx')),
-    )
-  : [];
-
-const blogSlugs = existsSync(blogDir)
-  ? readdirSync(blogDir).filter((entry) =>
-      existsSync(path.join(blogDir, entry, 'index.mdx')),
-    )
-  : [];
-const serviceSlugs = existsSync(servicesDir)
-  ? readdirSync(servicesDir).filter((entry) =>
-      existsSync(path.join(servicesDir, entry, 'index.mdx')),
-    )
-  : [];
-
-const staticRoutes = ['/about', '/history', '/products', '/services', '/portfolio', '/commitment', '/blog', '/contact'];
-
-const dynamicRoutes = Array.from(
-  new Set([
-    ...staticRoutes,
-    ...productSlugs.map((slug) => `/products/${slug}`),
-    ...serviceSlugs.map((slug) => `/services/${slug}`),
-    ...blogSlugs.map((slug) => `/blog/${slug}`),
-  ]),
-);
-
-const priorityMap: Record<string, number> = {
-  '/': 1.0,
-  '/contact': 0.9,
-  '/products': 0.9,
-  '/services': 0.85,
-  '/about': 0.8,
-  '/portfolio': 0.75,
-  '/commitment': 0.75,
-  '/history': 0.7,
-  '/blog': 0.75,
-  ...Object.fromEntries(
-    productSlugs.map((slug) => [`/products/${slug}`, 0.85] as const),
-  ),
-  ...Object.fromEntries(
-    serviceSlugs.map((slug) => [`/services/${slug}`, 0.8] as const),
-  ),
-  ...Object.fromEntries(blogSlugs.map((slug) => [`/blog/${slug}`, 0.7] as const)),
-};
-
-const changefreqMap: Record<string, string> = {
-  '/': 'weekly',
-  '/products': 'weekly',
-  '/blog': 'weekly',
-  '/contact': 'monthly',
-  '/about': 'monthly',
-  '/commitment': 'monthly',
-  '/history': 'yearly',
-  '/portfolio': 'monthly',
-  '/services': 'monthly',
-  '*': 'monthly',
-};
-
 export default defineConfig({
   plugins: [
-
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
       providerImportSource: '@mdx-js/react',
@@ -184,54 +111,6 @@ export default defineConfig({
   File: {{filename}}
 =================================================
 */`,
-    }),
-
-    Sitemap({
-      hostname: BASE_URL,
-      dynamicRoutes,
-      priority: priorityMap,
-      changefreq: changefreqMap,
-      lastmod: { '*': BUILD_DATE },
-      readable: true,
-      outDir: 'dist',
-      generateRobotsTxt: false,
-      robots: [
-        { userAgent: '*', allow: '/' },
-        { userAgent: 'Googlebot', allow: '/' },
-        { userAgent: 'Googlebot-Image', allow: '/' },
-        { userAgent: 'Googlebot-Video', allow: '/' },
-        { userAgent: 'Googlebot-News', allow: '/' },
-        { userAgent: 'Google-Extended', allow: '/' },
-        { userAgent: 'Gemini-Web', allow: '/' },
-        { userAgent: 'GPTBot', allow: '/' },
-        { userAgent: 'ChatGPT-User', allow: '/' },
-        { userAgent: 'OAI-SearchBot', allow: '/' },
-        { userAgent: 'anthropic-ai', allow: '/' },
-        { userAgent: 'ClaudeBot', allow: '/' },
-        { userAgent: 'Claude-Web', allow: '/' },
-        { userAgent: 'PerplexityBot', allow: '/' },
-        { userAgent: 'Meta-ExternalAgent', allow: '/' },
-        { userAgent: 'Meta-ExternalFetcher', allow: '/' },
-        { userAgent: 'FacebookBot', allow: '/' },
-        { userAgent: 'Bingbot', allow: '/' },
-        { userAgent: 'msnbot', allow: '/' },
-        { userAgent: 'msnbot-media', allow: '/' },
-        { userAgent: 'Applebot', allow: '/' },
-        { userAgent: 'Applebot-Extended', allow: '/' },
-        { userAgent: 'Brave Bot', allow: '/' },
-        { userAgent: 'DuckDuckBot', allow: '/' },
-        { userAgent: 'YandexBot', allow: '/' },
-        { userAgent: 'YandexImages', allow: '/' },
-        { userAgent: 'Baiduspider', allow: '/' },
-        { userAgent: 'xAI-Bot', allow: '/' },
-        { userAgent: 'cohere-ai', allow: '/' },
-        { userAgent: 'LinkedInBot', allow: '/' },
-        { userAgent: 'Twitterbot', allow: '/' },
-        { userAgent: 'facebookexternalhit', allow: '/' },
-        { userAgent: 'WhatsApp', allow: '/' },
-        { userAgent: 'TelegramBot', allow: '/' },
-        { userAgent: 'ia_archiver', allow: '/' },
-      ],
     }),
   ],
 

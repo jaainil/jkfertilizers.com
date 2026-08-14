@@ -1,94 +1,213 @@
+# =================================================
 # robots.txt for J K Fertilizers
-# Last updated: 2026-07-07
 # Website: https://jkfertilizers.com
+# Last updated: 2026-08-14
+# =================================================
 
-# Allow all search engines and AI bots
+# ─── Universal Fallback ───
 User-agent: *
 Allow: /
 
-# Google bots
+# ─── Google Search & Media Bots ───
 User-agent: Googlebot
 Allow: /
+
 User-agent: Googlebot-Image
 Allow: /
+
 User-agent: Googlebot-Video
 Allow: /
+
 User-agent: Googlebot-News
 Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+User-agent: Storebot-Google
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
-# AI search engines (GEO optimization)
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# ─── OpenAI (ChatGPT & SearchGPT) ───
 User-agent: GPTBot
 Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
-User-agent: anthropic-ai
-Allow: /
+
+# ─── Anthropic (Claude) ───
 User-agent: ClaudeBot
 Allow: /
+
 User-agent: Claude-Web
 Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ─── Perplexity AI ───
 User-agent: PerplexityBot
 Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ─── Google Gemini AI ───
 User-agent: Gemini-Web
 Allow: /
 
-# Social media crawlers
-User-agent: facebookexternalhit
-Allow: /
-User-agent: FacebookBot
-Allow: /
-User-agent: LinkedInBot
-Allow: /
-User-agent: Twitterbot
-Allow: /
-User-agent: WhatsApp
-Allow: /
-User-agent: TelegramBot
+User-agent: Google-Extended
 Allow: /
 
-# Search engine bots
+# ─── Microsoft Bing & Copilot ───
 User-agent: Bingbot
 Allow: /
+
 User-agent: msnbot
 Allow: /
+
 User-agent: msnbot-media
 Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+# ─── Apple & Siri Bots ───
 User-agent: Applebot
 Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
-User-agent: Brave Bot
+
+# ─── Meta (Facebook / Instagram / Llama AI) ───
+User-agent: Meta-ExternalAgent
 Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# ─── xAI (Grok) ───
+User-agent: xAI-Bot
+Allow: /
+
+# ─── Cohere AI ───
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# ─── DeepSeek AI ───
+User-agent: DeepSeekBot
+Allow: /
+
+# ─── ByteDance & TikTok ───
+User-agent: Bytespider
+Allow: /
+
+# ─── Amazon ───
+User-agent: Amazonbot
+Allow: /
+
+# ─── Independent Search & AI Engines ───
+User-agent: BraveBot
+Allow: /
+
 User-agent: DuckDuckBot
 Allow: /
+
+User-agent: YouBot
+Allow: /
+
 User-agent: YandexBot
 Allow: /
+
 User-agent: YandexImages
 Allow: /
+
 User-agent: Baiduspider
 Allow: /
 
-# Additional AI crawlers
-User-agent: Meta-ExternalAgent
+User-agent: Sogou web spider
 Allow: /
-User-agent: Meta-ExternalFetcher
+
+User-agent: NaverBot
 Allow: /
-User-agent: xAI-Bot
+
+User-agent: Yeti
 Allow: /
-User-agent: cohere-ai
+
+User-agent: SeznamBot
 Allow: /
+
+User-agent: Qwantify
+Allow: /
+
+User-agent: MojeekBot
+Allow: /
+
+# ─── Research, Open Knowledge & Archiving Bots ───
+User-agent: CCBot
+Allow: /
+
 User-agent: ia_archiver
 Allow: /
 
-# Block admin and private paths
-Disallow: /admin/
-Disallow: /private/
-Disallow: /.git/
-Disallow: /node_modules/
+User-agent: SemanticScholarBot
+Allow: /
 
-# Sitemap location
+User-agent: Diffbot
+Allow: /
+
+User-agent: Scrapy
+Allow: /
+
+# ─── Social Media Previews & Messengers ───
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: SkypeUriPreview
+Allow: /
+
+# ─── Sitemap & Discovery ───
 Sitemap: https://jkfertilizers.com/sitemap.xml
+Sitemap: https://jkfertilizers.com/rss.xml
+Host: https://jkfertilizers.com

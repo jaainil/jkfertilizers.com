@@ -399,7 +399,7 @@ interface CollectionPage extends SchemaBase {
    ───────────────────────────────────────────── */
 export const organizationSchema: Organization = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness", "ManufacturingBusiness"],
+  "@type": ["Organization", "LocalBusiness"],
   "@id": `${SITE_URL}/#organization`,
   name: "J K Fertilizers",
   alternateName: ["JK Fertilizers", "JKF", "J K Fertilizers Pvt Ltd"],
