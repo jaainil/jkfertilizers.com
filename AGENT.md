@@ -10,7 +10,7 @@
 **Site:** [jkfertilizers.com](https://jkfertilizers.com)
 **Business:** J K Fertilizers — organic fertilizer manufacturer in Vasad, Anand, Gujarat, India. Founded 2006 by Mr. Akash Dadhania.
 **Purpose:** B2B marketing website. Primary goal is lead generation (inquiry form) and product/service discovery for distributors, farmers, and contract manufacturing clients.
-**Package name in package.json:** `aditbiorganic` (legacy, ignore it — the real site is jkfertilizers.com)
+**Package name in package.json:** `jkfertilizers`
 
 ---
 
