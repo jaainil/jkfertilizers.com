@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star } from "lucide-react";
-import { products } from "@/data/products";
+import { products, getProductCoverImage } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { ImagePanel } from "@/components/ImagePanel";
 import { ExpertiseCard } from "@/components/ExpertiseCard";
@@ -152,16 +152,11 @@ const testimonials = [
   },
 ];
 
-const productTickerProducts = [
-  { name: "Organic Manure", img: "/images/products/organic-manure/1.png" },
-  { name: "PROM Granules", img: "/images/products/prom/1.png" },
-  { name: "PDM Granules", img: "/images/products/pdm/1.png" },
-  { name: "Mycorrhiza Biofertilizer", img: "/images/products/mycorrhiza-granules-biofertilizers/1.png" },
-  { name: "Customized Coated Granules", img: "/images/products/customized-coated-granules/1.png" },
-  { name: "Coated Bio NPK", img: "/images/products/coated-base-granules-bio-npk/1.png" },
-  { name: "Coated Mycorrhiza", img: "/images/products/coated-base-granules-mycorrhiza/1.png" },
-  { name: "Customized Base Granules", img: "/images/products/customized-base-granules/1.png" },
-];
+const productTickerProducts = products.map((p) => ({
+  slug: p.slug,
+  name: p.title,
+  img: getProductCoverImage(p.slug, p.imageUrl),
+}));
 
 const commitmentItems = [
   {
@@ -524,18 +519,18 @@ const HomeProductTicker = () => {
         <div className="flex w-full gap-0">
           <div className="flex shrink-0 animate-[marquee_35s_linear_infinite] items-center gap-0">
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
-              <div key={`ticker-1-${i}`} className="flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6">
+              <Link key={`ticker-1-${p.slug}-${i}`} to={`/products/${p.slug}`} className="group flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6 hover:opacity-90 transition-opacity">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white shadow-[0_4px_16px_rgba(22,61,38,0.1)] overflow-hidden sm:h-20 sm:w-20 sm:rounded-2xl">
-                  <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-lg sm:rounded-xl" loading="lazy" />
+                  <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-lg sm:rounded-xl transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                 </div>
-                <span className="whitespace-nowrap font-heading text-xs font-semibold text-foreground sm:text-sm">{p.name}</span>
+                <span className="whitespace-nowrap font-heading text-xs font-semibold text-foreground sm:text-sm group-hover:text-primary transition-colors">{p.name}</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:h-2 sm:w-2 sm:ml-2" />
-              </div>
+              </Link>
             ))}
           </div>
           <div aria-hidden className="flex shrink-0 animate-[marquee_35s_linear_infinite] items-center gap-0">
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
-              <div key={`ticker-2-${i}`} className="flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6">
+              <div key={`ticker-2-${p.slug}-${i}`} className="flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white shadow-[0_4px_16px_rgba(22,61,38,0.1)] overflow-hidden sm:h-20 sm:w-20 sm:rounded-2xl">
                   <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-lg sm:rounded-xl" loading="lazy" />
                 </div>
@@ -553,7 +548,7 @@ const HomeProductTicker = () => {
           variant="outline"
           className="h-12 rounded-full border-primary/30 bg-primary/6 px-8 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300"
         >
-          <Link to="/products">View Portfolio</Link>
+          <Link to="/products">View All Products</Link>
         </Button>
       </div>
     </section>
