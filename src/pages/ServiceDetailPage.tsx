@@ -13,7 +13,7 @@ const mdxComponents = {
     const { children, ...rest } = props;
     return (
       <h2
-        className="font-heading mt-10 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl first:mt-0"
+        className="font-heading mt-10 type-section-h2 font-semibold tracking-tight text-foreground first:mt-0"
         {...rest}
       >{children}</h2>
     );
@@ -22,23 +22,23 @@ const mdxComponents = {
     const { children, ...rest } = props;
     return (
       <h3
-        className="font-heading mt-8 text-xl font-semibold text-foreground"
+        className="font-heading mt-8 type-card-title font-semibold text-foreground"
         {...rest}
       >{children}</h3>
     );
   },
   p: (props) => (
-    <p className="mt-5 text-base leading-8 text-muted-foreground" {...props} />
+    <p className="mt-5 type-body text-muted-foreground" {...props} />
   ),
   ul: (props) => (
     <ul
-      className="mt-5 space-y-2 pl-6 text-base leading-8 text-muted-foreground list-disc"
+      className="mt-5 space-y-2 pl-6 type-body text-muted-foreground list-disc"
       {...props}
     />
   ),
   ol: (props) => (
     <ol
-      className="mt-5 space-y-2 pl-6 text-base leading-8 text-muted-foreground list-decimal"
+      className="mt-5 space-y-2 pl-6 type-body text-muted-foreground list-decimal"
       {...props}
     />
   ),
@@ -82,7 +82,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
-      <div className="group relative aspect-video w-full overflow-hidden rounded-3xl border border-border bg-muted shadow-lg">
+      <div className="group relative aspect-video w-full overflow-hidden rounded-3xl border border-border bg-muted shadow-card">
         {/* Main image */}
         <img
           src={images[activeIndex]}
@@ -95,7 +95,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
         {/* Hover zoom-in hint */}
         <button
           onClick={() => setLightboxOpen(true)}
-          className="absolute right-4 top-4 rounded-full bg-black/50 p-2.5 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
+          className="absolute right-4 top-4 rounded-full bg-black/50 p-2.5 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 flex items-center justify-center cursor-pointer"
           aria-label="View Fullscreen"
         >
           <Maximize2 className="h-4.5 w-4.5" />
@@ -106,14 +106,14 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
           <>
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 flex items-center justify-center cursor-pointer"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 shadow-md backdrop-blur-xs flex items-center justify-center cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 hover:bg-black/70 hover:scale-105 transition-[opacity,transform,background-color] duration-300 group-hover:opacity-100 flex items-center justify-center cursor-pointer"
               aria-label="Next image"
             >
               <ChevronRight className="h-6 w-6" />
@@ -122,7 +122,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
         )}
 
         {/* Image index badge */}
-        <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-3 py-1.5 text-xs font-semibold text-white tracking-wide backdrop-blur-xs select-none">
+        <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-3 py-1.5 type-label font-semibold text-white tracking-wide select-none">
           {activeIndex + 1} / {images.length}
         </div>
       </div>
@@ -136,7 +136,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
               onClick={() => setActiveIndex(idx)}
               className={`relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-xl border-2 transition-[border-color,transform,box-shadow,opacity] duration-300 snap-start hover:opacity-90 cursor-pointer ${
                 idx === activeIndex
-                  ? "border-primary scale-[1.02] shadow-md ring-2 ring-primary/20"
+                  ? "border-primary scale-[1.02] ring-2 ring-primary/20"
                   : "border-transparent opacity-60"
               }`}
             >
@@ -153,7 +153,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
       {/* Fullscreen Lightbox Modal */}
       {lightboxOpen && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md animate-in fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 animate-in fade-in"
           onClick={() => setLightboxOpen(false)}
         >
           <button
@@ -189,7 +189,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
               alt={title}
               className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl select-none"
             />
-            <p className="mt-4 text-center text-sm text-white/60 tracking-wider font-medium select-none">
+            <p className="mt-4 text-center type-body-sm text-white/60 tracking-wider font-medium select-none">
               {activeIndex + 1} / {images.length}
             </p>
           </div>
@@ -232,7 +232,6 @@ export const ServiceDetailPage = () => {
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden border-b border-border bg-background">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(27,77,62,0.08),transparent_35%)]" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <Link
             to="/services"
@@ -242,14 +241,12 @@ export const ServiceDetailPage = () => {
             All Services
           </Link>
           <div className="mt-6 flex">
-            <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-              {concept}
-            </div>
+            <span className="eyebrow">{concept}</span>
           </div>
-          <h1 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-heading type-page-h1 font-semibold tracking-tight text-foreground">
             {title}
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+          <p className="mt-5 max-w-2xl type-body text-muted-foreground">
             {description}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -281,18 +278,18 @@ export const ServiceDetailPage = () => {
 
           {/* Sidebar: other services */}
           <aside className="space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="type-label font-semibold uppercase tracking-[0.16em] text-muted-foreground">
               Other Services
             </p>
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
                 to={`/services/${s.slug}`}
-                className="group flex items-start gap-3 rounded-[18px] border border-border bg-surface-card p-4 shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-primary/30 hover:shadow-md"
+                className="group flex items-start gap-3 rounded-[18px] border border-border bg-surface-card p-4 shadow-card transition-[border-color,box-shadow] duration-200 hover:border-primary/30 hover:shadow-card-hover"
               >
                 <div className="flex-1">
-                  <p className="text-xs font-semibold text-primary">{s.concept}</p>
-                  <p className="mt-0.5 text-sm font-medium leading-5 text-foreground">
+                  <p className="type-label font-semibold text-primary">{s.concept}</p>
+                  <p className="mt-0.5 type-body-sm font-medium text-foreground">
                     {s.title}
                   </p>
                 </div>
@@ -301,11 +298,11 @@ export const ServiceDetailPage = () => {
             ))}
 
             {/* CTA card */}
-            <div className="rounded-[24px] bg-secondary p-6 text-center">
-              <p className="font-heading text-lg font-semibold text-white">
+            <div className="rounded-2xl bg-secondary p-6 text-center">
+              <p className="font-heading type-card-title font-semibold text-white">
                 Ready to get started?
               </p>
-              <p className="mt-2 text-sm text-white/75">
+              <p className="mt-2 type-body-sm text-white/75">
                 Our team responds within 24 hours.
               </p>
               <Button asChild className="mt-5 h-10 w-full rounded-full bg-accent font-semibold text-secondary hover:bg-accent/80">

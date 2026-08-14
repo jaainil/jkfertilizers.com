@@ -36,30 +36,30 @@ const ProductHero = ({
           <div className="flex flex-wrap items-center gap-3">
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 transition hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 type-label font-semibold uppercase tracking-[0.16em] text-white/80 transition hover:bg-white/20"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               All Products
             </Link>
-            <span className="inline-flex rounded-full border border-accent/40 bg-accent/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            <span className="eyebrow-dark">
               {product.category}
             </span>
           </div>
 
           <div>
-            <h1 className="font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-heading type-page-h1 font-semibold tracking-tight text-white">
               {product.title}
             </h1>
-            <p className="mt-4 text-lg font-medium text-accent">{product.tagline}</p>
+            <p className="mt-4 type-body font-medium text-accent">{product.tagline}</p>
           </div>
 
-          <p className="text-base leading-8 text-white/75">{product.summary}</p>
+          <p className="type-body text-white/75">{product.summary}</p>
 
           <div className="flex flex-wrap gap-2">
             {product.fit.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/85"
+                className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 type-label font-medium text-white/85"
               >
                 {tag}
               </span>
@@ -81,7 +81,7 @@ const ProductHero = ({
 
         {/* Right: Interactive Gallery Slider */}
         <div className="mt-12 lg:mt-0 space-y-4">
-          <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.4)] bg-neutral-900 aspect-[4/3]">
+          <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-card bg-neutral-900 aspect-[4/3]">
             <img
               src={allImages[selectedImageIndex]}
               alt={product.title}
@@ -92,7 +92,7 @@ const ProductHero = ({
             {allImages.length > 1 && (
               <button
                 onClick={() => setSelectedImageIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1))}
-                className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-[transform,background-color] duration-200 backdrop-blur-xs"
+                className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-[transform,background-color] duration-200"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -103,7 +103,7 @@ const ProductHero = ({
             {allImages.length > 1 && (
               <button
                 onClick={() => setSelectedImageIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1))}
-                className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-[transform,background-color] duration-200 backdrop-blur-xs"
+                className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-[transform,background-color] duration-200"
                 aria-label="Next image"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -113,7 +113,7 @@ const ProductHero = ({
             {/* Zoom Button "+" */}
             <button
               onClick={() => onOpenLightbox(selectedImageIndex)}
-              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-[transform,background-color] duration-200 backdrop-blur-xs"
+              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-[transform,background-color] duration-200"
               aria-label="Zoom image"
             >
               <span className="text-2xl font-light leading-none">+</span>
@@ -121,7 +121,7 @@ const ProductHero = ({
 
             {/* Slide Counter Pill */}
             {allImages.length > 1 && (
-              <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
+              <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/60 px-3 py-1 type-label font-medium text-white/90">
                 {selectedImageIndex + 1} / {allImages.length}
               </div>
             )}
@@ -136,7 +136,7 @@ const ProductHero = ({
                   onClick={() => setSelectedImageIndex(idx)}
                   className={`relative overflow-hidden rounded-2xl border-2 aspect-square w-16 sm:w-20 transition-[border-color,opacity,transform,box-shadow] duration-200 ${
                     selectedImageIndex === idx
-                      ? "border-accent scale-105 shadow-md shadow-accent/25"
+                      ? "border-accent scale-105"
                       : "border-white/10 opacity-70 hover:opacity-100 hover:scale-102"
                   }`}
                 >
@@ -171,8 +171,8 @@ const ProductSpecsStrip = ({ specs }: { specs: NonNullable<ReturnType<typeof get
       >
         {specs.map((spec) => (
           <div key={spec.label} className="px-4 py-5 sm:px-5 sm:py-6 flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{spec.label}</p>
-            <p className="mt-2 text-sm font-semibold text-foreground leading-snug">{spec.value}</p>
+            <p className="type-label font-semibold uppercase tracking-[0.16em] text-muted-foreground">{spec.label}</p>
+            <p className="mt-2 type-body-sm font-semibold text-foreground">{spec.value}</p>
           </div>
         ))}
       </div>
@@ -184,18 +184,16 @@ const ProductDescription = ({ product }: { product: NonNullable<ReturnType<typeo
   <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
     <div className="lg:grid lg:grid-cols-[1fr_1.3fr] lg:gap-20 lg:items-start">
       <div className="space-y-5 lg:sticky lg:top-28">
-        <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-          About This Product
-        </div>
-        <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        <span className="eyebrow">About This Product</span>
+        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           What Are {product.title}?
         </h2>
-        <p className="text-sm leading-8 text-muted-foreground">
+        <p className="type-body-sm text-muted-foreground">
           Manufactured by J K Fertilizers under FCO approved processes.
         </p>
         <div className="rounded-3xl border border-border bg-surface-card p-6 space-y-3">
           {product.specs.map((spec) => (
-            <div key={spec.label} className="flex items-center justify-between gap-4 text-sm">
+            <div key={spec.label} className="flex items-center justify-between gap-4 type-body-sm">
               <span className="text-muted-foreground">{spec.label}</span>
               <span className="font-medium text-foreground text-right">{spec.value}</span>
             </div>
@@ -205,7 +203,7 @@ const ProductDescription = ({ product }: { product: NonNullable<ReturnType<typeo
 
       <div className="mt-10 lg:mt-0 space-y-6">
         {product.description.split("\n\n").map((para) => (
-          <p key={para.slice(0, 30)} className="text-base leading-8 text-muted-foreground">
+          <p key={para.slice(0, 30)} className="type-body text-muted-foreground">
             {para}
           </p>
         ))}
@@ -234,7 +232,7 @@ const ProductLightbox = ({
   if (!isOpen || !images || images.length === 0) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md animate-in fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in">
       {/* Close button */}
       <button
         onClick={onClose}
@@ -263,7 +261,7 @@ const ProductLightbox = ({
           className="max-h-[70vh] w-auto max-w-full object-contain"
         />
         {/* Caption */}
-        <div className="w-full bg-neutral-900/90 py-3 text-center text-xs font-medium text-white/80 border-t border-white/5">
+        <div className="w-full bg-neutral-900/90 py-3 text-center type-label font-medium text-white/80 border-t border-white/5">
           Image {activeIndex + 1} of {images.length} — {title}
         </div>
       </div>
@@ -286,13 +284,11 @@ const ProductHowToApply = ({ product }: { product: NonNullable<ReturnType<typeof
   <section className="bg-muted py-20 lg:py-28">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mb-14 text-center">
-        <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-          Application Guide
-        </div>
-        <h2 className="mt-5 font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        <span className="eyebrow">Application Guide</span>
+        <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           How to Apply {product.title}
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
           Follow these steps for optimal results and maximum agronomic benefit from each application.
         </p>
       </div>
@@ -301,13 +297,13 @@ const ProductHowToApply = ({ product }: { product: NonNullable<ReturnType<typeof
         {product.howToApply.map((step) => (
           <div
             key={step.step}
-            className="relative rounded-[28px] border border-border bg-surface-card p-8 shadow-sm"
+            className="relative rounded-3xl border border-border bg-surface-card p-8 shadow-card"
           >
             <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
               <span className="font-heading text-sm font-bold text-primary">{step.step}</span>
             </div>
-            <h3 className="font-heading text-xl font-semibold text-foreground">{step.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">{step.detail}</p>
+            <h3 className="font-heading type-card-title font-semibold text-foreground">{step.title}</h3>
+            <p className="mt-3 type-body-sm text-muted-foreground">{step.detail}</p>
           </div>
         ))}
       </div>
@@ -318,14 +314,12 @@ const ProductHowToApply = ({ product }: { product: NonNullable<ReturnType<typeof
 const ProductBenefits = ({ product }: { product: NonNullable<ReturnType<typeof getProductBySlug>> }) => (
   <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
     <div className="mb-14">
-      <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-        Key Benefits
-      </div>
+      <span className="eyebrow">Key Benefits</span>
       <div className="mt-5 lg:grid lg:grid-cols-[1fr_1.4fr] lg:items-end lg:gap-10">
-        <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           The Clear Benefits of {product.title}
         </h2>
-        <p className="mt-4 text-base text-muted-foreground lg:mt-0">
+        <p className="mt-4 type-body text-muted-foreground lg:mt-0">
           Choosing our solution provides compounding advantages for both soil health and crop productivity over time.
         </p>
       </div>
@@ -335,14 +329,14 @@ const ProductBenefits = ({ product }: { product: NonNullable<ReturnType<typeof g
       {product.benefits.map((benefit) => (
         <div
           key={benefit.title}
-          className="flex gap-5 rounded-[28px] border border-border bg-surface-card p-7 transition hover:shadow-[0_16px_48px_rgba(16,24,40,0.06)]"
+          className="flex gap-5 rounded-3xl border border-border bg-surface-card p-7 shadow-card transition hover:shadow-card-hover"
         >
           <div className="mt-1 shrink-0">
             <CheckCircle2 className="h-6 w-6 text-accent" />
           </div>
           <div>
-            <h3 className="font-heading text-xl font-semibold text-foreground">{benefit.title}</h3>
-            <p className="mt-2 text-sm leading-7 text-muted-foreground">{benefit.detail}</p>
+            <h3 className="font-heading type-card-title font-semibold text-foreground">{benefit.title}</h3>
+            <p className="mt-2 type-body-sm text-muted-foreground">{benefit.detail}</p>
           </div>
         </div>
       ))}
@@ -357,22 +351,20 @@ const ProductComparisonTable = ({ comparison }: { comparison: NonNullable<Return
     <section className="bg-muted/70 py-20 lg:py-28 border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            Technical Comparison
-          </div>
-          <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <span className="eyebrow">Technical Comparison</span>
+          <h2 className="mt-4 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             {comparison.title || "Product Comparison"}
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl type-body text-muted-foreground">
             See how our engineered custom mineral-based granules outperform traditional alternatives.
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-sm">
+        <div className="overflow-hidden rounded-3xl border border-border bg-surface-card shadow-card">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-border bg-muted/50 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <tr className="border-b border-border bg-muted/50 type-label font-semibold uppercase tracking-wider text-muted-foreground">
                   <th className="py-4 px-6 sm:px-8 font-heading text-foreground">
                     {comparison.headers?.feature || "Feature"}
                   </th>
@@ -384,7 +376,7 @@ const ProductComparisonTable = ({ comparison }: { comparison: NonNullable<Return
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border text-sm">
+              <tbody className="divide-y divide-border type-body-sm">
                 {comparison.rows.map((row, idx) => (
                   <tr key={idx} className="hover:bg-muted/30 transition-colors">
                     <td className="py-4 px-6 sm:px-8 font-medium text-foreground">
@@ -411,11 +403,11 @@ const ProductCtaBand = ({ title }: { title: string }) => (
   <section className="bg-primary py-16 lg:py-20">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-8">
       <div className="space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">Ready to Partner?</p>
-        <h2 className="font-heading text-3xl font-semibold text-white sm:text-4xl">
+        <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/70">Ready to Partner?</p>
+        <h2 className="font-heading type-section-h2 font-semibold text-white">
           Interested in {title}?
         </h2>
-        <p className="text-base text-white/75">
+        <p className="type-body text-white/75">
           Talk to our team about quantities, custom formulations, and supply agreements.
         </p>
       </div>
@@ -442,13 +434,11 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-4">
-            <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-              Related Products
-            </div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            <span className="eyebrow">Related Products</span>
+            <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
               Explore Other Product Lines
             </h2>
-            <p className="max-w-2xl text-base leading-7 text-muted-foreground">
+            <p className="max-w-2xl type-body text-muted-foreground">
               Browse the full J K Fertilizers portfolio — each granule line engineered for a specific agronomic purpose.
             </p>
           </div>
@@ -466,7 +456,7 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
               <CarouselItem key={relProduct.slug} className="pl-6 md:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/products/${relProduct.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface-card shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover"
                 >
                   <div className="relative h-56 w-full shrink-0 overflow-hidden">
                     <img
@@ -477,22 +467,22 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
                     <div className="absolute left-4 top-4">
-                      <span className="inline-flex rounded-full border border-white/30 bg-black/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                      <span className="inline-flex rounded-full border border-white/30 bg-black/60 px-3 py-1 type-label font-semibold uppercase tracking-[0.16em] text-white">
                         {relProduct.category}
                       </span>
                     </div>
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-heading text-lg font-semibold text-foreground">{relProduct.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{relProduct.summary}</p>
+                    <h3 className="font-heading type-card-title font-semibold text-foreground">{relProduct.title}</h3>
+                    <p className="mt-2 flex-1 type-body-sm text-muted-foreground">{relProduct.summary}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {relProduct.fit.map((tag) => (
-                        <span key={tag} className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium text-primary">
+                        <span key={tag} className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 type-label font-medium text-primary">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <div className="mt-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                    <div className="mt-5 flex items-center gap-2 type-label font-semibold uppercase tracking-[0.16em] text-primary">
                       Read more
                       <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
@@ -570,7 +560,7 @@ export const ProductDetailPage = () => {
       />
       {/* Breadcrumb */}
       <div className="border-b border-border bg-muted/60">
-        <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3 text-sm text-muted-foreground sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3 type-body-sm text-muted-foreground sm:px-6 lg:px-8">
           <Link to="/" className="transition hover:text-foreground">Home</Link>
           <ChevronRight className="h-4 w-4 shrink-0" />
           <Link to="/products" className="transition hover:text-foreground">Products</Link>

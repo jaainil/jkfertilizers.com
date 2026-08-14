@@ -16,44 +16,28 @@ export const SiteFooter = () => {
 
   return (
     <footer
-      className="relative overflow-hidden text-white"
+      className="relative overflow-hidden text-white bg-[#122B1D]"
       data-testid="site-footer"
-      style={{ background: "linear-gradient(160deg, #0D2718 0%, #122B1D 40%, #163D26 100%)" }}
     >
-      {/* Atmospheric background layers */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-48 -top-48 h-[700px] w-[700px] rounded-full opacity-30 blur-[140px]" style={{ background: "radial-gradient(circle, rgba(45,122,74,0.5), transparent)" }} />
-        <div className="absolute -bottom-40 right-0 h-[600px] w-[600px] rounded-full opacity-20 blur-[120px]" style={{ background: "radial-gradient(circle, rgba(245,158,11,0.35), transparent)" }} />
-        <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "128px 128px",
-          }}
-        />
-      </div>
-
       {/* ── CTA Band ── */}
       <div className="relative border-b border-white/8">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-10 sm:px-6 sm:py-12 lg:flex-row lg:items-center lg:px-8">
           <div>
             <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <span className="h-px w-8 bg-accent" />
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent">Partner with us</p>
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-accent">Partner with us</p>
             </div>
             <h2 className="font-heading type-section-h2 font-bold text-white">
               Let's grow something great.
             </h2>
-            <p className="mt-2 max-w-lg text-sm leading-7 text-white/55">
+            <p className="mt-2 max-w-lg type-body-sm text-white/60">
               Partner with us for quality organic fertilizers and sustainable agricultural solutions.
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <Button
               asChild
-              className="h-12 w-full rounded-full px-7 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.3)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.4)] transition-shadow duration-300 sm:w-auto"
-              style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)" }}
+              className="h-12 w-full rounded-full bg-accent px-7 text-sm font-bold text-secondary hover:bg-accent/90 transition-colors duration-200 sm:w-auto"
             >
               <Link to="/contact">
                 Get In Touch <ArrowRight className="ml-2 h-4 w-4" />
@@ -62,7 +46,7 @@ export const SiteFooter = () => {
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full rounded-full border-white/15 px-7 text-white hover:border-white/25 hover:bg-white/8 transition-colors duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full border-white/15 bg-transparent px-7 text-sm text-white hover:border-white/30 hover:bg-white/5 transition-colors duration-200 sm:w-auto"
             >
               <a href={`tel:${company.phoneRaw}`}>Call us now</a>
             </Button>
@@ -78,30 +62,27 @@ export const SiteFooter = () => {
         {/* Brand column */}
         <div className="space-y-6 sm:col-span-2 lg:col-span-1 lg:space-y-7" data-testid="footer-company-block">
           <Link to="/" className="group inline-flex items-center gap-3">
-            <div className="relative shrink-0">
-              <div className="absolute inset-0 rounded-xl bg-primary/20 blur-md group-hover:bg-primary/30 transition-colors duration-300" />
-              <img
-                src="/logo.png"
-                alt="J K Fertilizers"
-                className="relative h-10 w-auto rounded-xl object-contain brightness-0 invert sm:h-11"
-              />
-            </div>
+            <img
+              src="/logo.png"
+              alt="J K Fertilizers"
+              className="h-10 w-auto rounded-lg object-contain brightness-0 invert sm:h-11"
+            />
             <div>
               <p className="font-heading text-base font-bold text-white transition-colors group-hover:text-accent">
                 {company.name}
               </p>
-              <p className="text-xs uppercase tracking-[0.24em] text-white/60">{company.tagline}</p>
+              <p className="type-label uppercase tracking-[0.18em] text-white/60">{company.tagline}</p>
             </div>
           </Link>
 
-          <p className="text-sm leading-7 text-white/55" data-testid="footer-company-description">
+          <p className="type-body-sm text-white/60" data-testid="footer-company-description">
             Leading manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules. Based in Gujarat — trusted by farmers and businesses across India since 2006.
           </p>
 
-          {/* ISO badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/8 px-4 py-2">
+          {/* FCO badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-2">
             <Award className="h-3.5 w-3.5 text-accent" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent/85">FCO Approved Products</span>
+            <span className="type-label font-bold uppercase tracking-[0.16em] text-accent/90">FCO Approved Products</span>
           </div>
 
           {/* Contact cards */}
@@ -111,7 +92,7 @@ export const SiteFooter = () => {
                 <Phone className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Phone</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/45">Phone</p>
                 <p className="font-semibold text-white">{company.phoneDisplay} / 92 / 91</p>
               </div>
             </div>
@@ -124,7 +105,7 @@ export const SiteFooter = () => {
                 <Mail className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Email</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/45">Email</p>
                 <p className="min-w-0 break-all font-semibold text-white">
                   <a href={`mailto:${company.emails[0]}`} className="hover:text-accent hover:underline transition-colors">{company.emails[0]}</a>
                   <span className="text-white/30 mx-2">|</span>
@@ -141,7 +122,7 @@ export const SiteFooter = () => {
                 <MapPin className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Address</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/45">Address</p>
                 <p className="mt-0.5 min-w-0 break-words leading-6 text-white/65">{company.address}</p>
               </div>
             </div>
@@ -153,7 +134,7 @@ export const SiteFooter = () => {
                 </svg>
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">Working Hours</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/45">Working Hours</p>
                 <p className="font-semibold text-white">Mon - Sat: 9AM - 6PM</p>
               </div>
             </div>
@@ -162,7 +143,7 @@ export const SiteFooter = () => {
 
         {/* Navigation column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-links-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Navigate</p>
+          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/50">Navigate</p>
           <nav className="flex flex-col gap-0.5">
             {[...navigation, { label: "Commitment", path: "/commitment" }].map((item) => (
               <Link
@@ -179,13 +160,13 @@ export const SiteFooter = () => {
 
           <div className="flex items-center gap-2 pt-2">
             <Leaf className="h-3.5 w-3.5 text-primary/60" />
-            <p className="text-xs text-white/35 italic">Organic, Naturally</p>
+            <p className="type-label text-white/40 italic">Organic, Naturally</p>
           </div>
         </div>
 
         {/* Products column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-products-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Product Groups</p>
+          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/50">Product Groups</p>
           <div className="flex flex-col gap-0.5">
             {products.slice(0, 6).map((product, index) => (
               <Link
@@ -201,7 +182,7 @@ export const SiteFooter = () => {
           </div>
           <Link
             to="/products"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-primary/70 transition hover:text-primary"
+            className="inline-flex items-center gap-1.5 type-label font-bold text-primary/80 transition hover:text-primary"
           >
             View all products <ArrowRight className="h-3 w-3" />
           </Link>
@@ -209,7 +190,7 @@ export const SiteFooter = () => {
 
         {/* Services column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-services-block">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/50">Services</p>
+          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/50">Services</p>
           <div className="flex flex-col gap-0.5">
             {services.map((svc, i) => (
               <Link
@@ -225,7 +206,7 @@ export const SiteFooter = () => {
           </div>
           <Link
             to="/services"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-accent/70 transition hover:text-accent"
+            className="inline-flex items-center gap-1.5 type-label font-bold text-accent/80 transition hover:text-accent"
           >
             View all services <ArrowRight className="h-3 w-3" />
           </Link>

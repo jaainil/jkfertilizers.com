@@ -17,24 +17,14 @@ import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
 const company = {
   name: "J K Fertilizers",
   tagline: "Organic, Naturally",
-  subTagline: "Manufacturers of Organic Fertilizers",
-  missionTagline: "Empowering Farmers, Enriching Communities",
-  legalTagline: "Leading Manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules",
   heroTitle: "Better Agriculture for Better Future",
   heroSubtitle:
     "Our mineral-coated granules bring sustainability to your fields, replacing chemicals with eco-friendly minerals.",
   heroTagline: "Growing Greener with Every Granule",
   aboutDetails:
     "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond. As a leader in organic fertilizer innovation, we specialize in producing eco-friendly, mineral-coated granules and soil conditioners that enhance soil health and improve crop yield.",
-  mission:
-    "Our mission is to empower farmers and fertilizer brands with high-quality organic solutions that enhance soil health, improve crop yield, and promote environmental sustainability.",
-  chairmanMessage:
-    "I am proud to lead a team that is committed to excellence in organic agriculture. Our mission is not just about business but about contributing positively to the environment.",
-  philosophy:
-    "Quality You Can Trust, Results You Can See - Every product is manufactured using state-of-the-art technology under certified processes.",
   phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
-  phoneAlt: "+919825045892",
   emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
   address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat - 388305 INDIA",
   founder: "Mr. Akash Dadhania",
@@ -43,7 +33,7 @@ const company = {
 
 const heroStats = [
   { value: "100", unit: "+", label: "Agricultural Products" },
-  { value: "150", unit: "+", label: "Trust By Clients" },
+  { value: "150", unit: "+", label: "Trusted Clients" },
   { value: "15", unit: "+", label: "Years of Experience" },
   { value: "10000", unit: "+", label: "Tons of Products" },
 ];
@@ -53,25 +43,25 @@ const expertiseCards = [
     icon: "leaf",
     title: "100% Organic Products",
     description:
-      "J K Fertilizers manufactures 100% organic products, promoting sustainable farming with eco-friendly, high-quality solutions.",
+      "We manufacture 100% organic products, promoting sustainable farming with eco-friendly, high-quality solutions.",
   },
   {
     icon: "shield",
     title: "Absolute Quality",
     description:
-      "J K Fertilizers ensures absolute quality in every product, delivering superior performance for sustainable agriculture.",
+      "Strict quality control on every batch, delivering reliable performance for sustainable agriculture.",
   },
   {
     icon: "factory",
     title: "Environmentally Friendly",
     description:
-      "J K Fertilizers produces environment-friendly products, prioritizing sustainability and minimizing impact on ecosystems.",
+      "Products that prioritize sustainability and minimize impact on soil and surrounding ecosystems.",
   },
   {
     icon: "flask",
     title: "Innovation in Fertilizers",
     description:
-      "Continuously innovating to develop better, newer, and more sustainable products that enhance agricultural practices.",
+      "Ongoing R&D to develop better, newer, and more sustainable products for modern agriculture.",
   },
 ];
 
@@ -89,7 +79,7 @@ const services = [
     title: "Infrastructure Leasing",
     concept: "Cost-effective scaling",
     description:
-      "Cost-effective options to help businesses scale operations seamlessly with state-of-the-art infrastructure for fertilizer production.",
+      "Cost-effective options to help businesses scale production with ISO-certified infrastructure for fertilizer manufacturing.",
     icon: "shield",
     imageSrc: "/images/service-bg-3.jpg",
     slug: "infrastructure-leasing",
@@ -105,7 +95,7 @@ const services = [
   },
   {
     title: "Job-Work Solutions",
-    concept: "Seamless execution",
+    concept: "Reliable execution",
     description:
       "Reliable job-work services for smooth and efficient fertilizer manufacturing operations. High capacity processing backed by strict QA.",
     icon: "users",
@@ -199,15 +189,10 @@ const faqs = [
 const images = {
   hero: "/images/hero.jpg",
   factory: "/images/j-k-infra.jpg",
-  granules: "/images/granules.jpg",
-  soil: "/images/soil.jpg",
-  lab: "/images/lab.jpg",
-  partnership: "/images/partnership.jpg",
   facilityOverview: "/images/facility-overview.jpg",
   biopestGranulesHero: "/images/dsc00371.jpg",
   whyChoose: "/images/dsc00161.jpg",
   faq: "/images/dsc00514.jpg",
-  productsOverview: "/images/products-overview.png",
 };
 
 const HomeHero = () => {
@@ -215,28 +200,14 @@ const HomeHero = () => {
 
   return (
     <section className="relative overflow-hidden bg-background">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-32 -top-32 h-[700px] w-[700px] rounded-full bg-primary/6 blur-[120px]" />
-        <div className="absolute right-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-accent/5 blur-[100px]" />
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "200px 200px",
-          }}
-        />
-      </div>
-
       <div
         ref={heroReveal.ref}
         className={`relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-28 reveal ${heroReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-6 sm:space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-accent" style={{ animation: "pulse-dot 2s ease-in-out infinite" }} />
+          <span className="eyebrow">
             {company.tagline}
-          </div>
+          </span>
 
           <div className="space-y-4">
             <h1 className="max-w-4xl font-heading type-hero-h1 font-bold tracking-tight text-foreground text-balance">
@@ -248,7 +219,7 @@ const HomeHero = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-foreground/80">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 type-label font-semibold uppercase tracking-[0.16em] text-accent-foreground/80">
               <Award className="h-3 w-3 text-accent" />
               {company.heroTagline}
             </span>
@@ -257,7 +228,7 @@ const HomeHero = () => {
           <div className="flex flex-wrap gap-3">
             <Button
               asChild
-              className="h-12 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-[0_6px_28px_rgba(45,122,74,0.35)] hover:bg-primary/90 hover:shadow-[0_8px_36px_rgba(45,122,74,0.45)] transition-[background-color,box-shadow] duration-300 sm:px-7 sm:text-base"
+              className="h-12 rounded-full bg-primary px-6 text-sm font-semibold text-white hover:bg-primary/90 transition-colors duration-200 sm:px-8"
             >
               <Link to="/services">
                 See Our Services
@@ -267,7 +238,7 @@ const HomeHero = () => {
             <Button
               asChild
               variant="outline"
-              className="h-12 rounded-full border-primary/30 bg-primary/5 px-5 text-sm font-semibold text-primary hover:bg-primary hover:text-white hover:border-primary transition-[background-color,color,border-color] duration-300 sm:px-7 sm:text-base"
+              className="h-12 rounded-full border-primary/30 bg-primary/5 px-6 text-sm font-semibold text-primary hover:bg-primary hover:text-white hover:border-primary transition-colors duration-200 sm:px-8"
             >
               <a href={`tel:${company.phoneRaw}`}>
                 <PhoneCall className="h-4 w-4" />
@@ -276,17 +247,17 @@ const HomeHero = () => {
             </Button>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border/60 pt-5">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Leaf className="h-3.5 w-3.5 shrink-0 text-primary" />
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border/60 pt-5">
+            <div className="flex items-center gap-2 type-body-sm text-muted-foreground">
+              <Leaf className="h-4 w-4 shrink-0 text-primary" />
               <span>100% Organic Products</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Sprout className="h-3.5 w-3.5 shrink-0 text-primary" />
+            <div className="flex items-center gap-2 type-body-sm text-muted-foreground">
+              <Sprout className="h-4 w-4 shrink-0 text-primary" />
               <span>15+ Years Experience</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Award className="h-3.5 w-3.5 shrink-0 text-accent" />
+            <div className="flex items-center gap-2 type-body-sm text-muted-foreground">
+              <Award className="h-4 w-4 shrink-0 text-accent" />
               <span>150+ Trusted Clients</span>
             </div>
           </div>
@@ -300,16 +271,16 @@ const HomeHero = () => {
             className="aspect-[4/3] min-h-52 sm:min-h-72 lg:aspect-[4/4.6] lg:min-h-[38rem]"
             overlay={
             <div className="grid gap-2 grid-cols-2">
-              <div className="rounded-xl border border-white/30 bg-surface-overlay/92 p-3 shadow-[0_16px_50px_rgba(22,61,38,0.15)] backdrop-blur-sm sm:rounded-2xl sm:p-4">
-                <p className="type-label font-bold uppercase tracking-[0.22em] text-muted-foreground">Our promise</p>
+              <div className="rounded-xl border border-border/60 bg-surface-overlay p-3 shadow-card sm:rounded-2xl sm:p-4">
+                <p className="type-label font-bold uppercase tracking-[0.16em] text-primary">Our promise</p>
                 <p className="mt-1 font-heading text-sm font-bold text-foreground sm:mt-2 sm:text-base">100% Organic Solutions</p>
-                <p className="mt-1 hidden type-label text-muted-foreground sm:block">Eco-friendly fertilizers for sustainable farming.</p>
+                <p className="mt-1 hidden type-body-sm text-muted-foreground sm:block">Eco-friendly fertilizers for sustainable farming.</p>
               </div>
-              <div className="rounded-xl border border-white/20 p-3 text-white shadow-[0_16px_50px_rgba(22,61,38,0.2)] sm:rounded-2xl sm:p-4" style={{ background: "linear-gradient(135deg, #2D7A4A, #163D26)" }}>
-                <p className="type-label font-bold uppercase tracking-[0.22em] text-white/70">Why J K Fertilizers</p>
+              <div className="rounded-xl border border-white/15 bg-secondary p-3 text-white shadow-card sm:rounded-2xl sm:p-4">
+                <p className="type-label font-bold uppercase tracking-[0.16em] text-white/70">Why J K Fertilizers</p>
                 <p className="mt-1 font-heading text-sm font-bold sm:mt-2 sm:text-base">Quality & Sustainability</p>
                 <div className="mt-1 flex items-center gap-1.5 sm:mt-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent" style={{ animation: "pulse-dot 2s ease-in-out infinite" }} />
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                   <span className="type-label text-white/70">15+ years experience</span>
                 </div>
               </div>
@@ -334,15 +305,14 @@ const HomeStatsBar = () => {
         {heroStats.map((item, i) => (
           <div
             key={item.label}
-            className="group relative rounded-2xl border border-border bg-surface-card p-4 shadow-[0_12px_40px_rgba(22,61,38,0.07)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.14)] hover:border-primary/20 sm:rounded-[28px] sm:p-6"
+            className="rounded-2xl border border-border bg-surface-card p-4 shadow-card sm:rounded-3xl sm:p-6"
             {...staggerDelay(i)}
           >
-            <div className="pointer-events-none absolute right-3 top-3 h-16 w-16 rounded-full bg-primary/5 blur-lg group-hover:bg-primary/10 transition-colors duration-300" />
             <p className="font-heading text-2xl font-extrabold text-primary sm:text-3xl">
               {item.value}
-              {item.unit && <span className="ml-1 text-base font-medium text-muted-foreground sm:text-xl">{item.unit}</span>}
+              {item.unit && <span className="ml-1 text-lg font-semibold text-muted-foreground">{item.unit}</span>}
             </p>
-            <p className="mt-1.5 text-xs font-medium leading-5 text-muted-foreground uppercase tracking-wide sm:mt-2">{item.label}</p>
+            <p className="mt-1.5 type-label font-semibold text-muted-foreground uppercase tracking-[0.14em] sm:mt-2">{item.label}</p>
           </div>
         ))}
       </div>
@@ -353,6 +323,27 @@ const HomeStatsBar = () => {
 const HomePromoCards = () => {
   const promoReveal = useScrollReveal();
 
+  const cards = [
+    {
+      icon: Sprout,
+      title: "Innovative Solutions for Modern Agriculture",
+      body: "Explore our innovative organic fertilizers designed for higher yields and healthier soils.",
+      href: "/products",
+    },
+    {
+      icon: Award,
+      title: "Quality You Can Rely On",
+      body: "Our FCO-approved facility ensures every product is premium-grade and effective for all crops.",
+      href: "/commitment",
+    },
+    {
+      icon: Leaf,
+      title: "A Range of Products for Every Need",
+      body: "From soil conditioners to micronutrients, we offer solutions tailored for diverse agricultural needs.",
+      href: "/products",
+    },
+  ];
+
   return (
     <section
       ref={promoReveal.ref}
@@ -360,74 +351,31 @@ const HomePromoCards = () => {
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
-          {/* Card 1 */}
-          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
-            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-colors duration-500" />
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-[background-color,color] duration-300 group-hover:bg-primary group-hover:text-white">
-              <Sprout className="h-6 w-6" />
+          {cards.map((card) => (
+            <div
+              key={card.title}
+              className="group rounded-3xl border border-border bg-surface-card p-6 shadow-card transition-[box-shadow,border-color] duration-300 hover:shadow-card-hover hover:border-primary/20 sm:p-8"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <card.icon className="h-6 w-6" />
+              </div>
+              <h3 className="mt-6 font-heading type-card-title font-bold text-foreground">
+                {card.title}
+              </h3>
+              <p className="mt-3 type-body-sm text-muted-foreground">
+                {card.body}
+              </p>
+              <div className="mt-6">
+                <Link
+                  to={card.href}
+                  className="inline-flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-primary hover:text-primary/80 transition-colors"
+                >
+                  Read More
+                  <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
-            <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
-              Innovative Solutions for Modern Agriculture
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Explore our innovative organic fertilizers designed for higher yields and healthier soils.
-            </p>
-            <div className="mt-6">
-              <Link
-                to="/products"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
-              >
-                Read More
-                <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
-            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-accent/5 blur-2xl group-hover:bg-accent/10 transition-colors duration-500" />
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent transition-[background-color,color] duration-300 group-hover:bg-accent group-hover:text-white">
-              <Award className="h-6 w-6" />
-            </div>
-            <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
-              Quality You Can Rely On
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Our ISO-certified facility ensures every product is premium-grade and effective for all crops.
-            </p>
-            <div className="mt-6">
-              <Link
-                to="/commitment"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
-              >
-                Read More
-                <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-8 shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)] hover:border-primary/20">
-            <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-colors duration-500" />
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-[background-color,color] duration-300 group-hover:bg-primary group-hover:text-white">
-              <Leaf className="h-6 w-6" />
-            </div>
-            <h3 className="mt-6 font-heading text-xl font-bold text-foreground">
-              A Range of Products for Every Need
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              From soil conditioners to micronutrients, we offer solutions tailored for diverse agricultural needs.
-            </p>
-            <div className="mt-6">
-              <Link
-                to="/products"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
-              >
-                Read More
-                <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -448,21 +396,20 @@ const HomeFacilityOverview = () => {
           alt="J K Fertilizers facility overview"
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-72"
           overlay={
-            <div className="rounded-2xl border border-white/25 p-4 shadow-[0_16px_50px_rgba(22,61,38,0.22)] backdrop-blur-md sm:rounded-3xl sm:p-5" style={{ background: "linear-gradient(135deg, rgba(22,61,38,0.92), rgba(45,122,74,0.88))" }}>
-              <p className="type-label font-bold uppercase tracking-[0.22em] text-white/60">Empowering Farmers</p>
+            <div className="rounded-2xl border border-white/15 bg-secondary p-4 shadow-card sm:p-5">
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-white/60">Empowering Farmers</p>
               <p className="mt-1 font-heading text-sm font-bold text-white sm:mt-2 sm:text-base">"Enriching Communities through Sustainable Agriculture"</p>
               <div className="mt-2 flex items-center gap-2">
                 <Award className="h-3.5 w-3.5 text-accent" />
-                <span className="text-xs font-semibold text-accent">India's Trusted Fertilizer Manufacturer</span>
+                <span className="type-body-sm font-semibold text-accent">India's Trusted Fertilizer Manufacturer</span>
               </div>
             </div>
           }
         />
         <div className="space-y-5 sm:space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
-            <Leaf className="h-3 w-3" />
+          <span className="eyebrow">
             Better Agriculture for Better Future
-          </div>
+          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
             Growing Greener <span className="text-primary">with Every Granule</span>
           </h2>
@@ -475,7 +422,7 @@ const HomeFacilityOverview = () => {
           <div className="flex flex-wrap gap-4 pt-2">
             <Button
               asChild
-              className="h-12 w-full rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 hover:shadow-[0_8px_32px_rgba(45,122,74,0.4)] transition-[background-color,box-shadow] duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full bg-primary px-6 text-sm text-white font-semibold hover:bg-primary/90 transition-colors duration-200 sm:w-auto"
             >
               <Link to="/about">
                 More About Us
@@ -499,10 +446,9 @@ const HomeProductTicker = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-accent-foreground/70">
-            <Sprout className="h-3.5 w-3.5 text-accent" />
-            What Is Our Expertise?
-          </div>
+          <span className="eyebrow-accent">
+            Our Expertise
+          </span>
           <h2 className="mt-4 font-heading type-section-h2 font-bold tracking-tight text-foreground sm:mt-5">
             Delivering Top-Quality Agricultural Solutions
           </h2>
@@ -512,30 +458,30 @@ const HomeProductTicker = () => {
         </div>
       </div>
 
-      <div className="relative overflow-hidden border-y border-border/60 py-4 sm:py-5" style={{ background: "linear-gradient(180deg, #F2EFE6 0%, #EDE8DC 100%)" }}>
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 z-10 sm:w-24" style={{ background: "linear-gradient(to right, #F2EFE6, transparent)" }} />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 z-10 sm:w-24" style={{ background: "linear-gradient(to left, #EDE8DC, transparent)" }} />
+      <div className="relative overflow-hidden border-y border-border/60 bg-muted py-4 sm:py-5">
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 z-10 sm:w-24 bg-gradient-to-r from-muted to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 z-10 sm:w-24 bg-gradient-to-l from-muted to-transparent" />
 
         <div className="flex w-full gap-0">
           <div className="flex shrink-0 animate-[marquee_35s_linear_infinite] items-center gap-0">
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
               <Link key={`ticker-1-${p.slug}-${i}`} to={`/products/${p.slug}`} className="group flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6 hover:opacity-90 transition-opacity">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white shadow-[0_4px_16px_rgba(22,61,38,0.1)] overflow-hidden sm:h-20 sm:w-20 sm:rounded-2xl">
-                  <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-lg sm:rounded-xl transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-surface-card overflow-hidden sm:h-20 sm:w-20">
+                  <img src={p.img} alt={p.name} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                 </div>
-                <span className="whitespace-nowrap font-heading text-xs font-semibold text-foreground sm:text-sm group-hover:text-primary transition-colors">{p.name}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:h-2 sm:w-2 sm:ml-2" />
+                <span className="whitespace-nowrap font-heading text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{p.name}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:ml-2" />
               </Link>
             ))}
           </div>
           <div aria-hidden className="flex shrink-0 animate-[marquee_35s_linear_infinite] items-center gap-0">
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
               <div key={`ticker-2-${p.slug}-${i}`} className="flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/80 bg-white shadow-[0_4px_16px_rgba(22,61,38,0.1)] overflow-hidden sm:h-20 sm:w-20 sm:rounded-2xl">
-                  <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-lg sm:rounded-xl" loading="lazy" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-surface-card overflow-hidden sm:h-20 sm:w-20">
+                  <img src={p.img} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
                 </div>
-                <span className="whitespace-nowrap font-heading text-xs font-semibold text-foreground sm:text-sm">{p.name}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:h-2 sm:w-2 sm:ml-2" />
+                <span className="whitespace-nowrap font-heading text-sm font-semibold text-foreground">{p.name}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:ml-2" />
               </div>
             ))}
           </div>
@@ -546,7 +492,7 @@ const HomeProductTicker = () => {
         <Button
           asChild
           variant="outline"
-          className="h-12 rounded-full border-primary/30 bg-primary/6 px-8 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300"
+          className="h-12 rounded-full border-primary/30 bg-primary/5 px-8 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors duration-200"
         >
           <Link to="/products">View All Products</Link>
         </Button>
@@ -561,25 +507,16 @@ const HomeQuoteBanner = () => {
   return (
     <section
       ref={quoteReveal.ref}
-      className={`relative overflow-hidden py-16 sm:py-24 reveal ${quoteReveal.isVisible ? 'visible' : ''}`}
-      style={{ background: "linear-gradient(135deg, #163D26 0%, #0F2A1A 100%)" }}
+      className={`relative overflow-hidden py-16 sm:py-24 bg-secondary reveal ${quoteReveal.isVisible ? 'visible' : ''}`}
     >
-      <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        backgroundRepeat: "repeat",
-        backgroundSize: "128px",
-      }} />
-      <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[100px]" />
-      <div className="absolute -right-32 -bottom-32 h-[500px] w-[500px] rounded-full bg-accent/5 blur-[100px]" />
-      
       <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        <Quote className="mx-auto h-12 w-12 text-accent/30 rotate-180 sm:h-16 sm:w-16" />
-        <h2 className="mt-6 font-heading text-2xl font-extrabold italic leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl text-balance">
-          "Agriculture Is The Most Healthful, Most Useful And Most Noble Employment Of Man"
+        <Quote className="mx-auto h-10 w-10 text-accent/40 rotate-180 sm:h-12 sm:w-12" />
+        <h2 className="mt-6 font-accent type-section-h2 italic text-white text-balance">
+          "Agriculture is the most healthful, most useful and most noble employment of man."
         </h2>
         <div className="mt-8 flex items-center justify-center gap-3">
           <span className="h-px w-8 bg-accent/40" />
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.25em] text-accent">
+          <p className="type-label font-bold uppercase tracking-[0.16em] text-accent">
             George Washington
           </p>
           <span className="h-px w-8 bg-accent/40" />
@@ -593,52 +530,49 @@ const HomeFoundationSection = () => {
   const aboutReveal = useScrollReveal();
 
   return (
-    <section className="py-14 sm:py-20 lg:py-28 section-wave" style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}>
+    <section className="py-14 sm:py-20 lg:py-28 bg-muted border-y border-border/60">
       <div
         ref={aboutReveal.ref}
         className={`mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:items-center lg:gap-10 reveal ${aboutReveal.isVisible ? 'visible' : ''}`}
       >
-        <div className="ken-burns">
-          <ImagePanel
-            src={images.factory}
-            alt="Manufacturing facility"
-            className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-80"
-            overlay={
-              <div className="rounded-2xl border border-white/30 bg-surface-overlay/95 p-4 shadow-[0_16px_50px_rgba(22,61,38,0.12)] backdrop-blur-sm sm:rounded-3xl sm:p-5">
-                <p className="type-label font-bold uppercase tracking-[0.22em] text-muted-foreground">Founder's message</p>
-                <p className="mt-2 font-accent type-body-sm italic text-primary leading-6">
-                  "Founded in 2006 with a commitment to sustainable agriculture."
-                </p>
-                <div className="mt-3 flex items-center gap-3 border-t border-border/60 pt-3">
-                  <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center sm:h-8 sm:w-8">
-                    <Sprout className="h-3.5 w-3.5 text-primary sm:h-4 sm:w-4" />
-                  </div>
-                  <p className="type-body-sm font-semibold text-foreground">{company.founder}<span className="ml-1.5 font-normal text-muted-foreground">· {company.founderTitle}</span></p>
+        <ImagePanel
+          src={images.factory}
+          alt="Manufacturing facility"
+          className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-80"
+          overlay={
+            <div className="rounded-2xl border border-border/60 bg-surface-overlay p-4 shadow-card sm:p-5">
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-primary">Founder's message</p>
+              <p className="mt-2 font-accent type-body-sm italic text-primary leading-6">
+                "Founded in 2006 with a commitment to sustainable agriculture."
+              </p>
+              <div className="mt-3 flex items-center gap-3 border-t border-border/60 pt-3">
+                <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center sm:h-8 sm:w-8">
+                  <Sprout className="h-3.5 w-3.5 text-primary sm:h-4 sm:w-4" />
                 </div>
+                <p className="type-body-sm font-semibold text-foreground">{company.founder}<span className="ml-1.5 font-normal text-muted-foreground">· {company.founderTitle}</span></p>
               </div>
-            }
-          />
-        </div>
+            </div>
+          }
+        />
         <div className="space-y-5 sm:space-y-7">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
-            <Leaf className="h-3 w-3" />
+          <span className="eyebrow">
             Our Foundation
-          </div>
-          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance sm:-mr-4">
-            We have Over 15 Years of Expertise in Sustainable Agriculture
+          </span>
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
+            Over 15 Years of Expertise in Sustainable Agriculture
           </h2>
           <p className="type-body text-muted-foreground">
             {company.aboutDetails}
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-border/60 bg-surface-card p-4 shadow-sm sm:rounded-3xl sm:p-5">
-              <p className="type-label font-bold uppercase tracking-[0.2em] text-muted-foreground">Our Mission</p>
+            <div className="rounded-2xl border border-border/60 bg-surface-card p-4 sm:p-5">
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-primary">Our Mission</p>
               <p className="mt-3 font-accent type-body-sm italic text-foreground">
                 "Empower growers with effective, environmentally sound solutions that support both productivity and sustainability."
               </p>
             </div>
-            <div className="rounded-2xl p-4 text-white sm:rounded-3xl sm:p-5" style={{ background: "linear-gradient(135deg, #163D26 0%, #2D7A4A 100%)" }}>
-              <p className="type-label font-bold uppercase tracking-[0.2em] text-white/60">Since 2006</p>
+            <div className="rounded-2xl bg-secondary p-4 text-white sm:p-5">
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-white/60">Since 2006</p>
               <p className="mt-3 font-accent type-body-sm text-white/90 italic">
                 "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006 with a commitment to sustainable agriculture."
               </p>
@@ -647,7 +581,7 @@ const HomeFoundationSection = () => {
           </div>
           <Button
             asChild
-            className="h-12 w-full rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 transition-[background-color,box-shadow] duration-300 sm:w-auto"
+            className="h-12 w-full rounded-full bg-primary px-6 text-sm text-white font-semibold hover:bg-primary/90 transition-colors duration-200 sm:w-auto"
           >
             <Link to="/about">More About Us</Link>
           </Button>
@@ -663,20 +597,17 @@ const HomeWhyChooseSection = () => {
   return (
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={cardsReveal.ref}>
       <div className={`grid grid-cols-1 gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center reveal ${cardsReveal.isVisible ? 'visible' : ''}`}>
-        <div className="relative group overflow-hidden rounded-[28px]">
-          <ImagePanel
-            src={images.whyChoose}
-            alt="Why Choose J K Fertilizers"
-            className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
-          />
-        </div>
+        <ImagePanel
+          src={images.whyChoose}
+          alt="Why Choose J K Fertilizers"
+          className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
+        />
         <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
-            <Award className="h-3.5 w-3.5" />
-            Why Choose J K Fertilizers?
-          </div>
+          <span className="eyebrow">
+            Why Choose Us
+          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
-            Nurturing Crops with <span className="text-primary">Nature’s Care</span>
+            Nurturing Crops with <span className="text-primary">Nature's Care</span>
           </h2>
           <p className="type-body text-muted-foreground">
             At J K Fertilizers, we believe in sustainable farming practices that promote healthy, chemical-free crops. Our mission is to transform agriculture by offering eco-friendly fertilizers and soil solutions that enhance crop yield without harmful chemicals or GMOs.
@@ -684,10 +615,10 @@ const HomeWhyChooseSection = () => {
           <div className="pt-2">
             <Button
               asChild
-              className="h-12 rounded-full bg-primary px-6 text-white font-semibold shadow-[0_6px_24px_rgba(45,122,74,0.3)] hover:bg-primary/90 transition-[background-color,box-shadow] duration-300"
+              className="h-12 rounded-full bg-primary px-6 text-sm text-white font-semibold hover:bg-primary/90 transition-colors duration-200"
             >
               <Link to="/about">
-                More Why Choose Us
+                Learn More
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -711,21 +642,15 @@ const HomeCommitmentSection = () => {
   const section2Reveal = useScrollReveal();
 
   return (
-    <section className="relative py-14 sm:py-20 lg:py-28 section-wave" style={{ background: "linear-gradient(135deg, #163D26 0%, #1E5233 60%, #2D7A4A 100%)" }}>
-      <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        backgroundRepeat: "repeat",
-        backgroundSize: "128px",
-      }} />
+    <section className="relative py-14 sm:py-20 lg:py-28 bg-secondary">
       <div
         ref={section2Reveal.ref}
         className={`relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-center lg:gap-10 reveal ${section2Reveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-5 sm:space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-white/80">
-            <Leaf className="h-3 w-3 text-accent" />
+          <span className="eyebrow-dark">
             Our Commitment
-          </div>
+          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
             We Always Bring Customers <span className="text-accent">Green & Clean Products</span>
           </h2>
@@ -734,7 +659,7 @@ const HomeCommitmentSection = () => {
           </p>
           <div className="grid gap-3">
             {commitmentItems.map((item) => (
-              <div key={item.title} className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/6 p-3 backdrop-blur-sm transition-[border-color,background-color] duration-200 hover:border-white/15 hover:bg-white/8 sm:rounded-2xl sm:p-4">
+              <div key={item.title} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 sm:rounded-2xl sm:p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                 <div>
                   <p className="type-body-sm font-semibold text-white/90">{item.title}</p>
@@ -746,14 +671,14 @@ const HomeCommitmentSection = () => {
           <div className="flex flex-wrap gap-3 pt-2">
             <Button
               asChild
-              className="h-12 w-full rounded-full bg-accent px-6 font-bold text-secondary hover:bg-accent/90 shadow-[0_6px_28px_rgba(245,158,11,0.35)] hover:shadow-[0_8px_36px_rgba(245,158,11,0.45)] transition-[background-color,box-shadow] duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full bg-accent px-6 text-sm font-bold text-secondary hover:bg-accent/90 transition-colors duration-200 sm:w-auto"
             >
-              <Link to="/about">See More Our Commitment</Link>
+              <Link to="/commitment">See Our Commitment</Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-white hover:bg-white hover:text-secondary transition-[background-color,color] duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white hover:text-secondary transition-colors duration-200 sm:w-auto"
             >
               <a href={`tel:${company.phoneRaw}`}>Call Us</a>
             </Button>
@@ -764,11 +689,11 @@ const HomeCommitmentSection = () => {
           alt="J K Fertilizers products"
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
           overlay={
-            <div className="rounded-2xl border border-white/20 bg-white/8 p-3 backdrop-blur-md sm:rounded-3xl sm:p-4">
-              <p className="type-label font-bold uppercase tracking-[0.22em] text-white/70">India's Trusted Fertilizer Manufacturer</p>
+            <div className="rounded-2xl border border-white/15 bg-secondary/95 p-3 sm:p-4">
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-white/70">India's Trusted Fertilizer Manufacturer</p>
               <p className="mt-1 font-heading text-sm font-bold text-white sm:text-base">100% Organic · FCO Approved</p>
               <div className="mt-1.5 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" style={{ animation: "pulse-dot 2s ease-in-out infinite" }} />
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 <span className="type-label text-white/60">15+ years of excellence</span>
               </div>
             </div>
@@ -785,16 +710,14 @@ const HomeProductsCarousel = () => {
   return (
     <section
       ref={carouselReveal.ref}
-      className={`py-14 sm:py-20 lg:py-28 reveal ${carouselReveal.isVisible ? 'visible' : ''}`}
-      style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}
+      className={`py-14 sm:py-20 lg:py-28 bg-muted border-y border-border/60 reveal ${carouselReveal.isVisible ? 'visible' : ''}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.26em] text-primary">
-              <Sprout className="h-3 w-3" />
+            <span className="eyebrow">
               Product Updates
-            </div>
+            </span>
             <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
               New Launches
             </h2>
@@ -805,7 +728,7 @@ const HomeProductsCarousel = () => {
           <Button
             asChild
             variant="outline"
-            className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300 sm:w-auto lg:shrink-0"
+            className="h-12 w-full rounded-full border-primary/30 bg-primary/5 px-6 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors duration-200 sm:w-auto lg:shrink-0"
           >
             <Link to="/products">View Portfolio</Link>
           </Button>
@@ -820,28 +743,27 @@ const HomeProductsCarousel = () => {
               <CarouselItem key={product.slug} className="pl-4 sm:pl-6 basis-[88%] sm:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/products/${product.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_64px_rgba(22,61,38,0.12)] hover:border-primary/20 sm:rounded-[28px]"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-card transition-[box-shadow,border-color] duration-300 hover:shadow-card-hover hover:border-primary/20 sm:rounded-3xl"
                 >
                   <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-48 lg:h-56">
                     <img
-                      src={product.imageUrl}
+                      src={getProductCoverImage(product.slug, product.imageUrl)}
                       alt={product.title}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(22,61,38,0.4), transparent)" }} />
                   </div>
-                  <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
                     <h3 className="font-heading type-card-title font-bold text-foreground">{product.title}</h3>
                     <p className="mt-2 flex-1 type-body-sm text-muted-foreground">{product.summary}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
                       {product.fit.slice(0, 2).map((tag) => (
-                        <span key={tag} className="rounded-full border border-accent/25 bg-accent/8 px-2.5 py-0.5 text-xs font-semibold text-accent-foreground/70 sm:px-3 sm:py-1">
+                        <span key={tag} className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 type-label font-semibold text-accent-foreground/80 sm:px-3 sm:py-1">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                    <div className="mt-4 flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-primary">
                       Read more
                       <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
@@ -866,19 +788,18 @@ const HomeTestimonialsSection = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.26em] text-accent-foreground/70">
-            <Quote className="h-3 w-3 text-accent" />
-            Testimonials With Us
-          </div>
+          <span className="eyebrow-accent">
+            Client Stories
+          </span>
           <h2 className="mt-5 font-heading type-section-h2 font-bold tracking-tight text-foreground">
-            What Clients Says?
+            What Our Clients Say
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="flex flex-col rounded-[28px] border border-border bg-surface-card p-6 shadow-[0_12px_40px_rgba(22,61,38,0.06)] sm:p-8"
+              className="flex flex-col rounded-3xl border border-border bg-surface-card p-6 shadow-card sm:p-8"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, s) => (
@@ -890,7 +811,7 @@ const HomeTestimonialsSection = () => {
               </p>
               <div className="mt-6 border-t border-border pt-4">
                 <p className="font-heading text-sm font-bold text-foreground">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.title}</p>
+                <p className="type-body-sm text-muted-foreground">{t.title}</p>
               </div>
             </div>
           ))}
@@ -907,10 +828,9 @@ const HomeServicesSection = () => {
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={servicesReveal.ref}>
       <div className={`mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between reveal ${servicesReveal.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.26em] text-accent-foreground/70">
-            <Leaf className="h-3 w-3 text-accent" />
+          <span className="eyebrow-accent">
             Services We Provide
-          </div>
+          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
             Our Services
           </h2>
@@ -921,7 +841,7 @@ const HomeServicesSection = () => {
         <Button
           asChild
           variant="outline"
-          className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300 sm:w-auto lg:shrink-0"
+          className="h-12 w-full rounded-full border-primary/30 bg-primary/5 px-6 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors duration-200 sm:w-auto lg:shrink-0"
         >
           <Link to="/services">View All Services</Link>
         </Button>
@@ -943,15 +863,14 @@ const HomeBlogSection = () => {
   return (
     <section
       ref={blogReveal.ref}
-      className={`py-14 sm:py-20 lg:py-28 section-wave reveal ${blogReveal.isVisible ? 'visible' : ''}`}
-      style={{ background: "linear-gradient(160deg, #EEF2EA 0%, #E8EDE1 100%)" }}
+      className={`py-14 sm:py-20 lg:py-28 bg-muted border-y border-border/60 reveal ${blogReveal.isVisible ? 'visible' : ''}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-card px-3 py-1.5 text-xs font-bold uppercase tracking-[0.26em] text-muted-foreground">
+            <span className="eyebrow">
               From The Blog
-            </div>
+            </span>
             <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
               Latest News &amp; Articles
             </h2>
@@ -962,7 +881,7 @@ const HomeBlogSection = () => {
           <Button
             asChild
             variant="outline"
-            className="h-12 w-full rounded-full border-primary/30 bg-primary/6 px-6 font-semibold text-primary hover:bg-primary hover:text-white transition-[background-color,color] duration-300 sm:w-auto lg:shrink-0"
+            className="h-12 w-full rounded-full border-primary/30 bg-primary/5 px-6 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors duration-200 sm:w-auto lg:shrink-0"
           >
             <Link to="/blog">View All Articles</Link>
           </Button>
@@ -983,43 +902,41 @@ const HomeFaqSection = () => {
   return (
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
       <div className="mb-12 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
+        <span className="eyebrow">
           FAQ
-        </div>
+        </span>
         <h2 className="mt-5 font-heading type-section-h2 font-bold tracking-tight text-foreground">
           Frequently Asked Questions
         </h2>
         <p className="mx-auto mt-3 max-w-xl type-body text-muted-foreground">
-          Most Frequently Asked Questions About The Farm. We are here to help you. Generally asked questions.
+          Answers to common questions about our products, ordering, and bulk supply.
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
         <div className="space-y-4">
           {faqs.map((faq) => (
-            <div key={faq.q} className="rounded-[24px] border border-border bg-surface-card p-6 shadow-[0_8px_30px_rgba(16,24,40,0.04)] sm:p-7">
-              <p className="font-heading text-lg font-semibold text-foreground">{faq.q}</p>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">{faq.a}</p>
+            <div key={faq.q} className="rounded-2xl border border-border bg-surface-card p-6 shadow-card sm:p-7">
+              <p className="font-heading type-card-title font-semibold text-foreground">{faq.q}</p>
+              <p className="mt-3 type-body-sm text-muted-foreground">{faq.a}</p>
             </div>
           ))}
         </div>
-        <div className="relative group overflow-hidden rounded-[28px]">
-          <ImagePanel
-            src={images.faq}
-            alt="J K Fertilizers farm support"
-            className="aspect-[4/3] min-h-52 sm:min-h-64"
-            overlay={
-              <div className="rounded-2xl border border-white/20 bg-white/8 p-4 backdrop-blur-md">
-                <p className="font-heading text-sm font-bold text-white">You didn't find your question?</p>
-                <p className="mt-1 text-xs text-white/80">See more questions or connect with us today!</p>
-                <div className="mt-3">
-                  <Button asChild className="h-10 rounded-full bg-accent text-secondary hover:bg-accent/90 px-5 text-xs font-bold shadow-sm">
-                    <Link to="/contact">Read More</Link>
-                  </Button>
-                </div>
+        <ImagePanel
+          src={images.faq}
+          alt="J K Fertilizers farm support"
+          className="aspect-[4/3] min-h-52 sm:min-h-64"
+          overlay={
+            <div className="rounded-2xl border border-white/15 bg-secondary/95 p-4">
+              <p className="font-heading text-sm font-bold text-white">You didn't find your question?</p>
+              <p className="mt-1 type-body-sm text-white/80">Connect with us today — we are happy to help.</p>
+              <div className="mt-3">
+                <Button asChild className="h-10 rounded-full bg-accent text-secondary hover:bg-accent/90 px-5 text-sm font-bold">
+                  <Link to="/contact">Contact Us</Link>
+                </Button>
               </div>
-            }
-          />
-        </div>
+            </div>
+          }
+        />
       </div>
     </section>
   );
@@ -1031,29 +948,27 @@ const HomeContactSection = () => {
   return (
     <section
       ref={contactReveal.ref}
-      className={`py-14 sm:py-20 lg:py-28 reveal ${contactReveal.isVisible ? 'visible' : ''}`}
-      style={{ background: "linear-gradient(135deg, #163D26 0%, #1E5233 60%, #2D7A4A 100%)" }}
+      className={`py-14 sm:py-20 lg:py-28 bg-secondary reveal ${contactReveal.isVisible ? 'visible' : ''}`}
     >
       <div className="mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-start lg:gap-10">
         <div className="space-y-5 sm:space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-white/75">
-            <Award className="h-3 w-3 text-accent" />
-            Let's Cooperate Together
-          </div>
+          <span className="eyebrow-dark">
+            Work With Us
+          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
-            Contact Us <span className="text-accent">Today!</span>
+            Contact Us <span className="text-accent">Today</span>
           </h2>
           <p className="type-body text-white/75 sm:max-w-2xl">
-            We will reply you within 24 hours via email, thank you for contacting.
+            Tell us what you need — we reply within one working day.
           </p>
-          <div className="grid gap-3 pt-2 type-body-sm text-white/65">
+          <div className="grid gap-3 pt-2 type-body-sm text-white/70">
             <div className="flex items-start gap-2">
               <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span className="min-w-0 break-words">{company.address}</span>
             </div>
             <div className="flex items-center gap-2">
               <ChevronRight className="h-4 w-4 shrink-0 text-accent" />
-              <span>Call us: {company.phoneDisplay} / {company.phoneAlt?.slice(-2)}</span>
+              <span>Call us: {company.phoneDisplay} / 92 / 91</span>
             </div>
             {company.emails.map((email) => (
               <div key={email} className="flex items-center gap-2">
@@ -1065,14 +980,14 @@ const HomeContactSection = () => {
           <div className="flex flex-wrap gap-3">
             <Button
               asChild
-              className="h-12 w-full rounded-full bg-accent px-6 font-bold text-secondary shadow-[0_6px_28px_rgba(245,158,11,0.35)] hover:bg-accent/90 hover:shadow-[0_8px_36px_rgba(245,158,11,0.45)] transition-[background-color,box-shadow] duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full bg-accent px-6 text-sm font-bold text-secondary hover:bg-accent/90 transition-colors duration-200 sm:w-auto"
             >
               <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-white hover:bg-white hover:text-secondary transition-[background-color,color] duration-300 sm:w-auto"
+              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white hover:text-secondary transition-colors duration-200 sm:w-auto"
             >
               <Link to="/contact">Open contact page</Link>
             </Button>
@@ -1093,7 +1008,7 @@ const HomePage = () => {
     <>
       <SEOHead
         title="J K Fertilizers — Manufacturers of Organic Fertilizers | Anand, Gujarat"
-        description="J K Fertilizers — ISO certified organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza granules, coated granules and soil conditioners."
+        description="J K Fertilizers — FCO approved organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza granules, coated granules and soil conditioners."
         canonical="/"
         ogImage="/images/hero.jpg"
         keywords="organic fertilizer manufacturer india, J K Fertilizers, organic manure manufacturer gujarat, prom fertilizer, pdm fertilizer, mycorrhiza granules, fertilizer manufacturer anand gujarat"

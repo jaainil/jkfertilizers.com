@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
-import { ImagePanel } from "@/components/ImagePanel";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, historyPageSchema } from "@/data/seoSchemas";
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
-import { CheckCircle2, ArrowRight, Sprout, Award, Leaf, Calendar, Cpu, Layers } from "lucide-react";
+import { Leaf } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -35,19 +34,19 @@ const timeline = [
   {
     year: "2012",
     title: "Adding a Granulation Plant",
-    description: "Continuing our growth, we introduced a state-of-the-art 400 MT granulation plant in 2012. This advancement further strengthened our production capabilities, enabling us to cater to an expanding customer base effectively.",
+    description: "Continuing our growth, we introduced a 400 MT granulation plant in 2012. This advancement further strengthened our production capabilities, enabling us to cater to an expanding customer base effectively.",
     image: "/images/granulation-plant.jpg",
   },
   {
     year: "2018",
     title: "Diversifying and Innovating",
-    description: "In 2018, we set a new standard for excellence by adding multiple granule coating plants with capacities of 30, 60, and 100 MT, along with a 15,000-liter liquid plant. This marked our commitment to diversifying product offerings and enhancing production efficiency, catering to the evolving demands of modern agriculture.",
+    description: "In 2018, we added multiple granule coating plants with capacities of 30, 60, and 100 MT, along with a 15,000-liter liquid plant. This marked our commitment to diversifying product offerings and enhancing production efficiency, catering to the evolving demands of modern agriculture.",
     image: "/images/diversifying-machinery.jpg",
   },
   {
     year: "2020",
     title: "Unprecedented Growth",
-    description: "By 2020, J K Fertilizers achieved a groundbreaking milestone by increasing its granule production capacity to an impressive 700 MT per day. This expansion solidified our position as a leader in the organic fertilizer industry, empowering us to serve larger markets with unparalleled efficiency.",
+    description: "By 2020, J K Fertilizers increased its granule production capacity to 700 MT per day. This expansion solidified our position as a leader in the organic fertilizer industry.",
     image: "/images/unprecedented-growth.jpg",
   },
   {
@@ -59,7 +58,7 @@ const timeline = [
   {
     year: "2024",
     title: "Pioneering Innovation",
-    description: "This year, we took another transformative step by establishing a cutting-edge facility for producing Mycorrhiza technical, a revolutionary addition to our product range aimed at enhancing soil health and crop productivity. Additionally, the inauguration of our ambitious liquid filling plant reflects our dedication to offering holistic solutions for sustainable agriculture.",
+    description: "This year, we took another step by establishing a facility for producing Mycorrhiza technical, an addition to our product range aimed at enhancing soil health and crop productivity. Additionally, the inauguration of our liquid filling plant reflects our dedication to offering holistic solutions for sustainable agriculture.",
     image: "/images/pioneering-innovation.jpg",
   },
 ];
@@ -67,7 +66,7 @@ const timeline = [
 const machineryGallery = [
   { src: "/images/machinery-6.jpg", title: "Granule Production Machinery", desc: "Advanced granulation line for uniform and nutrient-rich organic granules." },
   { src: "/images/machinery-8.jpg", title: "Customized Coating Plant", desc: "Specialized coating drums for precise technical mycorrhiza/coating application." },
-  { src: "/images/dsc00142.jpg", title: "Raw Material Processing", desc: "State-of-the-art sorting and processing of premium organic materials." },
+  { src: "/images/dsc00142.jpg", title: "Raw Material Processing", desc: "Careful sorting and processing of premium organic materials." },
   { src: "/images/dsc00210.jpg", title: "Vasad Packaging Unit", desc: "High-capacity automated bagging and finishing for commercial delivery." },
 ];
 
@@ -109,16 +108,13 @@ export const HistoryPage = () => {
       />
 
       {/* ── Mission Statement Bar ── */}
-      <section className="bg-secondary py-14 lg:py-16 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }} />
-        <div className="relative mx-auto max-w-4xl px-4" ref={introReveal.ref}>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-accent-foreground/80 mb-4">
+      <section className="bg-secondary py-14 lg:py-16 text-white text-center">
+        <div className="mx-auto max-w-4xl px-4" ref={introReveal.ref}>
+          <span className="eyebrow-dark mb-4">
             <Leaf className="h-3.5 w-3.5 text-accent" />
             Mission Statement
-          </div>
-          <h2 className="font-heading text-xl sm:text-2xl font-semibold italic leading-relaxed text-white/95">
+          </span>
+          <h2 className="font-heading type-card-title font-semibold italic leading-relaxed text-white/95">
             "{company.mission}"
           </h2>
         </div>
@@ -127,13 +123,13 @@ export const HistoryPage = () => {
       {/* ── Timeline Section ── */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 relative overflow-hidden">
         <div className="text-center mb-16">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <span className="eyebrow">
             Key Milestones
-          </div>
-          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          </span>
+          <h2 className="mt-4 font-heading type-section-h2 font-bold tracking-tight text-foreground">
             Our Growth Over The Years
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl type-body text-muted-foreground">
             A chronological timeline detailing our manufacturing expansion, innovation milestones, and corporate partnerships.
           </p>
         </div>
@@ -166,11 +162,11 @@ export const HistoryPage = () => {
                       <span className="inline-block text-accent font-heading text-lg font-bold tracking-widest md:hidden">
                         {item.year}
                       </span>
-                      <h3 className="font-heading text-2xl font-bold text-foreground">{item.title}</h3>
-                      <p className="text-sm leading-7 text-muted-foreground">{item.description}</p>
+                      <h3 className="font-heading type-card-title font-bold text-foreground">{item.title}</h3>
+                      <p className="type-body-sm text-muted-foreground">{item.description}</p>
                     </div>
                   ) : (
-                    <div className="group overflow-hidden rounded-[24px] border border-border/60 bg-surface-card shadow-md aspect-[4/3] relative">
+                    <div className="group overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-card aspect-[4/3] relative">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -183,7 +179,7 @@ export const HistoryPage = () => {
 
                 {/* Center: Year node */}
                 <div className="order-2 flex justify-center z-10">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-surface-card text-primary font-heading font-extrabold shadow-md hover:bg-primary hover:text-white transition-colors duration-300">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-surface-card text-primary font-heading font-extrabold shadow-card hover:bg-primary hover:text-white transition-colors duration-300">
                     {item.year}
                   </div>
                 </div>
@@ -195,11 +191,11 @@ export const HistoryPage = () => {
                       <span className="inline-block text-accent font-heading text-lg font-bold tracking-widest md:hidden">
                         {item.year}
                       </span>
-                      <h3 className="font-heading text-2xl font-bold text-foreground">{item.title}</h3>
-                      <p className="text-sm leading-7 text-muted-foreground">{item.description}</p>
+                      <h3 className="font-heading type-card-title font-bold text-foreground">{item.title}</h3>
+                      <p className="type-body-sm text-muted-foreground">{item.description}</p>
                     </div>
                   ) : (
-                    <div className="group overflow-hidden rounded-[24px] border border-border/60 bg-surface-card shadow-md aspect-[4/3] relative">
+                    <div className="group overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-card aspect-[4/3] relative">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -217,18 +213,18 @@ export const HistoryPage = () => {
 
       {/* ── State of the Art Infrastructure Gallery ── */}
       <section
-        className="bg-muted py-20 lg:py-28 section-wave"
+        className="bg-muted py-20 lg:py-28"
         ref={galleryReveal.ref}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+            <span className="eyebrow">
               Vasad Infrastructure
-            </div>
-            <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              State-of-the-Art Granulation &amp; Coating Facilities
+            </span>
+            <h2 className="mt-4 font-heading type-section-h2 font-bold tracking-tight text-foreground">
+              Granulation &amp; Coating Facilities
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
+            <p className="mx-auto mt-3 max-w-2xl type-body text-muted-foreground">
               Our advanced technology ensures precise coating, high daily outputs, and strict FCO-compliant quality controls.
             </p>
           </div>
@@ -241,7 +237,7 @@ export const HistoryPage = () => {
             <CarouselContent className="-ml-4 sm:-ml-6 items-stretch">
               {machineryGallery.map((img, index) => (
                 <CarouselItem key={index} className="pl-4 sm:pl-6 basis-[90%] sm:basis-1/2 lg:basis-1/4">
-                  <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-surface-card shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-surface-card shadow-card hover:shadow-card-hover transition-shadow duration-300">
                     <div className="relative aspect-video shrink-0 overflow-hidden">
                       <img
                         src={img.src}
@@ -254,7 +250,7 @@ export const HistoryPage = () => {
                       <h4 className="font-heading text-base font-bold text-foreground group-hover:text-primary transition-colors">
                         {img.title}
                       </h4>
-                      <p className="text-xs leading-5 text-muted-foreground">
+                      <p className="type-body-sm text-muted-foreground">
                         {img.desc}
                       </p>
                     </div>
@@ -269,13 +265,13 @@ export const HistoryPage = () => {
       {/* ── Let's Cooperate CTA ── */}
       <section className="bg-secondary py-20 lg:py-28" ref={ctaReveal.ref}>
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+          <span className="eyebrow-dark">
             Let's Cooperate Together
-          </div>
-          <h2 className="mt-6 font-heading text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+          </span>
+          <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
             Partner with a Leader in Sustainable Fertilizer Production
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
             Whether you are a government agency, a PSU, a corporate entity, or a local distributor, we have the capacity and quality standard to scale your agricultural goals.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">

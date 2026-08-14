@@ -52,10 +52,6 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-marquee: marquee 28s linear infinite;
-  --animate-fade-up: fade-up 0.6s ease-out both;
-  --animate-shimmer: shimmer 2.4s linear infinite;
-  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
-  --animate-ken-burns: ken-burns 25s ease-in-out infinite alternate;
 
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -70,43 +66,6 @@
   @keyframes accordion-up {
     from { height: var(--radix-accordion-content-height); }
     to { height: 0; }
-  }
-
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(28px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
-
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.75); }
-  }
-
-  @keyframes ken-burns {
-    0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.08) translate(-1.5%, -1%); }
-  }
-
-  @keyframes float-gentle {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-  }
-
-  @keyframes count-up-pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
   }
 }
 
@@ -240,6 +199,79 @@
   }
 }
 
+/* ── Surface shadows — the only two elevations on the site ── */
+@utility shadow-card {
+  box-shadow: 0 2px 14px rgba(22, 61, 38, 0.07);
+}
+
+@utility shadow-card-hover {
+  box-shadow: 0 10px 32px rgba(22, 61, 38, 0.12);
+}
+
+/* ── Eyebrow pills — one look, three surface variants ── */
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--primary) / 0.2);
+  background: hsl(var(--primary) / 0.06);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: hsl(var(--primary));
+}
+
+@utility eyebrow-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  background: rgb(255 255 255 / 0.08);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgb(255 255 255 / 0.78);
+}
+
+@utility eyebrow-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--accent) / 0.3);
+  background: hsl(var(--accent) / 0.1);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: hsl(var(--foreground) / 0.75);
+}
+
+/*
+  Large-screen scaling: every size on the site is rem-based, so bumping the
+  root font size scales typography, spacing and layout proportionally.
+  100% = mobile→1440p·laptop, then step up for wide/4K/8K displays.
+*/
+@media (min-width: 2000px) {
+  html { font-size: 112.5%; }
+}
+@media (min-width: 2560px) {
+  html { font-size: 125%; }
+}
+@media (min-width: 3840px) {
+  html { font-size: 150%; }
+}
+
 @layer base {
   :root {
     /* ── Earthy & Premium palette ── */
@@ -314,12 +346,7 @@
     margin: 0;
     font-family: "Manrope Variable", "Manrope", sans-serif;
     color: var(--text-main);
-    /* Rich earthy layered background */
-    background:
-      radial-gradient(ellipse at 0% 0%, rgba(45, 122, 74, 0.07) 0%, transparent 40%),
-      radial-gradient(ellipse at 100% 100%, rgba(245, 158, 11, 0.05) 0%, transparent 35%),
-      radial-gradient(ellipse at 60% 50%, rgba(143, 175, 126, 0.04) 0%, transparent 50%),
-      linear-gradient(160deg, #FEFDF8 0%, #F9F7F2 50%, #F5F2EA 100%);
+    background: var(--surface-soft);
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -374,38 +401,22 @@
   }
 }
 
-/* ── Premium scrollbar ── */
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #EDE8DC;
+  background: var(--surface-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2D7A4A, #6B7C3E);
+  background: hsl(150 25% 35% / 0.45);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #225F39, #556230);
-}
-
-/* ── Section divider organic shape utility ── */
-.section-wave {
-  position: relative;
-}
-.section-wave::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: inherit;
-  clip-path: ellipse(55% 100% at 50% 100%);
-  pointer-events: none;
+  background: hsl(150 25% 35% / 0.7);
 }
 
 /* ── Scroll-reveal animation utilities ── */
@@ -459,6 +470,11 @@
   animation: ken-burns 25s ease-in-out infinite alternate;
 }
 
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.04) translate(-1%, -0.5%); }
+}
+
 /* ── Skip link (a11y) ── */
 .skip-link {
   position: absolute;
@@ -478,18 +494,6 @@
   top: 0;
 }
 
-/* ── Scroll-progress bar ── */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--brand-green), var(--brand-amber));
-  z-index: 9999;
-  transition: width 0.05s linear;
-  pointer-events: none;
-}
-
 /* ── Back-to-top button ── */
 .back-to-top {
   position: fixed;
@@ -502,10 +506,10 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand-green), var(--brand-dark-green));
+  background: var(--brand-dark-green);
   color: white;
-  border: 2px solid rgba(255,255,255,0.15);
-  box-shadow: 0 8px 32px rgba(22,61,38,0.25);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 16px rgba(22,61,38,0.3);
   cursor: pointer;
   opacity: 0;
   transform: translateY(20px) scale(0.9);
@@ -518,36 +522,11 @@
   pointer-events: auto;
 }
 .back-to-top:hover {
-  box-shadow: 0 12px 40px rgba(22,61,38,0.35);
-  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(22,61,38,0.35);
+  transform: translateY(-2px);
 }
 .back-to-top:active {
   transform: scale(0.95);
-}
-
-/* ── Floating CTA (mobile only) ── */
-.floating-cta {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 45;
-  display: flex;
-  gap: 8px;
-  padding: 12px 16px;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-  background: rgba(22, 61, 38, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.floating-cta.visible {
-  transform: translateY(0);
-}
-@media (min-width: 1024px) {
-  .floating-cta { display: none; }
 }
 
 /* ── Reduced motion ── */

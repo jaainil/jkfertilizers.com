@@ -183,6 +183,15 @@ Always use these — **never raw `text-xl`** etc. for content:
 | `type-page-h1` | 28→38→52→60px | Inner-page hero h1 |
 | `type-hero-h1` | 30→44→60→72px | Homepage hero h1 only |
 
+### Surface & Pill Utilities
+- `shadow-card` / `shadow-card-hover` — the **only** two card elevations. Never use arbitrary `shadow-[...]`.
+- `eyebrow` (light bg) / `eyebrow-dark` (dark section) / `eyebrow-accent` (amber tint) — the **only** pill/badge styling for section labels. Never hand-write pill class strings.
+- Letter-spacing on uppercase labels: max `tracking-[0.16em]`.
+- Radii: cards `rounded-2xl` mobile → `rounded-3xl` on `sm+`. No arbitrary `rounded-[28px]` etc.
+
+### Large Display Scaling
+`index.css` bumps `html` root font-size at wide breakpoints (112.5% @2000px, 125% @2560px, 150% @3840px) — everything is rem-based, so typography, spacing, and the 90rem container scale proportionally on 4K/8K. Do not add per-component `xl:`/`2xl:` sizes for big screens; the root scaling handles it.
+
 ### Scroll Reveal
 ```tsx
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
@@ -512,6 +521,9 @@ Cert:     FCO Approved (Fertilizer Control Order)
 - ❌ Call `e.preventDefault()` before Formspree's `handleSubmit(e)`
 - ❌ Hardcode company info in page components
 - ❌ Use raw `text-xl`/`text-2xl` for content headings — use type utilities
+- ❌ Use arbitrary `shadow-[0_...px_rgba(...)]` — use `shadow-card` / `hover:shadow-card-hover`
+- ❌ Hand-write eyebrow pill class strings — use `eyebrow` / `eyebrow-dark` / `eyebrow-accent`
+- ❌ Add decorative gradient/noise/glow-blob layers, `backdrop-blur` glassmorphism, or `blur-[...]` ambience divs
 - ❌ Use relative imports from `src/` — use `@/` alias
 - ❌ Run `npm install` — use `bun install`
 - ❌ Use `key={imageUrl}` when mapping product images — use `key={idx}` or `key={slug}`

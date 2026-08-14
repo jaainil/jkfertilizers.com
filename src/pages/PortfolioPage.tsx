@@ -16,7 +16,7 @@ const company = {
 
 const portfolioItems = [
   {
-    title: "Revolutionizing Organic Agriculture",
+    title: "Advancing Organic Agriculture",
     category: "Sustainability",
     image: "/images/dsc00161.jpg",
     desc: "Transforming farming with innovative organic fertilizers that restore soil health, improve yields, and promote sustainability, empowering farmers nationwide.",
@@ -67,7 +67,7 @@ const portfolioItems = [
     title: "Collaborative R&D Excellence",
     category: "Research",
     image: "/images/partnership.jpg",
-    desc: "Driving agricultural innovation through cutting-edge research, delivering advanced solutions to meet evolving farming challenges worldwide.",
+    desc: "Driving agricultural innovation through ongoing research, delivering practical solutions to meet evolving farming challenges worldwide.",
   },
 ];
 
@@ -96,7 +96,7 @@ export const PortfolioPage = () => {
     />
     <PageHero
       eyebrow="Portfolio"
-      title="Revolutionizing Agriculture"
+      title="Organic Fertilizers for Indian Agriculture"
       description="Transforming farming with innovative organic fertilizers that restore soil health, improve yields, and promote sustainability, empowering farmers nationwide."
       imageSrc="/images/about-3.jpg"
       imageAlt="J K Fertilizers portfolio"
@@ -125,7 +125,7 @@ export const PortfolioPage = () => {
               <p className="font-heading text-5xl font-bold text-white">
                 {s.value}
               </p>
-              <p className="mt-2 text-base text-white/80">{s.label}</p>
+              <p className="mt-2 type-body text-white/80">{s.label}</p>
               <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
@@ -140,10 +140,10 @@ export const PortfolioPage = () => {
         className={`reveal ${galleryReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-12 text-center">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <span className="eyebrow">
             Our Achievements
-          </div>
-          <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          </span>
+          <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Delivering Excellence Across Every Domain
           </h2>
         </div>
@@ -152,9 +152,9 @@ export const PortfolioPage = () => {
             <div
               key={item.title}
               {...staggerDelay(i)}
-              className="group overflow-hidden rounded-[24px] border border-border bg-surface-card shadow-[0_12px_40px_rgba(22,61,38,0.06)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_rgba(22,61,38,0.12)]"
+              className="group overflow-hidden rounded-2xl border border-border bg-surface-card shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover"
             >
-              <div className="relative h-44 overflow-hidden bg-gradient-to-br from-muted to-surface-card p-4 sm:h-48">
+              <div className="relative h-44 overflow-hidden bg-muted p-4 sm:h-48">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -163,12 +163,12 @@ export const PortfolioPage = () => {
                 />
               </div>
               <div className="p-5">
-                <span className="rounded-full bg-accent/10 px-3 py-0.5 text-xs font-semibold text-accent-foreground">
+                <span className="rounded-full bg-accent/10 px-3 py-0.5 type-label font-semibold text-accent-foreground">
                   {item.category}
                 </span>
-                <h3 className="mt-3 font-heading text-lg font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground line-clamp-3">{item.desc}</p>
-                <p className="mt-3 text-xs font-bold uppercase tracking-wider text-primary">Read More</p>
+                <h3 className="mt-3 font-heading type-card-title font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-2 type-body-sm text-muted-foreground line-clamp-3">{item.desc}</p>
+                <p className="mt-3 type-label font-bold uppercase tracking-wider text-primary">Read More</p>
               </div>
             </div>
           ))}
@@ -177,17 +177,17 @@ export const PortfolioPage = () => {
     </section>
 
     {/* ── Trusted Clients Section ── */}
-    <section className="bg-muted py-20 lg:py-28 section-wave">
+    <section className="bg-muted py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div className="space-y-7">
-            <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+            <span className="eyebrow">
               Trusted By Clients
-            </div>
-            <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            </span>
+            <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
               Trusted By Government & Corporate Clients
             </h2>
-            <p className="text-base leading-8 text-muted-foreground sm:text-lg">
+            <p className="type-body text-muted-foreground">
               We have been a trusted manufacturer for government, semi-government, PSU, and corporate clients since inception. Our commitment to quality and reliability has earned us their confidence.
             </p>
             <div className="grid gap-3">
@@ -199,7 +199,7 @@ export const PortfolioPage = () => {
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-xl border border-border bg-surface-card p-3 sm:rounded-2xl sm:p-4">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                  <p className="text-sm font-medium text-foreground">{item}</p>
+                  <p className="type-body-sm font-medium text-foreground">{item}</p>
                 </div>
               ))}
             </div>
@@ -215,10 +215,10 @@ export const PortfolioPage = () => {
             alt="J K Fertilizers — trusted manufacturing facility"
             className="aspect-[4/4.5] min-h-[360px]"
             overlay={
-              <div className="rounded-[24px] border border-white/30 bg-secondary/90 p-5 shadow-[0_16px_50px_rgba(15,23,42,0.18)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">Our facility</p>
-                <p className="mt-2 font-heading text-base font-semibold text-white">Vasad, Anand — Gujarat, INDIA</p>
-                <p className="mt-1 text-sm text-white/65">NH. 48, Opp. IOC Petrol Pump</p>
+              <div className="rounded-2xl border border-white/30 bg-secondary/90 p-5 shadow-card">
+                <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/70">Our facility</p>
+                <p className="mt-2 font-heading type-body font-semibold text-white">Vasad, Anand — Gujarat, INDIA</p>
+                <p className="mt-1 type-body-sm text-white/65">NH. 48, Opp. IOC Petrol Pump</p>
               </div>
             }
           />
@@ -229,13 +229,13 @@ export const PortfolioPage = () => {
     {/* ── Newsletter ── */}
     <section className="bg-muted py-20 lg:py-28">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+        <span className="eyebrow">
           Stay Updated
-        </div>
-        <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        </span>
+        <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           Sign Up To Our Newsletter
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
           Subscribe to our Newsletter to be updated about our latest products and offers.
         </p>
         <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
@@ -254,13 +254,13 @@ export const PortfolioPage = () => {
     {/* ── CTA ── */}
     <section className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+        <span className="eyebrow-dark">
           Let's Cooperate Together
-        </div>
-        <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        </span>
+        <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
           Explore Our Complete Product Range
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
           From organic manure to advanced coated granules — find the right solution for your agricultural needs.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">

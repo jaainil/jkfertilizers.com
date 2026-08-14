@@ -8,10 +8,10 @@ import { products, getProductCoverImage } from "@/data/products";
 
 // Desktop nav pill — NOT reused on mobile
 const desktopLinkClassName = ({ isActive }: { isActive: boolean }) =>
-  `relative rounded-full px-4 py-2 text-sm font-medium transition-[color,background-color,transform] duration-300 active:scale-95 ${
+  `relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
     isActive
-      ? "bg-primary/10 text-primary font-semibold shadow-inner"
-      : "text-foreground/75 hover:text-primary hover:bg-primary/5 hover:-translate-y-0.5"
+      ? "bg-primary/10 text-primary font-semibold"
+      : "text-foreground/75 hover:text-primary hover:bg-primary/5"
   }`;
 
 interface NavSubItem {
@@ -128,7 +128,7 @@ const TopUtilityBar = () => (
         </div>
       </div>
       <div
-        className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1 font-semibold uppercase tracking-[0.22em] text-accent/90"
+        className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1 font-semibold uppercase tracking-[0.16em] text-accent/90"
         data-testid="topbar-tagline"
       >
         <Leaf className="h-3 w-3" />
@@ -160,7 +160,7 @@ const MegaProductDropdown = ({
       <NavLink
         to="/products"
         className={({ isActive }) =>
-          `relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-[color,background-color,transform] duration-300 active:scale-95 ${
+          `relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
             isActive
               ? "bg-primary/10 text-primary font-semibold"
               : "text-foreground/75 hover:text-primary hover:bg-primary/5 group-hover:text-primary group-hover:bg-primary/5"
@@ -264,7 +264,7 @@ const DropdownSubmenu = ({ item, menuForceClosed, handleLinkClick }: DropdownSub
     <NavLink
       to={item.label === "About Us" ? "/about" : "/services"}
       className={({ isActive }) =>
-        `relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-[color,background-color,transform] duration-300 active:scale-95 ${
+        `relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
           isActive
             ? "bg-primary/10 text-primary font-semibold"
             : "text-foreground/75 hover:text-primary hover:bg-primary/5 group-hover:text-primary group-hover:bg-primary/5"
@@ -574,13 +574,10 @@ export const SiteNavbar = ({
 
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-2.5 sm:gap-3 shrink-0" data-testid="site-logo-link">
-            <div className="relative shrink-0">
-              <div className="absolute inset-0 rounded-xl bg-primary/8 blur-md group-hover:bg-primary/12 transition-colors duration-300" />
-              <img src="/logo.png" alt="J K Fertilizers" className="relative h-10 w-auto rounded-xl object-contain sm:h-11" />
-            </div>
+            <img src="/logo.png" alt="J K Fertilizers" className="h-10 w-auto rounded-lg object-contain sm:h-11" />
             <div>
               <p className="font-heading text-sm font-bold leading-tight text-foreground sm:text-base">{company.name}</p>
-              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">Organic · Naturally</p>
+              <p className="type-label font-medium uppercase tracking-[0.18em] text-muted-foreground">Organic · Naturally</p>
             </div>
           </Link>
 
@@ -638,10 +635,10 @@ export const SiteNavbar = ({
             </Button>
             <Button
               asChild
-              className="h-10 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(45,122,74,0.35)] hover:bg-primary/90 hover:shadow-[0_6px_28px_rgba(45,122,74,0.45)] transition-[background-color,box-shadow] duration-200"
+              className="h-10 rounded-full bg-primary px-5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors duration-200"
               data-testid="header-contact-button"
             >
-              <Link to="/contact">Get In Touch!</Link>
+              <Link to="/contact">Get In Touch</Link>
             </Button>
           </div>
 

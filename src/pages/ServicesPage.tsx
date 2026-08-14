@@ -35,7 +35,7 @@ const processSteps = [
   {
     step: "02",
     title: "Custom Manufacturing",
-    description: "Our state-of-the-art facilities produce high-quality organic fertilizers and coated granules tailored to your specifications.",
+    description: "Our facilities produce high-quality organic fertilizers and coated granules tailored to your specifications.",
   },
   {
     step: "03",
@@ -117,7 +117,7 @@ export const ServicesPage = () => {
         ref={coreReveal.ref}
         className={`grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${coreReveal.isVisible ? 'visible' : ''}`}
       >
-        <div className="relative overflow-hidden rounded-4xl border border-border shadow-[0_24px_70px_rgba(15,23,42,0.08)]">
+        <div className="relative overflow-hidden rounded-4xl border border-border shadow-card">
           <img
             src={images.commitment}
             alt="J K Fertilizers — Our Commitment To Quality"
@@ -126,28 +126,26 @@ export const ServicesPage = () => {
           />
           <div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent" />
           <div className="absolute bottom-5 left-5 right-5">
-            <div className="rounded-3xl border border-white/25 bg-white/10 p-5 backdrop-blur-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">Our Commitment To Quality</p>
-              <p className="mt-1 font-heading text-lg font-semibold text-white">We Always Bring The Best Products For Our Customers</p>
+            <div className="rounded-3xl border border-white/25 bg-secondary/95 p-5">
+              <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/75">Our Commitment To Quality</p>
+              <p className="mt-1 font-heading type-card-title font-semibold text-white">We Always Bring The Best Products For Our Customers</p>
             </div>
           </div>
         </div>
 
         <div className="space-y-7">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            Our Commitment To Quality
-          </div>
-          <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          <span className="eyebrow">Our Commitment To Quality</span>
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             We Always Bring The Best Products For Our Customers
           </h2>
-          <p className="text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="type-body text-muted-foreground">
             At J K Fertilizers, we are dedicated to ensuring the best quality products and services for our clients. Our offerings are designed to enhance agricultural productivity, maintain environmental sustainability, and cater to diverse industrial requirements.
           </p>
           <div className="space-y-3">
             {coreFeatures.map((f) => (
               <div key={f} className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-accent" />
-                <span className="text-sm font-medium text-foreground">{f}</span>
+                <span className="type-body-sm font-medium text-foreground">{f}</span>
               </div>
             ))}
           </div>
@@ -162,16 +160,14 @@ export const ServicesPage = () => {
     </section>
 
     {/* ── All service cards ── */}
-    <section className="bg-muted py-20 lg:py-28 section-wave">
+    <section className="bg-muted py-20 lg:py-28">
       <div
         ref={listReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${listReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-14 text-center">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            What Is Our Expertise?
-          </div>
-          <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          <span className="eyebrow">What Is Our Expertise?</span>
+          <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Delivering sustainable, eco-friendly solutions to meet your agricultural and operational needs.
           </h2>
         </div>
@@ -188,13 +184,11 @@ export const ServicesPage = () => {
     {/* ── Process Steps ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div ref={processReveal.ref} className={`mb-14 text-center reveal ${processReveal.isVisible ? 'visible' : ''}`}>
-        <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-          How We Work
-        </div>
-        <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        <span className="eyebrow">How We Work</span>
+        <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           Our Operating Process
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
           A simple, transparent flow — from your first requirement to final delivery.
         </p>
       </div>
@@ -203,7 +197,7 @@ export const ServicesPage = () => {
           <div
             key={step.title}
             {...staggerDelay(i)}
-            className="group relative overflow-hidden rounded-[28px] border border-border bg-surface-card p-7 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
+            className="group relative overflow-hidden rounded-3xl border border-border bg-surface-card p-7 shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover"
           >
             <p className="absolute -right-2 -top-4 font-heading text-8xl font-bold text-primary/5 select-none">
               {step.step}
@@ -212,8 +206,8 @@ export const ServicesPage = () => {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white font-heading text-base font-bold">
                 {step.step}
               </div>
-              <h3 className="mt-5 font-heading text-xl font-semibold text-foreground">{step.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">{step.description}</p>
+              <h3 className="mt-5 font-heading type-card-title font-semibold text-foreground">{step.title}</h3>
+              <p className="mt-3 type-body-sm text-muted-foreground">{step.description}</p>
             </div>
           </div>
         ))}
@@ -221,20 +215,20 @@ export const ServicesPage = () => {
     </section>
 
     {/* ── Testimonials ── */}
-    <section className="bg-muted py-20 lg:py-28 section-wave">
+    <section className="bg-muted py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            <Quote className="h-3 w-3 mr-2" />
+          <span className="eyebrow">
+            <Quote className="h-3 w-3" />
             Testimonials
-          </div>
-          <h2 className="mt-5 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            What Customers Says?
+          </span>
+          <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
+            What Customers Say
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
-            <div key={t.name} className="flex flex-col rounded-[28px] border border-border bg-surface-card p-6 shadow-[0_12px_40px_rgba(22,61,38,0.06)] sm:p-8">
+            <div key={t.name} className="flex flex-col rounded-3xl border border-border bg-surface-card p-6 shadow-card sm:p-8">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, s) => (
                   <Star key={s} className="h-4 w-4 fill-accent text-accent" />
@@ -244,8 +238,8 @@ export const ServicesPage = () => {
                 "{t.quote}"
               </p>
               <div className="mt-6 border-t border-border pt-4">
-                <p className="font-heading text-sm font-bold text-foreground">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.title}</p>
+                <p className="font-heading type-body-sm font-bold text-foreground">{t.name}</p>
+                <p className="type-label text-muted-foreground">{t.title}</p>
               </div>
             </div>
           ))}
@@ -268,7 +262,7 @@ export const ServicesPage = () => {
           ].map((stat, i) => (
             <div key={stat.label} className="group text-center" {...staggerDelay(i)}>
               <p className="font-heading text-5xl font-bold text-white">{stat.value}</p>
-              <p className="mt-2 text-base text-white/80">{stat.label}</p>
+              <p className="mt-2 type-body text-white/80">{stat.label}</p>
               <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
@@ -279,13 +273,11 @@ export const ServicesPage = () => {
     {/* ── Newsletter ── */}
     <section className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
-          Stay Updated
-        </div>
-        <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        <span className="eyebrow-dark">Stay Updated</span>
+        <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
           Sign Up To Our Newsletter
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
           Subscribe to our Newsletter to be updated about our latest products and offers.
         </p>
         <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
@@ -302,25 +294,23 @@ export const ServicesPage = () => {
     </section>
 
     {/* ── Contact CTA + Form ── */}
-    <section className="bg-muted py-20 lg:py-28 section-wave">
+    <section className="bg-muted py-20 lg:py-28">
       <div
         ref={contactReveal.ref}
         className={`mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-start reveal ${contactReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-7">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            Let's Cooperate Together
-          </div>
-          <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          <span className="eyebrow">Let's Cooperate Together</span>
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Contact Us Today!
           </h2>
-          <p className="text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="type-body text-muted-foreground">
             We will reply within 24 hours via email. Share your requirement and our team will follow up with the right commercial or technical conversation.
           </p>
           <div className="grid gap-4">
             <a
               href={`tel:${company.phoneRaw}`}
-              className="flex items-center gap-4 rounded-[20px] border border-border bg-surface-card p-5 shadow-sm transition hover:border-primary/30 hover:shadow-md"
+              className="flex items-center gap-4 rounded-[20px] border border-border bg-surface-card p-5 shadow-card transition hover:border-primary/30 hover:shadow-card-hover"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -328,7 +318,7 @@ export const ServicesPage = () => {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Phone</p>
+                <p className="type-label font-semibold uppercase tracking-[0.16em] text-muted-foreground">Phone</p>
                 <p className="mt-0.5 font-heading text-lg font-semibold text-foreground">{company.phoneDisplay}</p>
               </div>
             </a>
@@ -336,7 +326,7 @@ export const ServicesPage = () => {
               <a
                 key={email}
                 href={`mailto:${email}`}
-                className="flex items-center gap-4 rounded-[20px] border border-border bg-surface-card p-5 shadow-sm transition hover:border-primary/30 hover:shadow-md"
+                className="flex items-center gap-4 rounded-[20px] border border-border bg-surface-card p-5 shadow-card transition hover:border-primary/30 hover:shadow-card-hover"
               >
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                   <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -344,12 +334,12 @@ export const ServicesPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Email</p>
-                  <p className="mt-0.5 font-heading text-base font-semibold text-foreground">{email}</p>
+                  <p className="type-label font-semibold uppercase tracking-[0.16em] text-muted-foreground">Email</p>
+                  <p className="mt-0.5 font-heading type-body font-semibold text-foreground">{email}</p>
                 </div>
               </a>
             ))}
-            <div className="flex items-start gap-4 rounded-[20px] border border-border bg-surface-card p-5 shadow-sm">
+            <div className="flex items-start gap-4 rounded-[20px] border border-border bg-surface-card p-5 shadow-card">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                 <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -357,8 +347,8 @@ export const ServicesPage = () => {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Address</p>
-                <p className="mt-0.5 text-sm leading-6 text-foreground">{company.address}</p>
+                <p className="type-label font-semibold uppercase tracking-[0.16em] text-muted-foreground">Address</p>
+                <p className="mt-0.5 type-body-sm text-foreground">{company.address}</p>
               </div>
             </div>
           </div>

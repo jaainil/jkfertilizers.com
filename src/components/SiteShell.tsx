@@ -6,7 +6,6 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 export const SiteShell = ({ children }: { children: React.ReactNode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
 
@@ -16,14 +15,7 @@ export const SiteShell = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate scroll progress
-      const totalScroll = document.documentElement.scrollTop;
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const roll = `${totalScroll / windowHeight}`;
-      setScrollProgress(Number(roll) * 100);
-
-      // Show back to top button after 500px
-      setShowBackToTop(totalScroll > 500);
+      setShowBackToTop(document.documentElement.scrollTop > 500);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -36,9 +28,6 @@ export const SiteShell = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen w-full overflow-x-clip bg-background text-foreground">
-      {/* Scroll Progress Bar */}
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
-
       {/* Accessibility Skip Link */}
       <a href="#main-content" className="skip-link">
         Skip to main content

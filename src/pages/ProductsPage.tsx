@@ -88,24 +88,22 @@ export const ProductsPage = () => {
       </div>
     </section>
 
-    <section className="bg-muted py-20 lg:py-28 section-wave">
+    <section className="bg-muted py-20 lg:py-28">
       <div
         ref={detailsReveal.ref}
         className={`mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-center reveal ${detailsReveal.isVisible ? 'visible' : ''}`}
       >
         <ImagePanel src={images.soil} alt="J K Fertilizers — quality products" testId="products-highlight-image-panel" className="aspect-[4/4.6] min-h-[360px]" />
         <div className="space-y-5">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            Quality You Can Rely On
-          </div>
-          <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">Top-Rated High-Demand Agricultural Products from J K Fertilizer</h2>
+          <span className="eyebrow">Quality You Can Rely On</span>
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">Top-Rated High-Demand Agricultural Products from J K Fertilizers</h2>
           <div className="grid gap-4">
           {productHighlights.map((item, i) => (
-            <div key={item.slice(0, 20)} {...staggerDelay(i)} className="flex items-start gap-3 rounded-[24px] border border-border bg-surface-card p-5">
+            <div key={item.slice(0, 20)} {...staggerDelay(i)} className="flex items-start gap-3 rounded-2xl border border-border bg-surface-card p-5">
               <svg className="mt-1 h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <p className="text-sm leading-7 text-muted-foreground">{item}</p>
+              <p className="type-body-sm text-muted-foreground">{item}</p>
             </div>
           ))}
           </div>

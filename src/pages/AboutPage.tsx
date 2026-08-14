@@ -103,7 +103,7 @@ const AboutStats = () => {
                 {s.value}
                 {s.unit && <span className="text-accent ml-1 text-3xl">{s.unit}</span>}
               </p>
-              <p className="mt-2 text-base text-white/80">{s.label}</p>
+              <p className="mt-2 type-body text-white/80">{s.label}</p>
               <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
@@ -122,16 +122,16 @@ const AboutWelcome = () => {
         className={`grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${welcomeReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-7">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <span className="eyebrow">
             Welcome to J K Fertilizers
-          </div>
-          <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          </span>
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Growing a Greener Future Together
           </h2>
-          <p className="text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="type-body text-muted-foreground">
             Welcome to J K Fertilizers, a pioneering force in sustainable agriculture since <strong className="text-foreground">2006</strong>. We’re dedicated to enhancing crop health through premium organic fertilizers that are as beneficial to plants as they are to the planet.
           </p>
-          <p className="text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="type-body text-muted-foreground">
             With a legacy of innovation, J K Fertilizers brings expertly crafted organic solutions to farmers, helping nurture healthier crops and soils with a focus on quality and eco-responsibility.
           </p>
         </div>
@@ -144,7 +144,7 @@ const AboutWelcome = () => {
             { src: images.gallery[2], alt: "DSC00296" },
             { src: images.gallery[3], alt: "DSC00411" },
           ].map((img, idx) => (
-            <div key={idx} className="group relative overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-sm aspect-square">
+            <div key={idx} className="group relative overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-card aspect-square">
               <img
                 src={img.src}
                 alt={img.alt}
@@ -152,7 +152,7 @@ const AboutWelcome = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className="text-white text-xs font-medium tracking-wider uppercase">{img.alt}</span>
+                <span className="text-white type-label font-medium tracking-wider uppercase">{img.alt}</span>
               </div>
             </div>
           ))}
@@ -165,36 +165,36 @@ const AboutWelcome = () => {
 const AboutMissionVision = () => {
   const missionReveal = useScrollReveal();
   return (
-    <section className="bg-muted py-20 lg:py-28 section-wave">
+    <section className="bg-muted py-20 lg:py-28">
       <div
         ref={missionReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${missionReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="grid gap-8 md:grid-cols-2">
           {/* Mission Card */}
-          <article className="flex flex-col rounded-[32px] border border-border bg-surface-card p-8 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
+          <article className="flex flex-col rounded-3xl border border-border bg-surface-card p-8 shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover">
             <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
               <Compass className="h-7 w-7" />
             </div>
-            <h3 className="font-heading text-2xl font-semibold text-foreground">Our Mission</h3>
-            <p className="mt-4 text-base leading-8 text-muted-foreground flex-1">
+            <h3 className="font-heading type-card-title font-semibold text-foreground">Our Mission</h3>
+            <p className="mt-4 type-body text-muted-foreground flex-1">
               To sustainably advance agricultural productivity and soil health through innovative, eco-friendly fertilizer solutions.
             </p>
-            <div className="mt-8 border-t border-border pt-6 text-xs font-semibold uppercase tracking-wider text-primary">
+            <div className="mt-8 border-t border-border pt-6 type-label font-semibold uppercase tracking-[0.16em] text-primary">
               Sustainable Agriculture
             </div>
           </article>
 
           {/* Vision Card */}
-          <article className="flex flex-col rounded-[32px] border border-border bg-surface-card p-8 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]">
+          <article className="flex flex-col rounded-3xl border border-border bg-surface-card p-8 shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover">
             <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/20 text-accent-foreground">
               <Eye className="h-7 w-7" />
             </div>
-            <h3 className="font-heading text-2xl font-semibold text-foreground">Our Vision</h3>
-            <p className="mt-4 text-base leading-8 text-muted-foreground flex-1">
+            <h3 className="font-heading type-card-title font-semibold text-foreground">Our Vision</h3>
+            <p className="mt-4 type-body text-muted-foreground flex-1">
               To lead a global movement toward sustainable farming by empowering farmers with quality organic fertilizers that nourish both the land and the future.
             </p>
-            <div className="mt-8 border-t border-border pt-6 text-xs font-semibold uppercase tracking-wider text-accent">
+            <div className="mt-8 border-t border-border pt-6 type-label font-semibold uppercase tracking-[0.16em] text-accent">
               Greener Tomorrow
             </div>
           </article>
@@ -210,20 +210,20 @@ const AboutEthics = () => {
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28" ref={ethicsReveal.ref}>
       <div className={`grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center reveal ${ethicsReveal.isVisible ? 'visible' : ''}`}>
         <div className="space-y-7">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <span className="eyebrow">
             Ethics in Action
-          </div>
-          <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          </span>
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Guided by integrity, committed to quality in every step
           </h2>
-          <p className="text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="type-body text-muted-foreground">
             At J K Fertilizers, every product reflects our unwavering integrity and dedication to quality, ensuring sustainable, trustworthy solutions from our facilities to your fields.
           </p>
 
           {/* Progress Bars */}
           <div className="space-y-5 pt-3">
             <div>
-              <div className="flex justify-between text-sm font-semibold mb-1 text-foreground">
+              <div className="flex justify-between type-body-sm font-semibold mb-1 text-foreground">
                 <span>Organic Solutions</span>
                 <span>100%</span>
               </div>
@@ -232,7 +232,7 @@ const AboutEthics = () => {
               </div>
             </div>
             <div>
-              <div className="flex justify-between text-sm font-semibold mb-1 text-foreground">
+              <div className="flex justify-between type-body-sm font-semibold mb-1 text-foreground">
                 <span>Quality Agriculture</span>
                 <span>100%</span>
               </div>
@@ -246,12 +246,12 @@ const AboutEthics = () => {
         {/* 2x2 Values List */}
         <div className="grid gap-4 sm:grid-cols-2">
           {valuesList.map((item) => (
-            <div key={item.title} className="rounded-2xl border border-border bg-surface-card p-5 shadow-sm transition-shadow duration-300 hover:shadow-md">
+            <div key={item.title} className="rounded-2xl border border-border bg-surface-card p-5 shadow-card transition-shadow duration-300 hover:shadow-card-hover">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary mb-3">
                 <Leaf className="h-4 w-4" />
               </div>
               <h4 className="font-heading text-base font-semibold text-foreground">{item.title}</h4>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">{item.desc}</p>
+              <p className="mt-2 type-body-sm text-muted-foreground">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -265,7 +265,7 @@ const AboutPillarsTicker = () => (
     <div className="flex gap-0 animate-none">
       <div className="flex shrink-0 animate-marquee items-center gap-0">
         {[...pillars, ...pillars].map((p, idx) => (
-          <span key={`marquee-p1-${idx}`} className="flex items-center gap-4 px-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
+          <span key={`marquee-p1-${idx}`} className="flex items-center gap-4 px-6 type-label font-semibold uppercase tracking-[0.18em] text-white/80">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             {p}
           </span>
@@ -273,7 +273,7 @@ const AboutPillarsTicker = () => (
       </div>
       <div aria-hidden className="flex shrink-0 animate-marquee items-center gap-0">
         {[...pillars, ...pillars].map((p, idx) => (
-          <span key={`marquee-p2-${idx}`} className="flex items-center gap-4 px-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
+          <span key={`marquee-p2-${idx}`} className="flex items-center gap-4 px-6 type-label font-semibold uppercase tracking-[0.18em] text-white/80">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             {p}
           </span>
@@ -293,21 +293,21 @@ const AboutFoundingRoots = () => {
           alt="J K Fertilizers manufacturing plant"
           className="aspect-4/5 min-h-[400px]"
           overlay={
-            <div className="rounded-[24px] border border-white/30 bg-secondary/90 p-5 shadow-[0_16px_50px_rgba(15,23,42,0.18)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">Our Headquarters</p>
+            <div className="rounded-2xl border border-white/30 bg-secondary/95 p-5 shadow-card">
+              <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/70">Our Headquarters</p>
               <p className="mt-2 font-heading text-base font-semibold text-white">Vasad, Anand — Gujarat, INDIA</p>
-              <p className="mt-1 text-sm text-white/65">{company.address}</p>
+              <p className="mt-1 type-body-sm text-white/65">{company.address}</p>
             </div>
           }
         />
         <div className="space-y-6">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <span className="eyebrow">
             Founding Roots
-          </div>
-          <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          </span>
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Innovation in Agriculture Since 2006
           </h2>
-          <p className="text-base leading-8 text-muted-foreground">
+          <p className="type-body text-muted-foreground">
             Since our founding by Mr. Akash Dadhania, J K Fertilizers has remained steadfast in our commitment to advancing organic farming. From a humble beginning to becoming an ISO-certified leader, our journey reflects our unwavering dedication to sustainable growth and quality.
           </p>
 
@@ -315,7 +315,7 @@ const AboutFoundingRoots = () => {
             {foundingChecklist.map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
-                <span className="text-sm font-medium text-foreground">{item}</span>
+                <span className="type-body-sm font-medium text-foreground">{item}</span>
               </div>
             ))}
           </div>
@@ -343,15 +343,15 @@ const AboutActionCards = () => {
   };
 
   return (
-    <section className="bg-muted py-20 lg:py-28 section-wave" ref={actionReveal.ref}>
+    <section className="bg-muted py-20 lg:py-28" ref={actionReveal.ref}>
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${actionReveal.isVisible ? 'visible' : ''}`}>
         <div className="grid gap-8 md:grid-cols-2">
           {/* Harvesting Hope Card */}
-          <div className="rounded-[32px] border border-border bg-surface-card p-8 shadow-sm flex flex-col justify-between min-h-[300px]">
+          <div className="rounded-3xl border border-border bg-surface-card p-8 shadow-card flex flex-col justify-between min-h-[300px]">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-accent">Sustainable Growth</span>
-              <h3 className="mt-3 font-heading text-2xl font-bold text-foreground">Harvesting Hope!</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              <span className="type-label font-semibold uppercase tracking-[0.16em] text-accent">Sustainable Growth</span>
+              <h3 className="mt-3 font-heading type-card-title font-bold text-foreground">Harvesting Hope!</h3>
+              <p className="mt-3 type-body-sm text-muted-foreground">
                 Experience how J K Fertilizers fuels dreams of bountiful harvests, supporting farmers to achieve success sustainably.
               </p>
             </div>
@@ -363,11 +363,11 @@ const AboutActionCards = () => {
           </div>
 
           {/* Built on Integrity Card */}
-          <div className="rounded-[32px] border border-border bg-surface-card p-8 shadow-sm flex flex-col justify-between min-h-[300px]">
+          <div className="rounded-3xl border border-border bg-surface-card p-8 shadow-card flex flex-col justify-between min-h-[300px]">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-primary">Quality Facilities</span>
-              <h3 className="mt-3 font-heading text-2xl font-bold text-foreground">Built on Integrity</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              <span className="type-label font-semibold uppercase tracking-[0.16em] text-primary">Quality Facilities</span>
+              <h3 className="mt-3 font-heading type-card-title font-bold text-foreground">Built on Integrity</h3>
+              <p className="mt-3 type-body-sm text-muted-foreground">
                 Our facility embodies our commitment to quality and environmental responsibility, producing fertilizers that are as sustainable as they are effective.
               </p>
             </div>
@@ -389,13 +389,13 @@ const AboutActionCards = () => {
 const AboutCta = () => (
   <section className="bg-secondary py-20 lg:py-28">
     <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-      <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
+      <span className="eyebrow-dark">
         Let's Cooperate Together
-      </div>
-      <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+      </span>
+      <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
         Ready to Partner with India's Trusted Fertilizer Manufacturer?
       </h2>
-      <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+      <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
         Contact us today. We will reply within 24 hours via email. Let's build a sustainable agricultural future together.
       </p>
       <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -406,7 +406,7 @@ const AboutCta = () => (
           <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
         </Button>
       </div>
-      <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-white/60">
+      <div className="mt-10 flex flex-wrap justify-center gap-6 type-body-sm text-white/60">
         <span>{company.address}</span>
         <span>·</span>
         <a href={`mailto:${company.emails[0]}`} className="hover:text-white/90 transition-colors">{company.emails[0]}</a>

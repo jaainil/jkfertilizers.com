@@ -46,12 +46,12 @@ export const InquiryForm = ({
 
   if (state.succeeded) {
     return (
-      <div className={`rounded-2xl border border-border bg-surface-card p-6 shadow-[0_20px_60px_rgba(16,24,40,0.08)] sm:rounded-[28px] sm:p-8 text-center space-y-4 ${className}`}>
+      <div className={`rounded-2xl border border-border bg-surface-card p-6 shadow-card sm:rounded-3xl sm:p-8 text-center space-y-4 ${className}`}>
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="font-heading text-2xl font-bold text-foreground">Thank You!</h3>
-        <p className="text-muted-foreground text-sm sm:text-base max-w-md mx-auto">
+        <h3 className="font-heading type-card-title font-bold text-foreground">Thank You!</h3>
+        <p className="type-body text-muted-foreground max-w-md mx-auto">
           Your inquiry has been submitted successfully to J K Fertilizers. Our team will contact you within 24 hours.
         </p>
         <Button
@@ -66,12 +66,12 @@ export const InquiryForm = ({
 
   return (
     <form
-      className={`rounded-2xl border border-border bg-surface-card p-5 shadow-[0_20px_60px_rgba(16,24,40,0.08)] sm:rounded-[28px] sm:p-6 lg:p-8 ${className}`}
+      className={`rounded-2xl border border-border bg-surface-card p-5 shadow-card sm:rounded-3xl sm:p-6 lg:p-8 ${className}`}
       onSubmit={onSubmit}
       data-testid="inquiry-form"
     >
       <div className="space-y-2 sm:space-y-3">
-        <div className="inline-flex rounded-full border border-border bg-muted px-3 py-1 text-xs font-bold uppercase tracking-[0.22em] text-primary" data-testid="inquiry-form-eyebrow">
+        <div className="eyebrow" data-testid="inquiry-form-eyebrow">
           B2B Lead Form
         </div>
         <h3 className="font-heading type-card-title font-bold text-foreground" data-testid="inquiry-form-title">
@@ -207,7 +207,7 @@ export const InquiryForm = ({
             </>
           )}
         </Button>
-        <p className="text-xs text-muted-foreground sm:text-sm" data-testid="inquiry-form-status-message">
+        <p className="type-body-sm text-muted-foreground" data-testid="inquiry-form-status-message">
           Priority response for product, manufacturing, and distribution inquiries.
         </p>
       </div>

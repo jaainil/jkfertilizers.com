@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
-import { ImagePanel } from "@/components/ImagePanel";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema } from "@/data/seoSchemas";
-import { CheckCircle2, ArrowRight, Leaf, Award, Shield } from "lucide-react";
+import { Leaf, Award, Shield } from "lucide-react";
 
 const company = {
   name: "J K Fertilizers",
@@ -33,7 +32,7 @@ const commitments = [
   {
     icon: Leaf,
     title: "Innovation in Fertilizers",
-    desc: "We utilize advanced manufacturing processes and cutting-edge technology to deliver superior organic fertilizers and solutions.",
+    desc: "We utilize advanced manufacturing processes and modern technology to deliver superior organic fertilizers and solutions.",
   },
   {
     icon: Award,
@@ -81,7 +80,7 @@ export const CommitmentPage = () => {
     <PageHero
       eyebrow="Why Can You Trust Us?"
       title="Our Commitment"
-      description="At J K Fertilizers, sustainability is the cornerstone of our operations. We are dedicated to revolutionizing agriculture by providing organic and eco-friendly fertilizers that not only enhance soil health but also contribute to the long-term well-being of the environment."
+      description="At J K Fertilizers, sustainability is the cornerstone of our operations. We are dedicated to improving agriculture by providing organic and eco-friendly fertilizers that not only enhance soil health but also contribute to the long-term well-being of the environment."
       imageSrc="/images/commitment-1.jpg"
       imageAlt="J K Fertilizers commitment to sustainability"
       badges={["Sustainable", "Organic", "Since 2006"]}
@@ -104,13 +103,13 @@ export const CommitmentPage = () => {
         className={`reveal ${sectionReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-14 text-center">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <span className="eyebrow">
             Other Commitments
-          </div>
-          <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          </span>
+          <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             J K Fertilizers' Commitment to Sustainability
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="mx-auto mt-4 max-w-3xl type-body text-muted-foreground">
             We are dedicated to providing the best range of sustainable, organic fertilizer solutions to enhance crop health and soil quality.
           </p>
         </div>
@@ -121,13 +120,13 @@ export const CommitmentPage = () => {
               <div
                 key={item.title}
                 {...staggerDelay(i)}
-                className="group flex flex-col rounded-[28px] border border-border bg-surface-card p-6 shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)] sm:p-7"
+                className="group flex flex-col rounded-3xl border border-border bg-surface-card p-6 shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover sm:p-7"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.desc}</p>
+                <h3 className="font-heading type-card-title font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-3 type-body-sm text-muted-foreground">{item.desc}</p>
               </div>
             );
           })}
@@ -136,19 +135,19 @@ export const CommitmentPage = () => {
     </section>
 
     {/* ── Info Cards ── */}
-    <section className="bg-muted py-20 lg:py-28 section-wave">
+    <section className="bg-muted py-20 lg:py-28">
       <div
         ref={cardsReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${cardsReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-12 text-center">
-          <div className="inline-flex rounded-full border border-border bg-surface-overlay px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <span className="eyebrow">
             Our Quality Standards
-          </div>
-          <h2 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+          </span>
+          <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Committed to Delivering the Highest Quality
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
             Sustainable solutions that empower farmers, protect the environment, and ensure long-term success.
           </p>
         </div>
@@ -157,14 +156,14 @@ export const CommitmentPage = () => {
             <div
               key={card.title}
               {...staggerDelay(i)}
-              className="group overflow-hidden rounded-[28px] border border-border bg-surface-card shadow-[0_16px_50px_rgba(16,24,40,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,24,40,0.1)]"
+              className="group overflow-hidden rounded-3xl border border-border bg-surface-card shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover"
             >
               <div className="p-6 sm:p-7">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-5">
                   <Leaf className="h-6 w-6" />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground">{card.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">{card.desc}</p>
+                <h3 className="font-heading type-card-title font-semibold text-foreground">{card.title}</h3>
+                <p className="mt-3 type-body-sm text-muted-foreground">{card.desc}</p>
               </div>
             </div>
           ))}
@@ -175,12 +174,12 @@ export const CommitmentPage = () => {
     {/* ── Image Gallery ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="mb-12 text-center">
-        <h2 className="font-heading text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           Our Facilities
         </h2>
       </div>
       <div className="grid gap-6 sm:grid-cols-3">
-        <div className="overflow-hidden rounded-[24px]">
+        <div className="overflow-hidden rounded-2xl">
           <img
             src="/images/commitment-1.jpg"
             alt="J K Fertilizers granule coating machinery at Vasad plant"
@@ -188,7 +187,7 @@ export const CommitmentPage = () => {
             loading="lazy"
           />
         </div>
-        <div className="overflow-hidden rounded-[24px]">
+        <div className="overflow-hidden rounded-2xl">
           <img
             src="/images/commitment-2.jpg"
             alt="Organic fertilizer heap formation at J K Fertilizers, Vasad, Gujarat"
@@ -196,7 +195,7 @@ export const CommitmentPage = () => {
             loading="lazy"
           />
         </div>
-        <div className="overflow-hidden rounded-[24px]">
+        <div className="overflow-hidden rounded-2xl">
           <img
             src="/images/commitment-3.jpg"
             alt="Fertilizer production line and processing equipment at J K Fertilizers"
@@ -210,10 +209,10 @@ export const CommitmentPage = () => {
     {/* ── CTA ── */}
     <section className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
           Let's Cooperate Together
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
           We will reply you within 24 hours via email. Contact us today!
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
