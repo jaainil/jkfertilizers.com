@@ -72,28 +72,31 @@ const navMenu: NavItem[] = [
   { label: "Contact Us", path: "/contact", tKey: "nav.contact" },
 ];
 
-const catOrganicBio = [
-  { label: "Organic Manure", path: "/products/organic-manure", slug: "organic-manure", desc: "FCO approved soil vitalizer" },
-  { label: "PROM", path: "/products/prom", slug: "prom", desc: "Phosphate Rich Organic Manure" },
-  { label: "PDM", path: "/products/pdm", slug: "pdm", desc: "Potash Derived from Molasses" },
-  { label: "Mycorrhiza Biofertilizer", path: "/products/mycorrhiza-granules-biofertilizers", slug: "mycorrhiza-granules-biofertilizers", desc: "Root expansion stimulant" },
-];
+// Categories to merge into a single "Organic & Bio" column.
+const ORGANIC_BIO_CATS = ["Organic Fertilizers", "Biofertilizers"];
 
-const catCoated = [
-  { label: "Customized Coated Granules", path: "/products/customized-coated-granules", slug: "customized-coated-granules", desc: "High coating capacity bases" },
-  { label: "Coated Bio NPK", path: "/products/coated-base-granules-bio-npk", slug: "coated-base-granules-bio-npk", desc: "Triple action biological coating" },
-  { label: "Coated Mycorrhiza", path: "/products/coated-base-granules-mycorrhiza", slug: "coated-base-granules-mycorrhiza", desc: "Mineral-mycorrhiza blend" },
-  { label: "Plant Available Silica", path: "/products/plant-available-silica", slug: "plant-available-silica", desc: "Soil silicon replenishment" },
-];
+export interface MegaMenuGroup {
+  title: string;
+  items: { label: string; path: string; slug: string }[];
+}
 
-const catBase = [
-  { label: "Diatomite Silicon", path: "/products/diatomite-silicon", slug: "diatomite-silicon", desc: "FCO approved silica granules" },
-  { label: "Customized Base Granules", path: "/products/customized-base-granules", slug: "customized-base-granules", desc: "Dolomite & compost recipes" },
-  { label: "Organic Carbon Base", path: "/products/organic-carbon-base-granules", slug: "organic-carbon-base-granules", desc: "Humus & carbon enrichment" },
-  { label: "Pancharatna Base", path: "/products/pancharatna-base-granules", slug: "pancharatna-base-granules", desc: "5-in-1 nutrient foundation" },
-  { label: "Humic Based Granules", path: "/products/humic-based-granules", slug: "humic-based-granules", desc: "Root growth enhancer" },
-  { label: "Enriched Base Granules", path: "/products/enriched-base-granules", slug: "enriched-base-granules", desc: "Fortified mineral carrier" },
-];
+/** Derives megamenu columns dynamically from the products array.
+ *  - "Organic Fertilizers" + "Biofertilizers" are merged into one "Organic & Bio" column.
+ */
+function buildMegaMenuGroups(): MegaMenuGroup[] {
+  const byCategory: Record<string, { label: string; path: string; slug: string }[]> = {};
+  for (const p of products) {
+    const cat = ORGANIC_BIO_CATS.includes(p.category) ? "Organic & Bio" : (p.category || "Other");
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push({ label: p.title, path: `/products/${p.slug}`, slug: p.slug });
+  }
+  const ORDER = ["Organic & Bio", "Coated Granules", "Base Granules"];
+  const orderedKeys = [
+    ...ORDER.filter((c) => byCategory[c]),
+    ...Object.keys(byCategory).filter((c) => !ORDER.includes(c)).sort(),
+  ];
+  return orderedKeys.map((title) => ({ title, items: byCategory[title] }));
+}
 
 const TopUtilityBar = () => (
   <div className="hidden border-b border-white/10 bg-secondary text-white lg:block">
@@ -150,6 +153,7 @@ const MegaProductDropdown = ({
 }: MegaProductDropdownProps) => {
   const activeSlug = hoveredProductSlug || "organic-manure";
   const activeProduct = products.find((p) => p.slug === activeSlug) || products[0];
+  const megaGroups = buildMegaMenuGroups();
 
   return (
     <div className="group relative">
@@ -202,7 +206,7 @@ const MegaProductDropdown = ({
             </NavLink>
           </div>
 
-          {/* Right Panel: Catalog flex layout */}
+          {/* Right Panel: Catalog — columns built dynamically from products data */}
           <div className="flex flex-col">
             {/* Top Bar Header */}
             <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
@@ -214,57 +218,33 @@ const MegaProductDropdown = ({
                 View All Products <ArrowRight className="h-3.5 w-3.5" />
               </NavLink>
             </div>
-
-            {/* Columns Grid */}
-            <div className="grid grid-cols-3 gap-5">
-              <div>
-                <h5 className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground/80 mb-3 border-b border-border pb-1">Organic & Bio</h5>
-                <div className="flex flex-col gap-1">
-                  {catOrganicBio.map(p => (
-                    <NavLink 
-                      key={p.path} 
-                      to={p.path} 
-                      onMouseEnter={() => setHoveredProductSlug(p.slug)}
-                      className="group/item flex flex-col rounded-lg p-2 hover:bg-primary/5 transition-colors duration-200"
-                    >
-                      <span className="text-xs font-semibold text-foreground group-hover/item:text-primary transition-colors">{p.label}</span>
-                      <span className="text-[10px] text-muted-foreground mt-0.5 leading-normal">{p.desc}</span>
-                    </NavLink>
-                  ))}
+            {/* Product Columns */}
+            <div className="grid grid-cols-3 gap-x-6">
+              {megaGroups.map((group) => (
+                <div key={group.title}>
+                  <h5 className="mb-2 border-b border-border pb-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground/70">
+                    {group.title}
+                  </h5>
+                  <div className="flex flex-col">
+                    {group.items.map((p) => (
+                      <NavLink
+                        key={p.path}
+                        to={p.path}
+                        onMouseEnter={() => setHoveredProductSlug(p.slug)}
+                        className={({ isActive }) =>
+                          `rounded-md px-2.5 py-1.5 text-[12px] font-medium leading-snug transition-colors duration-150 ${
+                            isActive
+                              ? "bg-primary/10 text-primary"
+                              : "text-foreground/70 hover:bg-primary/5 hover:text-primary"
+                          }`
+                        }
+                      >
+                        {p.label}
+                      </NavLink>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h5 className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground/80 mb-3 border-b border-border pb-1">Coated & Specialty</h5>
-                <div className="flex flex-col gap-1">
-                  {catCoated.map(p => (
-                    <NavLink 
-                      key={p.path} 
-                      to={p.path} 
-                      onMouseEnter={() => setHoveredProductSlug(p.slug)}
-                      className="group/item flex flex-col rounded-lg p-2 hover:bg-primary/5 transition-colors duration-200"
-                    >
-                      <span className="text-xs font-semibold text-foreground group-hover/item:text-primary transition-colors">{p.label}</span>
-                      <span className="text-[10px] text-muted-foreground mt-0.5 leading-normal">{p.desc}</span>
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h5 className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground/80 mb-3 border-b border-border pb-1">Base Granules</h5>
-                <div className="flex flex-col gap-1">
-                  {catBase.map(p => (
-                    <NavLink 
-                      key={p.path} 
-                      to={p.path} 
-                      onMouseEnter={() => setHoveredProductSlug(p.slug)}
-                      className="group/item flex flex-col rounded-lg p-2 hover:bg-primary/5 transition-colors duration-200"
-                    >
-                      <span className="text-xs font-semibold text-foreground group-hover/item:text-primary transition-colors">{p.label}</span>
-                      <span className="text-[10px] text-muted-foreground mt-0.5 leading-normal">{p.desc}</span>
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -412,45 +392,15 @@ const MobileNavDrawer = ({
                   {/* Accordion body */}
                   <div
                     className={`overflow-hidden transition-[max-height,opacity] duration-300 ${
-                      isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                      isOpen ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
                     {item.tKey === "nav.product" ? (
-                      // Products — grouped
-                      <div className="mt-1 mb-2 ml-3 border-l-2 border-primary/20 pl-3 flex flex-col gap-3">
-                        {[
-                          {
-                            title: "Organic & Bio",
-                            items: [
-                              { label: "Organic Manure", path: "/products/organic-manure" },
-                              { label: "PROM", path: "/products/prom" },
-                              { label: "PDM", path: "/products/pdm" },
-                              { label: "Mycorrhiza Biofertilizer", path: "/products/mycorrhiza-granules-biofertilizers" },
-                            ],
-                          },
-                          {
-                            title: "Coated & Specialty",
-                            items: [
-                              { label: "Customized Coated Granules", path: "/products/customized-coated-granules" },
-                              { label: "Coated Bio NPK", path: "/products/coated-base-granules-bio-npk" },
-                              { label: "Coated Mycorrhiza", path: "/products/coated-base-granules-mycorrhiza" },
-                              { label: "Plant Available Silica", path: "/products/plant-available-silica" },
-                            ],
-                          },
-                          {
-                            title: "Base Granules",
-                            items: [
-                              { label: "Diatomite Silicon", path: "/products/diatomite-silicon" },
-                              { label: "Customized Base Granules", path: "/products/customized-base-granules" },
-                              { label: "Organic Carbon Base", path: "/products/organic-carbon-base-granules" },
-                              { label: "Pancharatna Base", path: "/products/pancharatna-base-granules" },
-                              { label: "Humic Based Granules", path: "/products/humic-based-granules" },
-                              { label: "Enriched Base Granules", path: "/products/enriched-base-granules" },
-                            ],
-                          },
-                        ].map((group) => (
+                      // Products — grouped dynamically from MDX data
+                      <div className="mt-1 mb-2 ml-3 border-l-2 border-primary/20 pl-3 flex flex-col gap-2.5">
+                        {buildMegaMenuGroups().map((group) => (
                           <div key={group.title}>
-                            <p className="px-1 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground/60">
+                            <p className="px-1 pb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground/60">
                               {group.title}
                             </p>
                             <div className="flex flex-col gap-0.5">
@@ -460,7 +410,7 @@ const MobileNavDrawer = ({
                                   to={subItem.path}
                                   onClick={onMobileToggle}
                                   className={({ isActive }) =>
-                                    `flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-200 ${
+                                    `flex w-full items-center rounded-lg px-3 py-2 text-[13px] font-medium transition-colors duration-150 ${
                                       isActive
                                         ? "bg-primary/10 text-primary"
                                         : "text-foreground/70 hover:bg-primary/5 hover:text-primary"
