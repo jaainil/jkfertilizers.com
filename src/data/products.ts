@@ -73,7 +73,7 @@ export const products: Product[] = Object.entries(productModules).map(
     const fm = { ...mod.frontmatter } as Record<string, unknown>;
     // imageUrl may be a local filename inside the product folder — resolve it.
     if (typeof fm.imageUrl === "string" && !fm.imageUrl.startsWith("/")) {
-      fm.imageUrl = urlByFile[slug]?.[fm.imageUrl] ?? fm.imageUrl;
+      fm.imageUrl = urlByFile[slug]?.[fm.imageUrl] ?? "";
     }
     return { slug, ...fm, Component: mod.default } as Product;
   }
