@@ -129,36 +129,55 @@ export const ProductDetailPage = () => {
             </div>
           </div>
 
-          {/* Right: Interactive Gallery */}
+          {/* Right: Interactive Gallery Slider */}
           <div className="mt-12 lg:mt-0 space-y-4">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.4)] bg-neutral-900 aspect-[4/3]">
+            <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.4)] bg-neutral-900 aspect-[4/3]">
               <img
                 src={allImages[selectedImageIndex]}
                 alt={product.title}
                 className="h-full w-full object-cover transition-all duration-300"
               />
               
+              {/* Previous Button */}
+              {allImages.length > 1 && (
+                <button
+                  onClick={() => setSelectedImageIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1))}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-all duration-200 backdrop-blur-xs"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+              )}
+
+              {/* Next Button */}
+              {allImages.length > 1 && (
+                <button
+                  onClick={() => setSelectedImageIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1))}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-all duration-200 backdrop-blur-xs"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              )}
+
               {/* Zoom Button "+" */}
               <button
                 onClick={() => {
                   setActiveImageIndex(selectedImageIndex);
                   setLightboxOpen(true);
                 }}
-                className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 hover:scale-105 active:scale-95 transition-all duration-200 backdrop-blur-xs"
+                className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/70 hover:scale-105 active:scale-95 transition-all duration-200 backdrop-blur-xs"
                 aria-label="Zoom image"
               >
                 <span className="text-2xl font-light leading-none">+</span>
               </button>
 
-              <div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-                <div className="rounded-[20px] border border-white/20 bg-secondary/70 p-4 backdrop-blur-md">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">Product Showcase</p>
-                  <p className="mt-1 font-heading text-base font-semibold text-white">
-                    {selectedImageIndex === 0 ? "Default View" : `Detail View ${selectedImageIndex}`}
-                  </p>
+              {/* Slide Counter Pill */}
+              {allImages.length > 1 && (
+                <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
+                  {selectedImageIndex + 1} / {allImages.length}
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Thumbnails list */}
@@ -190,9 +209,19 @@ export const ProductDetailPage = () => {
       {/* Specs strip */}
       <div className="border-b border-border bg-surface-card">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 divide-x divide-border sm:grid-cols-3 lg:grid-cols-5">
+          <div
+            className={`grid grid-cols-2 sm:grid-cols-3 ${
+              product.specs.length === 6
+                ? "lg:grid-cols-6"
+                : product.specs.length === 5
+                ? "lg:grid-cols-5"
+                : product.specs.length === 4
+                ? "lg:grid-cols-4"
+                : "lg:grid-cols-6"
+            } divide-y sm:divide-y-0 divide-border sm:divide-x`}
+          >
             {product.specs.map((spec) => (
-              <div key={spec.label} className="px-6 py-6 first:pl-0 last:pr-0">
+              <div key={spec.label} className="px-4 py-5 sm:px-5 sm:py-6 flex flex-col justify-center">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{spec.label}</p>
                 <p className="mt-2 text-sm font-semibold text-foreground leading-snug">{spec.value}</p>
               </div>
