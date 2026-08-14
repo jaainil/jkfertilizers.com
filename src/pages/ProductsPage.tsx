@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { useMemo } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
 import { ImagePanel } from "@/components/ImagePanel";
@@ -7,6 +9,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, productsPageSchema, productsItemListSchema } from "@/data/seoSchemas";
+import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
 
 const company = {
   phoneDisplay: "9825045894",
@@ -29,19 +32,32 @@ const images = {
   partnership: "/images/about-5.jpg",
 };
 
-import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
-
 export const ProductsPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("q") || "";
+
   const introReveal = useScrollReveal();
   const listReveal = useScrollReveal();
   const detailsReveal = useScrollReveal();
 
+  const filteredProducts = useMemo(() => {
+    if (!query.trim()) return products;
+    const lower = query.toLowerCase().trim();
+    return products.filter(
+      (p) =>
+        p.title.toLowerCase().includes(lower) ||
+        p.category.toLowerCase().includes(lower) ||
+        p.summary.toLowerCase().includes(lower) ||
+        p.benefits.some((b) => b.toLowerCase().includes(lower))
+    );
+  }, [query]);
+
   return (
   <>
     <SEOHead
-      title="Products — J K Fertilizers | Organic Manure, PDM, PROM, Base & Coated Granules | Gujarat"
-      description="Browse J K Fertilizers' complete range: Organic Manure, PDM (Potash Derived Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Customized Base & Coated Granules, and more. FCO approved. Anand, Gujarat."
-      canonical="/products"
+      title={query ? `Search: ${query} — Products | J K Fertilizers` : "Organic Fertilizers & Granules Catalog | J K Fertilizers"}
+      description="Browse J K Fertilizers' complete range: Organic Manure, PDM (Potash Derived Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Customized Base & Coated Granules. FCO approved."
+      canonical={query ? `/products?q=${encodeURIComponent(query)}` : "/products"}
       ogImage="/images/about-4.jpg"
       keywords="organic fertilizer products gujarat, organic manure, PDM fertilizer, PROM fertilizer, mycorrhiza granules, base granules, coated granules, J K Fertilizers products, FCO approved fertilizer"
       schema={[organizationSchema, productsPageSchema, productsItemListSchema]}
@@ -65,7 +81,7 @@ export const ProductsPage = () => {
       }
     />
 
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div
         ref={introReveal.ref}
         className={`reveal ${introReveal.isVisible ? 'visible' : ''}`}
@@ -75,17 +91,62 @@ export const ProductsPage = () => {
           title="Complete Product Range"
           description="From organic manure to advanced coated granules — every product is manufactured with quality and sustainability at its core."
         />
+
+        {/* Search Bar for sitelinks & user filtering */}
+        <div className="mt-8 mb-10 max-w-md mx-auto relative">
+          <div className="relative flex items-center">
+            <Search className="absolute left-3.5 h-4 w-4 text-muted-foreground" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => {
+                const val = e.target.value;
+                if (val) setSearchParams({ q: val });
+                else setSearchParams({});
+              }}
+              placeholder="Search products (e.g., PROM, Mycorrhiza, Manure)..."
+              className="w-full rounded-full border border-border bg-background py-2.5 pl-10 pr-10 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-xs"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={() => setSearchParams({})}
+                className="absolute right-3.5 p-0.5 text-muted-foreground hover:text-foreground"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+          {query && (
+            <p className="mt-2 text-center text-xs text-muted-foreground">
+              Showing {filteredProducts.length} result{filteredProducts.length === 1 ? "" : "s"} for "{query}"
+            </p>
+          )}
+        </div>
       </div>
       <div
         ref={listReveal.ref}
         className={`grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 reveal-scale ${listReveal.isVisible ? 'visible' : ''}`}
       >
-        {products.map((product, i) => (
+        {filteredProducts.map((product, i) => (
           <div key={product.slug} {...staggerDelay(i)} className="h-full flex flex-col">
             <ProductCard product={product} />
           </div>
         ))}
       </div>
+      {filteredProducts.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">No products found matching "{query}".</p>
+          <Button
+            variant="outline"
+            className="mt-4 rounded-full"
+            onClick={() => setSearchParams({})}
+          >
+            View all products
+          </Button>
+        </div>
+      )}
     </section>
 
     <section className="bg-muted py-20 lg:py-28">

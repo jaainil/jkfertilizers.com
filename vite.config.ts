@@ -40,11 +40,10 @@ const serviceSlugs = existsSync(servicesDir)
     )
   : [];
 
-const staticRoutes = ['/about', '/history', '/products', '/services', '/portfolio', '/blog', '/contact'];
+const staticRoutes = ['/about', '/history', '/products', '/services', '/portfolio', '/commitment', '/blog', '/contact'];
 
 const dynamicRoutes = Array.from(
   new Set([
-    '/',
     ...staticRoutes,
     ...productSlugs.map((slug) => `/products/${slug}`),
     ...serviceSlugs.map((slug) => `/services/${slug}`),
@@ -59,6 +58,7 @@ const priorityMap: Record<string, number> = {
   '/services': 0.85,
   '/about': 0.8,
   '/portfolio': 0.75,
+  '/commitment': 0.75,
   '/history': 0.7,
   '/blog': 0.75,
   ...Object.fromEntries(
@@ -76,6 +76,7 @@ const changefreqMap: Record<string, string> = {
   '/blog': 'weekly',
   '/contact': 'monthly',
   '/about': 'monthly',
+  '/commitment': 'monthly',
   '/history': 'yearly',
   '/portfolio': 'monthly',
   '/services': 'monthly',
@@ -193,7 +194,7 @@ export default defineConfig({
       lastmod: { '*': BUILD_DATE },
       readable: true,
       outDir: 'dist',
-      generateRobotsTxt: true,
+      generateRobotsTxt: false,
       robots: [
         { userAgent: '*', allow: '/' },
         { userAgent: 'Googlebot', allow: '/' },

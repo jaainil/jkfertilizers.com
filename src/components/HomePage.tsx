@@ -1007,8 +1007,8 @@ const HomePage = () => {
   return (
     <>
       <SEOHead
-        title="J K Fertilizers — Manufacturers of Organic Fertilizers | Anand, Gujarat"
-        description="J K Fertilizers — FCO approved organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza granules, coated granules and soil conditioners."
+        title="Organic Fertilizer Manufacturer Gujarat | J K Fertilizers"
+        description="J K Fertilizers is a leading FCO approved organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza & coated granules."
         canonical="/"
         ogImage="/images/hero.jpg"
         keywords="organic fertilizer manufacturer india, J K Fertilizers, organic manure manufacturer gujarat, prom fertilizer, pdm fertilizer, mycorrhiza granules, fertilizer manufacturer anand gujarat"

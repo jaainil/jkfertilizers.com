@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-rss.mjs",
+    "build": "vite build && node scripts/generate-rss.mjs && node scripts/prerender.mjs",
     "rss": "node scripts/generate-rss.mjs",
+    "prerender": "node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

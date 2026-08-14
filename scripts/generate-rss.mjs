@@ -34,6 +34,7 @@ function parseFrontmatter(raw) {
   const result = {};
 
   for (const line of block.split(/\r?\n/)) {
+    if (line.startsWith(' ') || line.startsWith('\t')) continue;
     const colonIdx = line.indexOf(':');
     if (colonIdx === -1) continue;
 

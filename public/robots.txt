@@ -92,6 +92,3 @@ Disallow: /node_modules/
 
 # Sitemap location
 Sitemap: https://jkfertilizers.com/sitemap.xml
-
-# RSS Feed
-Sitemap: https://jkfertilizers.com/rss.xml

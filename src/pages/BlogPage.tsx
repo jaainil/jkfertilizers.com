@@ -41,8 +41,8 @@ export const BlogPage = () => {
   return (
   <>
     <SEOHead
-      title="Agriculture & Fertilizer Industry Blog — Insights for B2B Brands | J K Fertilizers"
-      description="Expert insights on organic fertilizer manufacturing, custom granule formulation, B2B procurement tips, sustainable agriculture, and quality assurance. From J K Fertilizers — FCO approved manufacturer, Anand, Gujarat."
+      title="Agriculture & Fertilizer Blog | J K Fertilizers Insights"
+      description="Expert insights on organic fertilizer manufacturing, custom granule formulation, B2B procurement tips, sustainable agriculture, and quality assurance. Anand, Gujarat."
       canonical="/blog"
       ogImage="/images/granules.jpg"
       keywords="fertilizer industry blog, organic agriculture insights, b2b fertilizer procurement, granule fertilizer trends, sustainable agriculture india, fertilizer manufacturing blog gujarat, custom formulation insights"

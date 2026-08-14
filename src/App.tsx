@@ -16,6 +16,7 @@ import { ServiceDetailPage } from "@/pages/ServiceDetailPage";
 import { ContactPage } from "@/pages/ContactPage";
 import { PortfolioPage } from "@/pages/PortfolioPage";
 import { CommitmentPage } from "@/pages/CommitmentPage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import { HomePage } from "@/components/HomePage";
 
 // Initialize GA4
@@ -54,7 +55,7 @@ const AppRoutes = () => (
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/commitment" element={<CommitmentPage />} />
       <Route path="/contact" element={<ContactPage />} />
-      <Route path="*" element={<HomePage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </SiteShell>
 );

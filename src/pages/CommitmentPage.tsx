@@ -70,7 +70,7 @@ export const CommitmentPage = () => {
   return (
   <>
     <SEOHead
-      title="Our Commitment — J K Fertilizers | Sustainable Agriculture & Quality Excellence"
+      title="Sustainability & Quality Commitment | J K Fertilizers"
       description="J K Fertilizers' commitment to sustainability, quality, and innovation. We deliver 100% organic, eco-friendly fertilizers for a greener future."
       canonical="/commitment"
       ogImage="/images/commitment-1.jpg"

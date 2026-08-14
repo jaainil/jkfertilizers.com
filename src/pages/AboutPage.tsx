@@ -421,7 +421,7 @@ export const AboutPage = () => {
   return (
     <>
       <SEOHead
-        title="About Us — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006 | Anand, Gujarat"
+        title="About J K Fertilizers | Organic Fertilizer Manufacturer India"
         description="Learn about J K Fertilizers — India's trusted organic fertilizer manufacturer since 2006. Founded by Mr. Akash Dadhania in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, and coated granules."
         canonical="/about"
         ogImage="/images/dsc00161.jpg"

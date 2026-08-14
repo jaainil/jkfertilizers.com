@@ -84,8 +84,8 @@ export const ServicesPage = () => {
   return (
   <>
     <SEOHead
-      title="Services — J K Fertilizers | Organic Fertilizer Manufacturing, Coated Granules & More | Gujarat"
-      description="J K Fertilizers offers comprehensive services: organic fertilizer manufacturing, granule technology, infrastructure leasing, custom packaging, job work, and warehouse facilities. Anand, Gujarat, India."
+      title="Fertilizer Manufacturing & Job Work Services | J K Fertilizers"
+      description="Contract manufacturing, custom granulation, packaging, and infrastructure leasing for organic fertilizer brands across India. Vasad, Anand, Gujarat."
       canonical="/services"
       ogImage="/images/about-1.jpg"
       keywords="organic fertilizer manufacturing services, granule technology, infrastructure leasing fertilizer, custom packaging agriculture, job work fertilizer manufacturer, warehouse storage gujarat"

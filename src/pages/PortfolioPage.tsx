@@ -87,8 +87,8 @@ export const PortfolioPage = () => {
   return (
   <>
     <SEOHead
-      title="Portfolio — J K Fertilizers | Our Products & Client Trust | Gujarat, India"
-      description="Explore J K Fertilizers' product portfolio — Organic Manure, PDM, PROM, Mycorrhiza Granules, Coated Granules, Base Granules, and more. Trusted by 150+ clients since 2006."
+      title="Agricultural Products Portfolio | J K Fertilizers"
+      description="Explore J K Fertilizers' product portfolio — Organic Manure, PDM, PROM, Mycorrhiza Granules, Coated Granules, Base Granules, and more. Trusted since 2006."
       canonical="/portfolio"
       ogImage="/images/about-4.jpg"
       keywords="J K Fertilizers portfolio, organic fertilizer products, FCO approved fertilizers, mycorrhiza granules gujarat, prom fertilizer, pdm fertilizer"

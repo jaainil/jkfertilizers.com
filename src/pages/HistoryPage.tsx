@@ -79,7 +79,7 @@ export const HistoryPage = () => {
   return (
     <>
       <SEOHead
-        title="Our History & Milestones — J K Fertilizers | Anand, Gujarat"
+        title="Company History & Milestones | J K Fertilizers Gujarat"
         description="Discover the journey of J K Fertilizers since 2006. Learn how we expanded from our first organic manure unit to 700 MT/day capacity in Vasad, Gujarat."
         canonical="/history"
         ogImage="/images/drone-view-3.jpg"

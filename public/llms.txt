@@ -151,17 +151,13 @@ J K Fertilizers manufactures organic fertilizers, coated granules, and base gran
 - Tailored packaging, bagging, and private-label readiness
 - URL: https://jkfertilizers.com/services/custom-packaging-solutions
 
-### 4. Job-Work Solutions
+### 4. Job Work Services
 - Custom contract manufacturing and high capacity processing
-- URL: https://jkfertilizers.com/services/job-work-solutions
+- URL: https://jkfertilizers.com/services/job-work-services
 
-### 5. Supply Chain & Logistics
-- Pan-India distribution and global export logistics
-- URL: https://jkfertilizers.com/services/supply-chain-logistics
-
-### 6. Custom Formulation & R&D
-- Proprietary organic and mineral fertilizer formulation
-- URL: https://jkfertilizers.com/services/custom-formulation-rd
+### 5. Warehouse & Storage Solutions
+- Dedicated storage facilities and distribution logistics
+- URL: https://jkfertilizers.com/services/warehouse-storage
 
 ---
 
@@ -220,6 +216,7 @@ A: Request a B2B quote via: (1) the contact form at https://jkfertilizers.com/co
 - Products: https://jkfertilizers.com/products
 - Services: https://jkfertilizers.com/services
 - Portfolio: https://jkfertilizers.com/portfolio
+- Commitment: https://jkfertilizers.com/commitment
 - Blog: https://jkfertilizers.com/blog
 - Contact: https://jkfertilizers.com/contact
 - Commercial & Pricing Guide: https://jkfertilizers.com/pricing.md
