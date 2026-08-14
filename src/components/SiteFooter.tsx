@@ -87,54 +87,54 @@ export const SiteFooter = () => {
 
           {/* Contact cards */}
           <div className="space-y-3">
-            <div className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-colors duration-200 min-h-[44px]">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
+            <div className="group/card flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm transition-colors duration-200 min-h-[44px]">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
                 <Phone className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="type-label uppercase tracking-[0.16em] text-white/45">Phone</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/80 font-medium">Phone</p>
                 <p className="font-semibold text-white">{company.phoneDisplay} / 92 / 91</p>
               </div>
             </div>
 
             <div
-              className="group/card flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm transition-colors duration-200 min-h-[44px]"
+              className="group/card flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm transition-colors duration-200 min-h-[44px]"
               data-testid="footer-email-card"
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
                 <Mail className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="type-label uppercase tracking-[0.16em] text-white/45">Email</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/80 font-medium">Email</p>
                 <p className="min-w-0 break-all font-semibold text-white">
                   <a href={`mailto:${company.emails[0]}`} className="hover:text-accent hover:underline transition-colors">{company.emails[0]}</a>
-                  <span className="text-white/30 mx-2">|</span>
+                  <span className="text-white/40 mx-2">|</span>
                   <a href={`mailto:${company.emails[1]}`} className="hover:text-accent hover:underline transition-colors">{company.emails[1]}</a>
                 </p>
               </div>
             </div>
 
             <div
-              className="flex items-start gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm"
+              className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm"
               data-testid="footer-address-card"
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/6 text-white/45">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/80">
                 <MapPin className="h-3.5 w-3.5" />
               </span>
               <div>
-                <p className="type-label uppercase tracking-[0.16em] text-white/45">Address</p>
-                <p className="mt-0.5 min-w-0 break-words leading-6 text-white/65">{company.address}</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/80 font-medium">Address</p>
+                <p className="mt-0.5 min-w-0 break-words leading-6 text-white/90">{company.address}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-2xl border border-white/6 bg-white/4 px-4 py-3 text-sm">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/6 text-white/45">
+            <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/80">
                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
               </span>
               <div>
-                <p className="type-label uppercase tracking-[0.16em] text-white/45">Working Hours</p>
+                <p className="type-label uppercase tracking-[0.16em] text-white/80 font-medium">Working Hours</p>
                 <p className="font-semibold text-white">Mon - Sat: 9AM - 6PM</p>
               </div>
             </div>
@@ -143,13 +143,13 @@ export const SiteFooter = () => {
 
         {/* Navigation column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-links-block">
-          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/50">Navigate</p>
+          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Navigate</p>
           <nav className="flex flex-col gap-0.5">
             {[...navigation, { label: "Commitment", path: "/commitment" }].map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
+                className="group inline-flex items-center gap-2 py-3 text-sm text-white/80 transition-colors hover:text-white"
                 data-testid={`footer-link-${item.label.toLowerCase()}`}
               >
                 <span className="h-px w-0 bg-accent transition-[width] duration-300 group-hover:w-5" />
@@ -159,30 +159,31 @@ export const SiteFooter = () => {
           </nav>
 
           <div className="flex items-center gap-2 pt-2">
-            <Leaf className="h-3.5 w-3.5 text-primary/60" />
-            <p className="type-label text-white/40 italic">Organic, Naturally</p>
+            <Leaf className="h-3.5 w-3.5 text-accent" />
+            <p className="type-label text-white/80 italic">Organic, Naturally</p>
           </div>
         </div>
 
         {/* Products column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-products-block">
-          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/50">Product Groups</p>
+          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Product Groups</p>
           <div className="flex flex-col gap-0.5">
             {products.slice(0, 6).map((product, index) => (
               <Link
                 key={product.slug}
                 to={`/products/${product.slug}`}
-                className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
+                className="group inline-flex items-center gap-2 py-3 text-sm text-white/80 transition-colors hover:text-white"
                 data-testid={`footer-product-link-${index}`}
               >
-                <span className="h-px w-0 bg-primary transition-[width] duration-300 group-hover:w-5" />
+                <span className="h-px w-0 bg-accent transition-[width] duration-300 group-hover:w-5" />
                 {product.title}
               </Link>
             ))}
           </div>
           <Link
             to="/products"
-            className="inline-flex items-center gap-1.5 type-label font-bold text-primary/80 transition hover:text-primary"
+            className="inline-flex items-center gap-1.5 type-label font-bold text-accent transition hover:underline"
+            aria-label="View all organic fertilizer products"
           >
             View all products <ArrowRight className="h-3 w-3" />
           </Link>
@@ -190,13 +191,13 @@ export const SiteFooter = () => {
 
         {/* Services column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-services-block">
-          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/50">Services</p>
+          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Services</p>
           <div className="flex flex-col gap-0.5">
             {services.map((svc, i) => (
               <Link
                 key={i}
                 to={svc.path}
-                className="group inline-flex items-center gap-2 py-3 text-sm text-white/60 transition-colors hover:text-white"
+                className="group inline-flex items-center gap-2 py-3 text-sm text-white/80 transition-colors hover:text-white"
                 data-testid={`footer-service-link-${i}`}
               >
                 <span className="h-px w-0 bg-accent transition-[width] duration-300 group-hover:w-5" />
@@ -206,7 +207,8 @@ export const SiteFooter = () => {
           </div>
           <Link
             to="/services"
-            className="inline-flex items-center gap-1.5 type-label font-bold text-accent/80 transition hover:text-accent"
+            className="inline-flex items-center gap-1.5 type-label font-bold text-accent transition hover:underline"
+            aria-label="View all fertilizer manufacturing services"
           >
             View all services <ArrowRight className="h-3 w-3" />
           </Link>
@@ -214,29 +216,29 @@ export const SiteFooter = () => {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="relative border-t border-white/6">
+      <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/35">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/75">
             <p data-testid="footer-copyright-text">
               © {new Date().getFullYear()} J K Fertilizers. All Rights Reserved.
             </p>
-            <span className="hidden h-3 w-px bg-white/20 sm:block" />
+            <span className="hidden h-3 w-px bg-white/30 sm:block" />
             <p>Anand, Gujarat, India</p>
           </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/25">
-            <a href="/privacy" className="transition-colors hover:text-white/55">Confidentiality & Privacy</a>
-            <a href="/legal" className="transition-colors hover:text-white/55">Legal Information</a>
-            <a href="/return-policy" className="transition-colors hover:text-white/55">Return and Refund Policy</a>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/75">
+            <a href="/privacy" className="transition-colors hover:text-white">Confidentiality & Privacy</a>
+            <a href="/legal" className="transition-colors hover:text-white">Legal Information</a>
+            <a href="/return-policy" className="transition-colors hover:text-white">Return and Refund Policy</a>
           </div>
           <a
             href="https://aexaware.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-white/25 transition-colors hover:text-white/55"
+            className="inline-flex items-center gap-1.5 text-xs text-white/75 transition-colors hover:text-white"
             data-testid="footer-credit"
           >
             Designed & built by
-            <span className="font-bold text-white/40 hover:text-white/65 transition-colors">Aexaware Private Limited</span>
+            <span className="font-bold text-white hover:text-accent transition-colors">Aexaware Private Limited</span>
           </a>
         </div>
       </div>

@@ -85,19 +85,82 @@
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="shortcut icon" href="/logo.png" />
 
-    <!-- ── Performance: Preconnect & DNS prefetch ── -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="//formspree.io" />
-    <link rel="dns-prefetch" href="//www.google.com" />
+    <!-- ── Performance: DNS prefetch & Preconnect for Active Third Parties ── -->
     <link rel="dns-prefetch" href="//www.googletagmanager.com" />
     <link rel="dns-prefetch" href="//umami.altctrlreturn.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://formspree.io" />
-    <link rel="preconnect" href="https://www.google.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://umami.altctrlreturn.com" />
+
+    <!-- ── Core JSON-LD Structured Data (Schema.org) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Organization", "LocalBusiness", "ManufacturingBusiness"],
+          "@id": "https://jkfertilizers.com/#organization",
+          "name": "J K Fertilizers",
+          "alternateName": ["JK Fertilizers", "JKF", "J K Fertilizers Pvt Ltd"],
+          "url": "https://jkfertilizers.com",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://jkfertilizers.com/#logo",
+            "url": "https://jkfertilizers.com/logo.png",
+            "caption": "J K Fertilizers Logo"
+          },
+          "image": "https://jkfertilizers.com/og-image.png",
+          "description": "J K Fertilizers is a leading manufacturer of organic fertilizers, base granules and coated base granules in Anand, Gujarat, India. Specializing in Organic Manure, PDM, PROM, and Mycorrhiza granules since 2006.",
+          "foundingDate": "2006",
+          "founder": {
+            "@type": "Person",
+            "name": "Akash Dadhania",
+            "jobTitle": "Founder & Director"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "@id": "https://jkfertilizers.com/#address",
+            "streetAddress": "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop",
+            "addressLocality": "Vasad",
+            "addressRegion": "Gujarat",
+            "postalCode": "388305",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "22.4475",
+            "longitude": "72.8573"
+          },
+          "telephone": "+919825045894",
+          "email": ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
+          "priceRange": "$$",
+          "currenciesAccepted": "INR, USD, EUR",
+          "openingHours": ["Mo-Sa 09:00-18:00"],
+          "sameAs": [
+            "https://www.linkedin.com/company/jkfertilizers",
+            "https://www.facebook.com/jkfertilizers",
+            "https://www.instagram.com/jkfertilizers"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jkfertilizers.com/#website",
+          "url": "https://jkfertilizers.com",
+          "name": "J K Fertilizers",
+          "description": "India's Leading Organic Fertilizer Manufacturer — FCO Approved, Anand, Gujarat",
+          "publisher": { "@id": "https://jkfertilizers.com/#organization" },
+          "inLanguage": ["en-IN", "gu-IN", "hi-IN"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://jkfertilizers.com/products?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- ── Google Analytics (GA4) ── -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L1BQM1V3E3"></script>
@@ -114,6 +177,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
