@@ -270,29 +270,6 @@ export const ServicesPage = () => {
       </div>
     </section>
 
-    {/* ── Newsletter ── */}
-    <section className="bg-secondary py-20 lg:py-28">
-      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <span className="eyebrow-dark">Stay Updated</span>
-        <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
-          Sign Up To Our Newsletter
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
-          Subscribe to our Newsletter to be updated about our latest products and offers.
-        </p>
-        <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="h-12 flex-1 rounded-full border border-white/20 bg-white/10 px-6 text-sm text-white placeholder:text-white/50 focus:border-white/40 focus:outline-none"
-          />
-          <Button type="submit" className="h-12 rounded-full bg-accent px-8 font-semibold text-secondary hover:bg-accent/80">
-            Subscribe
-          </Button>
-        </form>
-      </div>
-    </section>
-
     {/* ── Contact CTA + Form ── */}
     <section className="bg-muted py-20 lg:py-28">
       <div

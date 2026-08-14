@@ -226,31 +226,6 @@ export const PortfolioPage = () => {
       </div>
     </section>
 
-    {/* ── Newsletter ── */}
-    <section className="bg-muted py-20 lg:py-28">
-      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <span className="eyebrow">
-          Stay Updated
-        </span>
-        <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-          Sign Up To Our Newsletter
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
-          Subscribe to our Newsletter to be updated about our latest products and offers.
-        </p>
-        <form className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="h-12 flex-1 rounded-full border border-border bg-surface-card px-6 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
-          />
-          <Button type="submit" className="h-12 rounded-full bg-primary px-8 text-white hover:bg-primary/90">
-            Subscribe
-          </Button>
-        </form>
-      </div>
-    </section>
-
     {/* ── CTA ── */}
     <section className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">

@@ -480,10 +480,6 @@ Body (MDX) is the long-form service content.
 - Component: `src/components/InquiryForm.tsx`
 - **Do NOT** call `e.preventDefault()` before `handleSubmit(e)` — see Section 7
 
-### Newsletter Form
-- Present in `ContactPage` and `SiteFooter`
-- Not yet wired to Formspree (currently `onSubmit={(e) => e.preventDefault()}`)
-
 ---
 
 ## 13. Company Reference Data

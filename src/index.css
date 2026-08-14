@@ -211,6 +211,7 @@
 /* ── Eyebrow pills — one look, three surface variants ── */
 @utility eyebrow {
   display: inline-flex;
+  width: fit-content;
   align-items: center;
   gap: 0.5rem;
   border-radius: 9999px;
@@ -227,6 +228,7 @@
 
 @utility eyebrow-dark {
   display: inline-flex;
+  width: fit-content;
   align-items: center;
   gap: 0.5rem;
   border-radius: 9999px;
@@ -243,6 +245,7 @@
 
 @utility eyebrow-accent {
   display: inline-flex;
+  width: fit-content;
   align-items: center;
   gap: 0.5rem;
   border-radius: 9999px;

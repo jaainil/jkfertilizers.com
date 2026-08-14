@@ -219,7 +219,7 @@ export const BlogPage = () => {
       </div>
     </section>
 
-    {/* ── Newsletter / CTA band ── */}
+    {/* ── CTA band ── */}
     <section className="bg-secondary py-16 lg:py-20">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <span className="eyebrow-dark">
