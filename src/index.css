@@ -545,4 +545,42 @@
   .back-to-top {
     transition: opacity 0.15s ease;
   }
+  .animate-page-enter {
+    animation: none !important;
+  }
 }
+
+/* ── Page Transition & Site Loader Animations ── */
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes siteLoaderProgress {
+  0% {
+    width: 0%;
+    transform: translateX(0);
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.site-loader-bar {
+  animation: siteLoaderProgress 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
