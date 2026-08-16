@@ -50,4 +50,20 @@
 
 /auth.md
   Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+  Access-Control-Allow-Origin: *
+
+/pricing.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+  Access-Control-Allow-Origin: *
+
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
+  Access-Control-Allow-Origin: *
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept
   Access-Control-Allow-Origin: *

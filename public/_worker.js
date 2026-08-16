@@ -163,13 +163,21 @@ export default {
       }
     }
 
-    // 6. Markdown Content Negotiation (Accept: text/markdown)
-    if (acceptHeader.includes('text/markdown')) {
+    // 6. Markdown Content Negotiation (Accept: text/markdown, text/x-markdown, application/markdown)
+    const isMarkdownRequest =
+      acceptHeader.includes('text/markdown') ||
+      acceptHeader.includes('text/x-markdown') ||
+      acceptHeader.includes('application/markdown') ||
+      url.searchParams.get('format') === 'markdown' ||
+      url.searchParams.get('format') === 'md';
+
+    if (isMarkdownRequest) {
       const cleanPath = url.pathname.replace(/\/$/, '') || '/index';
 
       const candidatePaths = [
         cleanPath === '/index' ? '/index.md' : `${cleanPath}.md`,
         `${cleanPath}/index.md`,
+        cleanPath,
         '/llms.txt',
         '/auth.md',
       ];
@@ -202,6 +210,22 @@ export default {
     // 7. Default Asset / HTML Response with Link Headers
     const response = await env.ASSETS.fetch(request);
     const newHeaders = new Headers(response.headers);
+
+    // If serving static markdown files directly (.md / llms.txt), compute tokens and set markdown headers
+    if (url.pathname.endsWith('.md') || url.pathname === '/llms.txt') {
+      newHeaders.set('Content-Type', 'text/markdown; charset=utf-8');
+      newHeaders.set('Vary', 'Accept');
+      newHeaders.set('Access-Control-Allow-Origin', '*');
+      try {
+        const cloned = response.clone();
+        const text = await cloned.text();
+        const tokenCount = Math.ceil(text.length / 4);
+        newHeaders.set('x-markdown-tokens', String(tokenCount));
+      } catch {
+        // pass
+      }
+    }
+
     if (url.pathname === '/' || url.pathname === '/index.html') {
       newHeaders.set(
         'Link',
