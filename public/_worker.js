@@ -13,7 +13,32 @@ export default {
     const url = new URL(request.url);
     const acceptHeader = request.headers.get('Accept') || '';
 
-    // 1. MCP Server Card Discovery (SEP-1649 / SEP-2127)
+    // 1. A2A Agent Card Discovery (Agent2Agent Protocol)
+    if (
+      url.pathname === '/.well-known/agent-card.json' ||
+      url.pathname === '/.well-known/agent-card' ||
+      url.pathname === '/.well-known/agent.json' ||
+      url.pathname === '/.well-known/agent'
+    ) {
+      try {
+        const a2aRes = await env.ASSETS.fetch(new URL('/.well-known/agent-card.json', url.origin));
+        if (a2aRes.ok) {
+          const body = await a2aRes.text();
+          return new Response(body, {
+            status: 200,
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+              'Access-Control-Allow-Origin': '*',
+              'Cache-Control': 'public, max-age=3600',
+            },
+          });
+        }
+      } catch {
+        // fallback
+      }
+    }
+
+    // 2. MCP Server Card Discovery (SEP-1649 / SEP-2127)
     if (
       url.pathname === '/.well-known/mcp/server-card.json' ||
       url.pathname === '/.well-known/mcp/server-card' ||
@@ -180,7 +205,7 @@ export default {
     if (url.pathname === '/' || url.pathname === '/index.html') {
       newHeaders.set(
         'Link',
-        '</llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"'
+        '</llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json", </.well-known/agent-card.json>; rel="service-desc"; type="application/json"'
       );
     }
     return new Response(response.body, {

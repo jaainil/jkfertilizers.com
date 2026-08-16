@@ -536,8 +536,9 @@ Cert:     FCO Approved (Fertilizer Control Order)
 
 ### Public Static Files & Agent Discovery
 - `public/.htaccess` — Apache config (SPA fallback + caching headers + Agent Link headers for shared hosting)
-- `public/_worker.js` — Cloudflare Pages Worker (Content negotiation, Agent Skills, MCP discovery, PRM, RFC 8288 link headers)
+- `public/_worker.js` — Cloudflare Pages Worker (Content negotiation, Agent Skills, MCP discovery, A2A discovery, PRM, RFC 8288 link headers)
 - `public/_headers` & `vercel.json` — Edge headers for Netlify/Cloudflare/Vercel
+- `public/.well-known/agent-card.json` — Agent2Agent (A2A) Agent Card (Linux Foundation A2A Protocol)
 - `public/.well-known/mcp/server-card.json` — Model Context Protocol (MCP) Server Card (SEP-1649 / SEP-2127)
 - `public/.well-known/agent-skills/index.json` — Agent Skills Discovery Index (RFC v0.2.0)
 - `public/.well-known/api-catalog` — API Catalog (RFC 9727 / RFC 9264)

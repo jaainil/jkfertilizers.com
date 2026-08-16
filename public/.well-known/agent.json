@@ -1,0 +1,124 @@
+{
+  "$schema": "https://a2a-protocol.org/schemas/v1.0/agent-card.json",
+  "name": "J K Fertilizers B2B Agent",
+  "version": "1.0.0",
+  "description": "Autonomous B2B agent for J K Fertilizers (Anand, Gujarat, India). Enables agent-to-agent negotiation, product technical assay verification, volume-tiered procurement calculation, and custom granulation contract leasing.",
+  "provider": {
+    "organization": "J K Fertilizers",
+    "url": "https://jkfertilizers.com"
+  },
+  "documentationUrl": "https://jkfertilizers.com/llms.txt",
+  "supportedInterfaces": [
+    {
+      "url": "https://jkfertilizers.com/a2a",
+      "protocolBinding": "HTTP_JSON",
+      "protocolVersion": "1.0"
+    },
+    {
+      "url": "https://jkfertilizers.com/a2a/jsonrpc",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "extendedAgentCard": false
+  },
+  "skills": [
+    {
+      "id": "b2b-procurement",
+      "name": "B2B Bulk Procurement",
+      "description": "Calculates volume pricing, minimum order quantities (MOQ), tax calculations (GST), and delivery dispatch estimates for organic fertilizers and base granules.",
+      "tags": [
+        "procurement",
+        "fertilizer",
+        "pricing",
+        "b2b",
+        "wholesale"
+      ],
+      "examples": [
+        "Quote wholesale pricing for 20 MT of PROM delivered to Maharashtra",
+        "Check MOQ and payment terms for bulk organic manure"
+      ],
+      "inputModes": [
+        "text/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "product-catalog-assays",
+      "name": "Product Catalog & Technical Assays",
+      "description": "Inspects FCO-compliant nutrient specifications, active ingredients, particle size distribution (1-4mm / 2-4mm), granule crush strength, and moisture parameters across 16 product lines.",
+      "tags": [
+        "catalog",
+        "specifications",
+        "fco",
+        "organic-manure",
+        "prom",
+        "pdm",
+        "mycorrhiza"
+      ],
+      "examples": [
+        "Get technical assay and NPK content for PROM granules",
+        "Inspect spore count and carrier composition for Mycorrhiza biofertilizer"
+      ],
+      "inputModes": [
+        "text/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "contract-manufacturing",
+      "name": "Contract Manufacturing & Granule Technology",
+      "description": "Evaluates granulation facility lease capacity (700 MT/day), private label packaging specifications (5kg/10kg/25kg/50kg HDPE bags), and custom formulation feasibility.",
+      "tags": [
+        "manufacturing",
+        "leasing",
+        "private-label",
+        "job-work",
+        "granule-coating"
+      ],
+      "examples": [
+        "Check plant lease capacity in Vasad Gujarat for 500 MT custom granule batch",
+        "Request private-label packaging and coating specs for customized base granules"
+      ],
+      "inputModes": [
+        "text/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/json",
+        "text/plain"
+      ]
+    }
+  ],
+  "securitySchemes": {
+    "open": {
+      "type": "none",
+      "description": "Open discovery and public catalog access without authentication"
+    },
+    "oauth2": {
+      "type": "oauth2",
+      "description": "OAuth 2.0 authorization server metadata at /.well-known/oauth-authorization-server",
+      "flows": {
+        "clientCredentials": {
+          "tokenUrl": "https://jkfertilizers.com/agent/auth",
+          "scopes": {
+            "read:products": "Read catalog and technical specs",
+            "read:pricing": "Access wholesale pricing and terms",
+            "inquiry:create": "Submit procurement quotations"
+          }
+        }
+      }
+    }
+  }
+}

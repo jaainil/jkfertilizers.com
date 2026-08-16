@@ -11,6 +11,11 @@
           "href": "https://jkfertilizers.com/.well-known/mcp/server-card.json",
           "type": "application/json",
           "title": "MCP Server Card (SEP-1649)"
+        },
+        {
+          "href": "https://jkfertilizers.com/.well-known/agent-card.json",
+          "type": "application/json",
+          "title": "A2A Agent Card (Agent2Agent Protocol)"
         }
       ],
       "service-doc": [
