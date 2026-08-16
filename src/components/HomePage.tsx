@@ -268,20 +268,20 @@ const HomeHero = () => {
             src={images.hero}
             alt="Sustainable agriculture field"
             eager
-            className="aspect-[4/3] min-h-52 sm:min-h-72 lg:aspect-[4/4.6] lg:min-h-[38rem]"
+            className="aspect-[4/3] min-h-[14rem] sm:min-h-72 lg:aspect-[4/4.6] lg:min-h-[38rem]"
             overlay={
-            <div className="grid gap-2 grid-cols-2">
-              <div className="rounded-xl border border-border/60 bg-surface-overlay p-3 shadow-card sm:rounded-2xl sm:p-4">
-                <p className="type-label font-bold uppercase tracking-[0.16em] text-primary">Our promise</p>
-                <p className="mt-1 font-heading text-sm font-bold text-foreground sm:mt-2 sm:text-base">100% Organic Solutions</p>
+            <div className="grid gap-2 grid-cols-2 sm:gap-3">
+              <div className="rounded-xl border border-border/60 bg-surface-overlay/95 backdrop-blur-xs p-2.5 shadow-card sm:rounded-2xl sm:p-4">
+                <p className="type-label font-bold uppercase tracking-[0.16em] text-primary text-[10px] sm:text-xs">Our promise</p>
+                <p className="mt-0.5 font-heading text-xs font-bold text-foreground sm:mt-2 sm:text-base leading-tight">100% Organic Solutions</p>
                 <p className="mt-1 hidden type-body-sm text-muted-foreground sm:block">Eco-friendly fertilizers for sustainable farming.</p>
               </div>
-              <div className="rounded-xl border border-white/15 bg-secondary p-3 text-white shadow-card sm:rounded-2xl sm:p-4">
-                <p className="type-label font-bold uppercase tracking-[0.16em] text-white/70">Why J K Fertilizers</p>
-                <p className="mt-1 font-heading text-sm font-bold sm:mt-2 sm:text-base">Quality & Sustainability</p>
+              <div className="rounded-xl border border-white/15 bg-secondary/95 backdrop-blur-xs p-2.5 text-white shadow-card sm:rounded-2xl sm:p-4">
+                <p className="type-label font-bold uppercase tracking-[0.16em] text-white/70 text-[10px] sm:text-xs">Why J K Fertilizers</p>
+                <p className="mt-0.5 font-heading text-xs font-bold sm:mt-2 sm:text-base leading-tight">Quality & Sustainability</p>
                 <div className="mt-1 flex items-center gap-1.5 sm:mt-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  <span className="type-label text-white/70">15+ years experience</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                  <span className="type-label text-white/70 text-[10px] sm:text-xs">15+ years experience</span>
                 </div>
               </div>
             </div>
@@ -297,7 +297,7 @@ const HomeStatsBar = () => {
   const statsReveal = useScrollReveal();
 
   return (
-    <section className="relative z-10 -mt-10 px-4 pb-4 sm:px-6 lg:px-8">
+    <section className="relative z-10 mt-6 sm:-mt-10 px-4 pb-4 sm:px-6 lg:px-8">
       <div
         ref={statsReveal.ref}
         className={`mx-auto grid max-w-7xl gap-3 grid-cols-2 md:grid-cols-4 sm:gap-4 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
@@ -305,14 +305,14 @@ const HomeStatsBar = () => {
         {heroStats.map((item, i) => (
           <div
             key={item.label}
-            className="rounded-2xl border border-border bg-surface-card p-4 shadow-card sm:rounded-3xl sm:p-6"
+            className="rounded-2xl border border-border bg-surface-card p-3.5 sm:p-6 shadow-card"
             {...staggerDelay(i)}
           >
-            <p className="font-heading text-2xl font-extrabold text-primary sm:text-3xl">
+            <p className="font-heading text-xl font-extrabold text-primary sm:text-3xl">
               {item.value}
-              {item.unit && <span className="ml-1 text-lg font-semibold text-muted-foreground">{item.unit}</span>}
+              {item.unit && <span className="ml-1 text-base sm:text-lg font-semibold text-muted-foreground">{item.unit}</span>}
             </p>
-            <p className="mt-1.5 type-label font-semibold text-muted-foreground uppercase tracking-[0.14em] sm:mt-2">{item.label}</p>
+            <p className="mt-1 type-label font-semibold text-muted-foreground uppercase tracking-[0.12em] sm:tracking-[0.14em] sm:mt-2 text-[11px] sm:text-xs leading-tight">{item.label}</p>
           </div>
         ))}
       </div>
