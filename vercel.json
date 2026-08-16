@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </pricing.md>; rel=\"describedby\"; type=\"text/markdown\", </auth.md>; rel=\"describedby\"; type=\"text/markdown\", </sitemap.xml>; rel=\"service-desc\"; type=\"application/xml\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/agent-skills/index.json>; rel=\"service-desc\"; type=\"application/json\""
+          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </pricing.md>; rel=\"describedby\"; type=\"text/markdown\", </auth.md>; rel=\"describedby\"; type=\"text/markdown\", </sitemap.xml>; rel=\"service-desc\"; type=\"application/xml\", </.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/agent-skills/index.json>; rel=\"service-desc\"; type=\"application/json\", </.well-known/mcp/server-card.json>; rel=\"service-desc\"; type=\"application/json\""
         },
         {
           "key": "X-Content-Type-Options",
@@ -18,6 +18,32 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/mcp/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/mcp.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         }
       ]
     },

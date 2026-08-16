@@ -8,6 +8,8 @@ This document defines how autonomous AI agents, crawlers, and programmatic syste
 
 ## 1. Discovery & Metadata
 
+- **MCP Server Card (SEP-1649):** `https://jkfertilizers.com/.well-known/mcp/server-card.json`
+- **Agent Skills Directory:** `https://jkfertilizers.com/.well-known/agent-skills/index.json`
 - **OAuth Protected Resource:** `https://jkfertilizers.com/.well-known/oauth-protected-resource`
 - **OAuth Authorization Server:** `https://jkfertilizers.com/.well-known/oauth-authorization-server`
 - **API Catalog (RFC 9727):** `https://jkfertilizers.com/.well-known/api-catalog`

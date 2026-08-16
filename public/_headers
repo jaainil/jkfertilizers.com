@@ -7,10 +7,18 @@
   Referrer-Policy: strict-origin-when-cross-origin
 
 /
-  Link: </llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json"
+  Link: </llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"
 
 /index.html
-  Link: </llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json"
+  Link: </llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"
+
+/.well-known/mcp/server-card.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/mcp.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
 
 /.well-known/agent-skills/index.json
   Content-Type: application/json; charset=utf-8

@@ -6,6 +6,11 @@
         {
           "href": "https://jkfertilizers.com/openapi.json",
           "type": "application/vnd.oai.openapi+json"
+        },
+        {
+          "href": "https://jkfertilizers.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP Server Card (SEP-1649)"
         }
       ],
       "service-doc": [

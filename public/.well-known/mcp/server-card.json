@@ -1,0 +1,162 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0.0",
+  "protocolVersion": "2024-11-05",
+  "serverInfo": {
+    "name": "jkfertilizers-mcp-server",
+    "version": "1.0.0",
+    "title": "J K Fertilizers MCP Server",
+    "description": "Model Context Protocol server for J K Fertilizers (Anand, Gujarat, India). Provides autonomous discovery, product specifications, technical assays, B2B procurement calculations, and contract manufacturing resources for AI agents.",
+    "websiteUrl": "https://jkfertilizers.com",
+    "documentationUrl": "https://jkfertilizers.com/llms.txt"
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://jkfertilizers.com/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "search_products",
+      "description": "Search the J K Fertilizers product catalog by category, active nutrient, or crop application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Product search term (e.g. 'PROM', 'organic manure', 'mycorrhiza', 'base granules')"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "organic-fertilizer",
+              "bio-fertilizer",
+              "base-granules",
+              "coated-granules"
+            ],
+            "description": "Optional category filter"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "get_product_assay",
+      "description": "Retrieve technical assay, nutrient breakdown, particle size distribution, and FCO compliance parameters for a specific product.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Product slug (e.g. 'organic-manure', 'prom', 'pdm', 'pancharatna-base-granules')"
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      }
+    },
+    {
+      "name": "get_b2b_pricing_quote",
+      "description": "Calculate volume-tiered wholesale pricing estimates, minimum order quantities (MOQ), and shipping estimates for bulk orders.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string",
+            "description": "Product identifier or name"
+          },
+          "quantity_mt": {
+            "type": "number",
+            "description": "Quantity in metric tonnes (MT)"
+          },
+          "destination_state": {
+            "type": "string",
+            "description": "Destination Indian state or country for logistics estimate"
+          }
+        },
+        "required": [
+          "product",
+          "quantity_mt"
+        ]
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "https://jkfertilizers.com/llms.txt",
+      "name": "LLM Knowledge Base",
+      "mimeType": "text/markdown",
+      "description": "Structured overview of J K Fertilizers products, company history, and specifications."
+    },
+    {
+      "uri": "https://jkfertilizers.com/pricing.md",
+      "name": "B2B Pricing & Terms",
+      "mimeType": "text/markdown",
+      "description": "Wholesale pricing matrix, volume tiers, MOQ, payment terms, and delivery guidelines."
+    },
+    {
+      "uri": "https://jkfertilizers.com/openapi.json",
+      "name": "OpenAPI Specification",
+      "mimeType": "application/json",
+      "description": "OpenAPI 3.1 catalog of machine-readable endpoints."
+    },
+    {
+      "uri": "https://jkfertilizers.com/.well-known/agent-skills/index.json",
+      "name": "Agent Skills Directory",
+      "mimeType": "application/json",
+      "description": "Autonomous agent skills index for procurement, contract manufacturing, and catalog queries."
+    }
+  ],
+  "prompts": [
+    {
+      "name": "recommend_fertilizer",
+      "description": "Recommend optimal organic fertilizer and granule combinations based on soil conditions, crop type, and agronomic goals.",
+      "arguments": [
+        {
+          "name": "crop_type",
+          "description": "Target crop (e.g. cotton, sugarcane, wheat, horticulture, paddy)",
+          "required": true
+        },
+        {
+          "name": "soil_type",
+          "description": "Soil characteristics (e.g. black cotton, alluvial, sandy, saline)",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "draft_inquiry",
+      "description": "Draft a formal B2B procurement inquiry or contract manufacturing proposal for J K Fertilizers sales desk.",
+      "arguments": [
+        {
+          "name": "company_name",
+          "description": "Buyer or brand company name",
+          "required": true
+        },
+        {
+          "name": "requirements",
+          "description": "Granule formulation, volume, and packaging specifications",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "authentication": {
+    "required": false,
+    "type": "none"
+  }
+}

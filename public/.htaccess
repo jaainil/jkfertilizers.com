@@ -69,9 +69,9 @@
   Header set X-XSS-Protection "1; mode=block"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 
-  # Link Response Headers for Agent Discovery (RFC 8288 / RFC 9727 Section 3 / Auth.md / Agent Skills Discovery)
+  # Link Response Headers for Agent Discovery (RFC 8288 / RFC 9727 Section 3 / Auth.md / Agent Skills Discovery / MCP SEP-1649)
   <FilesMatch "^(index\.html)?$">
-    Header set Link '</llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json"'
+    Header set Link '</llms.txt>; rel="describedby"; type="text/markdown", </pricing.md>; rel="describedby"; type="text/markdown", </auth.md>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="service-desc"; type="application/xml", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"'
   </FilesMatch>
 
   # Markdown for Agents Content-Type & Vary
