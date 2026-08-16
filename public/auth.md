@@ -11,6 +11,7 @@ This document defines how autonomous AI agents, crawlers, and programmatic syste
 - **A2A Agent Card (Agent2Agent Protocol):** `https://jkfertilizers.com/.well-known/agent-card.json`
 - **MCP Server Card (SEP-1649):** `https://jkfertilizers.com/.well-known/mcp/server-card.json`
 - **Agent Skills Directory:** `https://jkfertilizers.com/.well-known/agent-skills/index.json`
+- **DNS for AI Discovery (DNS-AID):** `_agents.jkfertilizers.com` (SVCB / HTTPS / RFC 9460)
 - **OAuth Protected Resource:** `https://jkfertilizers.com/.well-known/oauth-protected-resource`
 - **OAuth Authorization Server:** `https://jkfertilizers.com/.well-known/oauth-authorization-server`
 - **API Catalog (RFC 9727):** `https://jkfertilizers.com/.well-known/api-catalog`

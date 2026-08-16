@@ -16,6 +16,13 @@
       "digest": "sha256:fa1f963e4d38658bc7b2f65ccff3613fa7569b2c6a4400c89ea8ec17008fdfcc"
     },
     {
+      "name": "dns-aid",
+      "type": "skill-md",
+      "description": "Specifications and zone record definitions for DNS for AI Discovery (DNS-AID) under the _agents namespace with SVCB/HTTPS records and DNSSEC validation.",
+      "url": "https://jkfertilizers.com/.well-known/agent-skills/dns-aid/SKILL.md",
+      "digest": "sha256:ab4ac4e6b3e4710335b6b7392d8684f43ca51c09ebf56e59557022aac5288817"
+    },
+    {
       "name": "product-catalog",
       "type": "skill-md",
       "description": "Technical assay query skill for inspecting organic fertilizers, nutrient specifications, granule hardness, and FCO compliance parameters.",

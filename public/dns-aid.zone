@@ -1,0 +1,30 @@
+; ==============================================================================
+; DNS for AI Discovery (DNS-AID) Zone File Template
+; Domain: jkfertilizers.com
+; Specification: draft-mozleywilliams-dnsop-dnsaid / RFC 9460 (SVCB/HTTPS)
+; ==============================================================================
+
+$ORIGIN jkfertilizers.com.
+$TTL 3600
+
+; ─── DNS-AID Agent Discovery Namespace (_agents) ──────────────────────────────
+
+; 1. A2A (Agent-to-Agent) Protocol Discovery Entrypoint
+_a2a._agents    IN SVCB  1 jkfertilizers.com. alpn="a2a" port=443 mandatory=alpn,port
+_a2a._agents    IN HTTPS 1 jkfertilizers.com. alpn="a2a" port=443 mandatory=alpn,port
+_a2a._agents    IN TXT   "path=/.well-known/agent-card.json;proto=a2a/1.0"
+
+; 2. MCP (Model Context Protocol) Server Discovery Entrypoint
+_mcp._agents    IN SVCB  1 jkfertilizers.com. alpn="mcp" port=443 mandatory=alpn,port
+_mcp._agents    IN HTTPS 1 jkfertilizers.com. alpn="mcp" port=443 mandatory=alpn,port
+_mcp._agents    IN TXT   "path=/.well-known/mcp/server-card.json;proto=mcp/1.0"
+
+; 3. General Agent Discovery Index Entrypoint
+_index._agents  IN SVCB  1 jkfertilizers.com. alpn="h2,h3" port=443 mandatory=alpn,port
+_index._agents  IN HTTPS 1 jkfertilizers.com. alpn="h2,h3" port=443 mandatory=alpn,port
+_index._agents  IN TXT   "path=/.well-known/agent-skills/index.json;proto=agentskills/0.2.0"
+
+; 4. B2B Wholesale Procurement Agent Entrypoint
+_b2b._agents    IN SVCB  1 jkfertilizers.com. alpn="a2a,mcp" port=443 mandatory=alpn,port
+_b2b._agents    IN HTTPS 1 jkfertilizers.com. alpn="a2a,mcp" port=443 mandatory=alpn,port
+_b2b._agents    IN TXT   "agent=b2b-procurement;service=fertilizer-quotes"
