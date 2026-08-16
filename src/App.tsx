@@ -19,6 +19,8 @@ import { ServiceDetailPage } from "@/pages/ServiceDetailPage";
 import { ContactPage } from "@/pages/ContactPage";
 import { PortfolioPage } from "@/pages/PortfolioPage";
 import { CommitmentPage } from "@/pages/CommitmentPage";
+import { PrivacyPage } from "@/pages/PrivacyPage";
+import { ReturnPolicyPage } from "@/pages/ReturnPolicyPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { HomePage } from "@/components/HomePage";
 
@@ -53,6 +55,11 @@ const AppRoutes = () => (
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/commitment" element={<CommitmentPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/confidentiality-privacy" element={<PrivacyPage />} />
+        <Route path="/return-policy" element={<ReturnPolicyPage />} />
+        <Route path="/refund-policy" element={<ReturnPolicyPage />} />
+        <Route path="/refund-and-returns-policy" element={<ReturnPolicyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

@@ -1556,3 +1556,47 @@ export const commitmentPageSchema = {
     ],
   },
 };
+
+/* ─────────────────────────────────────────────
+   19. Confidentiality & Privacy Page Schema
+   ───────────────────────────────────────────── */
+export const privacyPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}/privacy#privacypage`,
+  url: `${SITE_URL}/privacy`,
+  name: "Confidentiality & Privacy Policy — J K Fertilizers",
+  description:
+    "Read the Confidentiality & Privacy Policy of J K Fertilizers. Learn how we collect, use, and protect your personal information with strict security and transparency.",
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "en-IN",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Confidentiality & Privacy", item: `${SITE_URL}/privacy` },
+    ],
+  },
+};
+
+/* ─────────────────────────────────────────────
+   20. Refund and Returns Policy Page Schema
+   ───────────────────────────────────────────── */
+export const returnPolicyPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}/return-policy#returnpolicypage`,
+  url: `${SITE_URL}/return-policy`,
+  name: "Refund and Returns Policy — J K Fertilizers",
+  description:
+    "Read the Refund and Returns Policy of J K Fertilizers. Learn about our 30-day return policy, refund timelines, defective item replacements, and customer support.",
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "en-IN",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Refund and Returns Policy", item: `${SITE_URL}/return-policy` },
+    ],
+  },
+};

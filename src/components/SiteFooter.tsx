@@ -226,9 +226,8 @@ export const SiteFooter = () => {
             <p>Anand, Gujarat, India</p>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/75">
-            <a href="/privacy" className="transition-colors hover:text-white">Confidentiality & Privacy</a>
-            <a href="/legal" className="transition-colors hover:text-white">Legal Information</a>
-            <a href="/return-policy" className="transition-colors hover:text-white">Return and Refund Policy</a>
+            <Link to="/privacy" className="transition-colors hover:text-white">Confidentiality & Privacy</Link>
+            <Link to="/return-policy" className="transition-colors hover:text-white">Return and Refund Policy</Link>
           </div>
           <a
             href="https://aexaware.com"
