@@ -5,6 +5,7 @@ import { getProductCoverImage } from "@/data/products";
 export const ProductCard = ({ product }) => (
   <Link
     to={`/products/${product.slug}`}
+    aria-label={`View details and specifications for ${product.title}`}
     className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-card transition-[box-shadow,border-color] duration-300 hover:shadow-card-hover hover:border-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:rounded-3xl h-full"
   >
     {/* Image */}
@@ -49,7 +50,7 @@ export const ProductCard = ({ product }) => (
       </div>
 
       <div className="mt-4 flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-primary sm:mt-5">
-        Read more
+        Read more <span className="sr-only">about {product.title}</span>
         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </div>

@@ -193,9 +193,10 @@ const MegaProductDropdown = ({
             </div>
             <NavLink
               to={`/products/${activeProduct.slug}`}
+              aria-label={`Learn more about ${activeProduct.title}`}
               className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:text-primary/80 transition-colors"
             >
-              Learn More <ChevronRight className="h-3 w-3" />
+              Learn More <span className="sr-only">about {activeProduct.title}</span> <ChevronRight className="h-3 w-3" />
             </NavLink>
           </div>
 

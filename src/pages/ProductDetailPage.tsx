@@ -456,6 +456,7 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
               <CarouselItem key={relProduct.slug} className="pl-6 md:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/products/${relProduct.slug}`}
+                  aria-label={`View details and specifications for ${relProduct.title}`}
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface-card shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover"
                 >
                   <div className="relative h-56 w-full shrink-0 overflow-hidden">
@@ -483,7 +484,7 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
                       ))}
                     </div>
                     <div className="mt-5 flex items-center gap-2 type-label font-semibold uppercase tracking-[0.16em] text-primary">
-                      Read more
+                      Read more <span className="sr-only">about {relProduct.title}</span>
                       <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </div>

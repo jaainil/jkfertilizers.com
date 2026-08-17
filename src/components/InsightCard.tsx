@@ -15,6 +15,7 @@ interface InsightPost {
 export const InsightCard = ({ post }: { post: InsightPost }) => (
   <Link
     to={post.slug ? `/blog/${post.slug}` : "/blog"}
+    aria-label={`Read article: ${post.title || "Blog post"}`}
     className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-3xl"
   >
     <Card className="h-full rounded-2xl border-border/60 bg-surface-card shadow-card transition-[box-shadow,border-color] duration-300 group-hover:shadow-card-hover group-hover:border-primary/20 overflow-hidden sm:rounded-3xl">
@@ -38,7 +39,7 @@ export const InsightCard = ({ post }: { post: InsightPost }) => (
         <h3 className="mt-4 font-heading type-card-title font-bold text-foreground leading-snug">{post.title}</h3>
         <p className="mt-3 flex-1 type-body-sm text-muted-foreground">{post.excerpt}</p>
         <div className="mt-5 flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-primary">
-          Read more
+          Read more <span className="sr-only">about {post.title}</span>
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
       </CardContent>

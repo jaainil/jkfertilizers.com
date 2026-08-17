@@ -20,7 +20,11 @@ export const ServiceCard = ({ service }) => {
   // Image-backed card
   if (cardImage) {
     return (
-      <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-3xl">
+      <Link
+        to={href}
+        aria-label={`Learn more about ${service.title}`}
+        className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-3xl"
+      >
         <article className="relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-2xl border border-border/50 shadow-card transition-[box-shadow,border-color] duration-300 group-hover:shadow-card-hover group-hover:border-primary/25 sm:min-h-[340px] sm:rounded-3xl">
           <img
             src={cardImage}
@@ -49,7 +53,7 @@ export const ServiceCard = ({ service }) => {
             </div>
             <p className="mt-3 type-body-sm text-white/75 sm:mt-4">{service.description}</p>
             <div className="mt-4 flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-accent sm:mt-5">
-              Learn more
+              Learn more <span className="sr-only">about {service.title}</span>
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
           </div>
@@ -60,7 +64,11 @@ export const ServiceCard = ({ service }) => {
 
   // Text-only card
   return (
-    <Link to={href} className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-3xl">
+    <Link
+      to={href}
+      aria-label={`Learn more about ${service.title}`}
+      className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl sm:rounded-3xl"
+    >
       <article className="relative flex h-full flex-col rounded-2xl border border-border/60 bg-surface-card p-5 shadow-card transition-[box-shadow,border-color] duration-300 group-hover:shadow-card-hover group-hover:border-primary/25 sm:rounded-3xl sm:p-7 overflow-hidden">
         <div className="flex items-start justify-between gap-3 sm:gap-4">
           <div className="space-y-2 sm:space-y-3">
@@ -75,7 +83,7 @@ export const ServiceCard = ({ service }) => {
         </div>
         <p className="mt-4 type-body-sm text-muted-foreground sm:mt-5">{service.description}</p>
         <div className="mt-auto pt-4 flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-primary sm:pt-5">
-          Learn more
+          Learn more <span className="sr-only">about {service.title}</span>
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
       </article>

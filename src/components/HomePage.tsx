@@ -329,18 +329,24 @@ const HomePromoCards = () => {
       title: "Innovative Solutions for Modern Agriculture",
       body: "Explore our innovative organic fertilizers designed for higher yields and healthier soils.",
       href: "/products",
+      actionText: "Explore Products",
+      ariaLabel: "Explore innovative organic fertilizer solutions",
     },
     {
       icon: Award,
       title: "Quality You Can Rely On",
       body: "Our FCO-approved facility ensures every product is premium-grade and effective for all crops.",
       href: "/commitment",
+      actionText: "Our Commitment",
+      ariaLabel: "Read about our quality standards and sustainability commitment",
     },
     {
       icon: Leaf,
       title: "A Range of Products for Every Need",
       body: "From soil conditioners to micronutrients, we offer solutions tailored for diverse agricultural needs.",
       href: "/products",
+      actionText: "View Product Range",
+      ariaLabel: "View all fertilizer products and soil solutions",
     },
   ];
 
@@ -368,9 +374,10 @@ const HomePromoCards = () => {
               <div className="mt-6">
                 <Link
                   to={card.href}
+                  aria-label={card.ariaLabel}
                   className="inline-flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-primary hover:text-primary/80 transition-colors"
                 >
-                  Read More
+                  {card.actionText}
                   <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
@@ -617,8 +624,8 @@ const HomeWhyChooseSection = () => {
               asChild
               className="h-12 rounded-full bg-primary px-6 text-sm text-white font-semibold hover:bg-primary/90 transition-colors duration-200"
             >
-              <Link to="/about">
-                Learn More
+              <Link to="/about" aria-label="Learn more about J K Fertilizers, our mission, and our values">
+                Learn More About Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -730,7 +737,7 @@ const HomeProductsCarousel = () => {
             variant="outline"
             className="h-12 w-full rounded-full border-primary/30 bg-primary/5 px-6 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-colors duration-200 sm:w-auto lg:shrink-0"
           >
-            <Link to="/products">View Portfolio</Link>
+            <Link to="/products" aria-label="View all fertilizer and soil nutrition products">View All Products</Link>
           </Button>
         </div>
         <Carousel
@@ -743,6 +750,7 @@ const HomeProductsCarousel = () => {
               <CarouselItem key={product.slug} className="pl-4 sm:pl-6 basis-[88%] sm:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/products/${product.slug}`}
+                  aria-label={`Read more about ${product.title}`}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-card transition-[box-shadow,border-color] duration-300 hover:shadow-card-hover hover:border-primary/20 sm:rounded-3xl"
                 >
                   <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-48 lg:h-56">
@@ -764,7 +772,7 @@ const HomeProductsCarousel = () => {
                       ))}
                     </div>
                     <div className="mt-4 flex items-center gap-2 type-label font-bold uppercase tracking-[0.16em] text-primary">
-                      Read more
+                      Read more <span className="sr-only">about {product.title}</span>
                       <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </div>
