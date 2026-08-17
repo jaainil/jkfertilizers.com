@@ -321,7 +321,7 @@ export const ContactPage = () => {
         title="Contact J K Fertilizers | Anand Gujarat Fertilizer Plant"
         description="Contact J K Fertilizers for organic fertilizer orders, bulk inquiries, and partnerships. Call 9825045894 or email sales@jkfertilizers.com. Located in Vasad, Anand, Gujarat, INDIA."
         canonical="/contact"
-        ogImage="/images/about-1.jpg"
+        ogImage="/images/about-1.webp"
         keywords="contact J K Fertilizers, fertilizer order gujarat, organic fertilizer inquiry, fertilizer manufacturer contact anand gujarat, jkfertilizers.com"
         schema={[organizationSchema, contactPageSchema]}
       />

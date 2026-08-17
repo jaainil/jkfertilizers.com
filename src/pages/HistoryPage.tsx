@@ -23,51 +23,51 @@ const timeline = [
     year: "2006",
     title: "The Beginning of a Vision",
     description: "Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers has consistently grown through strategic investments in infrastructure and expansion of production capacity, with a focus on organic fertilizers and a commitment to sustainable agricultural practices. J K Fertilizers commenced operations with its first organic manure plant. This humble beginning laid the foundation for a pioneering legacy in sustainable agriculture.",
-    image: "/images/drone-view-3.jpg",
+    image: "/images/drone-view-3.webp",
   },
   {
     year: "2010",
     title: "Expanding Production Capacity",
     description: "Between 2010 and 2012, the company added a 400 MT granulation plant and a 200 MT powder plant, significantly increasing its production capabilities. This expansion helped meet rising demand and solidified J K Fertilizers’ presence in the industry. In 2010, we took a significant step forward by establishing a 100 MT granule production unit. This milestone marked the beginning of our transformation into a large-scale fertilizer manufacturer.",
-    image: "/images/capacity-expansion.jpg",
+    image: "/images/capacity-expansion.webp",
   },
   {
     year: "2012",
     title: "Adding a Granulation Plant",
     description: "Continuing our growth, we introduced a 400 MT granulation plant in 2012. This advancement further strengthened our production capabilities, enabling us to cater to an expanding customer base effectively.",
-    image: "/images/granulation-plant.jpg",
+    image: "/images/granulation-plant.webp",
   },
   {
     year: "2018",
     title: "Diversifying and Innovating",
     description: "In 2018, we added multiple granule coating plants with capacities of 30, 60, and 100 MT, along with a 15,000-liter liquid plant. This marked our commitment to diversifying product offerings and enhancing production efficiency, catering to the evolving demands of modern agriculture.",
-    image: "/images/diversifying-machinery.jpg",
+    image: "/images/diversifying-machinery.webp",
   },
   {
     year: "2020",
     title: "Unprecedented Growth",
     description: "By 2020, J K Fertilizers increased its granule production capacity to 700 MT per day. This expansion solidified our position as a leader in the organic fertilizer industry.",
-    image: "/images/unprecedented-growth.jpg",
+    image: "/images/unprecedented-growth.webp",
   },
   {
     year: "2022",
     title: "Transforming Agriculture at Scale",
     description: "In 2022, we launched a specialized coating and coated nutritious granules plant, further diversifying our portfolio. Our efforts culminated in a combined production capacity of 700 MT per day, supported by enhanced leasing infrastructure and expansive storage facilities. This allowed us to forge partnerships with government organizations, PSUs, corporates, and MSMEs, marking a significant leap in our growth trajectory.",
-    image: "/images/transforming-agriculture.jpg",
+    image: "/images/transforming-agriculture.webp",
   },
   {
     year: "2024",
     title: "Pioneering Innovation",
     description: "This year, we took another step by establishing a facility for producing Mycorrhiza technical, an addition to our product range aimed at enhancing soil health and crop productivity. Additionally, the inauguration of our liquid filling plant reflects our dedication to offering holistic solutions for sustainable agriculture.",
-    image: "/images/pioneering-innovation.jpg",
+    image: "/images/pioneering-innovation.webp",
   },
 ];
 
 const machineryGallery = [
-  { src: "/images/machinery-6.jpg", title: "Granule Production Machinery", desc: "Advanced granulation line for uniform and nutrient-rich organic granules." },
-  { src: "/images/machinery-8.jpg", title: "Customized Coating Plant", desc: "Specialized coating drums for precise technical mycorrhiza/coating application." },
-  { src: "/images/dsc00142.jpg", title: "Raw Material Processing", desc: "Careful sorting and processing of premium organic materials." },
-  { src: "/images/dsc00210.jpg", title: "Vasad Packaging Unit", desc: "High-capacity automated bagging and finishing for commercial delivery." },
+  { src: "/images/machinery-6.webp", title: "Granule Production Machinery", desc: "Advanced granulation line for uniform and nutrient-rich organic granules." },
+  { src: "/images/machinery-8.webp", title: "Customized Coating Plant", desc: "Specialized coating drums for precise technical mycorrhiza/coating application." },
+  { src: "/images/dsc00142.webp", title: "Raw Material Processing", desc: "Careful sorting and processing of premium organic materials." },
+  { src: "/images/dsc00210.webp", title: "Vasad Packaging Unit", desc: "High-capacity automated bagging and finishing for commercial delivery." },
 ];
 
 export const HistoryPage = () => {
@@ -82,7 +82,7 @@ export const HistoryPage = () => {
         title="Company History & Milestones | J K Fertilizers Gujarat"
         description="Discover the journey of J K Fertilizers since 2006. Learn how we expanded from our first organic manure unit to 700 MT/day capacity in Vasad, Gujarat."
         canonical="/history"
-        ogImage="/images/drone-view-3.jpg"
+        ogImage="/images/drone-view-3.webp"
         keywords="J K Fertilizers history, organic fertilizer manufacturer history, Vasad granulation plant, Akash Dadhania, fertilizer timeline"
         schema={[organizationSchema, historyPageSchema]}
       />
@@ -92,7 +92,7 @@ export const HistoryPage = () => {
         eyebrow="Our Journey"
         title="Nurturing Growth, Pioneering Sustainable Agriculture Since 2006"
         description="A legacy of innovation, infrastructure expansion, and premium organic solutions for a greener future."
-        imageSrc="/images/drone-view-3.jpg"
+        imageSrc="/images/drone-view-3.webp"
         imageAlt="J K Fertilizers drone view"
         badges={["Established 2006", "700 MT Daily Capacity", "ISO Certified Facility"]}
         primaryCta={

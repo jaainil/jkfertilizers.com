@@ -65,7 +65,7 @@ export const ReturnPolicyPage = () => {
         title="Refund and Returns Policy | J K Fertilizers"
         description="Read the official Refund and Returns Policy of J K Fertilizers. 30-day returns for unopened products, defective product replacements, and refund process."
         canonical="/return-policy"
-        ogImage="/images/about-1.jpg"
+        ogImage="/images/about-1.webp"
         keywords="return policy, refund policy, J K Fertilizers returns, replacement policy, customer satisfaction, agricultural inputs return"
         schema={[organizationSchema, returnPolicyPageSchema]}
       />

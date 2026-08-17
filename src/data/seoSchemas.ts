@@ -4,8 +4,8 @@
  */
 
 const SITE_URL = "https://jkfertilizers.com";
-const LOGO_URL = `${SITE_URL}/logo.png`;
-const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+const LOGO_URL = `${SITE_URL}/logo.webp`;
+const OG_IMAGE_URL = `${SITE_URL}/og-image.webp`;
 
 // ─── Schema.org Type Definitions ───────────────────────────────────────────────
 
@@ -423,7 +423,7 @@ export const organizationSchema: Organization = {
     },
     {
       "@type": "ImageObject",
-      url: `${SITE_URL}/images/factory.jpg`,
+      url: `${SITE_URL}/images/factory.webp`,
       caption: "J K Fertilizers Manufacturing Facility — Anand, Gujarat, INDIA",
     },
   ],

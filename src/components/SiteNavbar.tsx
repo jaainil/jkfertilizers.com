@@ -341,7 +341,7 @@ const MobileNavDrawer = ({
       {/* Drawer header */}
       <div className="flex items-center justify-between border-b border-border/60 bg-surface-card px-5 py-4 shrink-0">
         <Link to="/" onClick={onMobileToggle} className="flex items-center gap-2.5">
-          <img src="/logo.png" alt="J K Fertilizers" className="h-9 w-auto rounded-lg object-contain" />
+          <img src="/logo.webp" alt="J K Fertilizers" className="h-9 w-auto rounded-lg object-contain" />
           <div>
             <p className="font-heading text-sm font-bold text-foreground">{company.name}</p>
             <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">Organic · Naturally</p>
@@ -568,7 +568,7 @@ export const SiteNavbar = ({
 
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-2.5 sm:gap-3 shrink-0" data-testid="site-logo-link">
-            <img src="/logo.png" alt="J K Fertilizers" className="h-10 w-auto rounded-lg object-contain sm:h-11" />
+            <img src="/logo.webp" alt="J K Fertilizers" className="h-10 w-auto rounded-lg object-contain sm:h-11" />
             <div>
               <p className="font-heading text-sm font-bold leading-tight text-foreground sm:text-base">{company.name}</p>
               <p className="type-label font-medium uppercase tracking-[0.18em] text-muted-foreground">Organic · Naturally</p>

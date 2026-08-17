@@ -63,7 +63,7 @@ export const SiteFooter = () => {
         <div className="space-y-6 sm:col-span-2 lg:col-span-1 lg:space-y-7" data-testid="footer-company-block">
           <Link to="/" className="group inline-flex items-center gap-3">
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="J K Fertilizers"
               className="h-10 w-auto rounded-lg object-contain brightness-0 invert sm:h-11"
             />

@@ -105,7 +105,7 @@ function buildRSS(posts) {
   const items = posts.map(p => {
     const pubDate = new Date(p.date).toUTCString();
     const imgTag  = p.img
-      ? `\n      <enclosure url="${escapeXml(p.img.startsWith('http') ? p.img : SITE_URL + p.img)}" type="image/jpeg" length="0" />`
+      ? `\n      <enclosure url="${escapeXml(p.img.startsWith('http') ? p.img : SITE_URL + p.img)}" type="image/webp" length="0" />`
       : '';
 
     return `
@@ -138,7 +138,7 @@ function buildRSS(posts) {
     <pubDate>${lastBuild}</pubDate>
     <ttl>10080</ttl>
     <image>
-      <url>${SITE_URL}/logo.png</url>
+      <url>${SITE_URL}/logo.webp</url>
       <title>${escapeXml(SITE_TITLE)}</title>
       <link>${SITE_URL}</link>
       <width>144</width>

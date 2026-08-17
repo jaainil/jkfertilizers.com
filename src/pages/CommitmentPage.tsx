@@ -73,7 +73,7 @@ export const CommitmentPage = () => {
       title="Sustainability & Quality Commitment | J K Fertilizers"
       description="J K Fertilizers' commitment to sustainability, quality, and innovation. We deliver 100% organic, eco-friendly fertilizers for a greener future."
       canonical="/commitment"
-      ogImage="/images/commitment-1.jpg"
+      ogImage="/images/commitment-1.webp"
       keywords="J K Fertilizers commitment, sustainable agriculture, organic farming commitment, eco-friendly fertilizers, quality assurance"
       schema={[organizationSchema, commitmentPageSchema]}
     />
@@ -81,7 +81,7 @@ export const CommitmentPage = () => {
       eyebrow="Why Can You Trust Us?"
       title="Our Commitment"
       description="At J K Fertilizers, sustainability is the cornerstone of our operations. We are dedicated to improving agriculture by providing organic and eco-friendly fertilizers that not only enhance soil health but also contribute to the long-term well-being of the environment."
-      imageSrc="/images/commitment-1.jpg"
+      imageSrc="/images/commitment-1.webp"
       imageAlt="J K Fertilizers commitment to sustainability"
       badges={["Sustainable", "Organic", "Since 2006"]}
       primaryCta={
@@ -181,7 +181,7 @@ export const CommitmentPage = () => {
       <div className="grid gap-6 sm:grid-cols-3">
         <div className="overflow-hidden rounded-2xl">
           <img
-            src="/images/commitment-1.jpg"
+            src="/images/commitment-1.webp"
             alt="J K Fertilizers granule coating machinery at Vasad plant"
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
@@ -189,7 +189,7 @@ export const CommitmentPage = () => {
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img
-            src="/images/commitment-2.jpg"
+            src="/images/commitment-2.webp"
             alt="Organic fertilizer heap formation at J K Fertilizers, Vasad, Gujarat"
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
@@ -197,7 +197,7 @@ export const CommitmentPage = () => {
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img
-            src="/images/commitment-3.jpg"
+            src="/images/commitment-3.webp"
             alt="Fertilizer production line and processing equipment at J K Fertilizers"
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"

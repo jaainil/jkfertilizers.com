@@ -62,10 +62,10 @@ const organizationSchema = {
   logo: {
     "@type": "ImageObject",
     "@id": `${SITE_URL}/#logo`,
-    url: `${SITE_URL}/logo.png`,
+    url: `${SITE_URL}/logo.webp`,
     caption: "J K Fertilizers Logo"
   },
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/og-image.webp`,
   description: "J K Fertilizers is a leading manufacturer of organic fertilizers, base granules and coated base granules in Anand, Gujarat, India. Specializing in Organic Manure, PDM, PROM, and Mycorrhiza granules since 2006.",
   foundingDate: "2006",
   founder: {
@@ -166,7 +166,7 @@ const pages = [
     title: 'Organic Fertilizer Manufacturer Gujarat | J K Fertilizers',
     description: 'J K Fertilizers is a leading FCO approved organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza & coated granules.',
     canonical: '/',
-    ogImage: '/images/hero.jpg',
+    ogImage: '/images/hero.webp',
     ogType: 'website',
     schema: [organizationSchema, websiteSchema, homeFaqSchema]
   },
@@ -175,7 +175,7 @@ const pages = [
     title: 'About J K Fertilizers | Organic Fertilizer Manufacturer India',
     description: "Learn about J K Fertilizers — India's trusted organic fertilizer manufacturer since 2006. Founded by Mr. Akash Dadhania in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, and coated granules.",
     canonical: '/about',
-    ogImage: '/images/dsc00161.jpg',
+    ogImage: '/images/dsc00161.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -198,7 +198,7 @@ const pages = [
     title: 'Company History & Milestones | J K Fertilizers Gujarat',
     description: 'Discover the journey of J K Fertilizers since 2006. Learn how we expanded from our first organic manure unit to 700 MT/day capacity in Vasad, Gujarat.',
     canonical: '/history',
-    ogImage: '/images/drone-view-3.jpg',
+    ogImage: '/images/drone-view-3.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -221,7 +221,7 @@ const pages = [
     title: 'Organic Fertilizers & Granules Catalog | J K Fertilizers',
     description: "Browse J K Fertilizers' complete range: Organic Manure, PDM (Potash Derived Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Customized Base & Coated Granules. FCO approved.",
     canonical: '/products',
-    ogImage: '/images/about-4.jpg',
+    ogImage: '/images/about-4.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -244,7 +244,7 @@ const pages = [
     title: 'Fertilizer Manufacturing & Job Work Services | J K Fertilizers',
     description: 'Contract manufacturing, custom granulation, packaging, and infrastructure leasing for organic fertilizer brands across India. Vasad, Anand, Gujarat.',
     canonical: '/services',
-    ogImage: '/images/about-1.jpg',
+    ogImage: '/images/about-1.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -270,7 +270,7 @@ const pages = [
     title: 'Agricultural Products Portfolio | J K Fertilizers',
     description: "Explore J K Fertilizers' product portfolio — Organic Manure, PDM, PROM, Mycorrhiza Granules, Coated Granules, Base Granules, and more. Trusted since 2006.",
     canonical: '/portfolio',
-    ogImage: '/images/about-4.jpg',
+    ogImage: '/images/about-4.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -292,7 +292,7 @@ const pages = [
     title: 'Sustainability & Quality Commitment | J K Fertilizers',
     description: "J K Fertilizers' commitment to sustainability, quality, and innovation. We deliver 100% organic, eco-friendly fertilizers for a greener future.",
     canonical: '/commitment',
-    ogImage: '/images/commitment-1.jpg',
+    ogImage: '/images/commitment-1.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -314,7 +314,7 @@ const pages = [
     title: 'Agriculture & Fertilizer Blog | J K Fertilizers Insights',
     description: 'Expert insights on organic fertilizer manufacturing, custom granule formulation, B2B procurement tips, sustainable agriculture, and quality assurance. Anand, Gujarat.',
     canonical: '/blog',
-    ogImage: '/images/granules.jpg',
+    ogImage: '/images/granules.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -336,7 +336,7 @@ const pages = [
     title: 'Contact J K Fertilizers | Anand Gujarat Fertilizer Plant',
     description: 'Contact J K Fertilizers for organic fertilizer orders, bulk inquiries, and partnerships. Call 9825045894 or email sales@jkfertilizers.com. Located in Vasad, Anand, Gujarat, INDIA.',
     canonical: '/contact',
-    ogImage: '/images/about-1.jpg',
+    ogImage: '/images/about-1.webp',
     ogType: 'website',
     schema: [
       organizationSchema,
@@ -358,7 +358,7 @@ const pages = [
     title: '404 — Page Not Found | J K Fertilizers',
     description: 'The page you are looking for does not exist. Explore J K Fertilizers organic fertilizers, base granules, and services.',
     canonical: '/404',
-    ogImage: '/og-image.png',
+    ogImage: '/og-image.webp',
     noindex: true,
   }
 ];
@@ -372,7 +372,7 @@ if (existsSync(productsDir)) {
       const fm = parseFrontmatter(readFileSync(file, 'utf8'));
       const title = fm.title || slug;
       const summary = fm.summary || fm.tagline || 'High-grade organic fertilizer granule from J K Fertilizers, Gujarat.';
-      const prodImg = fm.imageUrl ? (fm.imageUrl.startsWith('/') ? fm.imageUrl : `/images/${fm.imageUrl}`) : '/og-image.png';
+      const prodImg = fm.imageUrl ? (fm.imageUrl.startsWith('/') ? fm.imageUrl : `/images/${fm.imageUrl}`) : '/og-image.webp';
       pages.push({
         path: `/products/${slug}`,
         title: `${title} — B2B Organic Fertilizer Granules | J K Fertilizers`,
@@ -439,7 +439,7 @@ if (existsSync(servicesDir)) {
         title: `${title} | Fertilizer Manufacturing Services | J K Fertilizers`,
         description: `${title} by J K Fertilizers — ${desc} Anand, Gujarat, India.`,
         canonical: `/services/${slug}`,
-        ogImage: fm.imageSrc || '/images/about-1.jpg',
+        ogImage: fm.imageSrc || '/images/about-1.webp',
         ogType: 'website',
         schema: [
           organizationSchema,
@@ -475,7 +475,7 @@ if (existsSync(blogDir)) {
       const fm = parseFrontmatter(readFileSync(file, 'utf8'));
       const title = fm.title || slug;
       const excerpt = fm.excerpt || fm.description || 'Expert agriculture insights from J K Fertilizers.';
-      const blogImg = fm.img || fm.image || '/images/granules.jpg';
+      const blogImg = fm.img || fm.image || '/images/granules.webp';
       pages.push({
         path: `/blog/${slug}`,
         title: `${title} | J K Fertilizers Blog`,

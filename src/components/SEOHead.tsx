@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://jkfertilizers.com";
 const SITE_NAME = "J K Fertilizers";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.webp`;
 const DEFAULT_TWITTER_HANDLE = "@JKFertilizers";
 const DEFAULT_KEYWORDS =
   "organic fertilizer manufacturer India, J K Fertilizers, organic manure, PDM fertilizer, PROM fertilizer, mycorrhiza granules, fertilizer manufacturer Gujarat, coated granules, base granules, organic fertilizer Anand, FCO approved fertilizer";
@@ -133,7 +133,7 @@ export function SEOHead({
       {/* ── Open Graph — Image ── */}
       <meta property="og:image" content={ogImageUrl} />
       <meta property="og:image:secure_url" content={ogImageUrl} />
-      <meta property="og:image:type" content={ogImageUrl.endsWith(".png") ? "image/png" : "image/jpeg"} />
+      <meta property="og:image:type" content={ogImageUrl.endsWith(".webp") ? "image/webp" : "image/webp"} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={ogImageAlt} />

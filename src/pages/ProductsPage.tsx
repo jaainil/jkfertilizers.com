@@ -24,12 +24,12 @@ const productHighlights = [
 ];
 
 const images = {
-  hero: "/images/about-4.jpg",
-  factory: "/images/about-2.jpg",
-  granules: "/images/about-3.jpg",
-  soil: "/images/about-5.jpg",
-  lab: "/images/about-1.jpg",
-  partnership: "/images/about-5.jpg",
+  hero: "/images/about-4.webp",
+  factory: "/images/about-2.webp",
+  granules: "/images/about-3.webp",
+  soil: "/images/about-5.webp",
+  lab: "/images/about-1.webp",
+  partnership: "/images/about-5.webp",
 };
 
 export const ProductsPage = () => {
@@ -58,7 +58,7 @@ export const ProductsPage = () => {
       title={query ? `Search: ${query} — Products | J K Fertilizers` : "Organic Fertilizers & Granules Catalog | J K Fertilizers"}
       description="Browse J K Fertilizers' complete range: Organic Manure, PDM (Potash Derived Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Customized Base & Coated Granules. FCO approved."
       canonical={query ? `/products?q=${encodeURIComponent(query)}` : "/products"}
-      ogImage="/images/about-4.jpg"
+      ogImage="/images/about-4.webp"
       keywords="organic fertilizer products gujarat, organic manure, PDM fertilizer, PROM fertilizer, mycorrhiza granules, base granules, coated granules, J K Fertilizers products, FCO approved fertilizer"
       schema={[organizationSchema, productsPageSchema, productsItemListSchema]}
     />

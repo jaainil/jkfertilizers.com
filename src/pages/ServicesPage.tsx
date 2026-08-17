@@ -68,8 +68,8 @@ const testimonials = [
 ];
 
 const images = {
-  hero: "/images/hero-services.jpg",
-  commitment: "/images/manufacturing.jpg",
+  hero: "/images/hero-services.webp",
+  commitment: "/images/manufacturing.webp",
 };
 
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
@@ -87,7 +87,7 @@ export const ServicesPage = () => {
       title="Fertilizer Manufacturing & Job Work Services | J K Fertilizers"
       description="Contract manufacturing, custom granulation, packaging, and infrastructure leasing for organic fertilizer brands across India. Vasad, Anand, Gujarat."
       canonical="/services"
-      ogImage="/images/about-1.jpg"
+      ogImage="/images/about-1.webp"
       keywords="organic fertilizer manufacturing services, granule technology, infrastructure leasing fertilizer, custom packaging agriculture, job work fertilizer manufacturer, warehouse storage gujarat"
       schema={[organizationSchema, servicesSchema]}
     />

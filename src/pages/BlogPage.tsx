@@ -15,19 +15,19 @@ const audienceCards = [
     title: "For Distributors",
     description:
       "Show buyers that your manufacturing partner can protect consistency, scale, and response speed across market demand cycles.",
-    img: "/images/partnership.jpg",
+    img: "/images/partnership.webp",
   },
   {
     title: "For Fertilizer Brands",
     description:
       "Position custom recipe granules as a strategic manufacturing advantage, not just an operational detail.",
-    img: "/images/granules.jpg",
+    img: "/images/granules.webp",
   },
   {
     title: "For Procurement Teams",
     description:
       "Highlight quality checks, process clarity, and dispatch discipline to reduce vendor uncertainty during evaluation.",
-    img: "/images/lab.jpg",
+    img: "/images/lab.webp",
   },
 ];
 
@@ -44,7 +44,7 @@ export const BlogPage = () => {
       title="Agriculture & Fertilizer Blog | J K Fertilizers Insights"
       description="Expert insights on organic fertilizer manufacturing, custom granule formulation, B2B procurement tips, sustainable agriculture, and quality assurance. Anand, Gujarat."
       canonical="/blog"
-      ogImage="/images/granules.jpg"
+      ogImage="/images/granules.webp"
       keywords="fertilizer industry blog, organic agriculture insights, b2b fertilizer procurement, granule fertilizer trends, sustainable agriculture india, fertilizer manufacturing blog gujarat, custom formulation insights"
       schema={[organizationSchema, blogPageSchema]}
     />

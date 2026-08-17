@@ -55,7 +55,7 @@ jkfertilizers.com/
 ├── public/
 │   ├── images/
 │   │   └── about-*.jpg        # About/team/factory photos (products/services images live in src/content/)
-│   └── favicon.ico, icon-192.png, icon-512.png, apple-touch-icon.png
+│   └── favicon.ico, icon-192.webp, icon-512.webp, apple-touch-icon.webp
 │
 ├── src/
 │   ├── index.tsx              # Entry point
@@ -242,7 +242,7 @@ src/content/products/diatomite-silicon/
 ├── index.mdx     ← frontmatter: title, imageUrl (cover filename), summary, fit[],
 │                    category, tagline, description, howToApply[], benefits[], specs[],
 │                    comparison? { title, headers, rows[] }
-├── 1.png         ← cover image (referenced by imageUrl)
+├── 1.webp         ← cover image (referenced by imageUrl)
 └── *.png         ← gallery photos (auto-discovered)
 ```
 
@@ -339,7 +339,7 @@ Every product `src/content/products/<slug>/index.mdx` accepts the following fron
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 | `title` | `string` | **Yes** | Full product display name (e.g. `"Diatomite Silicon"`). |
-| `imageUrl` | `string` | **Yes** | Filename of the cover image inside the folder (e.g. `"1.png"`). Resolved automatically by Vite. |
+| `imageUrl` | `string` | **Yes** | Filename of the cover image inside the folder (e.g. `"1.webp"`). Resolved automatically by Vite. |
 | `summary` | `string` | **Yes** | 1–2 sentence summary used on listing cards, hero overview, and meta tags. |
 | `tagline` | `string` | **Yes** | Subtitle / slogan displayed directly under the h1 title on the detail page. |
 | `category` | `string` | **Yes** | Category label (e.g. `"Base Granules"`, `"Coated Granules"`, `"Organic Fertilizers"`). |
@@ -358,7 +358,7 @@ Every product `src/content/products/<slug>/index.mdx` accepts the following fron
 ```yaml
 ---
 title: "Diatomite Silicon"
-imageUrl: "1.png"
+imageUrl: "1.webp"
 summary: "A certified, government-approved fertilizer under FCO enriched with silica to improve soil health and crop resilience."
 fit:
   - "FCO Approved"
@@ -442,7 +442,7 @@ comparison:
 ### Blog — `src/content/blog/<slug>/index.mdx`
 Frontmatter: `title`, `date`, `dateDisplay`, `excerpt`, `author`, `topic`, `img` (cover **filename** inside the folder — resolved by the loader), `featured`, `tags`
 
-Note: blog cover images are copies — the originals in `public/images/` (hero.jpg, soil.jpg, etc.) are shared with other pages, so they are NOT deleted from public.
+Note: blog cover images are copies — the originals in `public/images/` (hero.webp, soil.webp, etc.) are shared with other pages, so they are NOT deleted from public.
 
 ### Services — `src/content/services/<slug>/index.mdx`
 Slugs: `custom-packaging-solutions`, `granule-technology`, `infrastructure-leasing`, `job-work-services`, `warehouse-storage`

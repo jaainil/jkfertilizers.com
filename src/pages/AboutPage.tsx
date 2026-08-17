@@ -30,16 +30,16 @@ const company = {
 };
 
 const images = {
-  hero: "/images/dsc00161.jpg",
-  factory: "/images/j-k-infra.jpg",
-  granules: "/images/dsc00296.jpg",
-  soil: "/images/dsc00371.jpg",
-  lab: "/images/dsc00514.jpg",
+  hero: "/images/dsc00161.webp",
+  factory: "/images/j-k-infra.webp",
+  granules: "/images/dsc00296.webp",
+  soil: "/images/dsc00371.webp",
+  lab: "/images/dsc00514.webp",
   gallery: [
-    "/images/dsc00549.jpg",
-    "/images/dsc00652.jpg",
-    "/images/dsc00296.jpg",
-    "/images/dsc00411.jpg",
+    "/images/dsc00549.webp",
+    "/images/dsc00652.webp",
+    "/images/dsc00296.webp",
+    "/images/dsc00411.webp",
   ]
 };
 
@@ -424,7 +424,7 @@ export const AboutPage = () => {
         title="About J K Fertilizers | Organic Fertilizer Manufacturer India"
         description="Learn about J K Fertilizers — India's trusted organic fertilizer manufacturer since 2006. Founded by Mr. Akash Dadhania in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, and coated granules."
         canonical="/about"
-        ogImage="/images/dsc00161.jpg"
+        ogImage="/images/dsc00161.webp"
         keywords="about J K Fertilizers, organic fertilizer manufacturer gujarat, fertilizer company anand gujarat, Akash Dadhania, J K Fertilizers history, fertilizer manufacturer since 2006"
         schema={[organizationSchema, aboutPageSchema]}
       />

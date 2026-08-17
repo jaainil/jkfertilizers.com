@@ -18,55 +18,55 @@ const portfolioItems = [
   {
     title: "Advancing Organic Agriculture",
     category: "Sustainability",
-    image: "/images/dsc00161.jpg",
+    image: "/images/dsc00161.webp",
     desc: "Transforming farming with innovative organic fertilizers that restore soil health, improve yields, and promote sustainability, empowering farmers nationwide.",
   },
   {
     title: "Custom Blends for Industry Giants",
     category: "Custom Solutions",
-    image: "/images/dsc00296.jpg",
+    image: "/images/dsc00296.webp",
     desc: "Creating tailored fertilizer solutions for corporates and PSUs, addressing specific agricultural needs with advanced R&D and quality assurance.",
   },
   {
     title: "Coated Granules Innovation",
     category: "Innovation",
-    image: "/images/dsc00371.jpg",
+    image: "/images/dsc00371.webp",
     desc: "Pioneering nutrient delivery with eco-friendly coated granules that enhance efficiency, reduce waste, and support sustainable farming practices.",
   },
   {
     title: "Global Outreach",
     category: "Export",
-    image: "/images/dsc00411.jpg",
+    image: "/images/dsc00411.webp",
     desc: "Expanding horizons with export-grade fertilizers designed for global markets, meeting diverse agricultural needs with superior quality and innovation.",
   },
   {
     title: "Sustainability Leadership",
     category: "Environment",
-    image: "/images/dsc00549.jpg",
+    image: "/images/dsc00549.webp",
     desc: "Leading the way in sustainable agriculture with eco-friendly products and practices that minimize environmental impact and maximize productivity.",
   },
   {
     title: "Partnering And Government Initiatives",
     category: "Partnerships",
-    image: "/images/dsc00652.jpg",
+    image: "/images/dsc00652.webp",
     desc: "Trusted partner for government agricultural programs, delivering high-quality fertilizers to support large-scale development initiatives across India.",
   },
   {
     title: "Empowering Farmers at the Grassroots",
     category: "Community",
-    image: "/images/soil.jpg",
+    image: "/images/soil.webp",
     desc: "Reaching rural communities with accessible, high-quality fertilizers and empowering farmers through education, support, and sustainable solutions.",
   },
   {
     title: "High-Capacity Manufacturing",
     category: "Infrastructure",
-    image: "/images/j-k-infra.jpg",
+    image: "/images/j-k-infra.webp",
     desc: "Operating a robust facility with a 700 MT/day capacity, delivering consistent, top-quality fertilizers for domestic and global markets.",
   },
   {
     title: "Collaborative R&D Excellence",
     category: "Research",
-    image: "/images/partnership.jpg",
+    image: "/images/partnership.webp",
     desc: "Driving agricultural innovation through ongoing research, delivering practical solutions to meet evolving farming challenges worldwide.",
   },
 ];
@@ -90,7 +90,7 @@ export const PortfolioPage = () => {
       title="Agricultural Products Portfolio | J K Fertilizers"
       description="Explore J K Fertilizers' product portfolio — Organic Manure, PDM, PROM, Mycorrhiza Granules, Coated Granules, Base Granules, and more. Trusted since 2006."
       canonical="/portfolio"
-      ogImage="/images/about-4.jpg"
+      ogImage="/images/about-4.webp"
       keywords="J K Fertilizers portfolio, organic fertilizer products, FCO approved fertilizers, mycorrhiza granules gujarat, prom fertilizer, pdm fertilizer"
       schema={[organizationSchema, portfolioPageSchema, portfolioItemListSchema]}
     />
@@ -98,7 +98,7 @@ export const PortfolioPage = () => {
       eyebrow="Portfolio"
       title="Organic Fertilizers for Indian Agriculture"
       description="Transforming farming with innovative organic fertilizers that restore soil health, improve yields, and promote sustainability, empowering farmers nationwide."
-      imageSrc="/images/about-3.jpg"
+      imageSrc="/images/about-3.webp"
       imageAlt="J K Fertilizers portfolio"
       badges={["FCO Approved", "100% Organic", "Since 2006"]}
       primaryCta={
@@ -211,7 +211,7 @@ export const PortfolioPage = () => {
             </Button>
           </div>
           <ImagePanel
-            src="/images/about-1.jpg"
+            src="/images/about-1.webp"
             alt="J K Fertilizers — trusted manufacturing facility"
             className="aspect-[4/4.5] min-h-[360px]"
             overlay={

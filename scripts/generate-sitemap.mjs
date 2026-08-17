@@ -82,7 +82,7 @@ function collectRoutes() {
       path: '/',
       priority: '1.0',
       changefreq: 'weekly',
-      image: '/images/hero.jpg',
+      image: '/images/hero.webp',
       imageTitle: 'J K Fertilizers — Organic Fertilizer Manufacturer Gujarat',
       caption: 'Leading manufacturer of organic fertilizers, base granules and coated base granules in Anand, Gujarat.',
       file: 'src/components/HomePage.tsx',
@@ -91,7 +91,7 @@ function collectRoutes() {
       path: '/products',
       priority: '0.9',
       changefreq: 'weekly',
-      image: '/images/about-4.jpg',
+      image: '/images/about-4.webp',
       imageTitle: 'Organic Fertilizer Granules Catalog',
       caption: 'Browse complete range of organic fertilizers, base granules, and bio-fertilizers.',
       file: 'src/pages/ProductsPage.tsx',
@@ -100,7 +100,7 @@ function collectRoutes() {
       path: '/contact',
       priority: '0.9',
       changefreq: 'monthly',
-      image: '/images/about-1.jpg',
+      image: '/images/about-1.webp',
       imageTitle: 'Contact J K Fertilizers Anand Gujarat',
       caption: 'Contact J K Fertilizers for bulk B2B fertilizer orders and partnerships.',
       file: 'src/pages/ContactPage.tsx',
@@ -109,7 +109,7 @@ function collectRoutes() {
       path: '/services',
       priority: '0.85',
       changefreq: 'monthly',
-      image: '/images/about-1.jpg',
+      image: '/images/about-1.webp',
       imageTitle: 'Fertilizer Manufacturing & Job Work Services',
       caption: 'Granule technology, contract manufacturing, custom packaging, and infrastructure leasing.',
       file: 'src/pages/ServicesPage.tsx',
@@ -118,7 +118,7 @@ function collectRoutes() {
       path: '/about',
       priority: '0.8',
       changefreq: 'monthly',
-      image: '/images/dsc00161.jpg',
+      image: '/images/dsc00161.webp',
       imageTitle: 'About J K Fertilizers',
       caption: 'Founded by Akash Dadhania in 2006. FCO approved organic fertilizer manufacturer.',
       file: 'src/pages/AboutPage.tsx',
@@ -127,7 +127,7 @@ function collectRoutes() {
       path: '/blog',
       priority: '0.8',
       changefreq: 'weekly',
-      image: '/images/granules.jpg',
+      image: '/images/granules.webp',
       imageTitle: 'Agriculture & Fertilizer Insights Blog',
       caption: 'Expert insights on organic fertilizer manufacturing, soil health, and sustainable agriculture.',
       file: 'src/pages/BlogPage.tsx',
@@ -136,7 +136,7 @@ function collectRoutes() {
       path: '/portfolio',
       priority: '0.75',
       changefreq: 'monthly',
-      image: '/images/about-4.jpg',
+      image: '/images/about-4.webp',
       imageTitle: 'J K Fertilizers Product Portfolio',
       caption: 'Client partnerships and large-scale agricultural fertilizer projects.',
       file: 'src/pages/PortfolioPage.tsx',
@@ -145,7 +145,7 @@ function collectRoutes() {
       path: '/commitment',
       priority: '0.75',
       changefreq: 'monthly',
-      image: '/images/commitment-1.jpg',
+      image: '/images/commitment-1.webp',
       imageTitle: 'Sustainability & Quality Commitment',
       caption: '100% organic, eco-friendly fertilizers with rigorous FCO quality assurance.',
       file: 'src/pages/CommitmentPage.tsx',
@@ -154,7 +154,7 @@ function collectRoutes() {
       path: '/history',
       priority: '0.7',
       changefreq: 'yearly',
-      image: '/images/drone-view-3.jpg',
+      image: '/images/drone-view-3.webp',
       imageTitle: 'Company History & Milestones',
       caption: 'The journey of J K Fertilizers from 2006 to high-volume manufacturing capacity.',
       file: 'src/pages/HistoryPage.tsx',
@@ -189,7 +189,7 @@ function collectRoutes() {
         const fm = parseFrontmatter(raw);
         const title = fm.title || slug;
         const summary = fm.summary || fm.tagline || 'Organic fertilizer granule from J K Fertilizers';
-        const img = fm.imageUrl ? (fm.imageUrl.startsWith('/') ? fm.imageUrl : `/images/${fm.imageUrl}`) : '/og-image.png';
+        const img = fm.imageUrl ? (fm.imageUrl.startsWith('/') ? fm.imageUrl : `/images/${fm.imageUrl}`) : '/og-image.webp';
 
         routes.push({
           loc: `${SITE_URL}/products/${slug}`,
@@ -217,7 +217,7 @@ function collectRoutes() {
         const fm = parseFrontmatter(raw);
         const title = fm.title || slug;
         const summary = fm.tagline || fm.concept || 'Fertilizer manufacturing services by J K Fertilizers';
-        const img = fm.imageSrc || '/images/about-1.jpg';
+        const img = fm.imageSrc || '/images/about-1.webp';
 
         routes.push({
           loc: `${SITE_URL}/services/${slug}`,
@@ -245,7 +245,7 @@ function collectRoutes() {
         const fm = parseFrontmatter(raw);
         const title = fm.title || slug;
         const excerpt = fm.excerpt || fm.description || 'Agriculture insights by J K Fertilizers';
-        const img = fm.img || fm.image || '/images/granules.jpg';
+        const img = fm.img || fm.image || '/images/granules.webp';
 
         routes.push({
           loc: `${SITE_URL}/blog/${slug}`,

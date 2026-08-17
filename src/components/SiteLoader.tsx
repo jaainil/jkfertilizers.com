@@ -36,7 +36,7 @@ export const SiteLoader = () => {
         {/* Real Brand Logo */}
         <div className="mb-4">
           <img
-            src="/logo.png"
+            src="/logo.webp"
             alt={company.name}
             className="h-16 w-auto object-contain sm:h-20"
           />

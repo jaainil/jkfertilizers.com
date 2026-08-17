@@ -72,7 +72,7 @@ const services = [
     description:
       "Precisely engineered granules for optimal soil enrichment and nutrient availability. Advanced granulation technology for superior performance.",
     icon: "factory",
-    imageSrc: "/images/service-bg-2.jpg",
+    imageSrc: "/images/service-bg-2.webp",
     slug: "granule-technology",
   },
   {
@@ -81,7 +81,7 @@ const services = [
     description:
       "Cost-effective options to help businesses scale production with ISO-certified infrastructure for fertilizer manufacturing.",
     icon: "shield",
-    imageSrc: "/images/service-bg-3.jpg",
+    imageSrc: "/images/service-bg-3.webp",
     slug: "infrastructure-leasing",
   },
   {
@@ -90,7 +90,7 @@ const services = [
     description:
       "Tailored packaging options to meet diverse client requirements and market standards. Modern, secure, and brand-ready packaging.",
     icon: "award",
-    imageSrc: "/images/service-bg-1.jpg",
+    imageSrc: "/images/service-bg-1.webp",
     slug: "custom-packaging-solutions",
   },
   {
@@ -99,7 +99,7 @@ const services = [
     description:
       "Reliable job-work services for smooth and efficient fertilizer manufacturing operations. High capacity processing backed by strict QA.",
     icon: "users",
-    imageSrc: "/images/service-bg-2.jpg",
+    imageSrc: "/images/service-bg-2.webp",
     slug: "job-work-solutions",
   },
   {
@@ -108,7 +108,7 @@ const services = [
     description:
       "Strategic logistics ensuring fast, secure, and compliant delivery of bulk fertilizer products across India and global export destinations.",
     icon: "flask",
-    imageSrc: "/images/service-bg-3.jpg",
+    imageSrc: "/images/service-bg-3.webp",
     slug: "supply-chain-logistics",
   },
   {
@@ -117,7 +117,7 @@ const services = [
     description:
       "Collaborative R&D to develop proprietary mineral-coated and organic fertilizer formulations engineered for specific soil and crop types.",
     icon: "leaf",
-    imageSrc: "/images/service-bg-1.jpg",
+    imageSrc: "/images/service-bg-1.webp",
     slug: "custom-formulation-rd",
   },
 ];
@@ -187,12 +187,12 @@ const faqs = [
 ];
 
 const images = {
-  hero: "/images/hero.jpg",
-  factory: "/images/j-k-infra.jpg",
-  facilityOverview: "/images/facility-overview.jpg",
-  biopestGranulesHero: "/images/dsc00371.jpg",
-  whyChoose: "/images/dsc00161.jpg",
-  faq: "/images/dsc00514.jpg",
+  hero: "/images/hero.webp",
+  factory: "/images/j-k-infra.webp",
+  facilityOverview: "/images/facility-overview.webp",
+  biopestGranulesHero: "/images/dsc00371.webp",
+  whyChoose: "/images/dsc00161.webp",
+  faq: "/images/dsc00514.webp",
 };
 
 const HomeHero = () => {
@@ -1018,7 +1018,7 @@ const HomePage = () => {
         title="Organic Fertilizer Manufacturer Gujarat | J K Fertilizers"
         description="J K Fertilizers is a leading FCO approved organic fertilizer manufacturer in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, Mycorrhiza & coated granules."
         canonical="/"
-        ogImage="/images/hero.jpg"
+        ogImage="/images/hero.webp"
         keywords="organic fertilizer manufacturer india, J K Fertilizers, organic manure manufacturer gujarat, prom fertilizer, pdm fertilizer, mycorrhiza granules, fertilizer manufacturer anand gujarat"
         schema={[organizationSchema, websiteSchema, homeFaqSchema]}
         article={null}

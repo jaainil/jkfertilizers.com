@@ -109,7 +109,7 @@ export const PrivacyPage = () => {
         title="Confidentiality & Privacy Policy | J K Fertilizers"
         description="Confidentiality and Privacy Policy of J K Fertilizers. Learn how we collect, use, safeguard, and respect your personal information."
         canonical="/privacy"
-        ogImage="/images/about-1.jpg"
+        ogImage="/images/about-1.webp"
         keywords="confidentiality policy, privacy policy, J K Fertilizers privacy, data protection, customer data privacy Anand Gujarat"
         schema={[organizationSchema, privacyPageSchema]}
       />
