@@ -60,14 +60,7 @@ const navMenu: NavItem[] = [
       { label: "Diatomite Silicon", path: "/products/diatomite-silicon" },
     ],
   },
-  {
-    label: "Our Services",
-    tKey: "nav.services",
-    children: [
-      { label: "Our Services", path: "/services", tKey: "nav.services", description: "Manufacturing, leasing, and job-work solutions" },
-      { label: "Portfolio", path: "/portfolio", tKey: "nav.portfolio", description: "Infrastructure, packaging, and plant views" },
-    ],
-  },
+  { label: "Our Services", path: "/services", tKey: "nav.services" },
   { label: "Blog", path: "/blog", tKey: "nav.blog" },
   { label: "Contact Us", path: "/contact", tKey: "nav.contact" },
 ];
