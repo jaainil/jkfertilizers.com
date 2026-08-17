@@ -87,6 +87,10 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
         <img
           src={images[activeIndex]}
           alt={`${title} - Gallery Image ${activeIndex + 1}`}
+          width={800}
+          height={450}
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-500 cursor-zoom-in"
           onClick={() => setLightboxOpen(true)}
         />
@@ -143,6 +147,10 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
               <img
                 src={img}
                 alt={`${title} Thumbnail ${idx + 1}`}
+                width={96}
+                height={72}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </button>
@@ -187,6 +195,7 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
             <img
               src={images[activeIndex]}
               alt={title}
+              decoding="async"
               className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl select-none"
             />
             <p className="mt-4 text-center type-body-sm text-white/60 tracking-wider font-medium select-none">

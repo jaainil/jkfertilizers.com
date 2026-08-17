@@ -170,8 +170,11 @@ export const HistoryPage = () => {
                       <img
                         src={item.image}
                         alt={item.title}
+                        width={600}
+                        height={450}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   )}
@@ -199,8 +202,11 @@ export const HistoryPage = () => {
                       <img
                         src={item.image}
                         alt={item.title}
+                        width={600}
+                        height={450}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   )}
@@ -242,8 +248,11 @@ export const HistoryPage = () => {
                       <img
                         src={img.src}
                         alt={img.title}
+                        width={400}
+                        height={225}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div className="flex-1 p-5 space-y-2">

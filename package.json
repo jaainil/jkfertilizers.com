@@ -11,6 +11,7 @@
     "markdown": "node scripts/generate-markdown.mjs",
     "skills": "node scripts/generate-skills-index.mjs",
     "prerender": "node scripts/prerender.mjs",
+    "optimize-images": "bash scripts/optimize-images.sh",
     "preview": "vite preview"
   },
   "dependencies": {

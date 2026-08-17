@@ -268,6 +268,10 @@ const HomeHero = () => {
             src={images.hero}
             alt="Sustainable agriculture field"
             eager
+            fetchPriority="high"
+            decoding="async"
+            width={1200}
+            height={800}
             className="aspect-[4/3] min-h-[14rem] sm:min-h-72 lg:aspect-[4/4.6] lg:min-h-[38rem]"
             overlay={
             <div className="grid gap-2 grid-cols-2 sm:gap-3">
@@ -474,7 +478,7 @@ const HomeProductTicker = () => {
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
               <Link key={`ticker-1-${p.slug}-${i}`} to={`/products/${p.slug}`} className="group flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6 hover:opacity-90 transition-opacity">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-surface-card overflow-hidden sm:h-20 sm:w-20">
-                  <img src={p.img} alt={p.name} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                  <img src={p.img} alt={p.name} width="80" height="80" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" decoding="async" />
                 </div>
                 <span className="whitespace-nowrap font-heading text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{p.name}</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:ml-2" />
@@ -485,7 +489,7 @@ const HomeProductTicker = () => {
             {[...productTickerProducts, ...productTickerProducts].map((p, i) => (
               <div key={`ticker-2-${p.slug}-${i}`} className="flex shrink-0 items-center gap-3 px-4 sm:gap-4 sm:px-6">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-surface-card overflow-hidden sm:h-20 sm:w-20">
-                  <img src={p.img} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
+                  <img src={p.img} alt={p.name} width="80" height="80" className="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <span className="whitespace-nowrap font-heading text-sm font-semibold text-foreground">{p.name}</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-accent ml-1 flex-shrink-0 sm:ml-2" />
@@ -757,8 +761,11 @@ const HomeProductsCarousel = () => {
                     <img
                       src={getProductCoverImage(product.slug, product.imageUrl)}
                       alt={product.title}
+                      width={400}
+                      height={300}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-5 sm:p-6">

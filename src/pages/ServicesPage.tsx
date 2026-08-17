@@ -121,6 +121,10 @@ export const ServicesPage = () => {
           <img
             src={images.commitment}
             alt="J K Fertilizers — Our Commitment To Quality"
+            width={600}
+            height={480}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover"
             style={{ minHeight: "480px" }}
           />

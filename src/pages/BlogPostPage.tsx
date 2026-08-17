@@ -151,6 +151,10 @@ export const BlogPostPage = () => {
             <img
               src={img}
               alt={title}
+              width={896}
+              height={384}
+              loading="eager"
+              decoding="async"
               className="h-72 w-full object-cover sm:h-96"
             />
           </div>
@@ -202,8 +206,11 @@ export const BlogPostPage = () => {
                     <img
                       src={p.img}
                       alt={p.title}
+                      width={400}
+                      height={250}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-5">

@@ -65,6 +65,10 @@ export const SiteFooter = () => {
             <img
               src="/logo.webp"
               alt="J K Fertilizers"
+              width={44}
+              height={44}
+              loading="lazy"
+              decoding="async"
               className="h-10 w-auto rounded-lg object-contain brightness-0 invert sm:h-11"
             />
             <div>

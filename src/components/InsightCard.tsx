@@ -24,7 +24,10 @@ export const InsightCard = ({ post }: { post: InsightPost }) => (
           <img
             src={post.img}
             alt={post.title ?? "Blog post"}
+            width={600}
+            height={340}
             loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>

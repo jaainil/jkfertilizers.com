@@ -148,8 +148,11 @@ const AboutWelcome = () => {
               <img
                 src={img.src}
                 alt={img.alt}
+                width={400}
+                height={400}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span className="text-white type-label font-medium tracking-wider uppercase">{img.alt}</span>

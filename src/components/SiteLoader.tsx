@@ -38,6 +38,10 @@ export const SiteLoader = () => {
           <img
             src="/logo.webp"
             alt={company.name}
+            width={80}
+            height={80}
+            fetchPriority="high"
+            decoding="async"
             className="h-16 w-auto object-contain sm:h-20"
           />
         </div>

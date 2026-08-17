@@ -13,8 +13,11 @@ export const ProductCard = ({ product }) => (
       <img
         src={getProductCoverImage(product.slug, product.imageUrl)}
         alt={product.title}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        width={400}
+        height={300}
         loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="absolute left-3 top-3 sm:left-4 sm:top-4">
         <span className="inline-flex rounded-full bg-secondary/90 px-3 py-1 type-label font-bold uppercase tracking-[0.14em] text-white">

@@ -5,6 +5,10 @@ export const ImagePanel = ({
   className = "",
   overlay = null,
   eager = false,
+  fetchPriority,
+  decoding = "async",
+  width,
+  height,
 }: {
   src: string;
   alt: string;
@@ -12,6 +16,10 @@ export const ImagePanel = ({
   className?: string;
   overlay?: React.ReactNode;
   eager?: boolean;
+  fetchPriority?: "high" | "low" | "auto";
+  decoding?: "async" | "sync" | "auto";
+  width?: number | string;
+  height?: number | string;
 }) => (
   <div
     className={`relative overflow-hidden rounded-2xl border border-border/50 bg-muted shadow-card sm:rounded-3xl ${className}`}
@@ -20,7 +28,11 @@ export const ImagePanel = ({
     <img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       loading={eager ? "eager" : "lazy"}
+      fetchPriority={fetchPriority ?? (eager ? "high" : "auto")}
+      decoding={decoding}
       className="h-full w-full object-cover object-center"
     />
     {overlay ? (

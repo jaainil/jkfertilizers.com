@@ -80,6 +80,9 @@ export const BlogPage = () => {
             <img
               src={allPosts[0].img}
               alt={allPosts[0].title}
+              width={800}
+              height={500}
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-linear-to-t from-secondary/90 via-secondary/40 to-transparent" />
@@ -137,6 +140,9 @@ export const BlogPage = () => {
               <img
                 src={post.img}
                 alt={post.title}
+                width={600}
+                height={400}
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
@@ -201,6 +207,9 @@ export const BlogPage = () => {
                 <img
                   src={card.img}
                   alt={card.title}
+                  width={600}
+                  height={400}
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />

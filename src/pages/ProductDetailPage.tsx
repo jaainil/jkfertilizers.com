@@ -85,6 +85,10 @@ const ProductHero = ({
             <img
               src={allImages[selectedImageIndex]}
               alt={product.title}
+              width={640}
+              height={480}
+              decoding="async"
+              fetchPriority="high"
               className="h-full w-full object-cover transition-transform duration-300"
             />
             
@@ -143,6 +147,10 @@ const ProductHero = ({
                   <img
                     src={imgUrl}
                     alt={`${product.title} thumb ${idx}`}
+                    width={80}
+                    height={80}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </button>
@@ -258,6 +266,7 @@ const ProductLightbox = ({
         <img
           src={images[activeIndex]}
           alt={`${title} slide`}
+          decoding="async"
           className="max-h-[70vh] w-auto max-w-full object-contain"
         />
         {/* Caption */}
@@ -463,8 +472,11 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
                     <img
                       src={relProduct.imageUrl}
                       alt={relProduct.title}
+                      width={400}
+                      height={300}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
                     <div className="absolute left-4 top-4">

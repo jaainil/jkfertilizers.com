@@ -183,24 +183,33 @@ export const CommitmentPage = () => {
           <img
             src="/images/commitment-1.webp"
             alt="J K Fertilizers granule coating machinery at Vasad plant"
+            width={400}
+            height={300}
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img
             src="/images/commitment-2.webp"
             alt="Organic fertilizer heap formation at J K Fertilizers, Vasad, Gujarat"
+            width={400}
+            height={300}
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="overflow-hidden rounded-2xl">
           <img
             src="/images/commitment-3.webp"
             alt="Fertilizer production line and processing equipment at J K Fertilizers"
+            width={400}
+            height={300}
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

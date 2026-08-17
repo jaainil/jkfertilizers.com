@@ -158,8 +158,11 @@ export const PortfolioPage = () => {
                 <img
                   src={item.image}
                   alt={item.title}
+                  width={400}
+                  height={300}
                   className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-5">

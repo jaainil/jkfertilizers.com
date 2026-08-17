@@ -25,7 +25,7 @@
 | Content (blog/products/services) | MDX (`@mdx-js/rollup` + `@mdx-js/react`) |
 | Forms | Formspree (`@formspree/react` v3) — form ID: `mjybrvgp` |
 | SEO | `react-helmet-async` + custom `SEOHead` component |
-| Analytics | Google Analytics 4 (`react-ga4`, ID: `G-L1BQM1V3E3`) |
+| Analytics | Google Analytics 4 (`G-L1BQM1V3E3`) + Umami Analytics (`57ab23b0-35e3-4868-9718-3c17b45138ee`) |
 | Toast notifications | `sonner` |
 | Icons | `lucide-react` |
 | Carousel | `embla-carousel-react` + `embla-carousel-autoplay` |
@@ -40,10 +40,12 @@
 ## 3. Scripts
 
 ```bash
-bun run dev        # Start dev server (localhost:3000)
-bun run build      # vite build + generate-rss.mjs
-bun run preview    # Preview production build
-bun run rss        # Regenerate RSS feed only
+bun run dev             # Start dev server (localhost:3000)
+bun run build           # vite build + sitemap + rss + markdown + skills + prerender
+bun run preview         # Preview production build
+bun run rss             # Regenerate RSS feed only
+bun run sitemap         # Regenerate sitemap.xml
+bun run optimize-images # ImageMagick image resizing & compression pipeline
 ```
 
 ---
@@ -53,8 +55,9 @@ bun run rss        # Regenerate RSS feed only
 ```
 jkfertilizers.com/
 ├── public/
-│   ├── images/
-│   │   └── about-*.jpg        # About/team/factory photos (products/services images live in src/content/)
+│   ├── images/                # Site hero, factory, soil, overview photos (optimized WebP)
+│   ├── logo.webp              # Brand logo (240x240 optimized)
+│   ├── og-image.webp          # OpenGraph social card (1200x630 optimized)
 │   └── favicon.ico, icon-192.webp, icon-512.webp, apple-touch-icon.webp
 │
 ├── src/
@@ -87,17 +90,17 @@ jkfertilizers.com/
 │   │   │   ├── input.tsx
 │   │   │   ├── sonner.tsx
 │   │   │   └── textarea.tsx
-│   │   ├── HomePage.tsx       # Full homepage (~56KB)
+│   │   ├── HomePage.tsx       # Full homepage
 │   │   ├── SiteNavbar.tsx     # Sticky header + mega menu
 │   │   ├── SiteFooter.tsx     # Full footer
 │   │   ├── SiteShell.tsx      # Layout wrapper
 │   │   ├── InquiryForm.tsx    # B2B inquiry form (Formspree)
-│   │   ├── ProductCard.tsx    # Card for /products listing
+│   │   ├── ProductCard.tsx    # Card for /products listing with lazy & async decoding
 │   │   ├── ServiceCard.tsx
 │   │   ├── ExpertiseCard.tsx
 │   │   ├── InsightCard.tsx    # Blog post card
 │   │   ├── PageHero.tsx       # Reusable inner-page hero
-│   │   ├── ImagePanel.tsx
+│   │   ├── ImagePanel.tsx     # Performance-tuned image panel with fetchPriority & decoding
 │   │   ├── SectionIntro.tsx
 │   │   └── SEOHead.tsx        # Helmet SEO + JSON-LD injector
 │   │
@@ -115,7 +118,13 @@ jkfertilizers.com/
 │       └── ServicesPage.tsx
 │
 ├── scripts/
-│   └── generate-rss.mjs
+│   ├── optimize-images.sh     # Batch ImageMagick image compressor
+│   ├── generate-robots.mjs
+│   ├── generate-sitemap.mjs
+│   ├── generate-rss.mjs
+│   ├── generate-markdown.mjs
+│   ├── generate-skills-index.mjs
+│   └── prerender.mjs
 │
 ├── vite.config.ts
 ├── tsconfig.json              # Path alias: @/ → src/
@@ -226,6 +235,12 @@ const myReveal = useScrollReveal();
 
 ### `ProductCard`
 - Always use `getProductCoverImage(product.slug, product.imageUrl)` for `<img src>` — never `product.imageUrl` directly
+- Always include `width={400}`, `height={300}`, `loading="lazy"`, and `decoding="async"` to prevent layout shifts (CLS)
+
+### `ImagePanel`
+- Reusable performance container with responsive rounded borders and shadow elevation
+- Props: `src`, `alt`, `width`, `height`, `eager` (defaults `fetchPriority="high"` when true), `fetchPriority`, `decoding` (default `"async"`), `overlay`, `className`
+- Use `eager={true}` with `fetchPriority="high"` on the Homepage hero LCP image
 
 ### `SEOHead`
 - Props: `title`, `description`, `canonical`, `ogImage`, `keywords`, `schema[]`, `product`
@@ -459,9 +474,12 @@ Body (MDX) is the long-form service content.
 
 ---
 
-## 11. SEO
+## 11. SEO & Analytics
 
 - **GA4 ID:** `G-L1BQM1V3E3`
+- **Umami Analytics:**
+  - Script: `https://umami.altctrlreturn.com/script.js`
+  - Website ID: `57ab23b0-35e3-4868-9718-3c17b45138ee`
 - **JSON-LD schemas** (`src/data/seoSchemas.ts`):
   - `organizationSchema` — include on every page
   - `contactPageSchema`
@@ -510,6 +528,9 @@ Cert:     FCO Approved (Fertilizer Control Order)
 - Import company data from `src/data/siteData.ts` — never hardcode phone/email/address
 - Reset gallery state (`selectedImageIndex`, `activeImageIndex`) in `useEffect([slug])` on `ProductDetailPage`
 - Use `bun` not `npm` for package management
+- Run `bun run optimize-images` whenever new WebP/PNG images are added
+- Add explicit `width`, `height`, `loading="lazy"`, and `decoding="async"` on all below-the-fold `<img>` tags
+- Keep LCP hero images eager with `fetchPriority="high"` and a matching `<link rel="preload">` in `index.html`
 
 ### DO NOT
 - ❌ Use `product.imageUrl` directly in `<img>` — always use `getProductCoverImage()`
@@ -523,6 +544,7 @@ Cert:     FCO Approved (Fertilizer Control Order)
 - ❌ Use relative imports from `src/` — use `@/` alias
 - ❌ Run `npm install` — use `bun install`
 - ❌ Use `key={imageUrl}` when mapping product images — use `key={idx}` or `key={slug}`
+- ❌ Commit uncompressed multi-megabyte images (raw 1080p/4K camera photos) — always optimize down to 15KB–100KB first
 
 ---
 
@@ -562,9 +584,38 @@ Commits are made as `emergent-agent-e1 <github@emergent.sh>` — this is the AI 
 ### Adding new content
 | Content type | What to do |
 |---|---|
-| New blog post | Create `src/content/blog/<slug>/` with `index.mdx` + cover image — auto-discovered; run `bun run rss` |
-| New service page | Create `src/content/services/<slug>/` with `index.mdx` + images — auto-discovered |
-| New product | Create `src/content/products/<slug>/` with `index.mdx` + images — auto-discovered |
-| New product/service images | Drop files into the content folder — auto-discovered by `import.meta.glob`, no code change needed |
+| New blog post | Create `src/content/blog/<slug>/` with `index.mdx` + cover image — auto-discovered; run `bun run optimize-images` & `bun run rss` |
+| New service page | Create `src/content/services/<slug>/` with `index.mdx` + images — auto-discovered; run `bun run optimize-images` |
+| New product | Create `src/content/products/<slug>/` with `index.mdx` + images — auto-discovered; run `bun run optimize-images` |
+| New product/service images | Drop files into the content folder — auto-discovered by `import.meta.glob`, run `bun run optimize-images` |
 | Rebuild sitemap | Automatic on `bun run build` |
 | Update RSS | Run `bun run rss` after adding blog posts |
+
+---
+
+## 16. Image Optimization & Web Performance Architecture
+
+### Image Compression Standards
+All images in the repository must be pre-optimized WebP using the ImageMagick pipeline in `scripts/optimize-images.sh` (`bun run optimize-images`):
+
+| Image Type | Target Resolution | Quality Level | Typical Target Size |
+|---|---|---|---|
+| **Hero Images (LCP)** | Max `1200px` width | `78` | 80–120 KB |
+| **Product Covers & Galleries** | Max `640x800px` | `78` | 20–60 KB |
+| **Service & Infrastructure Photos** | Max `900–1000px` width | `75` | 30–80 KB |
+| **Blog Post Covers** | Max `1200px` width | `75` | 30–100 KB |
+| **Brand Logo (`logo.webp`)** | `240x240px` | `82` | ~12 KB |
+| **OpenGraph Social Card (`og-image.webp`)** | `1200x630px` | `80` | ~130 KB |
+
+### Core Web Vitals & Loading Strategy
+1. **LCP Optimization (Largest Contentful Paint < 2.5s)**:
+   - Homepage hero image is preloaded in `index.html`:
+     ```html
+     <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
+     ```
+   - Rendered with `eager` loading, `fetchPriority="high"`, and `decoding="async"`.
+2. **CLS Elimination (Cumulative Layout Shift < 0.1)**:
+   - All `<img>` elements declare explicit `width` and `height` attributes matching their aspect ratios.
+3. **Below-the-fold Assets**:
+   - All cards, galleries, tickers, and footer assets use `loading="lazy"` and `decoding="async"`.
+
