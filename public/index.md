@@ -1,9 +1,9 @@
-# J K Fertilizers — Organic Fertilizer Manufacturer
+# J K Fertilizers: Organic Fertilizer Manufacturer
 
 > **Location:** Anand, Gujarat, India | **Founded:** 2006 | **Capacity:** 700 MT/day | **Compliance:** FCO Approved
 
 ## Overview
-J K Fertilizers is a premier B2B manufacturer and exporter of organic fertilizers, mineral-coated base granules, and customized soil conditioners. Headquartered in the agricultural heartland of Vasad, Anand, Gujarat, we partner with leading agri-input brands, state federations, corporate distributors, and organic farming enterprises across India and global export markets.
+J K Fertilizers is a B2B manufacturer of organic fertilizers, mineral-coated base granules, and customized soil conditioners. Headquartered in Vasad, Anand, Gujarat, we partner with agribusiness brands, state federations, corporate distributors, and farming enterprises across India.
 
 ## Core Product Categories
 1. **Organic Fertilizers:** Organic Manure, PROM (Phosphate Rich Organic Manure), PDM (Potash Derived from Molasses), Mycorrhiza Bio-Fertilizers.

@@ -2,20 +2,20 @@ export const company = {
   name: "J K Fertilizers",
   tagline: "Organic, Naturally",
   subTagline: "Manufacturers of Organic Fertilizers",
-  missionTagline: "Empowering Farmers, Enriching Communities",
-  legalTagline: "Leading Manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules",
-  heroTitle: "Better Agriculture for Better Future",
+  missionTagline: "High-Quality Granules for Resilient Soils",
+  legalTagline: "Manufacturers of Organic Fertilizers, Base Granules, and Coated Base Granules",
+  heroTitle: "Organic Fertilizers and Mineral Granules",
   heroSubtitle:
-    "Our mineral-coated granules bring sustainability to your fields, replacing chemicals with eco-friendly minerals.",
+    "We manufacture FCO-approved organic fertilizers, base carriers, and custom coated granules for commercial agriculture.",
   aboutIntro: "Manufacturers of Organic Fertilizers",
   aboutDetails:
-    "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond. As a leader in organic fertilizer innovation, we specialize in producing eco-friendly, mineral-coated granules and soil conditioners that enhance soil health and improve crop yield. Through ongoing research and development, we aim to empower growers with effective, environmentally sound solutions that support both productivity and sustainability.",
+    "J K Fertilizers operates a 700 MT/day manufacturing plant in Anand, Gujarat. Established in 2006, we produce FCO-approved organic manure, PROM, PDM, and coated carrier granules for fertilizer brands, blenders, and institutional buyers across India. Our plant runs dedicated drum granulation lines with in-house quality control testing every batch for moisture, crushing strength, and nutrient assays.",
   mission:
-    "To sustainably advance agricultural productivity and soil health through innovative, eco-friendly fertilizer solutions.",
+    "To manufacture reliable, FCO-compliant organic fertilizers and carrier granules that restore soil organic carbon and support steady crop yields.",
   chairmanMessage:
-    "Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers has consistently grown through strategic investments in infrastructure and expansion of production capacity, with a focus on organic fertilizers and a commitment to sustainable agricultural practices.",
+    "Founded in 2006 by Akash Dadhania, J K Fertilizers has expanded from a single organic manure plant into a major Western India granulation facility with over 100,000 sq. ft. of covered warehousing and 700 MT/day processing capacity.",
   philosophy:
-    "Quality You Can Trust, Results You Can See - Every product is manufactured using state-of-the-art technology under certified processes.",
+    "Tested specifications, consistent granules, and dependable bulk delivery. Every batch matches FCO standards before dispatch.",
   phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
   phoneAlt: "+919825045892",

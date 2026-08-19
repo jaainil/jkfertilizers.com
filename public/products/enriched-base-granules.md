@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Premium nutrient-boosted base granules infused with essential minerals and nutrients to improve nutrient absorption, support deep root systems, and boost crop resilience.
+Mineral base granules fortified with secondary nutrients and trace minerals to correct deficiencies and support root architecture.
 
 
 

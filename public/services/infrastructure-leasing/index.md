@@ -4,23 +4,23 @@
 
 
 
-At J K Fertilizers, our infrastructure leasing service offers flexible solutions for clients needing access to high-quality, well-maintained facilities for storage, production, and distribution. We provide customizable leasing options, enabling businesses to optimize operations without the need for long-term capital investment in infrastructure.
+J K Fertilizers offers industrial leasing arrangements for fertilizer companies, blenders, and chemical brands looking to expand processing and dispatch capacity in Western India without large capital expenditure.
 
-With a fully equipped, ISO-certified plant capable of producing up to 400 MT/day of fertilizers and storage godowns, we offer a cost-effective solution for companies looking to scale operations without investing in their own real estate or heavy machinery.
+Our plant in Vasad, Anand, Gujarat provides up to 700 MT per day processing capacity with dedicated rotary drum granulators, automated packing machinery, high-clearance warehouses, and direct access to National Highway 48.
 
-## Services & Facilities Leased
+## Available Facilities for Lease
 
-- **Manufacturing & Blending Lines**: Access to state-of-the-art machinery for granule processing, powder mixing, and coating.
-- **Bulk Storage Godowns**: Spacious, weather-proof, and secure warehouses to store raw materials or finished products.
-- **Packaging Lines**: Semi-automated and automated packaging systems for bulk bags, retail pouches, and liquid bottling.
-- **Administrative & Utility Support**: 24/7 security monitoring, power backup, weighbridge access, and administrative office space.
+- **Drum Granulation Lines**: Rotary granulation units equipped with screening decks, fluid bed dryers, and dust collection systems.
+- **Bulk Storage Godowns**: Covered, ventilated warehousing with concrete flooring suitable for raw material and finished bag storage.
+- **Automated Bagging & Stitching Lines**: Electronic gross weighers, conveyor belts, and automated sewing heads handling 25 kg and 50 kg bags.
+- **Site Utilities**: On-site 100 MT certified weighbridge, 24/7 security, high-voltage industrial power connections, and logistics maneuvering bays.
 
-## Key Benefits
+## Operational Advantages
 
-- **Cost Savings & Flexibility**: Avoid massive upfront capital expenditures (CapEx) on plant setup, land acquisition, and machinery. Pay only for what you lease.
-- **Scalability**: Easily scale your manufacturing throughput or storage footprint up or down based on seasonal agricultural demands.
-- **Risk Mitigation**: Reduce the overhead of maintenance, regulatory approvals, safety compliance, and depreciation of equipment.
-- **Strategic Location**: Located in Gujarat, our facilities provide seamless logistical connectivity to key highways, ports, and rail networks for easy distribution.
+- **Zero CapEx Expansion**: Eliminate upfront capital costs for land acquisition, building permits, and heavy machinery purchase.
+- **Variable Volume Agreements**: Adjust leased capacity to match seasonal agricultural planting peaks across kharif and rabi seasons.
+- **FCO Compliance Support**: Plant infrastructure is built and operated according to Fertilizer Control Order safety and handling standards.
+- **Logistics Hub**: Direct frontage on NH-48 between Vadodara and Ahmedabad enables rapid transit to Gujarat, Maharashtra, Rajasthan, and Madhya Pradesh.
 
 ---
 - **Canonical URL:** https://jkfertilizers.com/services/infrastructure-leasing

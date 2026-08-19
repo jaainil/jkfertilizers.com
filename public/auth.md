@@ -1,4 +1,4 @@
-# J K Fertilizers auth.md — Agent Authentication & Registration
+# J K Fertilizers auth.md: Agent Authentication & Registration
 
 > **Specification:** [Auth.md](https://workos.com/auth-md) | **Service:** J K Fertilizers | **Version:** 1.0.0
 

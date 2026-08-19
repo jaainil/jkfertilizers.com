@@ -298,7 +298,7 @@ const AboutFoundingRoots = () => {
           overlay={
             <div className="rounded-2xl border border-white/30 bg-secondary/95 p-5 shadow-card">
               <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/70">Our Headquarters</p>
-              <p className="mt-2 font-heading text-base font-semibold text-white">Vasad, Anand — Gujarat, INDIA</p>
+              <p className="mt-2 font-heading text-base font-semibold text-white">Vasad, Anand, Gujarat, INDIA</p>
               <p className="mt-1 type-body-sm text-white/65">{company.address}</p>
             </div>
           }
@@ -308,10 +308,10 @@ const AboutFoundingRoots = () => {
             Founding Roots
           </span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-            Innovation in Agriculture Since 2006
+            Manufacturing Fertilizers in Gujarat Since 2006
           </h2>
           <p className="type-body text-muted-foreground">
-            Since our founding by Mr. Akash Dadhania, J K Fertilizers has remained steadfast in our commitment to advancing organic farming. From a humble beginning to becoming an ISO-certified leader, our journey reflects our unwavering dedication to sustainable growth and quality.
+            Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers operates a 700 MT/day processing plant in Vasad, Anand. We manufacture FCO-certified organic fertilizers, secondary mineral carriers, and customized bio-coatings for farmers and fertilizer brands across India.
           </p>
 
           <div className="grid gap-3 pt-2">
@@ -424,8 +424,8 @@ export const AboutPage = () => {
   return (
     <>
       <SEOHead
-        title="About J K Fertilizers | Organic Fertilizer Manufacturer India"
-        description="Learn about J K Fertilizers — India's trusted organic fertilizer manufacturer since 2006. Founded by Mr. Akash Dadhania in Anand, Gujarat. Specializing in Organic Manure, PDM, PROM, and coated granules."
+        title="About J K Fertilizers | Fertilizer Manufacturer Gujarat"
+        description="Learn about J K Fertilizers, founded in 2006 by Akash Dadhania in Anand, Gujarat. FCO-approved Organic Manure, PROM, PDM, and custom granule manufacturing."
         canonical="/about"
         ogImage="/images/dsc00161.webp"
         keywords="about J K Fertilizers, organic fertilizer manufacturer gujarat, fertilizer company anand gujarat, Akash Dadhania, J K Fertilizers history, fertilizer manufacturer since 2006"
@@ -434,10 +434,10 @@ export const AboutPage = () => {
       {/* ── Hero ── */}
       <PageHero
         eyebrow="About Us"
-        title="At J K Fertilizers, we’re dedicated to leading sustainable agriculture with solutions that combat soil degradation"
-        description="providing high-quality organic products that enhance crop health, safety, and sustainability for a thriving, eco-friendly future."
+        title="Organic Fertilizer & Mineral Granule Manufacturing in Gujarat"
+        description="Supplying FCO-approved organic manures, biofertilizers, and custom carrier granules from our 700 MT/day processing facility in Vasad, Anand."
         imageSrc={images.hero}
-        imageAlt="J K Fertilizers facility"
+        imageAlt="J K Fertilizers facility in Vasad, Anand"
         badges={["Since 2006", "FCO Approved", "Anand, Gujarat"]}
         primaryCta={
           <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">

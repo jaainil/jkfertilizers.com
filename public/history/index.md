@@ -1,4 +1,4 @@
-# J K Fertilizers — Company History & Milestones
+# J K Fertilizers: Company History & Milestones
 
 - **2006:** Founded first organic manure processing unit in Anand, Gujarat.
 - **2011:** Commissioned commercial drum granulation facility for engineered base granules.

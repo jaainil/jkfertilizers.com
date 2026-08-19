@@ -1,9 +1,9 @@
-# PROM
+# Phosphate Rich Organic Manure (PROM)
 
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-A certified, government-approved Phosphate Rich Organic Manure under the Fertilizer Control Order (FCO) crafted from premium organic materials to boost soil fertility, enhance water retention, and stimulate root development naturally.
+FCO-certified organic phosphatic fertilizer (min. 10.4% total P2O5, min. 7.9% organic carbon) engineered with rock phosphate and compost to replace chemical DAP and SSP.
 
 
 

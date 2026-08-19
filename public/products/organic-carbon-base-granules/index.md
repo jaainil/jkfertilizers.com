@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-High-quality soil enhancers designed to boost soil organic carbon levels, improve fertility, stimulate beneficial microbial activity, and enhance moisture retention for sustainable crop growth.
+High organic carbon base granules designed to replenish depleted soil organic matter, feed beneficial microbes, and improve soil moisture retention.
 
 
 

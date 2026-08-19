@@ -1,4 +1,4 @@
-# J K Fertilizers — Agriculture & Fertilizer Insights Blog
+# J K Fertilizers: Agriculture & Fertilizer Insights Blog
 
 Expert insights, procurement guides, and technical agronomy articles published by J K Fertilizers specialists:
 

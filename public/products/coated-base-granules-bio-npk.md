@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-A superior blend of nutrient-rich mineral base granules coated with high-quality BIO NPK fertilizer to enhance the sustained release of Nitrogen, Phosphorus, and Potassium for robust plant growth and soil fertility.
+Mineral base granules coated with active BIO NPK inoculants to supply nitrogen, phosphorus, and potassium with controlled release in the root zone.
 
 
 

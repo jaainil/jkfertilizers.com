@@ -6,7 +6,7 @@ J K Fertilizers manufactures a comprehensive portfolio of 16 specialized organic
 - **Organic Manure:** Composted natural organic matter enriched with microbial humic matrix.
 - **PROM (Phosphate Rich Organic Manure):** Biological organic alternative to chemical DAP and SSP.
 - **PDM (Potash Derived from Molasses):** Eco-friendly potassium fertilizer replacing chemical MOP.
-- **Mycorrhiza Granules:** VAM fungal root expansion biofertilizer for explosive root growth.
+- **Mycorrhiza Granules:** VAM fungal root expansion biofertilizer for root growth.
 
 ## Coated & Base Granules
 - **Customized Coated Granules:** Engineered carrier granules ready for client-specified bio-actives.

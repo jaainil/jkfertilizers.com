@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-A certified, government-approved fertilizer under the Fertilizer Control Order (FCO) enriched with silica to improve soil health, enhance crop resilience, and boost sustainable agricultural productivity.
+FCO-certified natural amorphous silica fertilizer that strengthens crop cell walls, reduces plant transpiration stress, and improves soil moisture retention.
 
 
 

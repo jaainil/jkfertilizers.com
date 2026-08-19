@@ -1,9 +1,9 @@
-# PDM
+# Potash Derived from Molasses (PDM)
 
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-A certified, government-approved fertilizer under the Fertilizer Control Order (FCO) providing an eco-friendly, sustainable organic source of potash (Potash Derived from Molasses) to enhance plant health, disease resistance, and crop yields.
+FCO-certified organic potassium fertilizer (min. 14.5% K2O) providing sulfur, calcium, and organic carbon to improve fruit sizing, sweetness, and drought resilience.
 
 
 

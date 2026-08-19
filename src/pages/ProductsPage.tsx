@@ -17,10 +17,10 @@ const company = {
 };
 
 const productHighlights = [
-  "FCO Approved Products — certified under Fertilizer Control Order",
-  "100% Organic — eco-friendly, chemical-free fertilizers",
-  "Mycorrhiza Coated Granules — advanced root health solutions",
-  "Customized Base & Coated Granules for specific crop needs",
+  "FCO-Approved Products certified under Fertilizer Control Order",
+  "100% Organic and mineral-based formulations",
+  "Mycorrhiza and bio-NPK coated granules for root development",
+  "Customized mineral base and coated carrier granules",
 ];
 
 const images = {
@@ -55,8 +55,8 @@ export const ProductsPage = () => {
   return (
   <>
     <SEOHead
-      title={query ? `Search: ${query} — Products | J K Fertilizers` : "Organic Fertilizers & Granules Catalog | J K Fertilizers"}
-      description="Browse J K Fertilizers' complete range: Organic Manure, PDM (Potash Derived Molasses), PROM (Phosphate Rich Organic Manure), Mycorrhiza Granules, Customized Base & Coated Granules. FCO approved."
+      title={query ? `Search: ${query} | Products | J K Fertilizers` : "Organic Fertilizers & Granules Catalog | J K Fertilizers"}
+      description="Browse J K Fertilizers' catalog: Organic Manure, PDM, PROM, Mycorrhiza Granules, and custom base granules. FCO approved bulk supply from Gujarat."
       canonical={query ? `/products?q=${encodeURIComponent(query)}` : "/products"}
       ogImage="/images/about-4.webp"
       keywords="organic fertilizer products gujarat, organic manure, PDM fertilizer, PROM fertilizer, mycorrhiza granules, base granules, coated granules, J K Fertilizers products, FCO approved fertilizer"
@@ -64,8 +64,8 @@ export const ProductsPage = () => {
     />
     <PageHero
       eyebrow="Products"
-      title="Premium Organic Fertilizer Products"
-      description="High-quality organic fertilizers, base granules, and coated granules engineered for sustainable agriculture and superior crop yields."
+      title="FCO-Approved Organic Fertilizers & Granules"
+      description="Organic manures, bio-fertilizers, and mineral carrier granules engineered for soil carbon building and balanced crop nutrition."
       imageSrc={images.hero}
       imageAlt="J K Fertilizers products"
       badges={["FCO Approved", "100% Organic", "Since 2006"]}
@@ -89,7 +89,7 @@ export const ProductsPage = () => {
         <SectionIntro
           eyebrow="Catalog overview"
           title="Complete Product Range"
-          description="From organic manure to advanced coated granules — every product is manufactured with quality and sustainability at its core."
+          description="Every product is manufactured to strict FCO quality parameters in our Vasad, Anand processing facility."
         />
 
         {/* Search Bar for sitelinks & user filtering */}
@@ -154,10 +154,10 @@ export const ProductsPage = () => {
         ref={detailsReveal.ref}
         className={`mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-center reveal ${detailsReveal.isVisible ? 'visible' : ''}`}
       >
-        <ImagePanel src={images.soil} alt="J K Fertilizers — quality products" testId="products-highlight-image-panel" className="aspect-[4/4.6] min-h-[360px]" />
+        <ImagePanel src={images.soil} alt="J K Fertilizers laboratory and quality testing" testId="products-highlight-image-panel" className="aspect-[4/4.6] min-h-[360px]" />
         <div className="space-y-5">
-          <span className="eyebrow">Quality You Can Rely On</span>
-          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">Top-Rated High-Demand Agricultural Products from J K Fertilizers</h2>
+          <span className="eyebrow">Quality Controls</span>
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">Agricultural Inputs Manufactured to FCO Specifications</h2>
           <div className="grid gap-4">
           {productHighlights.map((item, i) => (
             <div key={item.slice(0, 20)} {...staggerDelay(i)} className="flex items-start gap-3 rounded-2xl border border-border bg-surface-card p-5">

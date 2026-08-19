@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-A mineral-rich soil conditioner designed to improve soil structure, reduce compaction, balance pH levels, and supply essential calcium, magnesium, and sulfur for healthy root development.
+Mineral-rich soil conditioner that improves soil structure, balances pH levels, and supplies calcium, magnesium, and sulfur for root development.
 
 
 

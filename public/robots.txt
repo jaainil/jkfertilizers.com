@@ -1,7 +1,7 @@
 # =================================================
 # robots.txt for J K Fertilizers
 # Website: https://jkfertilizers.com
-# Last updated: 2026-08-17
+# Last updated: 2026-08-19
 # =================================================
 
 # ─── Content Signals (IETF draft / contentsignals.org) ───

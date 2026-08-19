@@ -87,8 +87,8 @@ export const PortfolioPage = () => {
   return (
   <>
     <SEOHead
-      title="Agricultural Products Portfolio | J K Fertilizers"
-      description="Explore J K Fertilizers' product portfolio — Organic Manure, PDM, PROM, Mycorrhiza Granules, Coated Granules, Base Granules, and more. Trusted since 2006."
+      title="Agricultural Product Portfolio | J K Fertilizers"
+      description="View the J K Fertilizers product portfolio: FCO-approved Organic Manure, PDM, PROM, Mycorrhiza Granules, and custom mineral base granules."
       canonical="/portfolio"
       ogImage="/images/about-4.webp"
       keywords="J K Fertilizers portfolio, organic fertilizer products, FCO approved fertilizers, mycorrhiza granules gujarat, prom fertilizer, pdm fertilizer"
@@ -96,10 +96,10 @@ export const PortfolioPage = () => {
     />
     <PageHero
       eyebrow="Portfolio"
-      title="Organic Fertilizers for Indian Agriculture"
-      description="Transforming farming with innovative organic fertilizers that restore soil health, improve yields, and promote sustainability, empowering farmers nationwide."
+      title="Organic Fertilizer & Granule Portfolio"
+      description="FCO-certified organic manures, bio-phosphates, potash sources, and custom mineral carrier granules manufactured in Vasad, Anand, Gujarat."
       imageSrc="/images/about-3.webp"
-      imageAlt="J K Fertilizers portfolio"
+      imageAlt="J K Fertilizers product portfolio"
       badges={["FCO Approved", "100% Organic", "Since 2006"]}
       primaryCta={
         <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
@@ -215,12 +215,12 @@ export const PortfolioPage = () => {
           </div>
           <ImagePanel
             src="/images/about-1.webp"
-            alt="J K Fertilizers — trusted manufacturing facility"
+            alt="J K Fertilizers manufacturing facility"
             className="aspect-[4/4.5] min-h-[360px]"
             overlay={
               <div className="rounded-2xl border border-white/30 bg-secondary/90 p-5 shadow-card">
                 <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/70">Our facility</p>
-                <p className="mt-2 font-heading type-body font-semibold text-white">Vasad, Anand — Gujarat, INDIA</p>
+                <p className="mt-2 font-heading type-body font-semibold text-white">Vasad, Anand, Gujarat, INDIA</p>
                 <p className="mt-1 type-body-sm text-white/65">NH. 48, Opp. IOC Petrol Pump</p>
               </div>
             }
@@ -239,7 +239,7 @@ export const PortfolioPage = () => {
           Explore Our Complete Product Range
         </h2>
         <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
-          From organic manure to advanced coated granules — find the right solution for your agricultural needs.
+          Browse organic manures, biofertilizers, and engineered mineral carrier granules for your agricultural requirements.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">

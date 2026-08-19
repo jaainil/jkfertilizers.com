@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Specially formulated mineral-based granules using sustainable alternatives like Gypsum, Silica, and Dolomite instead of traditional roasted bentonite for superior crop productivity and soil health.
+Custom formulated mineral granules using gypsum, silica, dolomite, and secondary minerals as cleaner, active alternatives to roasted bentonite.
 
 
 

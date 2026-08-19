@@ -80,7 +80,7 @@ export const SiteFooter = () => {
           </Link>
 
           <p className="type-body-sm text-white/60" data-testid="footer-company-description">
-            Leading manufacturers of Organic Fertilizers, Base Granules and Coated Base Granules. Based in Gujarat — trusted by farmers and businesses across India since 2006.
+            Manufacturers of FCO-approved Organic Fertilizers, Base Granules, and Coated Base Granules in Vasad, Gujarat. Supplying agribusiness partners across India since 2006.
           </p>
 
           {/* FCO badge */}

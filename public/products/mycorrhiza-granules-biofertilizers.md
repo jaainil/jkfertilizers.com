@@ -1,9 +1,9 @@
-# Mycorrhiza Granules & Biofertilizers
+# Mycorrhiza Granules (Biofertilizers)
 
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Advanced Mycorrhiza solutions for stronger roots, healthier crops, and sustainable farming. Increases nutrient uptake by up to 30% and reduces water stress.
+FCO-certified Vesicular Arbuscular Mycorrhizal (VAM) biofertilizer granules providing concentrated fungal propagules to increase root surface area and nutrient uptake.
 
 
 

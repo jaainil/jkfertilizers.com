@@ -56,14 +56,14 @@ function estimateTokens(text) {
 const staticPages = [
   {
     path: '/',
-    title: 'J K Fertilizers — Manufacturers of Organic Fertilizers',
-    description: 'Premier manufacturer of organic fertilizers, base granules and coated base granules in Anand, Gujarat, India. Since 2006.',
-    content: `# J K Fertilizers — Organic Fertilizer Manufacturer
+    title: 'J K Fertilizers: Organic Fertilizer Manufacturer',
+    description: 'Manufacturer of FCO-approved organic fertilizers, base granules, and coated granules in Anand, Gujarat, India. Operating since 2006.',
+    content: `# J K Fertilizers: Organic Fertilizer Manufacturer
 
 > **Location:** Anand, Gujarat, India | **Founded:** 2006 | **Capacity:** 700 MT/day | **Compliance:** FCO Approved
 
 ## Overview
-J K Fertilizers is a premier B2B manufacturer and exporter of organic fertilizers, mineral-coated base granules, and customized soil conditioners. Headquartered in the agricultural heartland of Vasad, Anand, Gujarat, we partner with leading agri-input brands, state federations, corporate distributors, and organic farming enterprises across India and global export markets.
+J K Fertilizers is a B2B manufacturer of organic fertilizers, mineral-coated base granules, and customized soil conditioners. Headquartered in Vasad, Anand, Gujarat, we partner with agribusiness brands, state federations, corporate distributors, and farming enterprises across India.
 
 ## Core Product Categories
 1. **Organic Fertilizers:** Organic Manure, PROM (Phosphate Rich Organic Manure), PDM (Potash Derived from Molasses), Mycorrhiza Bio-Fertilizers.
@@ -88,21 +88,21 @@ J K Fertilizers is a premier B2B manufacturer and exporter of organic fertilizer
     description: 'Company history, leadership under Akash Dadhania, and manufacturing standards in Gujarat.',
     content: `# About J K Fertilizers
 
-Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers has grown from a regional organic manure unit into one of Western India's most advanced granulation and bio-fertilizer manufacturing complexes.
+Founded in 2006 by Mr. Akash Dadhania, J K Fertilizers operates a 700 MT/day organic granulation and bio-fertilizer manufacturing plant in Vasad, Anand, Gujarat.
 
 ## Our Mission
-To empower sustainable agriculture by manufacturing high-efficiency, eco-friendly organic fertilizers and carrier granules that restore soil biology and maximize crop yield without harmful chemical residues.
+To advance sustainable agriculture by manufacturing high-efficiency, eco-friendly organic fertilizers and carrier granules that restore soil carbon and balance crop nutrition without harmful residues.
 
 ## Quality & Lab Testing
 - 100% Fertilizer Control Order (FCO) compliant formulations.
-- In-house testing laboratory analyzing moisture, bulk density, crushing strength, organic carbon, and N-P-K nutrient assay on every batch.
+- In-house testing laboratory analyzing moisture, bulk density, crushing strength, organic carbon, and N-P-K nutrient assays on every batch.
 - High-efficiency production capacity exceeding 700 MT per day.`
   },
   {
     path: '/history',
     title: 'Company History & Milestones',
     description: 'Milestones of J K Fertilizers since 2006.',
-    content: `# J K Fertilizers — Company History & Milestones
+    content: `# J K Fertilizers: Company History & Milestones
 
 - **2006:** Founded first organic manure processing unit in Anand, Gujarat.
 - **2011:** Commissioned commercial drum granulation facility for engineered base granules.
@@ -112,7 +112,7 @@ To empower sustainable agriculture by manufacturing high-efficiency, eco-friendl
   },
   {
     path: '/products',
-    title: 'Products Catalog — J K Fertilizers',
+    title: 'Products Catalog: J K Fertilizers',
     description: 'Complete range of organic fertilizers, base granules, and coated granules.',
     content: `# Organic Fertilizer Products Catalog
 
@@ -122,7 +122,7 @@ J K Fertilizers manufactures a comprehensive portfolio of 16 specialized organic
 - **Organic Manure:** Composted natural organic matter enriched with microbial humic matrix.
 - **PROM (Phosphate Rich Organic Manure):** Biological organic alternative to chemical DAP and SSP.
 - **PDM (Potash Derived from Molasses):** Eco-friendly potassium fertilizer replacing chemical MOP.
-- **Mycorrhiza Granules:** VAM fungal root expansion biofertilizer for explosive root growth.
+- **Mycorrhiza Granules:** VAM fungal root expansion biofertilizer for root growth.
 
 ## Coated & Base Granules
 - **Customized Coated Granules:** Engineered carrier granules ready for client-specified bio-actives.
@@ -151,7 +151,7 @@ J K Fertilizers provides end-to-end contract manufacturing and infrastructure se
     path: '/portfolio',
     title: 'Client Portfolio & Case Studies',
     description: 'Agricultural supply track record and corporate client trust.',
-    content: `# J K Fertilizers — Portfolio & Case Studies
+    content: `# J K Fertilizers: Portfolio & Case Studies
 
 - **150+ Corporate & PSU Clients:** Trusted manufacturing partner for leading national fertilizer brands and state agricultural marketing federations.
 - **10,000+ Tons Shipped Annually:** High-volume bulk deliveries with guaranteed batch consistency.
@@ -171,7 +171,7 @@ J K Fertilizers provides end-to-end contract manufacturing and infrastructure se
     path: '/blog',
     title: 'Agriculture & Fertilizer Insights Blog',
     description: 'Expert articles on fertilizer manufacturing, soil biology, and B2B procurement.',
-    content: `# J K Fertilizers — Agriculture & Fertilizer Insights Blog
+    content: `# J K Fertilizers: Agriculture & Fertilizer Insights Blog
 
 Expert insights, procurement guides, and technical agronomy articles published by J K Fertilizers specialists:
 

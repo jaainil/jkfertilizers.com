@@ -16,13 +16,13 @@ import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
 
 const company = {
   name: "J K Fertilizers",
-  tagline: "Organic, Naturally",
-  heroTitle: "Better Agriculture for Better Future",
+  tagline: "FCO-Approved Organic Fertilizers & Granules",
+  heroTitle: "Organic Fertilizer & Granule Manufacturer in Gujarat",
   heroSubtitle:
-    "Our mineral-coated granules bring sustainability to your fields, replacing chemicals with eco-friendly minerals.",
-  heroTagline: "Growing Greener with Every Granule",
+    "Manufacturing FCO-approved Organic Manure, PROM, PDM, and custom mineral-coated granules with 700 MT/day processing capacity in Vasad, Anand.",
+  heroTagline: "700 MT/Day Capacity · Vasad, Anand, Gujarat",
   aboutDetails:
-    "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond. As a leader in organic fertilizer innovation, we specialize in producing eco-friendly, mineral-coated granules and soil conditioners that enhance soil health and improve crop yield.",
+    "Founded in 2006 in Anand, Gujarat, J K Fertilizers manufactures FCO-approved organic fertilizers, mineral base granules, and customized bio-inoculated products. With a 700 MT/day processing complex in Vasad, we supply bulk agricultural inputs, private-label packaging, and toll manufacturing for agribusiness brands across India.",
   phoneDisplay: "9825045894",
   phoneRaw: "+919825045894",
   emails: ["info@jkfertilizers.com", "sales@jkfertilizers.com"],
@@ -43,82 +43,73 @@ const expertiseCards = [
     icon: "leaf",
     title: "100% Organic Products",
     description:
-      "We manufacture 100% organic products, promoting sustainable farming with eco-friendly, high-quality solutions.",
+      "FCO-certified organic manures and biofertilizers formulated from clean composted matter and natural minerals.",
   },
   {
     icon: "shield",
-    title: "Absolute Quality",
+    title: "In-House Lab Testing",
     description:
-      "Strict quality control on every batch, delivering reliable performance for sustainable agriculture.",
+      "Strict laboratory quality control on every batch, verifying moisture, crush strength, and nutrient percentages.",
   },
   {
     icon: "factory",
-    title: "Environmentally Friendly",
+    title: "700 MT/Day Capacity",
     description:
-      "Products that prioritize sustainability and minimize impact on soil and surrounding ecosystems.",
+      "High-throughput rotary drum granulation lines and automated bagging facilities capable of rapid order fulfillment.",
   },
   {
     icon: "flask",
-    title: "Innovation in Fertilizers",
+    title: "Custom Formulations",
     description:
-      "Ongoing R&D to develop better, newer, and more sustainable products for modern agriculture.",
+      "Tailored mineral carrier matrices and bio-inoculant coatings engineered for specific regional soil requirements.",
   },
 ];
 
 const services = [
   {
     title: "Granule Technology",
-    concept: "Precision engineering",
+    concept: "Coating",
     description:
-      "Precisely engineered granules for optimal soil enrichment and nutrient availability. Advanced granulation technology for superior performance.",
+      "Rotary drum coating applying biological inoculants, humic acids, and micronutrients onto mineral carrier cores.",
     icon: "factory",
     imageSrc: "/images/service-bg-2.webp",
     slug: "granule-technology",
   },
   {
     title: "Infrastructure Leasing",
-    concept: "Cost-effective scaling",
+    concept: "Infrastructure",
     description:
-      "Cost-effective options to help businesses scale production with ISO-certified infrastructure for fertilizer manufacturing.",
+      "Dedicated granulation lines, warehouse bays, and automated bagging systems available for lease in Vasad, Gujarat.",
     icon: "shield",
     imageSrc: "/images/service-bg-3.webp",
     slug: "infrastructure-leasing",
   },
   {
     title: "Custom Packaging Solutions",
-    concept: "Tailored packaging",
+    concept: "Packaging",
     description:
-      "Tailored packaging options to meet diverse client requirements and market standards. Modern, secure, and brand-ready packaging.",
+      "Agricultural packaging in HDPE, PP woven, and laminated bags with private-label brand printing and moisture liners.",
     icon: "award",
     imageSrc: "/images/service-bg-1.webp",
     slug: "custom-packaging-solutions",
   },
   {
-    title: "Job-Work Solutions",
-    concept: "Reliable execution",
+    title: "Job Work Services",
+    concept: "Job Work",
     description:
-      "Reliable job-work services for smooth and efficient fertilizer manufacturing operations. High capacity processing backed by strict QA.",
+      "Contract manufacturing, custom granulation, and private-label processing for fertilizer brands and distributors.",
     icon: "users",
     imageSrc: "/images/service-bg-2.webp",
-    slug: "job-work-solutions",
+    slug: "job-work-services",
   },
   {
-    title: "Supply Chain & Logistics",
-    concept: "Pan-India reach",
+    title: "Warehouse & Storage",
+    concept: "Warehouse",
     description:
-      "Strategic logistics ensuring fast, secure, and compliant delivery of bulk fertilizer products across India and global export destinations.",
+      "High-capacity covered storage, inventory management, and pan-India dispatch logistics in Vasad, Anand, Gujarat.",
     icon: "flask",
     imageSrc: "/images/service-bg-3.webp",
-    slug: "supply-chain-logistics",
-  },
-  {
-    title: "Custom Formulation & R&D",
-    concept: "Tailored nutrient profiles",
-    description:
-      "Collaborative R&D to develop proprietary mineral-coated and organic fertilizer formulations engineered for specific soil and crop types.",
-    icon: "leaf",
-    imageSrc: "/images/service-bg-1.webp",
-    slug: "custom-formulation-rd",
+    slug: "warehouse-storage",
   },
 ];
 
@@ -150,39 +141,39 @@ const productTickerProducts = products.map((p) => ({
 
 const commitmentItems = [
   {
-    title: "No Chemicals Used",
-    desc: "We believe in chemical-free farming. Our products are 100% organic, ensuring safe and healthy crop production.",
+    title: "Chemical-Free Formulations",
+    desc: "100% organic and mineral-based inputs without synthetic fillers or toxic additives.",
   },
   {
-    title: "Sustainable Agriculture Practices",
-    desc: "We promote sustainable farming methods that protect the environment and ensure long-term soil health.",
+    title: "Sustainable Soil Practices",
+    desc: "Formulations engineered to rebuild depleted soil carbon, microbial life, and water retention.",
   },
   {
-    title: "Customer-Centric Solutions",
-    desc: "We tailor our solutions to meet the unique needs of every farmer, ensuring maximum benefit and satisfaction.",
+    title: "Custom Manufacturing Flexibility",
+    desc: "Tailored recipe development, batch testing, and private-label packaging for B2B partners.",
   },
   {
-    title: "Innovation in Fertilizers",
-    desc: "Through continuous R&D, we develop innovative products that address evolving agricultural challenges.",
+    title: "FCO Quality Verification",
+    desc: "Continuous laboratory verification of raw inputs, moisture, hardness, and nutrient concentrations.",
   },
 ];
 
 const faqs = [
   {
-    q: "What makes J K Fertilizers different from other fertilizer companies?",
-    a: "We specialize in sustainable, chemical-free products that improve soil health and crop yield. Our focus on precision manufacturing, high-quality raw materials, and eco-friendly practices sets us apart as a trusted partner for farmers and the industry.",
+    q: "What products and services does J K Fertilizers offer?",
+    a: "We manufacture FCO-approved Organic Manure, PROM, PDM, Mycorrhiza granules, and custom mineral base granules. We also provide contract manufacturing (job work), custom packaging, granule coating, and infrastructure leasing.",
   },
   {
-    q: "How do I know which fertilizer is right for my crops?",
-    a: "Our team of agricultural experts can help you choose the right product based on your soil type, crop requirements, and farming goals. Contact us for a consultation.",
+    q: "Are your fertilizer products certified under the Fertilizer Control Order (FCO)?",
+    a: "Yes, our Organic Manure, PROM, PDM, and Mycorrhiza biofertilizers are fully certified under the Fertilizer Control Order (FCO), Government of India, meeting all regulatory quality parameters.",
   },
   {
-    q: "Are your fertilizers safe for the environment?",
-    a: "Yes, all our products are 100% organic and eco-friendly. We use natural ingredients and sustainable manufacturing processes to minimize environmental impact.",
+    q: "What is your manufacturing and processing capacity?",
+    a: "Our manufacturing complex in Vasad, Anand, Gujarat has a daily processing capacity of up to 700 MT per day, equipped with rotary drum granulators, automated packing lines, and large-capacity covered storage.",
   },
   {
-    q: "Can I purchase your products in bulk for large-scale farming?",
-    a: "Absolutely. We cater to bulk orders for large-scale farming operations, government agencies, and corporate clients. Contact our sales team for volume pricing.",
+    q: "Do you supply bulk orders and private-label contract manufacturing?",
+    a: "Yes, we specialize in B2B supply, institutional bulk orders, and private-label toll manufacturing. We package finished goods in branded 1 kg to 50 kg bags or 1,000 kg jumbo bags according to client specifications.",
   },
 ];
 
@@ -585,9 +576,9 @@ const HomeFoundationSection = () => {
             <div className="rounded-2xl bg-secondary p-4 text-white sm:p-5">
               <p className="type-label font-bold uppercase tracking-[0.16em] text-white/60">Since 2006</p>
               <p className="mt-3 font-accent type-body-sm text-white/90 italic">
-                "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006 with a commitment to sustainable agriculture."
+                "J K Fertilizers was founded in 2006 with a commitment to sustainable soil fertility and farmer prosperity."
               </p>
-              <p className="mt-3 type-label font-medium text-white/50">— {company.founder}</p>
+              <p className="mt-3 type-label font-medium text-white/50">{company.founder}</p>
             </div>
           </div>
           <Button
@@ -942,8 +933,8 @@ const HomeFaqSection = () => {
           className="aspect-[4/3] min-h-52 sm:min-h-64"
           overlay={
             <div className="rounded-2xl border border-white/15 bg-secondary/95 p-4">
-              <p className="font-heading text-sm font-bold text-white">You didn't find your question?</p>
-              <p className="mt-1 type-body-sm text-white/80">Connect with us today — we are happy to help.</p>
+              <p className="font-heading text-sm font-bold text-white">Have a specific question?</p>
+              <p className="mt-1 type-body-sm text-white/80">Connect with our agronomic team for product and technical support.</p>
               <div className="mt-3">
                 <Button asChild className="h-10 rounded-full bg-accent text-secondary hover:bg-accent/90 px-5 text-sm font-bold">
                   <Link to="/contact">Contact Us</Link>
@@ -974,7 +965,7 @@ const HomeContactSection = () => {
             Contact Us <span className="text-accent">Today</span>
           </h2>
           <p className="type-body text-white/75 sm:max-w-2xl">
-            Tell us what you need — we reply within one working day.
+            Submit your inquiry and our team will respond within 24 hours.
           </p>
           <div className="grid gap-3 pt-2 type-body-sm text-white/70">
             <div className="flex items-start gap-2">

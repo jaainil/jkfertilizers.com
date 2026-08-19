@@ -47,20 +47,19 @@ export function SEOHead({
   product,
 }: SEOHeadProps) {
   // Only append brand suffix when the passed title doesn't already reference JK Fertilizers.
-  // This prevents 130-150 char duplicate titles like:
-  // "Contact Us — J K Fertilizers | ... | J K Fertilizers — Manufacturers of Organic Fertilizers"
+  // This prevents 130-150 char duplicate titles
   const fullTitle = title
     ? title.includes("J K Fertilizers")
       ? title
       : `${title} | J K Fertilizers`
-    : "J K Fertilizers — Manufacturers of Organic Fertilizers | Anand, Gujarat";
+    : "J K Fertilizers | Organic Fertilizer Manufacturer | Anand, Gujarat";
 
   const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
 
   const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`;
   const ogImageAlt = title
-    ? `${title} — J K Fertilizers, Organic Fertilizer Manufacturer Gujarat India`
-    : "J K Fertilizers — Manufacturers of Organic Fertilizers";
+    ? `${title}, J K Fertilizers, Organic Fertilizer Manufacturer Gujarat India`
+    : "J K Fertilizers, Organic Fertilizer Manufacturer";
 
   const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 

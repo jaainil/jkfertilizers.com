@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Tailored coating solutions applying blends of essential nutrients like Bio NPK, Mycorrhiza, or custom additives to optimize nutrient release, enhance plant growth, and improve soil health.
+Custom granule coating service applying Bio NPK, Mycorrhiza, humic acids, or micronutrient formulations to selected mineral bases.
 
 
 

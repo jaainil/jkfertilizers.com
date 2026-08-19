@@ -16,48 +16,48 @@ const company = {
 const commitments = [
   {
     icon: Leaf,
-    title: "Sustainable Agriculture Practices",
-    desc: "We are committed to providing eco-friendly, chemical-free products that support sustainable farming practices and protect the environment.",
+    title: "Chemical-Free Formulations",
+    desc: "100% organic and mineral-based inputs without synthetic fillers, reducing soil salt accumulation.",
   },
   {
     icon: Award,
-    title: "ISO-Certified Product Excellence",
-    desc: "Our products undergo rigorous testing and adhere to the highest industry standards, ensuring consistent quality and effectiveness.",
+    title: "FCO-Approved Manufacturing",
+    desc: "Every product batch adheres to Fertilizer Control Order specifications with verified lab test records.",
   },
   {
     icon: Shield,
-    title: "Customer-Centric Solutions",
-    desc: "Our team is dedicated to offering personalized support, expert advice, and tailored solutions to meet the unique needs of every client.",
+    title: "Contract Manufacturing Support",
+    desc: "Dedicated technical assistance, formulation adjustments, and private-label packaging for agribusiness partners.",
   },
   {
     icon: Leaf,
-    title: "Innovation in Fertilizers",
-    desc: "We utilize advanced manufacturing processes and modern technology to deliver superior organic fertilizers and solutions.",
+    title: "Precision Drum Granulation",
+    desc: "Rotary drum processing and low-temperature drying ensure consistent 2–4 mm sizing and biological viability.",
   },
   {
     icon: Award,
-    title: "Transparency and Integrity",
-    desc: "We believe in building trust through clear communication, ethical practices, and transparency in all our business dealings.",
+    title: "Transparent Quality Records",
+    desc: "Every dispatch includes lot-specific Certificates of Analysis covering moisture, density, and nutrient assays.",
   },
   {
     icon: Shield,
-    title: "Long-Term Partnerships",
-    desc: "We strive to establish lasting relationships with our clients, providing ongoing support and innovative solutions for continuous growth.",
+    title: "Reliable B2B Supply",
+    desc: "Up to 700 MT/day processing capacity in Vasad, Gujarat, supporting uninterrupted delivery during peak agricultural seasons.",
   },
 ];
 
 const infoCards = [
   {
     title: "100% Organic Products",
-    desc: "Delivering pure, 100% organic fertilizers that enrich soil health and support natural, sustainable farming.",
+    desc: "FCO-certified organic manures and biofertilizers that build soil organic carbon reserves.",
   },
   {
-    title: "Absolute Quality",
-    desc: "Ensuring uncompromised quality through rigorous standards, our products empower farmers with reliable, effective solutions.",
+    title: "Laboratory Quality Checks",
+    desc: "Testing of raw inputs, in-process moisture, and finished particle crush strength on every production run.",
   },
   {
-    title: "Environmentally Friendly",
-    desc: "Crafting eco-conscious fertilizers that protect the environment, promote biodiversity, and reduce harmful impacts.",
+    title: "Environmental Stewardship",
+    desc: "Formulations engineered to restore soil biology, reduce chemical runoff, and support balanced agriculture.",
   },
 ];
 
@@ -71,18 +71,18 @@ export const CommitmentPage = () => {
   <>
     <SEOHead
       title="Sustainability & Quality Commitment | J K Fertilizers"
-      description="J K Fertilizers' commitment to sustainability, quality, and innovation. We deliver 100% organic, eco-friendly fertilizers for a greener future."
+      description="J K Fertilizers' commitment to sustainable soil fertility, FCO-approved organic manufacturing, and reliable B2B supply. Anand, Gujarat."
       canonical="/commitment"
       ogImage="/images/commitment-1.webp"
       keywords="J K Fertilizers commitment, sustainable agriculture, organic farming commitment, eco-friendly fertilizers, quality assurance"
       schema={[organizationSchema, commitmentPageSchema]}
     />
     <PageHero
-      eyebrow="Why Can You Trust Us?"
-      title="Our Commitment"
-      description="At J K Fertilizers, sustainability is the cornerstone of our operations. We are dedicated to improving agriculture by providing organic and eco-friendly fertilizers that not only enhance soil health but also contribute to the long-term well-being of the environment."
+      eyebrow="Our Principles"
+      title="Quality Assurance & Sustainable Manufacturing"
+      description="At J K Fertilizers, our manufacturing standards prioritize soil carbon restoration, FCO regulatory compliance, and dependable supply for agribusiness partners across India."
       imageSrc="/images/commitment-1.webp"
-      imageAlt="J K Fertilizers commitment to sustainability"
+      imageAlt="J K Fertilizers manufacturing plant"
       badges={["Sustainable", "Organic", "Since 2006"]}
       primaryCta={
         <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">

@@ -53,17 +53,17 @@ const testimonials = [
   {
     name: "Sanjay Shah",
     title: "Director, Green Leaf Agri Inputs",
-    quote: "Working with J K Fertilizers has been a game-changer for our business. Their high-quality, organic products have boosted our crop yields and improved soil health. We value their commitment to sustainability and look forward to continued collaboration.",
+    quote: "J K Fertilizers has provided consistent contract manufacturing for our organic lines. Batch test results are dependable and dispatches arrive on schedule.",
   },
   {
     name: "Ms. Kavita Naik",
-    title: "General Agriculture Crop Consultant",
-    quote: "J K Fertilizers consistently delivers excellent products and services. Their organic solutions have significantly enhanced our farming operations, helping us achieve healthier crops and better soil quality.",
+    title: "Agronomy Consultant",
+    quote: "J K Fertilizers delivers consistent mineral carrier granules and bio-coatings. Their formulations provide predictable nutrient release in field trials.",
   },
   {
     name: "Mr. S Suresh",
     title: "Director, Bay Leaf Agro Products",
-    quote: "We've seen remarkable improvements in crop quality and sustainability thanks to J K Fertilizers. Their innovative, eco-friendly solutions align perfectly with our business goals. Their reliable support makes them an indispensable partner.",
+    quote: "We partner with J K Fertilizers for toll granulation and private-label packaging. Their FCO compliance documentation makes regulatory audits straightforward.",
   },
 ];
 
@@ -94,10 +94,10 @@ export const ServicesPage = () => {
     {/* ── Hero ── */}
     <PageHero
       eyebrow="Services We Provide"
-      title="Our Services"
-      description="At J K Fertilizers, we are dedicated to ensuring the best quality products and services for our clients. Our offerings are designed to enhance agricultural productivity, maintain environmental sustainability, and cater to diverse industrial requirements."
+      title="Contract Manufacturing & Granulation Services"
+      description="High-capacity toll granulation, private-label packaging, bio-coating, and infrastructure leasing from our 700 MT/day processing facility in Vasad, Anand, Gujarat."
       imageSrc={images.hero}
-      imageAlt="J K Fertilizers services"
+      imageAlt="J K Fertilizers manufacturing services"
       badges={["Organic Manufacturing", "Granule Technology", "Since 2006"]}
       primaryCta={
         <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
@@ -120,7 +120,7 @@ export const ServicesPage = () => {
         <div className="relative overflow-hidden rounded-4xl border border-border shadow-card">
           <img
             src={images.commitment}
-            alt="J K Fertilizers — Our Commitment To Quality"
+            alt="J K Fertilizers manufacturing and quality control"
             width={600}
             height={480}
             loading="lazy"
@@ -131,19 +131,19 @@ export const ServicesPage = () => {
           <div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent" />
           <div className="absolute bottom-5 left-5 right-5">
             <div className="rounded-3xl border border-white/25 bg-secondary/95 p-5">
-              <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/75">Our Commitment To Quality</p>
-              <p className="mt-1 font-heading type-card-title font-semibold text-white">We Always Bring The Best Products For Our Customers</p>
+              <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/75">Manufacturing Quality</p>
+              <p className="mt-1 font-heading type-card-title font-semibold text-white">Consistent Granulation & Strict Batch Testing</p>
             </div>
           </div>
         </div>
 
         <div className="space-y-7">
-          <span className="eyebrow">Our Commitment To Quality</span>
+          <span className="eyebrow">Manufacturing Standards</span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-            We Always Bring The Best Products For Our Customers
+            Industrial Scale Granulation with Laboratory Verification
           </h2>
           <p className="type-body text-muted-foreground">
-            At J K Fertilizers, we are dedicated to ensuring the best quality products and services for our clients. Our offerings are designed to enhance agricultural productivity, maintain environmental sustainability, and cater to diverse industrial requirements.
+            At J K Fertilizers, our processing operations support agricultural companies with custom recipe blending, rotary drum granulation, and private-label packaging backed by in-house laboratory testing.
           </p>
           <div className="space-y-3">
             {coreFeatures.map((f) => (
@@ -193,7 +193,7 @@ export const ServicesPage = () => {
           Our Operating Process
         </h2>
         <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
-          A simple, transparent flow — from your first requirement to final delivery.
+          A structured manufacturing workflow from raw material intake to final lot dispatch.
         </p>
       </div>
       <div className={`grid gap-6 md:grid-cols-2 lg:grid-cols-4 reveal-scale ${processReveal.isVisible ? 'visible' : ''}`}>

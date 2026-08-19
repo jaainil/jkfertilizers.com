@@ -7,7 +7,7 @@ export const NotFoundPage = () => {
   return (
     <>
       <SEOHead
-        title="404 — Page Not Found | J K Fertilizers"
+        title="404 - Page Not Found | J K Fertilizers"
         description="The page you are looking for does not exist or has been moved. Explore J K Fertilizers organic fertilizers, base granules, and services."
         canonical="/404"
         noindex={true}

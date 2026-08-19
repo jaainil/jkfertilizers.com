@@ -419,16 +419,16 @@ export const organizationSchema: Organization = {
       url: OG_IMAGE_URL,
       width: 1200,
       height: 630,
-      caption: "J K Fertilizers — Manufacturers of Organic Fertilizers, Anand Gujarat",
+      caption: "J K Fertilizers, Organic Fertilizer Manufacturer in Anand, Gujarat",
     },
     {
       "@type": "ImageObject",
       url: `${SITE_URL}/images/factory.webp`,
-      caption: "J K Fertilizers Manufacturing Facility — Anand, Gujarat, INDIA",
+      caption: "J K Fertilizers Manufacturing Facility in Anand, Gujarat, India",
     },
   ],
   description:
-    "J K Fertilizers is a leading manufacturer of organic fertilizers, base granules and coated base granules based in Vasad, Anand, Gujarat, INDIA. Founded in 2006, we specialize in producing eco-friendly, FCO-approved organic fertilizers including Organic Manure, PDM, PROM, Mycorrhiza-coated granules, and soil conditioners that enhance soil health and improve crop yield.",
+    "J K Fertilizers manufactures FCO-approved organic fertilizers, mineral carrier base granules, and bio-inoculated products in Vasad, Anand, Gujarat, India. Operating since 2006, our 700 MT/day processing complex supplies Organic Manure, PDM, PROM, Mycorrhiza granules, and contract manufacturing services.",
   foundingDate: "2006",
   founder: {
     "@type": "Person",
@@ -677,7 +677,7 @@ export const organizationSchema: Organization = {
   },
   numberOfEmployees: { "@type": "QuantitativeValue", value: 50 },
   award: "FCO Approved Quality Management System",
-  slogan: "Organic Naturally — Empowering Farmers, Enriching Communities",
+  slogan: "FCO-Approved Organic Fertilizers & Granules: Vasad, Anand, Gujarat",
   areaServed: [
     { "@type": "Country", name: "India" },
     { "@type": "State", name: "Gujarat" },
@@ -719,7 +719,7 @@ export const websiteSchema: WebSite = {
   url: SITE_URL,
   name: "J K Fertilizers",
   description:
-    "India's Leading Organic Fertilizer Manufacturer — FCO Approved, Anand, Gujarat",
+    "FCO-Approved Organic Fertilizer Manufacturer: Anand, Gujarat",
   publisher: { "@id": `${SITE_URL}/#organization` },
   inLanguage: ["en-IN", "gu-IN", "hi-IN"],
   potentialAction: {
@@ -830,7 +830,7 @@ export function buildProductSchema(product: import('./products').Product): Produ
         url: product.imageUrl.startsWith("http")
           ? product.imageUrl
           : `${SITE_URL}${product.imageUrl}`,
-        caption: `${product.title} — manufactured by J K Fertilizers, Anand Gujarat India`,
+        caption: `${product.title}, manufactured by J K Fertilizers, Anand, Gujarat, India`,
       },
     ],
     brand: {
@@ -1038,7 +1038,7 @@ export const productsItemListSchema: ItemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${SITE_URL}/products#itemlist`,
-  name: "Organic Fertilizer Granule Products — J K Fertilizers",
+  name: "Organic Fertilizer Granule Products: J K Fertilizers",
   description:
     "Complete range of 16 B2B organic fertilizer products and base granules manufactured by J K Fertilizers in Anand, Gujarat, India.",
   url: `${SITE_URL}/products`,
@@ -1211,7 +1211,7 @@ export function buildBlogPostingSchema({ slug, title, excerpt, date, author, ima
     isPartOf: {
       "@type": "Blog",
       "@id": `${SITE_URL}/blog#blog`,
-      name: "Agriculture & Fertilizer Industry Blog — J K Fertilizers",
+      name: "Agriculture & Fertilizer Industry Blog: J K Fertilizers",
       url: `${SITE_URL}/blog`,
     },
     inLanguage: "en-IN",
@@ -1233,9 +1233,9 @@ export const blogPageSchema: Blog = {
   "@type": "Blog",
   "@id": `${SITE_URL}/blog#blog`,
   url: `${SITE_URL}/blog`,
-  name: "Agriculture & Fertilizer Industry Blog — J K Fertilizers",
+  name: "Agriculture & Fertilizer Industry Blog: J K Fertilizers",
   description:
-    "Expert B2B insights on organic fertilizer manufacturing, granule formulation, sustainable agriculture, and supply chain for fertilizer brands and distributors.",
+    "B2B agronomic insights on organic fertilizer manufacturing, granule formulation, sustainable soil fertility, and agricultural supply chain.",
   publisher: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   about: { "@id": `${SITE_URL}/#organization` },
@@ -1251,7 +1251,7 @@ export const servicesSchema: Service = {
   name: "Organic Fertilizer Manufacturing Services",
   provider: { "@id": `${SITE_URL}/#organization` },
   description:
-    "J K Fertilizers offers comprehensive B2B fertilizer manufacturing services including organic granule production, custom formulation (Recipe Granules), job work/contract manufacturing, advanced coating, FCO approved laboratory testing, custom packaging & private labeling, and warehouse facilities in Anand, Gujarat, India.",
+    "J K Fertilizers offers B2B fertilizer manufacturing services including organic granule production, custom formulation (Recipe Granules), toll granulation, liquid coating, FCO lab testing, private labeling, and covered warehouse storage in Anand, Gujarat, India.",
   areaServed: [
     { "@type": "Country", name: "India" },
     { "@type": "Country", name: "Worldwide" },
@@ -1275,7 +1275,7 @@ export const servicesSchema: Service = {
           "@type": "Service",
           name: "Granule Technology",
           description:
-            "Innovative Coating Solutions for Enhanced Fertilizer Performance — Precisely engineered granules for optimal soil enrichment.",
+            "Rotary drum coating applying biological inoculants, humic acids, and micronutrients onto mineral carrier cores.",
           url: `${SITE_URL}/services/granule-technology`,
         },
       },
@@ -1285,7 +1285,7 @@ export const servicesSchema: Service = {
           "@type": "Service",
           name: "Infrastructure Leasing",
           description:
-            "State-of-the-Art Infrastructure Leasing for Fertilizer Production — Cost-effective options to help businesses scale.",
+            "Dedicated granulation lines, warehouse bays, and automated bagging systems available for lease in Vasad, Gujarat.",
           url: `${SITE_URL}/services/infrastructure-leasing`,
         },
       },
@@ -1295,7 +1295,7 @@ export const servicesSchema: Service = {
           "@type": "Service",
           name: "Custom Packaging Solutions",
           description:
-            "Smart, Sustainable Packaging for Agriculture — Tailored packaging services to protect and promote your products.",
+            "Agricultural packaging in HDPE, PP woven, and laminated bags with private-label brand printing and moisture liners.",
           url: `${SITE_URL}/services/custom-packaging-solutions`,
         },
       },
@@ -1305,7 +1305,7 @@ export const servicesSchema: Service = {
           "@type": "Service",
           name: "Job Work Services",
           description:
-            "Reliable Job Work Services for Custom Fertilizer Manufacturing — Customized manufacturing solutions for organic fertilizers and coated granules.",
+            "Contract manufacturing, custom granulation, and private-label processing for fertilizer brands and distributors.",
           url: `${SITE_URL}/services/job-work-services`,
         },
       },
@@ -1315,7 +1315,7 @@ export const servicesSchema: Service = {
           "@type": "Service",
           name: "Warehouse & Storage Solutions",
           description:
-            "Secure and Efficient Warehouse, Storage, and Godown Solutions — Well-maintained facilities to support seamless supply chain management.",
+            "High-capacity covered storage, inventory management, and pan-India dispatch logistics in Vasad, Anand, Gujarat.",
           url: `${SITE_URL}/services/warehouse-storage`,
         },
       },
@@ -1373,9 +1373,9 @@ export const aboutPageSchema: AboutPage = {
   "@type": "AboutPage",
   "@id": `${SITE_URL}/about#aboutpage`,
   url: `${SITE_URL}/about`,
-  name: "About J K Fertilizers — India's Leading B2B Organic Fertilizer Manufacturer",
+  name: "About J K Fertilizers: Organic Fertilizer Manufacturer in Gujarat",
   description:
-    "Learn about J K Fertilizers, founded by Akash Dadhania — FCO approved organic fertilizer manufacturer in Anand, Gujarat, since 2006.",
+    "Learn about J K Fertilizers, founded by Akash Dadhania. FCO-approved organic fertilizer manufacturer in Anand, Gujarat, operating since 2006.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1395,9 +1395,9 @@ export const contactPageSchema: ContactPage = {
   "@type": "ContactPage",
   "@id": `${SITE_URL}/contact#contactpage`,
   url: `${SITE_URL}/contact`,
-  name: "Contact J K Fertilizers — B2B Fertilizer Manufacturer, Anand Gujarat",
+  name: "Contact J K Fertilizers: B2B Fertilizer Manufacturer, Anand Gujarat",
   description:
-    "Get in touch with J K Fertilizers for B2B fertilizer granule inquiries, bulk orders, custom formulation (Recipe Granules), and worldwide export partnerships. Call +91 98250 45894 or email sales@jkfertilizers.com.",
+    "Get in touch with J K Fertilizers for B2B fertilizer granule inquiries, bulk orders, custom formulation (Recipe Granules), and nationwide supply. Call +91 98250 45894 or email sales@jkfertilizers.com.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1417,9 +1417,9 @@ export const productsPageSchema: CollectionPage = {
   "@type": "CollectionPage",
   "@id": `${SITE_URL}/products#collection`,
   url: `${SITE_URL}/products`,
-  name: "Organic Fertilizer Granule Products — J K Fertilizers",
+  name: "Organic Fertilizer Granule Products: J K Fertilizers",
   description:
-    "Browse J K Fertilizers's complete range of organic fertilizers: Organic Manure, PDM, PROM, Mycorrhiza Granules, Customized Base Granules, Coated Granules, and more. FCO approved, manufactured in Anand, Gujarat, India.",
+    "Browse J K Fertilizers' complete range of organic fertilizers: Organic Manure, PDM, PROM, Mycorrhiza Granules, Customized Base Granules, and Coated Granules. FCO approved, manufactured in Anand, Gujarat, India.",
   provider: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1439,9 +1439,9 @@ export const historyPageSchema = {
   "@type": "WebPage",
   "@id": `${SITE_URL}/history#historypage`,
   url: `${SITE_URL}/history`,
-  name: "Our History — J K Fertilizers | Organic Fertilizer Manufacturer Since 2006",
+  name: "Our History: J K Fertilizers | Organic Fertilizer Manufacturer Since 2006",
   description:
-    "Explore the history and growth milestones of J K Fertilizers. From our organic manure plant in 2006 to high-volume granulation capacity in Vasad, Anand, Gujarat, INDIA.",
+    "Explore the history and growth milestones of J K Fertilizers. From our organic manure plant in 2006 to 700 MT/day processing capacity in Vasad, Anand, Gujarat.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1461,9 +1461,9 @@ export const portfolioPageSchema: CollectionPage = {
   "@type": "CollectionPage",
   "@id": `${SITE_URL}/portfolio#portfoliopage`,
   url: `${SITE_URL}/portfolio`,
-  name: "Portfolio & Client Case Studies — J K Fertilizers",
+  name: "Portfolio & Client Supply: J K Fertilizers",
   description:
-    "Explore J K Fertilizers' product portfolio and client trust. Manufacturing partner for government, PSU, and corporate fertilizer brands across India and global export markets.",
+    "Explore J K Fertilizers' product portfolio. Manufacturing partner for PSU, corporate, and private-label fertilizer brands across India.",
   provider: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1479,58 +1479,58 @@ export const portfolioItemListSchema: ItemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${SITE_URL}/portfolio#itemlist`,
-  name: "Featured Projects & Client Initiatives — J K Fertilizers",
-  description: "Key agricultural initiatives, custom blend developments, and export programs by J K Fertilizers.",
+  name: "Featured Manufacturing Initiatives: J K Fertilizers",
+  description: "Key agricultural manufacturing projects, custom blend developments, and bulk supply programs by J K Fertilizers.",
   url: `${SITE_URL}/portfolio`,
   numberOfItems: 8,
   itemListElement: [
     {
       "@type": "ListItem",
       position: 1,
-      name: "Advancing Organic Agriculture",
-      description: "Transforming farming with innovative organic fertilizers restoring soil health nationwide.",
+      name: "Organic Manure & Bio-NPK Production",
+      description: "Manufacturing FCO-certified organic fertilizers restoring soil carbon reserves across cropping regions.",
     },
     {
       "@type": "ListItem",
       position: 2,
-      name: "Custom Blends for Industry Giants",
-      description: "Tailored fertilizer formulations for leading corporate and PSU agriculture partners.",
+      name: "Custom Formulations for Industry Partners",
+      description: "Tailored mineral carrier formulations for leading corporate agribusiness partners.",
     },
     {
       "@type": "ListItem",
       position: 3,
-      name: "Coated Granules Innovation",
-      description: "Pioneering nutrient delivery with eco-friendly mineral and biological coated base granules.",
+      name: "Coated Granules Technology",
+      description: "Applying biological inoculants and humic acids onto solid mineral base granules.",
     },
     {
       "@type": "ListItem",
       position: 4,
-      name: "Global Outreach & Export",
-      description: "Export-grade organic fertilizer manufacturing for international markets and distributors.",
+      name: "Pan-India Bulk Supply",
+      description: "High-throughput contract manufacturing and dispatch for regional distribution networks.",
     },
     {
       "@type": "ListItem",
       position: 5,
-      name: "Sustainability Leadership",
-      description: "Eco-friendly agricultural manufacturing processes minimizing environmental impact.",
+      name: "Sustainable Soil Health Formulations",
+      description: "Clean mineral-based carrier inputs replacing raw industrial clays.",
     },
     {
       "@type": "ListItem",
       position: 6,
-      name: "Government & Semi-Government Initiatives",
-      description: "Reliable bulk fertilizer manufacturing for large-scale agricultural development programs.",
+      name: "Institutional Bulk Orders",
+      description: "Large-scale granulation and packaging for state agricultural corporations and bulk buyers.",
     },
     {
       "@type": "ListItem",
       position: 7,
-      name: "Grassroots Farmer Empowerment",
-      description: "Delivering high-efficiency organic inputs and sustainable soil health solutions to rural farming communities.",
+      name: "Farmer-Centric Field Solutions",
+      description: "Delivering balanced organic and mineral granules for root growth and balanced soil fertility.",
     },
     {
       "@type": "ListItem",
       position: 8,
-      name: "Advanced Research & Development",
-      description: "Continuous formulation R&D for next-generation biofertilizers and mineral carriers.",
+      name: "In-House Laboratory Testing",
+      description: "Continuous batch testing for moisture, crush strength, density, and nutrient purity.",
     },
   ],
 };
@@ -1543,9 +1543,9 @@ export const commitmentPageSchema = {
   "@type": "WebPage",
   "@id": `${SITE_URL}/commitment#commitmentpage`,
   url: `${SITE_URL}/commitment`,
-  name: "Our Commitment to Sustainability & Quality — J K Fertilizers",
+  name: "Our Commitment to Sustainability & Quality: J K Fertilizers",
   description:
-    "J K Fertilizers' commitment to sustainable agriculture, 100% organic eco-friendly inputs, zero harmful residues, and rigorous FCO certified quality control.",
+    "J K Fertilizers' commitment to sustainable soil fertility, FCO-approved organic manufacturing, and reliable B2B supply. Anand, Gujarat.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1565,9 +1565,9 @@ export const privacyPageSchema = {
   "@type": "WebPage",
   "@id": `${SITE_URL}/privacy#privacypage`,
   url: `${SITE_URL}/privacy`,
-  name: "Confidentiality & Privacy Policy — J K Fertilizers",
+  name: "Confidentiality & Privacy Policy: J K Fertilizers",
   description:
-    "Read the Confidentiality & Privacy Policy of J K Fertilizers. Learn how we collect, use, and protect your personal information with strict security and transparency.",
+    "Read the Confidentiality & Privacy Policy of J K Fertilizers. Learn how we collect, use, and protect your personal information with strict security.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en-IN",
   breadcrumb: {
@@ -1587,7 +1587,7 @@ export const returnPolicyPageSchema = {
   "@type": "WebPage",
   "@id": `${SITE_URL}/return-policy#returnpolicypage`,
   url: `${SITE_URL}/return-policy`,
-  name: "Refund and Returns Policy — J K Fertilizers",
+  name: "Refund and Returns Policy: J K Fertilizers",
   description:
     "Read the Refund and Returns Policy of J K Fertilizers. Learn about our 30-day return policy, refund timelines, defective item replacements, and customer support.",
   mainEntity: { "@id": `${SITE_URL}/#organization` },

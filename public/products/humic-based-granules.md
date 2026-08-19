@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Powerful organic soil enhancers rich in humic and fulvic acids designed to improve soil structure, boost cation exchange, maximize nutrient absorption, and stimulate beneficial microflora for resilient crop growth.
+Organic soil conditioner containing humic and fulvic acids to raise cation exchange capacity (CEC), stimulate soil microbes, and prevent nutrient lockup.
 
 
 

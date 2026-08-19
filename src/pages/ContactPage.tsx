@@ -108,7 +108,7 @@ const ContactHero = () => {
             { label: "Since 2006" },
             { label: "FCO Approved" },
             { label: "150+ Trusted Clients" },
-            { label: "Vasad, Anand — Gujarat, INDIA" },
+            { label: "Vasad, Anand, Gujarat, INDIA" },
           ].map((tag, i) => (
             <span key={tag.label} {...staggerDelay(i)} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 type-body-sm font-medium text-white/80">
               {tag.label}
@@ -138,7 +138,7 @@ const ContactDirectSection = () => {
               Reach Us Your Way
             </h2>
             <p className="type-body text-muted-foreground">
-              Choose how you'd like to connect — call, email, or visit us.
+              Connect with our sales and technical team by phone, email, or an in-person plant visit.
             </p>
           </div>
 
@@ -219,7 +219,7 @@ const ContactLocationSection = () => {
               Visit Our Factory
             </h2>
             <p className="type-body text-muted-foreground">
-              Located in Vasad, Anand, Gujarat, INDIA — our manufacturing facility is easily accessible from NH 48. Factory visits welcome by appointment.
+              Located in Vasad, Anand, Gujarat, our manufacturing facility is easily accessible from NH 48. Factory visits are welcome by appointment.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-4 rounded-2xl border border-border bg-surface-card p-4">

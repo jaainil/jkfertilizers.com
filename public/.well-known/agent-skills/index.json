@@ -6,28 +6,28 @@
       "type": "skill-md",
       "description": "Guidelines and commercial workflows for autonomous agents procuring bulk organic fertilizers, base granules, and customized soil conditioners from J K Fertilizers.",
       "url": "https://jkfertilizers.com/.well-known/agent-skills/b2b-procurement/SKILL.md",
-      "digest": "sha256:d738817a3cf7eb6598baa46f64467763ddf1b02aa72b96f84c6528be12cc09f4"
+      "digest": "sha256:2f6a10238526165485d03dcc27eaa562c0f090226880a2d3973c99e83325c9f6"
     },
     {
       "name": "contract-manufacturing",
       "type": "skill-md",
       "description": "Workflows for agri-input companies to lease granulation infrastructure, request custom granule formulations, and contract private-label packaging.",
       "url": "https://jkfertilizers.com/.well-known/agent-skills/contract-manufacturing/SKILL.md",
-      "digest": "sha256:fa1f963e4d38658bc7b2f65ccff3613fa7569b2c6a4400c89ea8ec17008fdfcc"
+      "digest": "sha256:8d8128f09faf8e988e45c113feef6e9827d465f5887d8e881fffbdaf74060854"
     },
     {
       "name": "dns-aid",
       "type": "skill-md",
       "description": "Specifications and zone record definitions for DNS for AI Discovery (DNS-AID) under the _agents namespace with SVCB/HTTPS records and DNSSEC validation.",
       "url": "https://jkfertilizers.com/.well-known/agent-skills/dns-aid/SKILL.md",
-      "digest": "sha256:ab4ac4e6b3e4710335b6b7392d8684f43ca51c09ebf56e59557022aac5288817"
+      "digest": "sha256:59077834131893b4cbb03cae8c327a5f4f16a90e5ceee4053ce710ad8b25c0de"
     },
     {
       "name": "product-catalog",
       "type": "skill-md",
       "description": "Technical assay query skill for inspecting organic fertilizers, nutrient specifications, granule hardness, and FCO compliance parameters.",
       "url": "https://jkfertilizers.com/.well-known/agent-skills/product-catalog/SKILL.md",
-      "digest": "sha256:6f981b6652d962fb8d90ad5ac8fa1f50ab09cda22655cfc73360a1b89ffabc16"
+      "digest": "sha256:6b0f1ed5885ba3c65200f70c7eaecd3de58310d552393f40d670dc155bb1d64d"
     }
   ]
 }

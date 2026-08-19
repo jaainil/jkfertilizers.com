@@ -3,7 +3,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, MoveRight, Phone, X, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { getProductBySlug, getRelatedProducts, getProductGallery } from "@/data/products";
+import { getProductBySlug, getRelatedProducts, getProductGallery, getProductCoverImage } from "@/data/products";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, buildProductSchema, buildProductFaqSchema, buildProductHowToSchema, breadcrumbSchema } from "@/data/seoSchemas";
 
@@ -33,15 +34,15 @@ const ProductHero = ({
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-24">
         {/* Left: text */}
         <div className="space-y-6">
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-nowrap overflow-x-auto scrollbar-none pb-0.5">
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 type-label font-semibold uppercase tracking-[0.16em] text-white/80 transition hover:bg-white/20"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-semibold uppercase tracking-wider text-white/80 transition hover:bg-white/20 whitespace-nowrap"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               All Products
             </Link>
-            <span className="eyebrow-dark">
+            <span className="inline-flex shrink-0 items-center rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-bold uppercase tracking-wider text-white/80 whitespace-nowrap">
               {product.category}
             </span>
           </div>
@@ -56,7 +57,7 @@ const ProductHero = ({
           <p className="type-body text-white/75">{product.summary}</p>
 
           <div className="flex flex-wrap gap-2">
-            {product.fit.map((tag) => (
+            {(product.fit || []).map((tag) => (
               <span
                 key={tag}
                 className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 type-label font-medium text-white/85"
@@ -83,7 +84,7 @@ const ProductHero = ({
         <div className="mt-12 lg:mt-0 space-y-4">
           <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-card bg-neutral-900 aspect-[4/3]">
             <img
-              src={allImages[selectedImageIndex]}
+              src={allImages[selectedImageIndex] || allImages[0] || product.imageUrl || ""}
               alt={product.title}
               width={640}
               height={480}
@@ -163,30 +164,35 @@ const ProductHero = ({
   );
 };
 
-const ProductSpecsStrip = ({ specs }: { specs: NonNullable<ReturnType<typeof getProductBySlug>>["specs"] }) => (
-  <div className="border-b border-border bg-surface-card">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div
-        className={`grid grid-cols-2 sm:grid-cols-3 ${
-          specs.length === 6
-            ? "lg:grid-cols-6"
-            : specs.length === 5
-            ? "lg:grid-cols-5"
-            : specs.length === 4
-            ? "lg:grid-cols-4"
-            : "lg:grid-cols-6"
-        } divide-y sm:divide-y-0 divide-border sm:divide-x`}
-      >
-        {specs.map((spec) => (
-          <div key={spec.label} className="px-4 py-5 sm:px-5 sm:py-6 flex flex-col justify-center">
-            <p className="type-label font-semibold uppercase tracking-[0.16em] text-muted-foreground">{spec.label}</p>
-            <p className="mt-2 type-body-sm font-semibold text-foreground">{spec.value}</p>
-          </div>
-        ))}
+const ProductSpecsStrip = ({ specs }: { specs?: NonNullable<ReturnType<typeof getProductBySlug>>["specs"] }) => {
+  const list = specs || [];
+  if (list.length === 0) return null;
+
+  return (
+    <div className="border-b border-border bg-surface-card">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          className={`grid grid-cols-2 sm:grid-cols-3 ${
+            list.length === 6
+              ? "lg:grid-cols-6"
+              : list.length === 5
+              ? "lg:grid-cols-5"
+              : list.length === 4
+              ? "lg:grid-cols-4"
+              : "lg:grid-cols-6"
+          } divide-y sm:divide-y-0 divide-border sm:divide-x`}
+        >
+          {list.map((spec) => (
+            <div key={spec.label} className="px-4 py-5 sm:px-5 sm:py-6 flex flex-col justify-center">
+              <p className="type-label font-semibold uppercase tracking-[0.16em] text-muted-foreground">{spec.label}</p>
+              <p className="mt-2 type-body-sm font-semibold text-foreground">{spec.value}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ProductDescription = ({ product }: { product: NonNullable<ReturnType<typeof getProductBySlug>> }) => (
   <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
@@ -200,7 +206,7 @@ const ProductDescription = ({ product }: { product: NonNullable<ReturnType<typeo
           Manufactured by J K Fertilizers under FCO approved processes.
         </p>
         <div className="rounded-3xl border border-border bg-surface-card p-6 space-y-3">
-          {product.specs.map((spec) => (
+          {(product.specs || []).map((spec) => (
             <div key={spec.label} className="flex items-center justify-between gap-4 type-body-sm">
               <span className="text-muted-foreground">{spec.label}</span>
               <span className="font-medium text-foreground text-right">{spec.value}</span>
@@ -210,8 +216,8 @@ const ProductDescription = ({ product }: { product: NonNullable<ReturnType<typeo
       </div>
 
       <div className="mt-10 lg:mt-0 space-y-6">
-        {product.description.split("\n\n").map((para) => (
-          <p key={para.slice(0, 30)} className="type-body text-muted-foreground">
+        {(product.description || "").split("\n\n").map((para, idx) => (
+          <p key={idx} className="type-body text-muted-foreground">
             {para}
           </p>
         ))}
@@ -271,7 +277,7 @@ const ProductLightbox = ({
         />
         {/* Caption */}
         <div className="w-full bg-neutral-900/90 py-3 text-center type-label font-medium text-white/80 border-t border-white/5">
-          Image {activeIndex + 1} of {images.length} — {title}
+          Image {activeIndex + 1} of {images.length}: {title}
         </div>
       </div>
 
@@ -289,72 +295,82 @@ const ProductLightbox = ({
   );
 };
 
-const ProductHowToApply = ({ product }: { product: NonNullable<ReturnType<typeof getProductBySlug>> }) => (
-  <section className="bg-muted py-20 lg:py-28">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mb-14 text-center">
-        <span className="eyebrow">Application Guide</span>
-        <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-          How to Apply {product.title}
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
-          Follow these steps for optimal results and maximum agronomic benefit from each application.
-        </p>
+const ProductHowToApply = ({ product }: { product: NonNullable<ReturnType<typeof getProductBySlug>> }) => {
+  const steps = product.howToApply || [];
+  if (steps.length === 0) return null;
+
+  return (
+    <section className="bg-muted py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 text-center">
+          <span className="eyebrow">Application Guide</span>
+          <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
+            How to Apply {product.title}
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
+            Follow these steps for optimal results and maximum agronomic benefit from each application.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <div
+              key={step.step}
+              className="relative rounded-3xl border border-border bg-surface-card p-8 shadow-card"
+            >
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                <span className="font-heading text-sm font-bold text-primary">{step.step}</span>
+              </div>
+              <h3 className="font-heading type-card-title font-semibold text-foreground">{step.title}</h3>
+              <p className="mt-3 type-body-sm text-muted-foreground">{step.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ProductBenefits = ({ product }: { product: NonNullable<ReturnType<typeof getProductBySlug>> }) => {
+  const list = product.benefits || [];
+  if (list.length === 0) return null;
+
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <div className="mb-14">
+        <span className="eyebrow">Key Benefits</span>
+        <div className="mt-5 lg:grid lg:grid-cols-[1fr_1.4fr] lg:items-end lg:gap-10">
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
+            The Clear Benefits of {product.title}
+          </h2>
+          <p className="mt-4 type-body text-muted-foreground lg:mt-0">
+            Choosing our solution provides compounding advantages for both soil health and crop productivity over time.
+          </p>
+        </div>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {product.howToApply.map((step) => (
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+        {list.map((benefit) => (
           <div
-            key={step.step}
-            className="relative rounded-3xl border border-border bg-surface-card p-8 shadow-card"
+            key={benefit.title}
+            className="flex gap-5 rounded-3xl border border-border bg-surface-card p-7 shadow-card transition hover:shadow-card-hover"
           >
-            <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-              <span className="font-heading text-sm font-bold text-primary">{step.step}</span>
+            <div className="mt-1 shrink-0">
+              <CheckCircle2 className="h-6 w-6 text-accent" />
             </div>
-            <h3 className="font-heading type-card-title font-semibold text-foreground">{step.title}</h3>
-            <p className="mt-3 type-body-sm text-muted-foreground">{step.detail}</p>
+            <div>
+              <h3 className="font-heading type-card-title font-semibold text-foreground">{benefit.title}</h3>
+              <p className="mt-2 type-body-sm text-muted-foreground">{benefit.detail}</p>
+            </div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
-const ProductBenefits = ({ product }: { product: NonNullable<ReturnType<typeof getProductBySlug>> }) => (
-  <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-    <div className="mb-14">
-      <span className="eyebrow">Key Benefits</span>
-      <div className="mt-5 lg:grid lg:grid-cols-[1fr_1.4fr] lg:items-end lg:gap-10">
-        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-          The Clear Benefits of {product.title}
-        </h2>
-        <p className="mt-4 type-body text-muted-foreground lg:mt-0">
-          Choosing our solution provides compounding advantages for both soil health and crop productivity over time.
-        </p>
-      </div>
-    </div>
-
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-      {product.benefits.map((benefit) => (
-        <div
-          key={benefit.title}
-          className="flex gap-5 rounded-3xl border border-border bg-surface-card p-7 shadow-card transition hover:shadow-card-hover"
-        >
-          <div className="mt-1 shrink-0">
-            <CheckCircle2 className="h-6 w-6 text-accent" />
-          </div>
-          <div>
-            <h3 className="font-heading type-card-title font-semibold text-foreground">{benefit.title}</h3>
-            <p className="mt-2 type-body-sm text-muted-foreground">{benefit.detail}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-);
-
-const ProductComparisonTable = ({ comparison }: { comparison: NonNullable<ReturnType<typeof getProductBySlug>>["comparison"] }) => {
-  if (!comparison) return null;
+const ProductComparisonTable = ({ comparison }: { comparison?: NonNullable<ReturnType<typeof getProductBySlug>>["comparison"] }) => {
+  if (!comparison || !comparison.rows || comparison.rows.length === 0) return null;
 
   return (
     <section className="bg-muted/70 py-20 lg:py-28 border-t border-border">
@@ -448,7 +464,7 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
               Explore Other Product Lines
             </h2>
             <p className="max-w-2xl type-body text-muted-foreground">
-              Browse the full J K Fertilizers portfolio — each granule line engineered for a specific agronomic purpose.
+              Browse the full J K Fertilizers catalog of mineral carrier bases and bio-inoculated fertilizer granules.
             </p>
           </div>
           <Button asChild variant="outline" className="h-11 rounded-full border-primary px-5 text-primary hover:bg-primary hover:text-white shrink-0 self-start lg:self-auto">
@@ -468,44 +484,36 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
                   aria-label={`View details and specifications for ${relProduct.title}`}
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface-card shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-card-hover"
                 >
-                  <div className="relative h-56 w-full shrink-0 overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
                     <img
-                      src={relProduct.imageUrl}
+                      src={getProductCoverImage(relProduct.slug, relProduct.imageUrl)}
                       alt={relProduct.title}
-                      width={400}
-                      height={300}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
-                    <div className="absolute left-4 top-4">
-                      <span className="inline-flex rounded-full border border-white/30 bg-black/60 px-3 py-1 type-label font-semibold uppercase tracking-[0.16em] text-white">
-                        {relProduct.category}
-                      </span>
+                    <div className="absolute left-4 top-4 rounded-full bg-secondary/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur-xs">
+                      {relProduct.category}
                     </div>
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-heading type-card-title font-semibold text-foreground">{relProduct.title}</h3>
-                    <p className="mt-2 flex-1 type-body-sm text-muted-foreground">{relProduct.summary}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {relProduct.fit.map((tag) => (
-                        <span key={tag} className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 type-label font-medium text-primary">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="mt-5 flex items-center gap-2 type-label font-semibold uppercase tracking-[0.16em] text-primary">
-                      Read more <span className="sr-only">about {relProduct.title}</span>
-                      <MoveRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                      {relProduct.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 type-body-sm text-muted-foreground">
+                      {relProduct.summary}
+                    </p>
+                    <div className="mt-auto pt-4">
+                      <span className="inline-flex items-center text-sm font-semibold text-primary">
+                        View Specifications
+                        <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
                     </div>
                   </div>
                 </Link>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:inline-flex -left-4 lg:-left-6 top-1/2 -translate-y-1/2 bg-surface-card border-border shadow-md hover:bg-muted" />
-          <CarouselNext className="hidden sm:inline-flex -right-4 lg:-right-6 top-1/2 -translate-y-1/2 bg-surface-card border-border shadow-md hover:bg-muted" />
         </Carousel>
       </div>
     </section>
@@ -513,44 +521,34 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
 };
 
 export const ProductDetailPage = () => {
-  const { slug } = useParams();
-  const navigate = useNavigate();
-  const product = getProductBySlug(slug);
-  const related = getRelatedProducts(slug).slice(0, 3);
-  const gallery = getProductGallery(slug || "");
-
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const { slug } = useParams<{ slug: string }>();
+  const product = slug ? getProductBySlug(slug) : undefined;
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  useEffect(() => {
-    if (!product) {
-      navigate("/products", { replace: true });
-    }
-  }, [product, navigate]);
+  if (!product) {
+    return <NotFoundPage />;
+  }
 
-  // Reset gallery state whenever the product slug changes
-  useEffect(() => {
-    setSelectedImageIndex(0);
-    setActiveImageIndex(0);
-    setLightboxOpen(false);
-  }, [slug]);
+  // Related products (max 6)
+  const related = getRelatedProducts(product.slug).slice(0, 6);
 
-  if (!product) return null;
+  // Gallery: get auto-discovered images for this product folder
+  const gallery = getProductGallery(product.slug);
 
   // If there are gallery photos, show only them. Fall back to the cover image when no gallery exists.
   const allImages = gallery && gallery.length > 0 ? gallery : [product.imageUrl];
 
   const handleOpenLightbox = (index: number) => {
-    setActiveImageIndex(index);
+    setSelectedImageIndex(index);
     setLightboxOpen(true);
   };
 
   return (
     <>
       <SEOHead
-        title={`${product.title} — B2B Organic Fertilizer Granules | J K Fertilizers Gujarat`}
-        description={`Buy ${product.title} in bulk from J K Fertilizers — FCO approved ${product.category} fertilizer manufacturer in Anand, Gujarat, India. ${product.summary} Bulk supply available.`}
+        title={`${product.title} | Fertilizer Granules | J K Fertilizers Gujarat`}
+        description={`Buy ${product.title} in bulk from J K Fertilizers, FCO-approved ${product.category} fertilizer manufacturer in Anand, Gujarat. ${product.summary}`}
         canonical={`/products/${product.slug}`}
         ogImage={product.imageUrl}
         ogType="product"
@@ -595,8 +593,8 @@ export const ProductDetailPage = () => {
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
         images={allImages}
-        activeIndex={activeImageIndex}
-        setActiveIndex={setActiveImageIndex}
+        activeIndex={selectedImageIndex}
+        setActiveIndex={setSelectedImageIndex}
         title={product.title}
       />
       <ProductHowToApply product={product} />
