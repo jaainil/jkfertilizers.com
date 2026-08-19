@@ -8923,10 +8923,10 @@
       "computedHash": "2662396c939172e1328040cf98c59eefb8c40fbc59d0ec0bfb9c3fafd3a09305"
     },
     "unslop": {
-      "source": "sickn33/antigravity-awesome-skills",
+      "source": "cursor/plugins",
       "sourceType": "github",
-      "skillPath": "skills/unslop/SKILL.md",
-      "computedHash": "5e5852f3e0842e71b6b86cdad9c66976b7ffdaabeccc0c005d24f97367982d07"
+      "skillPath": "pstack/skills/unslop/SKILL.md",
+      "computedHash": "d8593c3deff559acd5933ebb3023dab22c939b9adcac5deda75beeb0277342a0"
     },
     "upgrading-expo": {
       "source": "sickn33/antigravity-awesome-skills",
