@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Search, X, Sparkles } from "lucide-react";
 import Fuse from "fuse.js";
@@ -33,8 +33,6 @@ const images = {
   partnership: "/images/about-5.webp",
 };
 
-const categories = ["All", "Organic Fertilizers", "Base Granules", "Coated Granules", "Biofertilizers"];
-
 const fuseInstance = new Fuse(products, {
   includeScore: true,
   threshold: 0.35,
@@ -61,20 +59,40 @@ export const ProductsPage = () => {
   const listReveal = useScrollReveal();
   const detailsReveal = useScrollReveal();
 
+  // 1. Text search matches
+  const searchMatches = useMemo(() => {
+    if (!query.trim()) return products;
+    return fuseInstance.search(query.trim()).map((r) => r.item);
+  }, [query]);
+
+  // 2. Dynamically compute available categories & counts (only categories with > 0 products)
+  const { availableCategories, categoryCounts } = useMemo(() => {
+    const counts: Record<string, number> = { All: searchMatches.length };
+    const categoriesSet = new Set<string>();
+
+    searchMatches.forEach((p) => {
+      if (p.category) {
+        counts[p.category] = (counts[p.category] || 0) + 1;
+        categoriesSet.add(p.category);
+      }
+    });
+
+    const categoryList = ["All", ...Array.from(categoriesSet)];
+    return { availableCategories: categoryList, categoryCounts: counts };
+  }, [searchMatches]);
+
+  // 3. Reset selected category if it no longer has matches in current search
+  useEffect(() => {
+    if (selectedCategory !== "All" && !availableCategories.includes(selectedCategory)) {
+      setSelectedCategory("All");
+    }
+  }, [availableCategories, selectedCategory]);
+
+  // 4. Filtered products list
   const filteredProducts = useMemo(() => {
-    let result = products;
-
-    if (query.trim()) {
-      const searchResults = fuseInstance.search(query.trim());
-      result = searchResults.map((r) => r.item);
-    }
-
-    if (selectedCategory !== "All") {
-      result = result.filter((p) => p.category === selectedCategory);
-    }
-
-    return result;
-  }, [query, selectedCategory]);
+    if (selectedCategory === "All") return searchMatches;
+    return searchMatches.filter((p) => p.category === selectedCategory);
+  }, [searchMatches, selectedCategory]);
 
   const handleSearchChange = (val: string) => {
     if (val.trim()) {
@@ -129,63 +147,79 @@ export const ProductsPage = () => {
           description="Every product is manufactured to strict FCO quality parameters in our Vasad, Anand processing facility."
         />
 
-        {/* Search Bar & Category Filter Chips */}
-        <div className="mt-8 mb-12 max-w-2xl mx-auto space-y-5">
-          <div className="relative flex items-center">
-            <Search className="absolute left-4 h-4 w-4 text-muted-foreground" />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => handleSearchChange(e.target.value)}
-              placeholder="Search products (e.g. PROM, PDM, Silica, Mycorrhiza, Base Granules)..."
-              className="w-full rounded-full border border-border bg-surface-card py-3 pl-11 pr-11 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 shadow-xs transition-colors"
-            />
-            {query && (
-              <button
-                type="button"
-                onClick={() => handleSearchChange("")}
-                className="absolute right-4 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                aria-label="Clear search"
-              >
-                <X className="h-4 w-4" />
-              </button>
+        {/* Unified Filter & Search Toolbar */}
+        <div className="mb-10 rounded-2xl sm:rounded-3xl border border-border bg-surface-card p-3 sm:p-4 shadow-card">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            {/* Horizontal Category Tabs with Count Badges */}
+            {availableCategories.length > 1 && (
+              <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 lg:pb-0 scrollbar-none flex-nowrap">
+                {availableCategories.map((cat) => {
+                  const isSelected = selectedCategory === cat;
+                  const count = categoryCounts[cat] ?? 0;
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`inline-flex shrink-0 items-center gap-2 rounded-xl sm:rounded-full px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                        isSelected
+                          ? "bg-primary text-white shadow-xs"
+                          : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                      }`}
+                    >
+                      <span>{cat}</span>
+                      <span
+                        className={`inline-flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10px] font-bold ${
+                          isSelected
+                            ? "bg-white/20 text-white"
+                            : "bg-background text-muted-foreground"
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             )}
-          </div>
 
-          {/* Category Filter Chips */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {categories.map((cat) => {
-              const isSelected = selectedCategory === cat;
-              return (
+            {/* Search Input Box */}
+            <div className="relative w-full lg:w-80 shrink-0">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                placeholder="Search products (e.g. PROM, Silica)..."
+                className="w-full rounded-xl sm:rounded-full border border-border bg-background py-2 pl-10 pr-9 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 shadow-xs transition-colors"
+              />
+              {query && (
                 <button
-                  key={cat}
                   type="button"
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
-                    isSelected
-                      ? "bg-primary text-white shadow-xs scale-102"
-                      : "border border-border bg-surface-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
-                  }`}
+                  onClick={() => handleSearchChange("")}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
+                  aria-label="Clear search"
                 >
-                  {cat}
+                  <X className="h-3.5 w-3.5" />
                 </button>
-              );
-            })}
+              )}
+            </div>
           </div>
 
+          {/* Active Filter Bar (shown if filtered) */}
           {(query || selectedCategory !== "All") && (
-            <div className="flex items-center justify-center gap-3 text-xs text-muted-foreground pt-1">
+            <div className="mt-3 pt-3 border-t border-border flex items-center justify-between gap-3 text-xs text-muted-foreground px-1">
               <span>
-                Showing <strong className="text-foreground font-semibold">{filteredProducts.length}</strong> product{filteredProducts.length === 1 ? "" : "s"}
-                {selectedCategory !== "All" && ` in ${selectedCategory}`}
-                {query && ` matching "${query}"`}
+                Found <strong className="text-foreground font-semibold">{filteredProducts.length}</strong> product{filteredProducts.length === 1 ? "" : "s"}
+                {selectedCategory !== "All" && <span> in <strong className="text-foreground font-medium">{selectedCategory}</strong></span>}
+                {query && <span> matching "<strong className="text-foreground font-medium">{query}</strong>"</span>}
               </span>
               <button
                 type="button"
                 onClick={handleClearAll}
-                className="text-primary font-semibold hover:underline cursor-pointer"
+                className="text-primary font-semibold hover:underline cursor-pointer inline-flex items-center gap-1"
               >
-                Reset filters
+                Reset all
               </button>
             </div>
           )}
