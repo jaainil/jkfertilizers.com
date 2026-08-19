@@ -15,24 +15,24 @@
 - [Contact](https://jkfertilizers.com/contact): Direct contact details, plant address in Vasad, Anand, and inquiry form for bulk orders.
 - [Pricing & Commercials](https://jkfertilizers.com/pricing.md): B2B pricing model, volume tiers, MOQ, payment terms, and delivery info.
 
-## Organic Fertilizer Products
+## Organic Fertilizer & Base Granule Products
 
-- [Organic Manure](https://jkfertilizers.com/products/organic-manure): FCO-approved organic manure enriched with composted organic matter and humic substances.
-- [PROM (Phosphate Rich Organic Manure)](https://jkfertilizers.com/products/prom): Organic bio-phosphorus fertilizer replacing chemical DAP and SSP for root growth.
-- [PDM (Potash Derived from Molasses)](https://jkfertilizers.com/products/pdm): Organic potassium fertilizer supporting crop vigor and water stress tolerance.
-- [Mycorrhiza Biofertilizer](https://jkfertilizers.com/products/mycorrhiza-granules-biofertilizers): VAM-infused granules that expand root surface area and improve nutrient absorption.
-- [Customized Coated Granules](https://jkfertilizers.com/products/customized-coated-granules): Base granules with high absorption capacity for custom bio-fertilizers and micronutrient coatings.
-- [Coated Base Granules Bio NPK](https://jkfertilizers.com/products/coated-base-granules-bio-npk): Triple-action biological coating delivering balanced N, P, and K with bio-agents.
-- [Coated Base Granules Mycorrhiza](https://jkfertilizers.com/products/coated-base-granules-mycorrhiza): Mineral-mycorrhiza blend ensuring living fungal spores reach the root zone safely.
-- [Customized Base Granules](https://jkfertilizers.com/products/customized-base-granules): Tailored carrier matrix engineered from dolomite, gypsum, and compost formulations.
-- [Pancharatna Base Granules](https://jkfertilizers.com/products/pancharatna-base-granules): 5-in-1 multi-nutrient foundation providing balanced macro and micronutrients.
-- [Organic Carbon Base Granules](https://jkfertilizers.com/products/organic-carbon-base-granules): High organic matter carrier revitalizing depleted soils and improving microbial activity.
-- [Humic Based Granules](https://jkfertilizers.com/products/humic-based-granules): Humic and fulvic acid enriched granules for root stimulation.
-- [Enriched Base Granules](https://jkfertilizers.com/products/enriched-base-granules): Fortified mineral carrier for high-potency fertilizer formulations.
-- [Other Nutrients Base Granules](https://jkfertilizers.com/products/other-nutrients-base-granules): Specialized micronutrient-tailored carriers for zinc, boron, and sulfur formulations.
-- [Base Granules](https://jkfertilizers.com/products/base-granules): Universal high-hardness granule carrier platform for fertilizer blenders.
-- [Plant Available Silica](https://jkfertilizers.com/products/plant-available-silica): Soluble silicon replenisher strengthening plant cell walls and biotic stress defense.
-- [Diatomite Silicon](https://jkfertilizers.com/products/diatomite-silicon): Natural amorphous silica granules enhancing soil moisture retention and pest resistance.
+- [PROM (Phosphate Rich Organic Manure)](https://jkfertilizers.com/products/prom): FCO-approved bio-phosphate (min. 10.4% P2O5, min. 7.9% Organic Carbon) replacing chemical DAP and SSP via organic-acid phosphorus solubilization.
+- [PDM (Potash Derived from Molasses)](https://jkfertilizers.com/products/pdm): FCO-approved chloride-safe bio-potassium (min. 14.5% K2O, min. 16.0% Organic Carbon) from sugarcane spent wash to elevate fruit brix and prevent MOP chloride burn.
+- [Organic Manure](https://jkfertilizers.com/products/organic-manure): FCO-certified thermophilic organic compost (min. 16.0% Organic Carbon, C:N < 20:1) to restore soil humus and Cation Exchange Capacity (CEC).
+- [Mycorrhiza Biofertilizer](https://jkfertilizers.com/products/mycorrhiza-granules-biofertilizers): FCO-certified VAM endo-mycorrhizae (min. 100 IP/gm Glomus spp.) expanding root absorptive surface area by up to 700%.
+- [Diatomite Silicon](https://jkfertilizers.com/products/diatomite-silicon): FCO-certified biogenic amorphous silica (SiO2·nH2O) releasing soluble orthosilicic acid (H4SiO4) for plant cell wall armor and lodging resistance.
+- [Plant Available Silica](https://jkfertilizers.com/products/plant-available-silica): High-solubility monosilicic acid (H4SiO4) base granules for anti-lodging and thermal transpiration defense.
+- [Coated Base Granules Bio NPK](https://jkfertilizers.com/products/coated-base-granules-bio-npk): Mineral core coated with active Azotobacter, PSB, and KMB bacterial consortium (>10^7 CFU/g).
+- [Coated Base Granules Mycorrhiza](https://jkfertilizers.com/products/coated-base-granules-mycorrhiza): Mineral carrier encapsulated with viable endo-mycorrhizal spores (min. 60–100 IP/gm).
+- [Humic Based Granules](https://jkfertilizers.com/products/humic-based-granules): Potassium Humate and Fulvate granules with high carboxyl/phenolic density for micronutrient chelation and root branching.
+- [Organic Carbon Base Granules](https://jkfertilizers.com/products/organic-carbon-base-granules): High bio-carbon carrier (min. 18.0% SOC) feeding rhizosphere microflora and absorbing liquid bio-coatings.
+- [Pancharatna Base Granules](https://jkfertilizers.com/products/pancharatna-base-granules): 5-in-1 multi-mineral granule co-granulating Calcium, Magnesium, Sulfur, Silicon, and Organic Carbon.
+- [Base Granules](https://jkfertilizers.com/products/base-granules): Universal high-hardness mineral carrier (>4.0 kg crush strength) engineered from Gypsum and Dolomite to replace swelling bentonite.
+- [Customized Base Granules](https://jkfertilizers.com/products/customized-base-granules): Tailored mineral carrier recipes calibrated to client bulk density (0.95–1.35 g/cm³) and pH targets.
+- [Customized Coated Granules](https://jkfertilizers.com/products/customized-coated-granules): Turnkey low-temperature drum coating service (<38°C) for bio-fertilizers, humics, seaweed, and micronutrients.
+- [Enriched Base Granules](https://jkfertilizers.com/products/enriched-base-granules): Mineral core fortified with secondary Calcium, Magnesium, Sulfur, and Zinc throughout the particle volume.
+- [Other Nutrients Base Granules](https://jkfertilizers.com/products/other-nutrients-base-granules): Micronutrient-fortified carrier integrating Zn, B, Fe, Mn, and S directly into the core to eliminate dry blend segregation.
 
 ## Manufacturing Services
 

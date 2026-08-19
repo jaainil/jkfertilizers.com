@@ -371,84 +371,110 @@ Every product `src/content/products/<slug>/index.mdx` accepts the following fron
 | `summary` | `string` | **Yes** | 1–2 sentence summary used on listing cards, hero overview, and meta tags. |
 | `tagline` | `string` | **Yes** | Subtitle / slogan displayed directly under the h1 title on the detail page. |
 | `category` | `string` | **Yes** | Category label (e.g. `"Base Granules"`, `"Coated Granules"`, `"Organic Fertilizers"`). |
-| `fit` | `string[]` | **Yes** | Array of 3–5 badge tags (e.g. `["FCO Approved", "Soil Health", "Sustainable Farming"]`). |
-| `description` | `string` (multiline `\|`) | **Yes** | 2–3 paragraph long-form description of the product, mechanisms, and agronomic value. |
+| `fit` | `string[]` | **Yes** | Array of 3–6 badge tags highlighting active chemistry, certifications, and soil mechanics. |
+| `description` | `string` (multiline `\|`) | **Yes** | 2–3 paragraph long-form description of the product, chemical stoichiometry, reaction mechanisms, and agronomic value. |
 | `howToApply` | `HowToApplyStep[]` | **Yes** | 3-step application guide. Each item must have `step` (`"01"`), `title`, and `detail`. |
-| `benefits` | `ProductBenefit[]` | **Yes** | List of key agronomic benefits. Each item must have `title` and `detail`. |
+| `benefits` | `ProductBenefit[]` | **Yes** | List of 4 key agronomic benefits. Each item must have `title` and `detail`. |
 | `specs` | `ProductSpec[]` | **Yes** | Quick-spec attributes rendered in the top spec bar & sidebar card. Each item has `label` and `value`. |
 | `comparison` | `ProductComparison` | *Optional* | Technical head-to-head comparison table rendered on `ProductDetailPage`. |
-| `comparison.title` | `string` | *Optional* | Heading for the comparison section. |
+| `comparison.title` | `string` | *Optional* | Heading for the comparison section (e.g. `"Comparison: PROM vs. Synthetic DAP & SSP"`). |
 | `comparison.headers` | `object` | *Optional* | Column header labels (`feature`, `traditional`, `ours`). |
 | `comparison.rows` | `ComparisonRow[]` | *Optional* | Array of rows comparing attributes (`feature`, `traditional`, `ours`). |
 
-#### Full Frontmatter Example with Comparison Table
+#### Chemical & Formula Formatting Rules in MDX
+- **Always use standard Unicode subscripts and superscripts** in product descriptions, summaries, and benefits:
+  - Ions & Cations: `Ca²⁺`, `Mg²⁺`, `SO₄²⁻`, `Zn²⁺`, `Fe²⁺/Fe³⁺`, `Mn²⁺`, `BO₃³⁻`, `Na⁺`, `K⁺`, `NH₄⁺`, `H₂PO₄⁻`
+  - Mineral & Chemical Formulas: `CaSO₄·2H₂O`, `CaMg(CO₃)₂`, `CaCO₃`, `SiO₂·nH₂O`, `H₄SiO₄`, `Ca₅(PO₄)₃(OH,F)`, `P₂O₅`, `K₂O`, `N₂`
+- **Use standard parentheses `(...)`** for chemical formulas and explanations—avoid raw square brackets `[...]` or LaTeX carets `^2-` in plain text to ensure seamless, clean rendering in browser HTML without parser issues.
+
+#### Full Frontmatter Example with Chemistry & Comparison Table
 
 ```yaml
 ---
 title: "Diatomite Silicon"
 imageUrl: "1.webp"
-summary: "A certified, government-approved fertilizer under FCO enriched with silica to improve soil health and crop resilience."
+summary: "FCO-certified amorphous biogenic silica granules (SiO₂·nH₂O) releasing bio-available monomeric orthosilicic acid (H₄SiO₄) for plant cell wall reinforcement, anti-lodging defense, and soil moisture retention."
 fit:
-  - "FCO Approved"
-  - "Silica Enriched"
-  - "Crop Resilience"
-  - "Soil Health"
+  - "FCO Certified Quality"
+  - "Amorphous Biogenic Silica (SiO₂·nH₂O)"
+  - "Soluble Orthosilicic Acid (H₄SiO₄)"
+  - "Anti-Lodging Cellular Armor"
+  - "High Internal Porosity (65–75%)"
   - "Sustainable Farming"
 category: "Base Granules"
-tagline: "A Government-Approved FCO Product"
+tagline: "FCO-certified amorphous biogenic silica granules for cellular armor, lodging prevention, and rhizosphere water conservation."
 description: |
-  Diatomite Silicon is a certified, government-approved fertilizer under the Fertilizer Control Order (FCO), guaranteeing quality and compliance. This high-quality, mineral-based product is enriched with silica to improve soil health and crop performance sustainably.
+  Diatomite Silicon is an FCO-certified mineral fertilizer manufactured from purified natural amorphous diatomaceous earth (biogenic hydrous silicon dioxide, SiO₂·nH₂O). Unlike unreactive crystalline quartz or sand, biogenic diatomite features a microscopic porous frustule architecture that gradually hydrolyzes in soil moisture into bio-absorbable orthosilicic acid (H₄SiO₄).
 
-  Designed to enhance plant resilience against environmental stress, it promotes robust growth, improves nutrient uptake, and strengthens crops.
+  Absorbed silicon translocates through xylem sap to leaf and culm epidermis, polymerizing into rigid opal phytoliths and forming a dense silica-cuticle double layer. This mechanical reinforcement deters piercing-sucking pests (stem borers, aphids), prevents fungal haustorium penetration, thickens stem vascular walls to stop crop lodging in heavy-grain cereals, and reduces non-stomatal transpiration under high thermal and water stress.
 howToApply:
   - step: "01"
-    title: "Direct Soil Application"
-    detail: "Apply directly to the soil during basal application or field preparation."
+    title: "Direct Soil Basal Dressing"
+    detail: "Apply 25–50 kg per acre during field preparation or prior to sowing to establish long-term bioavailable silica reserves."
   - step: "02"
-    title: "Fertilizer Blending"
-    detail: "Blend seamlessly with NPK or organic fertilizers."
+    title: "NPK & Organic Blending"
+    detail: "Blend seamlessly with granular Urea, DAP, PROM, or compost to reinforce vegetative structure and nutrient uptake efficiency."
   - step: "03"
-    title: "Broadcasting"
-    detail: "Broadcast evenly across fields and incorporate into topsoil."
+    title: "Standing Crop Top-Dressing"
+    detail: "Broadcast during early vegetative or tillering stages before stem elongation to maximize culm mechanical hardness."
 benefits:
-  - title: "FCO Certified Quality"
-    detail: "Government-approved under the Fertilizer Control Order (FCO)."
-  - title: "Enhanced Crop Resilience"
-    detail: "Strengthens cellular walls against lodging, pests, and drought."
+  - title: "FCO-Certified Amorphous Silica Chemistry"
+    detail: "High-purity biogenic diatomite providing reactive silica without hazardous crystalline quartz content."
+  - title: "Anti-Lodging & Cellular Reinforcement"
+    detail: "Induces silicified phytolith deposition along stem vascular bundles to prevent stem breakage in high-yield crops."
+  - title: "Biotic Pest & Fungal Defense"
+    detail: "Forms an abrasive silica-cuticle barrier that abrades insect mouthparts and restricts fungal haustorium entry."
+  - title: "High Rhizosphere Water Retention"
+    detail: "Micro-porous frustule matrix absorbs up to 120% its weight in moisture, buffering crops during irrigation delays."
 specs:
   - label: "Product Type"
     value: "Diatomite Silicon Granules"
   - label: "Category"
-    value: "Base Granules"
+    value: "Base Granules & Soil Conditioners"
+  - label: "Silicon Form"
+    value: "Amorphous Hydrous Silica (SiO₂·nH₂O)"
+  - label: "Bioactive Species"
+    value: "Orthosilicic Acid (H₄SiO₄)"
   - label: "Certification"
     value: "FCO Approved (Govt. of India)"
-  - label: "Heavy Metal"
-    value: "Low (< 10%)"
+  - label: "Granule Sizing"
+    value: "2–4 mm Round Uniform Granules"
+  - label: "Crush Strength"
+    value: "> 4.0 kg / granule"
+  - label: "Moisture Content"
+    value: "Maximum 5.0% by weight"
+  - label: "Heavy Metals"
+    value: "Low (< 10% FCO safety limit)"
+  - label: "Application"
+    value: "Direct soil application, dry NPK blending, top dressing"
 comparison:
-  title: "Comprehensive Comparison: Traditional Bentonite Granules vs. Advanced Custom Mineral-Based Granules"
+  title: "Comparison: Diatomite Amorphous Silicon vs. Crystalline Quartz & Sand Fillers"
   headers:
-    feature: "Feature"
-    traditional: "Bentonite Granules"
-    ours: "Our Recipe Granules"
+    feature: "Agronomic & Chemical Metric"
+    traditional: "Crystalline Sand / Quartz Fillers"
+    ours: "Diatomite Silicon (J K Fertilizers)"
   rows:
-    - feature: "Customizable Base Material"
-      traditional: "Yes"
-      ours: "Yes (Ca, Mg, Phosphorus, Silica, and other minerals)"
-    - feature: "Enhanced Nutrient Addition"
-      traditional: "No (coating only)"
-      ours: "Yes (can be integrated into the base)"
-    - feature: "Heavy Metal Content"
-      traditional: "High (more than 18%)"
-      ours: "Low (less than or around 10%)"
-    - feature: "Order Flexibility"
-      traditional: "Yes (Bulk Orders)"
-      ours: "Yes (customizable quantities per demand)"
+    - feature: "Silicon Bio-Availability"
+      traditional: "0% plant-available (insoluble crystalline lattice)"
+      ours: "High solubility; hydrolyzes directly into H₄SiO₄"
+    - feature: "Cellular Armor & Anti-Lodging"
+      traditional: "Zero deposition in plant xylem or epidermal tissue"
+      ours: "Forms rigid phytoliths and silica-cuticle double layers"
+    - feature: "Internal Porosity & Water Storage"
+      traditional: "Non-porous solid particles; 0% internal water hold"
+      ours: "65–75% internal frustule porosity; retains 120% water"
+    - feature: "Granule Hardness & Dust"
+      traditional: "Abrasive dust that damages blending machinery"
+      ours: "Uniform 2–4 mm granules with >4.0 kg crush strength"
+    - feature: "FCO Regulatory Certification"
+      traditional: "Unregulated inert mineral sand / clay filler"
+      ours: "100% FCO compliant with batch test certification"
 ---
 ```
 
 ### Adding a New Product
 
-1. Create `src/content/products/<slug>/index.mdx` with the frontmatter fields above (optionally including `comparison: { title, headers, rows }`)
+1. Create `src/content/products/<slug>/index.mdx` with the frontmatter fields above (including clean Unicode chemical formulas and product-specific `comparison: { title, headers, rows }`)
 2. Drop the cover + gallery images into the same folder
 3. Add the product route/link to `src/components/SiteNavbar.tsx`
 4. Done - product appears on /products, homepage marquee, mega menu, and sitemap automatically
@@ -540,6 +566,9 @@ Cert:     FCO Approved (Fertilizer Control Order)
 - Use type scale utilities (`type-card-title`, `type-section-h2`, etc.) for content headings
 - Import company data from `src/data/siteData.ts` - never hardcode phone/email/address
 - Reset gallery state (`selectedImageIndex`, `activeImageIndex`) in `useEffect([slug])` on `ProductDetailPage`
+- Use standard Unicode subscripts/superscripts (`Ca²⁺`, `SO₄²⁻`, `SiO₂`, `H₄SiO₄`) and parentheses `(...)` for chemical notation in MDX
+- Ensure every product has a dedicated, tailored head-to-head comparison table against its specific market alternative
+- Keep `public/llms.txt` and `public/products.md` updated whenever product formulations or specs change
 - Use `bun` not `npm` for package management
 - Run `bun run optimize-images` whenever new WebP/PNG images are added
 - Add explicit `width`, `height`, `loading="lazy"`, and `decoding="async"` on all below-the-fold `<img>` tags
@@ -557,6 +586,8 @@ Cert:     FCO Approved (Fertilizer Control Order)
 - ❌ Add decorative gradient/noise/glow-blob layers, `backdrop-blur` glassmorphism, or `blur-[...]` ambience divs
 - ❌ Use relative imports from `src/` - use `@/` alias
 - ❌ Run `npm install` - use `bun install`
+- ❌ Use raw LaTeX caret syntax (`^2-`) or raw square brackets (`[...]`) in MDX product descriptions
+- ❌ Use generic placeholder comparison rows across different products - every product must have tailored comparisons
 - ❌ Use `key={imageUrl}` when mapping product images - use `key={idx}` or `key={slug}`
 - ❌ Commit uncompressed multi-megabyte images (raw 1080p/4K camera photos) - always optimize down to 15KB–100KB first
 - ❌ Insert em dashes (`—` or `--`) in user-facing copy, schemas, or markdown
@@ -653,5 +684,18 @@ Always ground product claims in verified company operational specs:
 - **Compliance:** Full Fertilizer Control Order (FCO 1985) certification on organic manures, PROM, and PDM.
 - **Formulation:** Mineral base granules engineered from gypsum, silica, dolomite, and secondary minerals (avoiding inert clay / high-heavy-metal bentonite carriers).
 - **Testing:** In-house laboratory testing for bulk density, moisture, crushing hardness, and heavy metals (< 10%).
+
+### Chemistry, Bio-Inoculants & Agronomic Rigor
+Ground all fertilizer product descriptions and technical documentation in verified chemical and agronomic mechanisms:
+- **Rock Phosphate / PROM:** Apatite $\text{Ca}_5(\text{PO}_4)_3(\text{OH,F})$ co-composting; low-molecular-weight organic acids (citric, oxalic, malic) chelating $\text{Ca}^{2+}$ to prevent phosphate precipitation in alkaline soils ($pH > 7.2$).
+- **Bio-Potash / PDM:** Sugarcane distillery spent wash organic potassium; chloride-safe ($< 2\%$ Cl⁻ vs $47\%$ in synthetic MOP); activating pyruvate kinase/ATPase enzymes for phloem carbohydrate transport and fruit Brix.
+- **Diatomite & Silica:** Natural amorphous biogenic silica ($\text{SiO}_2\cdot n\text{H}_2\text{O}$) hydrolyzing into monosilicic/orthosilicic acid ($\text{H}_4\text{SiO}_4$); Lsi1/Lsi2 root channel absorption; polymerization into opal phytoliths for anti-lodging and silica-cuticle pest armor.
+- **Biofertilizers & Consortia:** Guaranteed viable endo-mycorrhizal spores (min 100 IP/gm *Glomus intraradices / Rhizophagus irregularis*), glomalin secretion, and Bio-NPK microbial counts ($> 10^7$ CFU/g for *Azotobacter, Bacillus, Frateuria*).
+- **Secondary & Trace Elements:** Homogeneous core fortification delivering $\text{Ca}^{2+}, \text{Mg}^{2+}, \text{SO}_4^{2-}, \text{Zn}^{2+}, \text{BO}_3^{3-}, \text{Fe}^{2+}, \text{Mn}^{2+}$ to prevent ballistic segregation in dry bulk blends.
+
+### AI Search Optimization (GEO / LLMO)
+- Maintain `public/llms.txt` and `public/products.md` with structured, factual, citable summaries of all 16 products, chemical formulas, and FCO parameters.
+- Provide clear, direct answers formatted for extraction by LLM answer engines (ChatGPT, Perplexity, Claude, Gemini, Google AI Overviews).
+
 
 

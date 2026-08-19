@@ -2041,6 +2041,12 @@
       "skillPath": "skills/chat-widget/SKILL.md",
       "computedHash": "f1b7d1a6e9e8f756b450549377a646a5fed4057ba629cd02145a32375a48b87e"
     },
+    "chemistry-skills": {
+      "source": "wentorai/research-plugins",
+      "sourceType": "github",
+      "skillPath": "skills/domains/chemistry/SKILL.md",
+      "computedHash": "4061cfa184ce4ca08cc919beac65ac9b5b627a29b54a4616e2cfe10423415db7"
+    },
     "chrome-extension-developer": {
       "source": "sickn33/antigravity-awesome-skills",
       "sourceType": "github",

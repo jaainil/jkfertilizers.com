@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Mineral-rich soil conditioner that improves soil structure, balances pH levels, and supplies calcium, magnesium, and sulfur for root development.
+High-hardness mineral carrier granules engineered from natural Gypsum, Dolomite, and Calcite to provide a dust-free, high crush-strength substrate for bio-fertilizer coating and secondary Ca, Mg, and S soil conditioning.
 
 
 

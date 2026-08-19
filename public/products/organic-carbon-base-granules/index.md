@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-High organic carbon base granules designed to replenish depleted soil organic matter, feed beneficial microbes, and improve soil moisture retention.
+Engineered high-carbon mineral carrier granules (min. 18.0% bio-active organic carbon) designed to replenish depleted soil organic matter (SOM), feed beneficial rhizosphere microflora, and maximize water infiltration.
 
 
 

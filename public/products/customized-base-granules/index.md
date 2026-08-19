@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Custom formulated mineral granules using gypsum, silica, dolomite, and secondary minerals as cleaner, active alternatives to roasted bentonite.
+Custom-formulated mineral carrier granules tailored to precise bulk density, particle sizing (2–4 mm), pH buffering range, and secondary mineral stoichiometry (Gypsum, Dolomite, Silica, Organic Carbon) for B2B fertilizer manufacturers and blenders.
 
 
 

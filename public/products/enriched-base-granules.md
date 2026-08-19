@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Mineral base granules fortified with secondary nutrients and trace minerals to correct deficiencies and support root architecture.
+High-grade mineral carrier granules fortified with secondary nutrients (Calcium, Magnesium, Sulfate-Sulfur) and essential trace elements built directly into the core matrix for sustained multi-mineral rhizosphere feeding.
 
 
 

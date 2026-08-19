@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Mineral base granules coated with active mycorrhizal spores to expand root absorption area and increase phosphorus and trace mineral uptake.
+High-integrity mineral carrier granules coated with concentrated endo-mycorrhizal spores using a bio-compatible organic sticker that preserves spore viability and establishes expansive symbiotic hyphal networks in the root zone.
 
 
 

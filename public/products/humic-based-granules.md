@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Organic soil conditioner containing humic and fulvic acids to raise cation exchange capacity (CEC), stimulate soil microbes, and prevent nutrient lockup.
+High-potency organic soil conditioner granules engineered with concentrated Potassium Humate and Fulvate fractions to boost soil Cation Exchange Capacity (CEC), chelate micronutrients, and stimulate lateral root initiation.
 
 
 

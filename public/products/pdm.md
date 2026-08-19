@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-FCO-certified organic potassium fertilizer (min. 14.5% K2O) providing sulfur, calcium, and organic carbon to improve fruit sizing, sweetness, and drought resilience.
+FCO-certified organic bio-potassium fertilizer (min. 14.5% water-soluble K2O, min. 16.0% organic carbon) enriched with organic sulfur, calcium, and fulvic fractions to optimize fruit brix, grain density, and drought resilience without chloride toxicity.
 
 
 

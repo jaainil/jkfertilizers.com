@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-FCO-certified natural amorphous silica fertilizer that strengthens crop cell walls, reduces plant transpiration stress, and improves soil moisture retention.
+FCO-certified natural amorphous biogenic silica granules (SiO2·nH2O) with ultra-high microporosity that release plant-available orthosilicic acid (H4SiO4) to strengthen leaf cuticles, reduce lodging, and maximize soil moisture retention.
 
 
 

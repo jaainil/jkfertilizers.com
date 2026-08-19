@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Mineral base granules coated with active BIO NPK inoculants to supply nitrogen, phosphorus, and potassium with controlled release in the root zone.
+High-hardness mineral carrier granules coated with a bio-active microbial consortium (Azotobacter, PSB, KMB) that fixes atmospheric nitrogen, solubilizes locked phosphates, and mobilizes potassium while supplying core calcium and sulfur.
 
 
 

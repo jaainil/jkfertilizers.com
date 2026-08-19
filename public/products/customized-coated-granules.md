@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Custom granule coating service applying Bio NPK, Mycorrhiza, humic acids, or micronutrient formulations to selected mineral bases.
+Industrial custom coating and private-label manufacturing service applying proprietary Bio NPK, Mycorrhizal endo-spores, humic/fulvic acids, seaweed extracts, or chelated micronutrients onto high-hardness mineral carrier bases with low-temperature drying.
 
 
 

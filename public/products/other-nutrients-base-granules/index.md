@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-Specially formulated base granules delivering a balanced blend of essential micro and macronutrients, secondary minerals, and trace elements to support optimal crop development and soil health.
+Precision-engineered mineral carrier granules formulated with essential micronutrient packages—including Zinc (Zn), Boron (B), Iron (Fe), Manganese (Mn), and Sulfur (S)—integrated directly into the granule core to prevent physical segregation in dry bulk fertilizer blends.
 
 
 

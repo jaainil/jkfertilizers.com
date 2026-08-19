@@ -3,7 +3,7 @@
 > **Manufacturer:** J K Fertilizers | **Location:** Anand, Gujarat, India | **Compliance:** FCO Approved
 
 ## Summary
-FCO-certified composted organic manure with 16%+ organic carbon to restore humus, improve soil structure, and increase moisture retention.
+FCO-certified thermophilically stabilized organic manure (min. 16.0% organic carbon, C:N ratio < 20:1) enriched with humic fractions and beneficial soil microflora to restore soil organic matter (SOM), cation exchange capacity (CEC), and moisture holding capacity.
 
 
 
