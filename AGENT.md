@@ -25,6 +25,7 @@
 | Content (blog/products/services) | MDX (`@mdx-js/rollup` + `@mdx-js/react`) |
 | Forms | Formspree (`@formspree/react` v3) - form ID: `mjybrvgp` |
 | SEO | `react-helmet-async` + custom `SEOHead` component |
+| Fuzzy Search | `fuse.js` v7 (weighted typo-tolerant catalog search) |
 | Analytics | Google Analytics 4 (`G-L1BQM1V3E3`) + Umami Analytics (`57ab23b0-35e3-4868-9718-3c17b45138ee`) |
 | Toast notifications | `sonner` |
 | Icons | `lucide-react` |

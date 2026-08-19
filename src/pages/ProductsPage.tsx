@@ -1,6 +1,7 @@
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Search, X } from "lucide-react";
+import { Search, X, Sparkles } from "lucide-react";
+import Fuse from "fuse.js";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/PageHero";
 import { ImagePanel } from "@/components/ImagePanel";
@@ -32,25 +33,61 @@ const images = {
   partnership: "/images/about-5.webp",
 };
 
+const categories = ["All", "Organic Fertilizers", "Base Granules", "Coated Granules", "Biofertilizers"];
+
+const fuseInstance = new Fuse(products, {
+  includeScore: true,
+  threshold: 0.35,
+  ignoreLocation: true,
+  keys: [
+    { name: "title", weight: 0.35 },
+    { name: "tagline", weight: 0.15 },
+    { name: "category", weight: 0.15 },
+    { name: "summary", weight: 0.1 },
+    { name: "fit", weight: 0.1 },
+    { name: "benefits.title", weight: 0.05 },
+    { name: "benefits.detail", weight: 0.05 },
+    { name: "specs.label", weight: 0.025 },
+    { name: "specs.value", weight: 0.025 },
+  ],
+});
+
 export const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") || "";
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const introReveal = useScrollReveal();
   const listReveal = useScrollReveal();
   const detailsReveal = useScrollReveal();
 
   const filteredProducts = useMemo(() => {
-    if (!query.trim()) return products;
-    const lower = query.toLowerCase().trim();
-    return products.filter(
-      (p) =>
-        p.title.toLowerCase().includes(lower) ||
-        p.category.toLowerCase().includes(lower) ||
-        p.summary.toLowerCase().includes(lower) ||
-        p.benefits.some((b) => b.toLowerCase().includes(lower))
-    );
-  }, [query]);
+    let result = products;
+
+    if (query.trim()) {
+      const searchResults = fuseInstance.search(query.trim());
+      result = searchResults.map((r) => r.item);
+    }
+
+    if (selectedCategory !== "All") {
+      result = result.filter((p) => p.category === selectedCategory);
+    }
+
+    return result;
+  }, [query, selectedCategory]);
+
+  const handleSearchChange = (val: string) => {
+    if (val.trim()) {
+      setSearchParams({ q: val }, { replace: true });
+    } else {
+      setSearchParams({}, { replace: true });
+    }
+  };
+
+  const handleClearAll = () => {
+    setSearchParams({}, { replace: true });
+    setSelectedCategory("All");
+  };
 
   return (
   <>
@@ -92,36 +129,65 @@ export const ProductsPage = () => {
           description="Every product is manufactured to strict FCO quality parameters in our Vasad, Anand processing facility."
         />
 
-        {/* Search Bar for sitelinks & user filtering */}
-        <div className="mt-8 mb-10 max-w-md mx-auto relative">
+        {/* Search Bar & Category Filter Chips */}
+        <div className="mt-8 mb-12 max-w-2xl mx-auto space-y-5">
           <div className="relative flex items-center">
-            <Search className="absolute left-3.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-4 h-4 w-4 text-muted-foreground" />
             <input
               type="text"
               value={query}
-              onChange={(e) => {
-                const val = e.target.value;
-                if (val) setSearchParams({ q: val });
-                else setSearchParams({});
-              }}
-              placeholder="Search products (e.g., PROM, Mycorrhiza, Manure)..."
-              className="w-full rounded-full border border-border bg-background py-2.5 pl-10 pr-10 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary shadow-xs"
+              onChange={(e) => handleSearchChange(e.target.value)}
+              placeholder="Search products (e.g. PROM, PDM, Silica, Mycorrhiza, Base Granules)..."
+              className="w-full rounded-full border border-border bg-surface-card py-3 pl-11 pr-11 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 shadow-xs transition-colors"
             />
             {query && (
               <button
                 type="button"
-                onClick={() => setSearchParams({})}
-                className="absolute right-3.5 p-0.5 text-muted-foreground hover:text-foreground"
+                onClick={() => handleSearchChange("")}
+                className="absolute right-4 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                 aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
               </button>
             )}
           </div>
-          {query && (
-            <p className="mt-2 text-center text-xs text-muted-foreground">
-              Showing {filteredProducts.length} result{filteredProducts.length === 1 ? "" : "s"} for "{query}"
-            </p>
+
+          {/* Category Filter Chips */}
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {categories.map((cat) => {
+              const isSelected = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                    isSelected
+                      ? "bg-primary text-white shadow-xs scale-102"
+                      : "border border-border bg-surface-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+
+          {(query || selectedCategory !== "All") && (
+            <div className="flex items-center justify-center gap-3 text-xs text-muted-foreground pt-1">
+              <span>
+                Showing <strong className="text-foreground font-semibold">{filteredProducts.length}</strong> product{filteredProducts.length === 1 ? "" : "s"}
+                {selectedCategory !== "All" && ` in ${selectedCategory}`}
+                {query && ` matching "${query}"`}
+              </span>
+              <button
+                type="button"
+                onClick={handleClearAll}
+                className="text-primary font-semibold hover:underline cursor-pointer"
+              >
+                Reset filters
+              </button>
+            </div>
           )}
         </div>
       </div>
@@ -136,14 +202,17 @@ export const ProductsPage = () => {
         ))}
       </div>
       {filteredProducts.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-muted-foreground">No products found matching "{query}".</p>
+        <div className="text-center py-16 rounded-3xl border border-border bg-surface-card max-w-xl mx-auto p-8 shadow-card">
+          <p className="type-card-title font-semibold text-foreground">No matching products found</p>
+          <p className="mt-2 type-body-sm text-muted-foreground">
+            We couldn't find any products matching {query ? `"${query}"` : ""} {selectedCategory !== "All" ? `in category "${selectedCategory}"` : ""}. Try adjusting your search query.
+          </p>
           <Button
             variant="outline"
-            className="mt-4 rounded-full"
-            onClick={() => setSearchParams({})}
+            className="mt-6 rounded-full border-primary text-primary hover:bg-primary hover:text-white"
+            onClick={handleClearAll}
           >
-            View all products
+            View all 16 products
           </Button>
         </div>
       )}
