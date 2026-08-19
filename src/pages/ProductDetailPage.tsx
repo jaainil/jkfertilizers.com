@@ -37,12 +37,13 @@ const ProductHero = ({
           <div className="flex items-center gap-2 sm:gap-3 flex-nowrap overflow-x-auto scrollbar-none pb-0.5">
             <Link
               to="/products"
-              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-semibold uppercase tracking-wider text-white/80 transition hover:bg-white/20 whitespace-nowrap"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 sm:px-3.5 sm:py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90 shadow-xs transition hover:bg-white/20 hover:text-white whitespace-nowrap"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               All Products
             </Link>
-            <span className="inline-flex shrink-0 items-center rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-bold uppercase tracking-wider text-white/80 whitespace-nowrap">
+            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent/40 bg-accent/15 px-3 py-1.5 sm:px-3.5 sm:py-1.5 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-xs whitespace-nowrap">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {product.category}
             </span>
           </div>
@@ -60,8 +61,9 @@ const ProductHero = ({
             {(product.fit || []).map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 type-label font-medium text-white/85"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 type-label font-medium text-white/80"
               >
+                <CheckCircle2 className="h-3 w-3 text-accent/80" />
                 {tag}
               </span>
             ))}
