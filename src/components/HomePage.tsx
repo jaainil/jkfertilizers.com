@@ -1,5 +1,22 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, PhoneCall, CheckCircle2, ChevronRight, MoveRight, Leaf, Award, Sprout, Quote, Star } from "lucide-react";
+import {
+  ArrowRight,
+  PhoneCall,
+  Mail,
+  MapPin,
+  ShieldCheck,
+  Truck,
+  Sparkles,
+  CheckCircle2,
+  ChevronRight,
+  MoveRight,
+  Leaf,
+  Award,
+  Sprout,
+  Quote,
+  Star,
+  Clock3,
+} from "lucide-react";
 import { products, getProductCoverImage } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { ImagePanel } from "@/components/ImagePanel";
@@ -221,8 +238,8 @@ const HomeHero = () => {
               asChild
               className="h-12 rounded-full bg-primary px-6 text-sm font-semibold text-white hover:bg-primary/90 transition-colors duration-200 sm:px-8"
             >
-              <Link to="/services">
-                See Our Services
+              <Link to="/products">
+                Explore Products
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -941,7 +958,7 @@ const HomeFaqSection = () => {
                 </Button>
               </div>
             </div>
-          }
+                  }
         />
       </div>
     </section>
@@ -954,55 +971,112 @@ const HomeContactSection = () => {
   return (
     <section
       ref={contactReveal.ref}
-      className={`py-14 sm:py-20 lg:py-28 bg-secondary reveal ${contactReveal.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-24 lg:py-28 bg-secondary text-white reveal ${contactReveal.isVisible ? 'visible' : ''}`}
     >
-      <div className="mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:items-start lg:gap-10">
-        <div className="space-y-5 sm:space-y-6">
-          <span className="eyebrow-dark">
-            Work With Us
-          </span>
-          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
-            Contact Us <span className="text-accent">Today</span>
-          </h2>
-          <p className="type-body text-white/75 sm:max-w-2xl">
-            Submit your inquiry and our team will respond within 24 hours.
-          </p>
-          <div className="grid gap-3 pt-2 type-body-sm text-white/70">
-            <div className="flex items-start gap-2">
-              <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <span className="min-w-0 break-words">{company.address}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ChevronRight className="h-4 w-4 shrink-0 text-accent" />
-              <span>Call us: {company.phoneDisplay} / 92 / 91</span>
-            </div>
-            {company.emails.map((email) => (
-              <div key={email} className="flex items-center gap-2">
-                <ChevronRight className="h-4 w-4 shrink-0 text-accent" />
-                <a href={`mailto:${email}`} className="min-w-0 break-all hover:text-white transition-colors">{email}</a>
-              </div>
-            ))}
+      <div className="mx-auto grid grid-cols-1 max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:px-8 lg:items-start lg:gap-14">
+        {/* Left Column: B2B Partnership Value & Direct Contact */}
+        <div className="space-y-6 sm:space-y-8">
+          <div>
+            <span className="eyebrow-dark">
+              Partner With Us
+            </span>
+            <h2 className="mt-3 font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
+              Reliable Bulk Supply & <span className="text-accent">Custom Formulation</span>
+            </h2>
+            <p className="mt-3 type-body text-white/80 max-w-xl">
+              From high-capacity mineral base granules to private-label organic manures, our Vasad, Anand processing facility powers agricultural brands and distributors across India.
+            </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Button
-              asChild
-              className="h-12 w-full rounded-full bg-accent px-6 text-sm font-bold text-secondary hover:bg-accent/90 transition-colors duration-200 sm:w-auto"
-            >
-              <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white hover:text-secondary transition-colors duration-200 sm:w-auto"
-            >
-              <Link to="/contact">Open contact page</Link>
-            </Button>
+
+          {/* Key Advantages Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs">
+              <div className="flex items-center gap-2.5 text-accent font-semibold text-sm">
+                <Truck className="h-4 w-4 shrink-0" />
+                <span>700 MT/Day Capacity</span>
+              </div>
+              <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                Large-scale processing facility with rapid road dispatch across all Indian states.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs">
+              <div className="flex items-center gap-2.5 text-accent font-semibold text-sm">
+                <ShieldCheck className="h-4 w-4 shrink-0" />
+                <span>FCO 1985 Compliant</span>
+              </div>
+              <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                Every batch certified with lab analysis for moisture, carbon, and active nutrient levels.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs">
+              <div className="flex items-center gap-2.5 text-accent font-semibold text-sm">
+                <Sparkles className="h-4 w-4 shrink-0" />
+                <span>Custom Granulation</span>
+              </div>
+              <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                Custom hardness, size, coating, and active microbial inoculations tailored to your brand.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xs">
+              <div className="flex items-center gap-2.5 text-accent font-semibold text-sm">
+                <Clock3 className="h-4 w-4 shrink-0" />
+                <span>24-Hour Turnaround</span>
+              </div>
+              <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                Dedicated technical support for distributor quotes, toll manufacturing, and samples.
+              </p>
+            </div>
+          </div>
+
+          {/* Direct Contact Cards */}
+          <div className="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-5 sm:p-6 backdrop-blur-xs space-y-4">
+            <p className="type-label font-bold uppercase tracking-[0.16em] text-accent text-xs">
+              Direct Contact & Plant Location
+            </p>
+            
+            <div className="grid gap-3 sm:grid-cols-2 text-xs">
+              <a
+                href={`tel:${company.phoneRaw}`}
+                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/20 text-accent">
+                  <PhoneCall className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase font-semibold text-white/60">Phone Support</p>
+                  <p className="font-semibold text-white truncate">+91 {company.phoneDisplay}</p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:info@jkfertilizers.com"
+                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/20 text-accent">
+                  <Mail className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase font-semibold text-white/60">Sales & Inquiries</p>
+                  <p className="font-semibold text-white truncate">info@jkfertilizers.com</p>
+                </div>
+              </a>
+            </div>
+
+            <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-xs text-white/75">
+              <MapPin className="h-4 w-4 shrink-0 text-accent mt-0.5" />
+              <span className="leading-relaxed">{company.address}</span>
+            </div>
           </div>
         </div>
+
+        {/* Right Column: Inquiry Form */}
         <InquiryForm
           title="Send Us a Message"
-          description="Share your requirement and the J K Fertilizers team will follow up with the right commercial or technical conversation."
-          submitLabel="Send Message"
+          description="Share your product specs, expected tonnage, or partnership requirement. Our technical sales team will reply within 24 hours."
+          submitLabel="Submit B2B Inquiry"
         />
       </div>
     </section>
