@@ -496,6 +496,17 @@ comparison:
 ### Blog: `src/content/blog/<slug>/index.mdx`
 Frontmatter: `title`, `date`, `dateDisplay`, `excerpt`, `author`, `topic`, `img` (cover **filename** inside the folder - resolved by the loader), `featured`, `tags`
 
+The `BlogPostPage` component renders rich prose components via `@mdx-js/react`, including headings, lists, blockquotes, inline code, and responsive comparison tables (`table`, `thead`, `tbody`, `tr`, `th`, `td`).
+
+#### All 7 Blog Posts:
+1. `prom-vs-dap-soil-phosphorus-fixation-guide` - PROM vs DAP: Chemical Mechanisms, Soil Phosphorus Fixation, and Agronomic Economics
+2. `b2b-supply-non-negotiables` - The 4 Non-Negotiables for Dependable B2B Granule Supply
+3. `animal-nutrition-crop-nutrition-link` - The Link Between Animal Nutrition and Crop Nutrition
+4. `granular-fertilizer-timing-yield` - Granular Fertilizer Application Timing for Maximum Yield
+5. `organic-farming-philosophy-granule-design` - Organic Farming Philosophy Meets Modern Granule Design
+6. `quality-systems-for-large-distribution` - Quality Systems for Large Fertilizer Distribution Networks
+7. `stronger-base-granule-brand-promise` - Building Brand Trust with Stronger Base Granules
+
 Note: blog cover images are copies - the originals in `public/images/` (hero.webp, soil.webp, etc.) are shared with other pages, so they are NOT deleted from public.
 
 ### Services: `src/content/services/<slug>/index.mdx`

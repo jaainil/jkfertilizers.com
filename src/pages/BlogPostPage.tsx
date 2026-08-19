@@ -65,6 +65,16 @@ const mdxComponents = {
       {...props}
     />
   ),
+  table: (props) => (
+    <div className="my-8 overflow-x-auto rounded-2xl border border-border bg-surface-card shadow-card">
+      <table className="w-full text-left type-body-sm border-collapse" {...props} />
+    </div>
+  ),
+  thead: (props) => <thead className="bg-muted/60 border-b border-border" {...props} />,
+  tbody: (props) => <tbody className="divide-y divide-border/60" {...props} />,
+  tr: (props) => <tr className="hover:bg-muted/30 transition-colors" {...props} />,
+  th: (props) => <th className="py-3.5 px-4 font-semibold text-foreground" {...props} />,
+  td: (props) => <td className="py-3.5 px-4 text-muted-foreground align-top" {...props} />,
 };
 
 export const BlogPostPage = () => {
@@ -85,7 +95,7 @@ export const BlogPostPage = () => {
     title,
     excerpt,
     date: date || dateDisplay,
-    author: author || "Akash Dadhania",
+    author: author || "J K Fertilizers",
     image: img,
     tags: tags || [topic, "organic fertilizer", "agriculture India", "Gujarat farming"],
   });
@@ -102,7 +112,7 @@ export const BlogPostPage = () => {
         article={{
           publishedTime: date || dateDisplay,
           modifiedTime: date || dateDisplay,
-          author: author || "Akash Dadhania",
+          author: author || "J K Fertilizers",
           section: topic || "Agriculture",
           tags: tags || [topic, "organic fertilizer", "agriculture"],
         }}

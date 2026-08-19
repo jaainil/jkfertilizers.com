@@ -25,7 +25,7 @@ const templateHtml = readFileSync(TEMPLATE_PATH, 'utf8');
 
 // ─── Simple Frontmatter Parser ────────────────────────────────────────────────
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---[\r\n]([\s\S]*?)[\r\n]---/);
+  const match = raw.match(/^\uFEFF?---[\r\n]([\s\S]*?)[\r\n]---/);
   if (!match) return {};
   const block = match[1];
   const result = {};

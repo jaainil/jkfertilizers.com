@@ -17,7 +17,7 @@ const DIST_DIR = join(ROOT_DIR, 'dist');
 const PUBLIC_DIR = join(ROOT_DIR, 'public');
 
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---[\r\n]([\s\S]*?)[\r\n]---/);
+  const match = raw.match(/^\uFEFF?---[\r\n]([\s\S]*?)[\r\n]---/);
   if (!match) return { data: {}, body: raw };
   const block = match[1];
   const body = raw.slice(match[0].length).trim();

@@ -12,8 +12,8 @@
     <language>en-IN</language>
     <managingEditor>info@jkfertilizers.com (J K Fertilizers)</managingEditor>
     <webMaster>info@jkfertilizers.com (J K Fertilizers)</webMaster>
-    <lastBuildDate>Thu, 23 May 2024 00:00:00 GMT</lastBuildDate>
-    <pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 19 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
     <ttl>10080</ttl>
     <image>
       <url>https://jkfertilizers.com/logo.webp</url>
@@ -23,6 +23,16 @@
       <height>144</height>
     </image>
     <atom:link href="https://jkfertilizers.com/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>PROM vs DAP: Chemical Mechanisms, Soil Phosphorus Fixation, and Agronomic Economics</title>
+    <link>https://jkfertilizers.com/blog/prom-vs-dap-soil-phosphorus-fixation-guide</link>
+    <guid isPermaLink="true">https://jkfertilizers.com/blog/prom-vs-dap-soil-phosphorus-fixation-guide</guid>
+    <description>A technical comparison of Phosphate Rich Organic Manure (PROM) versus Di-Ammonium Phosphate (DAP), examining calcium phosphate precipitation kinetics, organic acid chelation, and fertilizer economics in alkaline soils.</description>
+    <author>info@jkfertilizers.com (J K Fertilizers)</author>
+    <category>Agronomy &amp; Soil Chemistry</category>
+    <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://jkfertilizers.comcover.webp" type="image/webp" length="0" />
+  </item>
   <item>
     <title>The 4 Non-Negotiables for Dependable B2B Granule Supply</title>
     <link>https://jkfertilizers.com/blog/b2b-supply-non-negotiables</link>

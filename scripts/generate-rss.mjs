@@ -27,7 +27,7 @@ const PUBLIC_DIR = join(ROOT_DIR, 'public');
 
 // ─── Simple frontmatter parser (no external deps) ────────────────────────────
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---[\r\n]([\s\S]*?)[\r\n]---/);
+  const match = raw.match(/^\uFEFF?---[\r\n]([\s\S]*?)[\r\n]---/);
   if (!match) return {};
 
   const block = match[1];
