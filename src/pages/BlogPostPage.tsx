@@ -1,13 +1,14 @@
+import { useMemo } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { MDXProvider } from "@mdx-js/react";
 import { ArrowLeft, Calendar, Tag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/SEOHead";
-import { getBlogBySlug, getAllBlogs } from "@/lib/content";
+import { getBlogBySlug, getAllBlogs, getBlogImage } from "@/lib/content";
 import { organizationSchema, buildBlogPostingSchema } from "@/data/seoSchemas";
 
-/** Prose component map — styles raw MDX output to match site design */
-const mdxComponents = {
+/** Base Prose component map — styles raw MDX output to match site design */
+const baseMdxComponents = {
   h2: (props) => {
     const { children, ...rest } = props;
     return (
@@ -80,6 +81,40 @@ const mdxComponents = {
 export const BlogPostPage = () => {
   const { slug } = useParams();
   const post = getBlogBySlug(slug);
+
+  const mdxComponents = useMemo(
+    () => ({
+      ...baseMdxComponents,
+      img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+        let resolvedSrc = props.src;
+        if (
+          slug &&
+          typeof props.src === "string" &&
+          !props.src.startsWith("http") &&
+          !props.src.startsWith("data:")
+        ) {
+          resolvedSrc = getBlogImage(slug, props.src) || props.src;
+        }
+        return (
+          <figure className="my-8 overflow-hidden rounded-2xl border border-border bg-surface-card shadow-card">
+            <img
+              className="w-full max-h-[460px] object-cover"
+              loading="lazy"
+              decoding="async"
+              {...props}
+              src={resolvedSrc}
+            />
+            {props.alt && (
+              <figcaption className="px-4 py-2.5 text-center type-body-sm text-muted-foreground border-t border-border bg-muted/30">
+                {props.alt}
+              </figcaption>
+            )}
+          </figure>
+        );
+      },
+    }),
+    [slug]
+  );
 
   if (!post) return <Navigate to="/blog" replace />;
 

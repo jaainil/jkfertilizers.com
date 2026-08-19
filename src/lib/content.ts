@@ -84,6 +84,16 @@ export function getBlogBySlug(slug: string): BlogPost | undefined {
   return getAllBlogs().find((b) => b.slug === slug);
 }
 
+/**
+ * Resolves a local blog image filename to its Vite asset URL.
+ * @param slug - Blog post slug
+ * @param filename - Image filename or relative path (e.g. "./inline-1.jpg" or "cover.jpg")
+ */
+export function getBlogImage(slug: string, filename: string): string | undefined {
+  const cleanName = filename.replace(/^(\.\/|\/)/, "").split("/").pop() || filename;
+  return blogUrlByFile[slug]?.[cleanName];
+}
+
 // ─── Services ────────────────────────────────────────────────────────────────
 //
 // Each service lives in its own folder:

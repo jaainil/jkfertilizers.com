@@ -484,7 +484,7 @@ comparison:
 ## 9. Vite Config Highlights
 
 - **`@/` alias** -> `src/`
-- **MDX** with frontmatter via remark plugins
+- **MDX Plugins:** `@mdx-js/rollup` configured with `remarkFrontmatter`, `remarkMdxFrontmatter`, and `remarkGfm` (enables GFM tables, autolinks, and strikethrough).
 - **Sitemap** auto-generated from product/blog/service slugs (product/service slugs = folder names under `src/content/`)
 - **PWA** service worker - caches all assets including images
 - **`import.meta.glob('/public/**')`** works - Vite resolves from project root
@@ -496,18 +496,30 @@ comparison:
 ### Blog: `src/content/blog/<slug>/index.mdx`
 Frontmatter: `title`, `date`, `dateDisplay`, `excerpt`, `author`, `topic`, `img` (cover **filename** inside the folder - resolved by the loader), `featured`, `tags`
 
-The `BlogPostPage` component renders rich prose components via `@mdx-js/react`, including headings, lists, blockquotes, inline code, and responsive comparison tables (`table`, `thead`, `tbody`, `tr`, `th`, `td`).
+The `BlogPostPage` component renders rich prose components via `@mdx-js/react`:
+- **Headings & Typography:** Custom styled `h2`, `h3`, `p`, `ul`, `ol`, `li`, `blockquote`, `code`, and `hr`.
+- **Responsive GFM Tables:** `table`, `thead`, `tbody`, `tr`, `th`, and `td` styled into a rounded, horizontal-scrolling card container with alternating row highlights.
+- **Dynamic Image Resolution:** `img` tag resolves relative paths (`./inline-1.jpg`, `inline-2.webp`, etc.) dynamically to hashed Vite asset URLs via `getBlogImage(slug, filename)` from `@/lib/content`, rendering inside a styled `<figure>` with `<figcaption>` captions.
 
-#### All 7 Blog Posts:
+#### All 16 Blog Posts:
 1. `prom-vs-dap-soil-phosphorus-fixation-guide` - PROM vs DAP: Chemical Mechanisms, Soil Phosphorus Fixation, and Agronomic Economics
-2. `b2b-supply-non-negotiables` - The 4 Non-Negotiables for Dependable B2B Granule Supply
-3. `animal-nutrition-crop-nutrition-link` - The Link Between Animal Nutrition and Crop Nutrition
-4. `granular-fertilizer-timing-yield` - Granular Fertilizer Application Timing for Maximum Yield
-5. `organic-farming-philosophy-granule-design` - Organic Farming Philosophy Meets Modern Granule Design
-6. `quality-systems-for-large-distribution` - Quality Systems for Large Fertilizer Distribution Networks
-7. `stronger-base-granule-brand-promise` - Building Brand Trust with Stronger Base Granules
+2. `from-bentonite-to-minerals` - From Bentonite to Minerals: Pioneering Sustainable Fertilizer Coatings for a Greener Tomorrow
+3. `phosphate-rich-organic-manure-prom` - Phosphate Rich Organic Manure (PROM): A Game-Changer for Sustainable Agriculture
+4. `mycorrhiza` - The Science of Mycorrhiza: How These Beneficial Fungi Revolutionize Plant Growth
+5. `micro-nutrients-role-in-crop-growth` - Less is More: How Micro-Nutrients Play a Macro Role in Crop Growth and Soil Health
+6. `the-role-of-organic-fertilizers` - The Role of Organic Fertilizers in Climate-Smart Agriculture
+7. `coated-fertilizer-granules` - Understanding Coated Fertilizer Granules: Why Coatings Matter and How They Boost Plant Health
+8. `misconceptions-about-organic-fertilizers` - Breaking Myths: Common Misconceptions About Organic Fertilizers and Their Truths
+9. `sustainable-solutions-role-of-gypsum-and-other-mineral-coatings` - Sustainable Solutions for Saline and Alkaline Soils: The Role of Gypsum and Other Mineral Coatings
+10. `choose-the-right-fertilizer` - How to Choose the Right Fertilizer: A Guide to Organic Fertilizer Types and Their Applications
+11. `b2b-supply-non-negotiables` - The 4 Non-Negotiables for Dependable B2B Granule Supply
+12. `animal-nutrition-crop-nutrition-link` - The Link Between Animal Nutrition and Crop Nutrition
+13. `granular-fertilizer-timing-yield` - Granular Fertilizer Application Timing for Maximum Yield
+14. `organic-farming-philosophy-granule-design` - Organic Farming Philosophy Meets Modern Granule Design
+15. `quality-systems-for-large-distribution` - Quality Systems for Large Fertilizer Distribution Networks
+16. `stronger-base-granule-brand-promise` - Building Brand Trust with Stronger Base Granules
 
-Note: blog cover images are copies - the originals in `public/images/` (hero.webp, soil.webp, etc.) are shared with other pages, so they are NOT deleted from public.
+Note: blog cover images and inline assets live within each post's folder (`src/content/blog/<slug>/`). The `content.ts` loader automatically discovers them via `import.meta.glob`.
 
 ### Services: `src/content/services/<slug>/index.mdx`
 Slugs: `custom-packaging-solutions`, `granule-technology`, `infrastructure-leasing`, `job-work-services`, `warehouse-storage`

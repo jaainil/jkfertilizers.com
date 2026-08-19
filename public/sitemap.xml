@@ -355,6 +355,39 @@
     </image:image>
   </url>
   <url>
+    <loc>https://jkfertilizers.com/blog/choose-the-right-fertilizer</loc>
+    <lastmod>2024-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpg</image:loc>
+      <image:title>How to Choose the Right Fertilizer: A Guide to Organic Fertilizer Types and Their Applications — J K Fertilizers Blog</image:title>
+      <image:caption>A comprehensive agronomic decision framework for selecting the right organic and mineral fertilizers (PROM, PDM, Bio-NPK, Mycorrhiza, Gypsum) based on soil test chemistry, pH, and crop growth stages.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jkfertilizers.com/blog/coated-fertilizer-granules</loc>
+    <lastmod>2024-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpg</image:loc>
+      <image:title>Understanding Coated Fertilizer Granules: Why Coatings Matter and How They Boost Plant Health — J K Fertilizers Blog</image:title>
+      <image:caption>A comprehensive guide to fertilizer granule coating technology, examining micro-encapsulation barrier physics, controlled diffusion rates, mechanical crush strength, and anti-caking efficiency.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jkfertilizers.com/blog/from-bentonite-to-minerals</loc>
+    <lastmod>2024-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpg</image:loc>
+      <image:title>From Bentonite to Minerals: Pioneering Sustainable Fertilizer Coatings for a Greener Tomorrow — J K Fertilizers Blog</image:title>
+      <image:caption>A technical evaluation of advanced mineral carrier coatings (Gypsum, Diatomite Silica, Dolomite, and Zeolite) versus inert sodium bentonite clay in commercial granular fertilizer manufacturing.</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://jkfertilizers.com/blog/granular-fertilizer-timing-yield</loc>
     <lastmod>2024-05-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -366,6 +399,39 @@
     </image:image>
   </url>
   <url>
+    <loc>https://jkfertilizers.com/blog/micro-nutrients-role-in-crop-growth</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.webp</image:loc>
+      <image:title>Less is More: How Micro-Nutrients Play a Macro Role in Crop Growth and Soil Health — J K Fertilizers Blog</image:title>
+      <image:caption>A technical analysis of essential plant micronutrients (Zinc, Iron, Manganese, Boron, Copper, Molybdenum), examining enzyme activation, catalytic pathways, chelation chemistry, and deficiency remediation.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jkfertilizers.com/blog/misconceptions-about-organic-fertilizers</loc>
+    <lastmod>2024-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpg</image:loc>
+      <image:title>Breaking Myths: Common Misconceptions About Organic Fertilizers and Their Truths — J K Fertilizers Blog</image:title>
+      <image:caption>A scientific breakdown debunking widespread agricultural myths surrounding organic fertilizers, examining nutrient mineralization rates, yield economics, and FCO regulatory standards.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jkfertilizers.com/blog/mycorrhiza</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpeg</image:loc>
+      <image:title>The Science of Mycorrhiza: How These Beneficial Fungi Revolutionize Plant Growth — J K Fertilizers Blog</image:title>
+      <image:caption>An in-depth scientific review of Arbuscular Mycorrhizal Fungi (AMF), exploring Glomus intraradices symbiosis, hyphal nutrient transport mechanisms, glomalin production, and carrier granulation.</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://jkfertilizers.com/blog/organic-farming-philosophy-granule-design</loc>
     <lastmod>2024-05-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -374,6 +440,17 @@
       <image:loc>https://jkfertilizers.com/partnership.webp</image:loc>
       <image:title>How Organic Farming Philosophy Shapes Our Granule Design — J K Fertilizers Blog</image:title>
       <image:caption>How soil biology, organic carbon replenishment, and natural nutrient cycles guide our granule engineering process.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jkfertilizers.com/blog/phosphate-rich-organic-manure-prom</loc>
+    <lastmod>2024-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpg</image:loc>
+      <image:title>Phosphate Rich Organic Manure (PROM): A Game-Changer for Sustainable Agriculture — J K Fertilizers Blog</image:title>
+      <image:caption>A comprehensive agronomic guide to Phosphate Rich Organic Manure (PROM), detailing the chemical solubilization of rock phosphate, biological chelation mechanisms, and FCO 1985 quality standards.</image:caption>
     </image:image>
   </url>
   <url>
@@ -407,6 +484,28 @@
       <image:loc>https://jkfertilizers.com/granules.webp</image:loc>
       <image:title>Why a Stronger Base Granule Sharpens Your Brand Promise — J K Fertilizers Blog</image:title>
       <image:caption>How engineered mineral base granules improve coating adhesion, eliminate batch variability, and strengthen brand equity in the market.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jkfertilizers.com/blog/sustainable-solutions-role-of-gypsum-and-other-mineral-coatings</loc>
+    <lastmod>2024-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpg</image:loc>
+      <image:title>Sustainable Solutions for Saline and Alkaline Soils: The Role of Gypsum and Other Mineral Coatings — J K Fertilizers Blog</image:title>
+      <image:caption>A soil chemistry guide to remediating saline and sodic soils using Calcium Sulfate Dihydrate (Gypsum), detailing cation exchange dynamics, sodium leaching, and electrical conductivity reduction.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jkfertilizers.com/blog/the-role-of-organic-fertilizers</loc>
+    <lastmod>2024-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://jkfertilizers.com/cover.jpg</image:loc>
+      <image:title>The Role of Organic Fertilizers in Climate-Smart Agriculture — J K Fertilizers Blog</image:title>
+      <image:caption>An agronomic and biochemical analysis of organic fertilizers in climate-smart agriculture, exploring soil carbon sequestration, nitrous oxide emission mitigation, and humic soil buffering.</image:caption>
     </image:image>
   </url>
 </urlset>
