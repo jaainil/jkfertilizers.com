@@ -1,4 +1,4 @@
-# AGENT.md — JK Fertilizers Website
+# AGENT.md: JK Fertilizers Website
 
 > This file gives AI assistants full context to work on this codebase without needing to explore it from scratch.
 > Keep it updated whenever you make significant structural changes.
@@ -8,7 +8,7 @@
 ## 1. Project Overview
 
 **Site:** [jkfertilizers.com](https://jkfertilizers.com)
-**Business:** J K Fertilizers — organic fertilizer manufacturer in Vasad, Anand, Gujarat, India. Founded 2006 by Mr. Akash Dadhania.
+**Business:** J K Fertilizers (organic fertilizer manufacturer in Vasad, Anand, Gujarat, India. Founded 2006 by Mr. Akash Dadhania).
 **Purpose:** B2B marketing website. Primary goal is lead generation (inquiry form) and product/service discovery for distributors, farmers, and contract manufacturing clients.
 **Package name in package.json:** `jkfertilizers`
 
@@ -23,7 +23,7 @@
 | Styling | Tailwind CSS v4 (via `@tailwindcss/vite`) |
 | Routing | React Router DOM v7 |
 | Content (blog/products/services) | MDX (`@mdx-js/rollup` + `@mdx-js/react`) |
-| Forms | Formspree (`@formspree/react` v3) — form ID: `mjybrvgp` |
+| Forms | Formspree (`@formspree/react` v3) - form ID: `mjybrvgp` |
 | SEO | `react-helmet-async` + custom `SEOHead` component |
 | Analytics | Google Analytics 4 (`G-L1BQM1V3E3`) + Umami Analytics (`57ab23b0-35e3-4868-9718-3c17b45138ee`) |
 | Toast notifications | `sonner` |
@@ -32,7 +32,7 @@
 | PWA | `vite-plugin-pwa` |
 | Sitemap | `vite-plugin-sitemap` (auto-generates from routes + slugs) |
 | RSS | Custom script `scripts/generate-rss.mjs` |
-| Package manager | Bun (has `bun.lock`) — use `bun install`, `bun run dev` etc. |
+| Package manager | Bun (has `bun.lock`) - use `bun install`, `bun run dev` etc. |
 | Port | Dev server runs on **port 3000** |
 
 ---
@@ -168,18 +168,18 @@ Scroll-to-top + GA4 pageview fired on every route change via `AnalyticsAndScroll
 
 | Token | HSL | Usage |
 |---|---|---|
-| `--primary` | `146 52% 28%` | Deep forest green — CTAs, links |
-| `--secondary` | `155 45% 14%` | Dark earthy slate-green — hero bg |
-| `--accent` | `38 92% 50%` | Warm amber/gold — highlights |
+| `--primary` | `146 52% 28%` | Deep forest green - CTAs, links |
+| `--secondary` | `155 45% 14%` | Dark earthy slate-green - hero bg |
+| `--accent` | `38 92% 50%` | Warm amber/gold - highlights |
 | `--background` | `42 30% 97%` | Warm cream |
-| `--muted` | `90 18% 94%` | Warm sage — alt section bg |
+| `--muted` | `90 18% 94%` | Warm sage - alt section bg |
 | `--border` | `90 12% 88%` | Soft sage border |
 
 In Tailwind classes: `bg-primary`, `text-secondary`, `border-accent`, `bg-muted`, `text-muted-foreground`, etc.
 Custom surfaces: `bg-surface-card`, `bg-surface-overlay`.
 
 ### Type Scale Utilities
-Always use these — **never raw `text-xl`** etc. for content:
+Always use these - **never raw `text-xl`** etc. for content:
 
 | Utility | Size | Usage |
 |---|---|---|
@@ -193,13 +193,13 @@ Always use these — **never raw `text-xl`** etc. for content:
 | `type-hero-h1` | 30→44→60→72px | Homepage hero h1 only |
 
 ### Surface & Pill Utilities
-- `shadow-card` / `shadow-card-hover` — the **only** two card elevations. Never use arbitrary `shadow-[...]`.
-- `eyebrow` (light bg) / `eyebrow-dark` (dark section) / `eyebrow-accent` (amber tint) — the **only** pill/badge styling for section labels. Never hand-write pill class strings.
-- Letter-spacing on uppercase labels: max `tracking-[0.16em]`.
-- Radii: cards `rounded-2xl` mobile → `rounded-3xl` on `sm+`. No arbitrary `rounded-[28px]` etc.
+- `shadow-card` / `shadow-card-hover` - the **only** two card elevations. Never use arbitrary `shadow-[...]`.
+- `eyebrow` (light bg) / `eyebrow-dark` (dark section) / `eyebrow-accent` (amber tint) - the standard pill/badge utility styling for section labels.
+- Letter-spacing on uppercase labels: max `tracking-[0.16em]` or `tracking-wider`.
+- Radii: cards `rounded-2xl` mobile -> `rounded-3xl` on `sm+`. No arbitrary `rounded-[28px]` etc.
 
 ### Large Display Scaling
-`index.css` bumps `html` root font-size at wide breakpoints (112.5% @2000px, 125% @2560px, 150% @3840px) — everything is rem-based, so typography, spacing, and the 90rem container scale proportionally on 4K/8K. Do not add per-component `xl:`/`2xl:` sizes for big screens; the root scaling handles it.
+`index.css` bumps `html` root font-size at wide breakpoints (112.5% @2000px, 125% @2560px, 150% @3840px) - everything is rem-based, so typography, spacing, and the 90rem container scale proportionally on 4K/8K. Do not add per-component `xl:`/`2xl:` sizes for big screens; the root scaling handles it.
 
 ### Scroll Reveal
 ```tsx
@@ -221,20 +221,32 @@ const myReveal = useScrollReveal();
 ## 7. Key Components
 
 ### `SiteNavbar`
-- Desktop mega menu for Products — shows featured product preview card on hover
+- Desktop mega menu for Products - shows featured product preview card on hover
 - Uses `hoveredProductSlug` state + `getProductCoverImage` for preview image
 - `menuForceClosed` briefly disables menu on link click to prevent stuck-open state
 - Mobile: hamburger drawer with `openMobileSection` accordion state
+
+### `ProductDetailPage`
+- **Hero Badge Hierarchy**:
+  - *Tier 1 (Navigation Link)*: `<Link to="/products">` styled as a frosted-glass button (`border-white/25 bg-white/10 text-white`) with back arrow.
+  - *Tier 2 (Category Badge)*: `{product.category}` styled with an accent amber pill (`border-accent/40 bg-accent/15 text-accent`) and indicator dot.
+  - *Tier 3 (Suitability Tags)*: `product.fit` rendered below summary with check icons (`CheckCircle2`).
+  - *Mobile Layout*: Badges rendered in `flex-nowrap shrink-0 whitespace-nowrap` container so they always display side-by-side without wrapping prematurely.
+- **State Management**:
+  - Image slider and modal share `[selectedImageIndex, setSelectedImageIndex]`.
+  - Always provide defensive fallback arrays `(specs || [])`, `(fit || [])`, `(howToApply || [])`, `(benefits || [])`, and `(comparison?.rows || [])`.
+- **Helpers**:
+  - Uses `getProductBySlug`, `getRelatedProducts`, `getProductGallery`, `getProductCoverImage`, and `NotFoundPage`.
 
 ### `InquiryForm`
 - Formspree form ID: `mjybrvgp`
 - Fields: name, company, email, phone, interest (select), message, consent checkbox
 - **CRITICAL:** Do NOT call `e.preventDefault()` before `handleSubmit(e)`.
-  Formspree v3 calls it internally — if you call it first, `e.currentTarget` becomes null and submission silently fails.
+  Formspree v3 calls it internally - if you call it first, `e.currentTarget` becomes null and submission silently fails.
   Only call `e.preventDefault()` yourself if you're returning early (e.g. consent check failed).
 
 ### `ProductCard`
-- Always use `getProductCoverImage(product.slug, product.imageUrl)` for `<img src>` — never `product.imageUrl` directly
+- Always use `getProductCoverImage(product.slug, product.imageUrl)` for `<img src>` - never `product.imageUrl` directly
 - Always include `width={400}`, `height={300}`, `loading="lazy"`, and `decoding="async"` to prevent layout shifts (CLS)
 
 ### `ImagePanel`
@@ -261,10 +273,10 @@ src/content/products/diatomite-silicon/
 └── *.png         ← gallery photos (auto-discovered)
 ```
 
-**Loader:** `src/data/products.ts` — reads everything via `import.meta.glob` (eager):
-- `../content/products/*/index.mdx` → product data (frontmatter is the single source of truth)
-- `../content/products/*/*.{jpg,jpeg,png,webp,avif,gif,svg}` → gallery URLs (bundled, hashed)
-- `imageUrl` in frontmatter is just the **filename** of the cover inside the folder — the loader resolves it to the bundled URL.
+**Loader:** `src/data/products.ts` (reads everything via `import.meta.glob` eager):
+- `../content/products/*/index.mdx` -> product data (frontmatter is the single source of truth)
+- `../content/products/*/*.{jpg,jpeg,png,webp,avif,gif,svg}` -> gallery URLs (bundled, hashed)
+- `imageUrl` in frontmatter is just the **filename** of the cover inside the folder - the loader resolves it to the bundled URL.
 - `comparison` in frontmatter provides optional technical comparison data against traditional alternatives (rendered on `ProductDetailPage`).
 
 ### All 16 Products
@@ -438,39 +450,39 @@ comparison:
 1. Create `src/content/products/<slug>/index.mdx` with the frontmatter fields above (optionally including `comparison: { title, headers, rows }`)
 2. Drop the cover + gallery images into the same folder
 3. Add the product route/link to `src/components/SiteNavbar.tsx`
-4. Done — product appears on /products, homepage marquee, mega menu, and sitemap automatically
+4. Done - product appears on /products, homepage marquee, mega menu, and sitemap automatically
 
 ---
 
 ## 9. Vite Config Highlights
 
-- **`@/` alias** → `src/`
+- **`@/` alias** -> `src/`
 - **MDX** with frontmatter via remark plugins
 - **Sitemap** auto-generated from product/blog/service slugs (product/service slugs = folder names under `src/content/`)
-- **PWA** service worker — caches all assets including images
-- **`import.meta.glob('/public/**')`** works — Vite resolves from project root
+- **PWA** service worker - caches all assets including images
+- **`import.meta.glob('/public/**')`** works - Vite resolves from project root
 
 ---
 
 ## 10. Content (MDX)
 
-### Blog — `src/content/blog/<slug>/index.mdx`
-Frontmatter: `title`, `date`, `dateDisplay`, `excerpt`, `author`, `topic`, `img` (cover **filename** inside the folder — resolved by the loader), `featured`, `tags`
+### Blog: `src/content/blog/<slug>/index.mdx`
+Frontmatter: `title`, `date`, `dateDisplay`, `excerpt`, `author`, `topic`, `img` (cover **filename** inside the folder - resolved by the loader), `featured`, `tags`
 
-Note: blog cover images are copies — the originals in `public/images/` (hero.webp, soil.webp, etc.) are shared with other pages, so they are NOT deleted from public.
+Note: blog cover images are copies - the originals in `public/images/` (hero.webp, soil.webp, etc.) are shared with other pages, so they are NOT deleted from public.
 
-### Services — `src/content/services/<slug>/index.mdx`
+### Services: `src/content/services/<slug>/index.mdx`
 Slugs: `custom-packaging-solutions`, `granule-technology`, `infrastructure-leasing`, `job-work-services`, `warehouse-storage`
 
-Frontmatter: `title`, `concept`, `description`, `image` (cover **filename** inside the folder — resolved by the loader).
-Images live in the same folder and are auto-discovered; `getServiceGallery(slug)` in `src/lib/content.ts` returns them (used by `ServiceDetailPage` — no hardcoded image lists).
+Frontmatter: `title`, `concept`, `description`, `image` (cover **filename** inside the folder - resolved by the loader).
+Images live in the same folder and are auto-discovered; `getServiceGallery(slug)` in `src/lib/content.ts` returns them (used by `ServiceDetailPage` - no hardcoded image lists).
 Body (MDX) is the long-form service content.
 
 ### Adding a New Service
 
 1. Create `src/content/services/<slug>/index.mdx` with frontmatter
 2. Drop cover + gallery images into the same folder
-3. Done — appears on /services and sitemap automatically
+3. Done - appears on /services and sitemap automatically
 
 ---
 
@@ -481,7 +493,7 @@ Body (MDX) is the long-form service content.
   - Script: `https://umami.altctrlreturn.com/script.js`
   - Website ID: `57ab23b0-35e3-4868-9718-3c17b45138ee`
 - **JSON-LD schemas** (`src/data/seoSchemas.ts`):
-  - `organizationSchema` — include on every page
+  - `organizationSchema` - include on every page
   - `contactPageSchema`
   - `productsPageSchema`, `productsItemListSchema`
   - `buildProductSchema(product)`
@@ -496,7 +508,7 @@ Body (MDX) is the long-form service content.
 ### Inquiry Form
 - Formspree endpoint: `https://formspree.io/f/mjybrvgp`
 - Component: `src/components/InquiryForm.tsx`
-- **Do NOT** call `e.preventDefault()` before `handleSubmit(e)` — see Section 7
+- **Do NOT** call `e.preventDefault()` before `handleSubmit(e)` - see Section 7
 
 ---
 
@@ -525,52 +537,55 @@ Cert:     FCO Approved (Fertilizer Control Order)
 - Use `@/` alias for all imports from `src/`
 - Use `getProductCoverImage(slug, imageUrl)` for any product `<img src>`
 - Use type scale utilities (`type-card-title`, `type-section-h2`, etc.) for content headings
-- Import company data from `src/data/siteData.ts` — never hardcode phone/email/address
+- Import company data from `src/data/siteData.ts` - never hardcode phone/email/address
 - Reset gallery state (`selectedImageIndex`, `activeImageIndex`) in `useEffect([slug])` on `ProductDetailPage`
 - Use `bun` not `npm` for package management
 - Run `bun run optimize-images` whenever new WebP/PNG images are added
 - Add explicit `width`, `height`, `loading="lazy"`, and `decoding="async"` on all below-the-fold `<img>` tags
 - Keep LCP hero images eager with `fetchPriority="high"` and a matching `<link rel="preload">` in `index.html`
+- Adhere strictly to the Unslop Copy Guidelines (see Section 17)
 
 ### DO NOT
-- ❌ Use `product.imageUrl` directly in `<img>` — always use `getProductCoverImage()`
-- ❌ Manually list files in `getProductGallery` — just drop images into the folder
+- ❌ Use `product.imageUrl` directly in `<img>` - always use `getProductCoverImage()`
+- ❌ Manually list files in `getProductGallery` - just drop images into the folder
 - ❌ Call `e.preventDefault()` before Formspree's `handleSubmit(e)`
 - ❌ Hardcode company info in page components
-- ❌ Use raw `text-xl`/`text-2xl` for content headings — use type utilities
-- ❌ Use arbitrary `shadow-[0_...px_rgba(...)]` — use `shadow-card` / `hover:shadow-card-hover`
-- ❌ Hand-write eyebrow pill class strings — use `eyebrow` / `eyebrow-dark` / `eyebrow-accent`
+- ❌ Use raw `text-xl`/`text-2xl` for content headings - use type utilities
+- ❌ Use arbitrary `shadow-[0_...px_rgba(...)]` - use `shadow-card` / `hover:shadow-card-hover`
+- ❌ Hand-write eyebrow pill class strings - use `eyebrow` / `eyebrow-dark` / `eyebrow-accent`
 - ❌ Add decorative gradient/noise/glow-blob layers, `backdrop-blur` glassmorphism, or `blur-[...]` ambience divs
-- ❌ Use relative imports from `src/` — use `@/` alias
-- ❌ Run `npm install` — use `bun install`
-- ❌ Use `key={imageUrl}` when mapping product images — use `key={idx}` or `key={slug}`
-- ❌ Commit uncompressed multi-megabyte images (raw 1080p/4K camera photos) — always optimize down to 15KB–100KB first
+- ❌ Use relative imports from `src/` - use `@/` alias
+- ❌ Run `npm install` - use `bun install`
+- ❌ Use `key={imageUrl}` when mapping product images - use `key={idx}` or `key={slug}`
+- ❌ Commit uncompressed multi-megabyte images (raw 1080p/4K camera photos) - always optimize down to 15KB–100KB first
+- ❌ Insert em dashes (`—` or `--`) in user-facing copy, schemas, or markdown
+- ❌ Use AI fluff adjectives (*pivotal, testament, tapestry, delve, leverage, seamless, robust*)
 
 ---
 
 ## 15. Additional Context
 
 ### TypeScript Config (`tsconfig.json`)
-- `strict: false`, `noImplicitAny: false` — lenient typing, many components have untyped props
-- **`noUnusedLocals: true`, `noUnusedParameters: true`** — these ARE enforced. Clean up unused vars.
-- Path alias: `@/` → `src/`
+- `strict: false`, `noImplicitAny: false` - lenient typing, many components have untyped props
+- **`noUnusedLocals: true`, `noUnusedParameters: true`** - these ARE enforced. Clean up unused vars.
+- Path alias: `@/` -> `src/`
 - Target: ES2020, moduleResolution: bundler
 
 ### Public Static Files & Agent Discovery
-- `public/.htaccess` — Apache config (SPA fallback + caching headers + Agent Link headers for shared hosting)
-- `public/_worker.js` — Cloudflare Pages Worker (Content negotiation, Agent Skills, MCP discovery, A2A discovery, PRM, RFC 8288 link headers)
-- `public/_headers` & `vercel.json` — Edge headers for Netlify/Cloudflare/Vercel
-- `public/.well-known/agent-card.json` — Agent2Agent (A2A) Agent Card (Linux Foundation A2A Protocol)
-- `public/.well-known/mcp/server-card.json` — Model Context Protocol (MCP) Server Card (SEP-1649 / SEP-2127)
-- `public/.well-known/agent-skills/index.json` — Agent Skills Discovery Index (RFC v0.2.0)
-- `public/.well-known/api-catalog` — API Catalog (RFC 9727 / RFC 9264)
-- `public/dns-aid.zone` — DNS for AI Discovery (DNS-AID) SVCB/HTTPS zone records (draft-mozleywilliams-dnsop-dnsaid / RFC 9460)
-- `public/rss.xml` — Blog RSS feed, regenerated by `bun run rss`
-- `public/llms.txt` — GEO (Generative Engine Optimization) file for AI crawlers
-- `public/auth.md` — Agent authentication and identity assertion specification
+- `public/.htaccess` - Apache config (SPA fallback + caching headers + Agent Link headers for shared hosting)
+- `public/_worker.js` - Cloudflare Pages Worker (Content negotiation, Agent Skills, MCP discovery, A2A discovery, PRM, RFC 8288 link headers)
+- `public/_headers` & `vercel.json` - Edge headers for Netlify/Cloudflare/Vercel
+- `public/.well-known/agent-card.json` - Agent2Agent (A2A) Agent Card (Linux Foundation A2A Protocol)
+- `public/.well-known/mcp/server-card.json` - Model Context Protocol (MCP) Server Card (SEP-1649 / SEP-2127)
+- `public/.well-known/agent-skills/index.json` - Agent Skills Discovery Index (RFC v0.2.0)
+- `public/.well-known/api-catalog` - API Catalog (RFC 9727 / RFC 9264)
+- `public/dns-aid.zone` - DNS for AI Discovery (DNS-AID) SVCB/HTTPS zone records (draft-mozleywilliams-dnsop-dnsaid / RFC 9460)
+- `public/rss.xml` - Blog RSS feed, regenerated by `bun run rss`
+- `public/llms.txt` - GEO (Generative Engine Optimization) file for AI crawlers
+- `public/auth.md` - Agent authentication and identity assertion specification
 
 ### No i18n in use
-`tKey` fields on nav items (`nav.home`, `nav.about`, etc.) are placeholder fields — there is no i18n library installed. Do not add i18n logic.
+`tKey` fields on nav items (`nav.home`, `nav.about`, etc.) are placeholder fields - there is no i18n library installed. Do not add i18n logic.
 
 ### No test suite
 No testing framework is configured. Do not reference or add test files.
@@ -579,15 +594,15 @@ No testing framework is configured. Do not reference or add test files.
 Only React `useState` / `useEffect`. No Redux, Zustand, Context API for state (HelmetProvider and BrowserRouter are providers, not state managers).
 
 ### Git identity
-Commits are made as `emergent-agent-e1 <github@emergent.sh>` — this is the AI agent identity.
+Commits are made as `emergent-agent-e1 <github@emergent.sh>` - this is the AI agent identity.
 
 ### Adding new content
 | Content type | What to do |
 |---|---|
-| New blog post | Create `src/content/blog/<slug>/` with `index.mdx` + cover image — auto-discovered; run `bun run optimize-images` & `bun run rss` |
-| New service page | Create `src/content/services/<slug>/` with `index.mdx` + images — auto-discovered; run `bun run optimize-images` |
-| New product | Create `src/content/products/<slug>/` with `index.mdx` + images — auto-discovered; run `bun run optimize-images` |
-| New product/service images | Drop files into the content folder — auto-discovered by `import.meta.glob`, run `bun run optimize-images` |
+| New blog post | Create `src/content/blog/<slug>/` with `index.mdx` + cover image - auto-discovered; run `bun run optimize-images` & `bun run rss` |
+| New service page | Create `src/content/services/<slug>/` with `index.mdx` + images - auto-discovered; run `bun run optimize-images` |
+| New product | Create `src/content/products/<slug>/` with `index.mdx` + images - auto-discovered; run `bun run optimize-images` |
+| New product/service images | Drop files into the content folder - auto-discovered by `import.meta.glob`, run `bun run optimize-images` |
 | Rebuild sitemap | Automatic on `bun run build` |
 | Update RSS | Run `bun run rss` after adding blog posts |
 
@@ -618,4 +633,24 @@ All images in the repository must be pre-optimized WebP using the ImageMagick pi
    - All `<img>` elements declare explicit `width` and `height` attributes matching their aspect ratios.
 3. **Below-the-fold Assets**:
    - All cards, galleries, tickers, and footer assets use `loading="lazy"` and `decoding="async"`.
+
+---
+
+## 17. Content Writing, Unslop & SEO Guidelines
+
+### Zero Em Dashes Policy
+- Do not use em dashes (`—` or `--`) anywhere in the website copy, schema titles, meta descriptions, or MDX files. Use colons, commas, periods, parentheses, or rewrite the sentence with active syntax.
+
+### Banned AI Jargon & Filler
+- Never use generic AI filler words:
+  *pivotal, testament, tapestry, enhance, foster, delve, utilize, leverage, state-of-the-art, seamless, groundbreaking, robust, vital, game-changer, beacon, realm, beacon of excellence, unlock, delve into, spearhead, harness.*
+- Write plain, direct, expert B2B copy targeted at fertilizer procurement managers, blenders, and institutional agricultural buyers.
+
+### Concrete Operational Facts
+Always ground product claims in verified company operational specs:
+- **Manufacturing Capacity:** 700 MT/day processing capacity at the Vasad plant (Anand, Gujarat).
+- **Compliance:** Full Fertilizer Control Order (FCO 1985) certification on organic manures, PROM, and PDM.
+- **Formulation:** Mineral base granules engineered from gypsum, silica, dolomite, and secondary minerals (avoiding inert clay / high-heavy-metal bentonite carriers).
+- **Testing:** In-house laboratory testing for bulk density, moisture, crushing hardness, and heavy metals (< 10%).
+
 
