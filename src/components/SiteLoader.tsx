@@ -1,12 +1,24 @@
 import { useState, useEffect } from "react";
 import { company } from "@/data/siteData";
 
+const LOADER_SEEN_KEY = "jkf-loader-seen";
+
+// Brand splash shows once per browser session; returning visitors go straight to content.
+const shouldShowLoader = () => {
+  if (typeof window === "undefined") return false;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+  if (sessionStorage.getItem(LOADER_SEEN_KEY)) return false;
+  sessionStorage.setItem(LOADER_SEEN_KEY, "1");
+  return true;
+};
+
 export const SiteLoader = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [shouldRender, setShouldRender] = useState(true);
+  const [isLoading, setIsLoading] = useState(shouldShowLoader);
+  const [shouldRender, setShouldRender] = useState(isLoading);
 
   useEffect(() => {
-    // Elegant brief brand presentation on initial load
+    if (!isLoading) return;
+
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 550);
@@ -19,7 +31,7 @@ export const SiteLoader = () => {
       clearTimeout(timer);
       clearTimeout(removeTimer);
     };
-  }, []);
+  }, [isLoading]);
 
   if (!shouldRender) return null;
 

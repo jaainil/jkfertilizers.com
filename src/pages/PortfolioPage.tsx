@@ -16,66 +16,66 @@ const company = {
 
 const portfolioItems = [
   {
-    title: "Advancing Organic Agriculture",
-    category: "Sustainability",
+    title: "Organic Manure & PROM",
+    category: "Products",
     image: "/images/dsc00161.webp",
-    desc: "Transforming farming with innovative organic fertilizers that restore soil health, improve yields, and promote sustainability, empowering farmers nationwide.",
+    desc: "FCO-approved organic manure and phosphate-rich organic manure, packed from 1 kg retail bags to 1,000 kg jumbo bags.",
   },
   {
-    title: "Custom Blends for Industry Giants",
-    category: "Custom Solutions",
+    title: "Custom Coated Granules",
+    category: "Custom Coating",
     image: "/images/dsc00296.webp",
-    desc: "Creating tailored fertilizer solutions for corporates and PSUs, addressing specific agricultural needs with advanced R&D and quality assurance.",
+    desc: "Mineral carrier cores coated with bio-inoculants, humic acids, or micronutrients to customer specification.",
   },
   {
-    title: "Coated Granules Innovation",
-    category: "Innovation",
+    title: "Mycorrhiza Biofertilizer Granules",
+    category: "Products",
     image: "/images/dsc00371.webp",
-    desc: "Pioneering nutrient delivery with eco-friendly coated granules that enhance efficiency, reduce waste, and support sustainable farming practices.",
+    desc: "Mycorrhiza bio-inoculant coated onto carrier granules, produced at the Vasad plant under FCO.",
   },
   {
-    title: "Global Outreach",
-    category: "Export",
+    title: "Private-Label Packaging",
+    category: "Packaging",
     image: "/images/dsc00411.webp",
-    desc: "Expanding horizons with export-grade fertilizers designed for global markets, meeting diverse agricultural needs with superior quality and innovation.",
+    desc: "Your brand printed on HDPE, PP woven, or laminated bags, with moisture liners where the cargo demands it.",
   },
   {
-    title: "Sustainability Leadership",
-    category: "Environment",
+    title: "Toll Manufacturing",
+    category: "Job Work",
     image: "/images/dsc00549.webp",
-    desc: "Leading the way in sustainable agriculture with eco-friendly products and practices that minimize environmental impact and maximize productivity.",
+    desc: "Bring a formulation and a brand. We granulate, coat, bag, and dispatch under your label.",
   },
   {
-    title: "Partnering And Government Initiatives",
-    category: "Partnerships",
+    title: "Infrastructure Leasing",
+    category: "Leasing",
     image: "/images/dsc00652.webp",
-    desc: "Trusted partner for government agricultural programs, delivering high-quality fertilizers to support large-scale development initiatives across India.",
+    desc: "Granulation lines, warehouse bays, and bagging capacity available on lease inside the Vasad complex.",
   },
   {
-    title: "Empowering Farmers at the Grassroots",
-    category: "Community",
-    image: "/images/soil.webp",
-    desc: "Reaching rural communities with accessible, high-quality fertilizers and empowering farmers through education, support, and sustainable solutions.",
-  },
-  {
-    title: "High-Capacity Manufacturing",
+    title: "100,000 Sq Ft Covered Storage",
     category: "Infrastructure",
-    image: "/images/j-k-infra.webp",
-    desc: "Operating a robust facility with a 700 MT/day capacity, delivering consistent, top-quality fertilizers for domestic and global markets.",
+    image: "/images/soil.webp",
+    desc: "Covered warehousing keeps finished stock dry year-round, with inventory management and pan-India dispatch.",
   },
   {
-    title: "Collaborative R&D Excellence",
-    category: "Research",
+    title: "700 MT/Day Processing",
+    category: "Bulk Supply",
+    image: "/images/j-k-infra.webp",
+    desc: "Rotary drum granulation lines with automated bagging, dispatching bulk orders across Indian states by road.",
+  },
+  {
+    title: "In-House Batch QC",
+    category: "Quality",
     image: "/images/partnership.webp",
-    desc: "Driving agricultural innovation through ongoing research, delivering practical solutions to meet evolving farming challenges worldwide.",
+    desc: "Moisture, crushing strength, and nutrient assay run on every batch before it leaves the plant.",
   },
 ];
 
 const stats = [
   { value: "700", label: "MT/Day Capacity" },
-  { value: "150+", label: "Trusted Clients" },
-  { value: "15+", label: "Years Experience" },
-  { value: "100%", label: "Organic Products" },
+  { value: "100,000+", label: "Sq Ft Covered Storage" },
+  { value: "2006", label: "Manufacturing Since" },
+  { value: "FCO", label: "Approved Product Range" },
 ];
 
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
@@ -95,7 +95,6 @@ export const PortfolioPage = () => {
       schema={[organizationSchema, portfolioPageSchema, portfolioItemListSchema]}
     />
     <PageHero
-      eyebrow="Portfolio"
       title="Organic Fertilizer & Granule Portfolio"
       description="FCO-certified organic manures, bio-phosphates, potash sources, and custom mineral carrier granules manufactured in Vasad, Anand, Gujarat."
       imageSrc="/images/about-3.webp"
@@ -140,11 +139,8 @@ export const PortfolioPage = () => {
         className={`reveal ${galleryReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-12 text-center">
-          <span className="eyebrow">
-            Our Achievements
-          </span>
-          <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-            Delivering Excellence Across Every Domain
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
+            What the plant makes possible
           </h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -170,8 +166,7 @@ export const PortfolioPage = () => {
                   {item.category}
                 </span>
                 <h3 className="mt-3 font-heading type-card-title font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-2 type-body-sm text-muted-foreground line-clamp-3">{item.desc}</p>
-                <p className="mt-3 type-label font-bold uppercase tracking-wider text-primary">Read More</p>
+                <p className="mt-2 type-body-sm text-muted-foreground">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -184,14 +179,11 @@ export const PortfolioPage = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div className="space-y-7">
-            <span className="eyebrow">
-              Trusted By Clients
-            </span>
             <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-              Trusted By Government & Corporate Clients
+              Built for bulk buyers
             </h2>
             <p className="type-body text-muted-foreground">
-              We have been a trusted manufacturer for government, semi-government, PSU, and corporate clients since inception. Our commitment to quality and reliability has earned us their confidence.
+              We supply government programs, PSUs, corporate accounts, and distributors. Bulk contracts run on written specifications, batch test results, and scheduled dispatch.
             </p>
             <div className="grid gap-3">
               {[
@@ -232,9 +224,6 @@ export const PortfolioPage = () => {
     {/* ── CTA ── */}
     <section className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <span className="eyebrow-dark">
-          Let's Cooperate Together
-        </span>
         <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
           Explore Our Complete Product Range
         </h2>

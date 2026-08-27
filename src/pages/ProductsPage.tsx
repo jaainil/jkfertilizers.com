@@ -118,7 +118,6 @@ export const ProductsPage = () => {
       schema={[organizationSchema, productsPageSchema, productsItemListSchema]}
     />
     <PageHero
-      eyebrow="Products"
       title="FCO-Approved Organic Fertilizers & Granules"
       description="Organic manures, bio-fertilizers, and mineral carrier granules engineered for soil carbon building and balanced crop nutrition."
       imageSrc={images.hero}
@@ -142,7 +141,6 @@ export const ProductsPage = () => {
         className={`reveal ${introReveal.isVisible ? 'visible' : ''}`}
       >
         <SectionIntro
-          eyebrow="Catalog overview"
           title="Complete Product Range"
           description="Every product is manufactured to strict FCO quality parameters in our Vasad, Anand processing facility."
         />
@@ -246,7 +244,7 @@ export const ProductsPage = () => {
             className="mt-6 rounded-full border-primary text-primary hover:bg-primary hover:text-white"
             onClick={handleClearAll}
           >
-            View all 16 products
+            Show all products
           </Button>
         </div>
       )}
@@ -259,7 +257,6 @@ export const ProductsPage = () => {
       >
         <ImagePanel src={images.soil} alt="J K Fertilizers laboratory and quality testing" testId="products-highlight-image-panel" className="aspect-[4/4.6] min-h-[360px]" />
         <div className="space-y-5">
-          <span className="eyebrow">Quality Controls</span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">Agricultural Inputs Manufactured to FCO Specifications</h2>
           <div className="grid gap-4">
           {productHighlights.map((item, i) => (

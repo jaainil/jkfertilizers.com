@@ -250,7 +250,6 @@ export const ServiceDetailPage = () => {
             All Services
           </Link>
           <div className="mt-6 flex">
-            <span className="eyebrow">{concept}</span>
           </div>
           <h1 className="mt-4 font-heading type-page-h1 font-semibold tracking-tight text-foreground">
             {title}

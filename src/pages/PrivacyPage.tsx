@@ -24,8 +24,6 @@ const companyContact = {
   address: "NH. 48, Opp. IOC Petrol Pump, B/H Adas Bus Stop, Vasad, Dist: Anand, Gujarat",
   contactNumber: "98250 45894",
   contactNumberRaw: "+919825045894",
-  emergencyContact: "97129 33610",
-  emergencyContactRaw: "+919712933610",
   email: "info@jkfertilizers.com",
   emailSales: "sales@jkfertilizers.com",
 };
@@ -33,7 +31,7 @@ const companyContact = {
 const collectionPoints = [
   {
     title: "Visit or interact with our website",
-    description: "Browsing product catalogs, reading technical specs, and exploring agricultural solutions.",
+    description: "Browsing product catalogs, reading technical specs, and contacting the sales team.",
   },
   {
     title: "Submit inquiries or feedback",
@@ -138,10 +136,6 @@ export const PrivacyPage = () => {
           </nav>
 
           <div className="max-w-3xl space-y-5">
-            <span className="eyebrow-dark inline-flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-accent" />
-              Confidentiality & Privacy
-            </span>
             <h1 className="font-heading type-page-h1 font-bold tracking-tight text-white">
               Confidentiality & Privacy Policy
             </h1>
@@ -407,15 +401,6 @@ export const PrivacyPage = () => {
                         className="font-heading text-lg font-bold text-primary hover:underline"
                       >
                         {companyContact.contactNumber}
-                      </a>
-                    </div>
-                    <div className="border-t border-border/60 pt-2">
-                      <p className="type-label font-semibold text-muted-foreground uppercase tracking-wider text-xs">Emergency Contact</p>
-                      <a
-                        href={`tel:${companyContact.emergencyContactRaw}`}
-                        className="font-heading text-base font-semibold text-foreground hover:text-primary transition-colors"
-                      >
-                        {companyContact.emergencyContact}
                       </a>
                     </div>
                   </div>

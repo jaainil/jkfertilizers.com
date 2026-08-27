@@ -93,10 +93,6 @@ export const ReturnPolicyPage = () => {
           </nav>
 
           <div className="max-w-3xl space-y-5">
-            <span className="eyebrow-dark inline-flex items-center gap-2">
-              <RotateCcw className="h-4 w-4 text-accent" />
-              Customer Satisfaction
-            </span>
             <h1 className="font-heading type-page-h1 font-bold tracking-tight text-white">
               Refund and Returns Policy
             </h1>

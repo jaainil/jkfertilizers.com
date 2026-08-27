@@ -78,11 +78,8 @@ const ContactHero = () => {
     >
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="max-w-3xl space-y-6">
-          <span className="eyebrow-dark">
-            Contact Us
-          </span>
           <h1 className="font-heading type-page-h1 font-semibold tracking-tight text-white">
-            Contact Us Today To Work Together
+            Contact the Vasad plant
           </h1>
           <p className="max-w-2xl type-body text-white/78">
             We will reply within <strong className="text-white">24 hours</strong> via email. Reach out for product inquiries, bulk orders, or partnership discussions.
@@ -107,7 +104,7 @@ const ContactHero = () => {
           {[
             { label: "Since 2006" },
             { label: "FCO Approved" },
-            { label: "150+ Trusted Clients" },
+            { label: "700 MT/Day Capacity" },
             { label: "Vasad, Anand, Gujarat, INDIA" },
           ].map((tag, i) => (
             <span key={tag.label} {...staggerDelay(i)} className="rounded-full border border-white/15 bg-white/10 px-4 py-2 type-body-sm font-medium text-white/80">
@@ -131,9 +128,6 @@ const ContactDirectSection = () => {
       >
         <div className="space-y-5">
           <div className="space-y-2">
-            <span className="eyebrow">
-              Direct Contact
-            </span>
             <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
               Reach Us Your Way
             </h2>
@@ -212,9 +206,6 @@ const ContactLocationSection = () => {
       >
         <div className="grid lg:grid-cols-2">
           <div className="flex flex-col justify-center space-y-6 py-16 lg:pr-14">
-            <span className="eyebrow w-fit">
-              Our Location
-            </span>
             <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
               Visit Our Factory
             </h2>
@@ -273,9 +264,6 @@ const ContactFaqSection = () => {
         className={`reveal ${faqReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-12 text-center">
-          <span className="eyebrow">
-            Common Questions
-          </span>
           <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Frequently Asked Questions
           </h2>
@@ -297,10 +285,10 @@ const ContactCtaBand = () => (
   <section className="bg-secondary py-16 lg:py-20">
     <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
       <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
-        Ready to work with India's trusted fertilizer manufacturer?
+        Talk to the plant, not a call center
       </h2>
       <p className="mx-auto mt-4 max-w-xl type-body text-white/78">
-        Since 2006. 150+ trusted clients. 100% organic products.
+        Manufacturing in Vasad since 2006. Technical sales replies within 24 hours.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">

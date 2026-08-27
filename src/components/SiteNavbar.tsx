@@ -161,12 +161,12 @@ const MegaProductDropdown = ({
         }
       >
         Products
-        <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:rotate-180" />
+        <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
       </NavLink>
 
       {/* Mega Dropdown Panel */}
       <div 
-        className={`absolute left-1/2 top-full z-50 pt-2 w-[920px] -translate-x-[48%] scale-95 opacity-0 pointer-events-none transition-[transform,opacity] duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto ${
+        className={`absolute left-1/2 top-full z-50 pt-2 w-[920px] -translate-x-[48%] scale-95 opacity-0 pointer-events-none transition-[transform,opacity] duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:scale-100 group-focus-within:opacity-100 group-focus-within:pointer-events-auto ${
           menuForceClosed ? "hidden pointer-events-none opacity-0" : ""
         }`}
         onMouseLeave={() => setHoveredProductSlug(null)}
@@ -266,12 +266,12 @@ const DropdownSubmenu = ({ item, menuForceClosed, handleLinkClick }: DropdownSub
       }
     >
       {item.label}
-      <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:rotate-180" />
+      <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" />
     </NavLink>
 
     {/* Dropdown Menu Panel */}
     <div 
-      className={`absolute left-1/2 top-full z-50 pt-2 w-80 -translate-x-1/2 scale-95 opacity-0 pointer-events-none transition-[transform,opacity] duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto ${
+      className={`absolute left-1/2 top-full z-50 pt-2 w-80 -translate-x-1/2 scale-95 opacity-0 pointer-events-none transition-[transform,opacity] duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:scale-100 group-focus-within:opacity-100 group-focus-within:pointer-events-auto ${
         menuForceClosed ? "hidden pointer-events-none opacity-0" : ""
       }`}
       onClick={handleLinkClick}
@@ -337,6 +337,8 @@ const MobileNavDrawer = ({
       aria-modal="true"
       role="dialog"
       aria-label="Navigation menu"
+      aria-hidden={!mobileOpen}
+      inert={!mobileOpen}
     >
       {/* Drawer header */}
       <div className="flex items-center justify-between border-b border-border/60 bg-surface-card px-5 py-4 shrink-0">
@@ -542,6 +544,16 @@ export const SiteNavbar = ({
     }
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  // Close the mobile drawer with Escape
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onMobileToggle();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen, onMobileToggle]);
 
   const handleLinkClick = () => {
     setMenuForceClosed(true);

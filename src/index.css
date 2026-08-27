@@ -102,7 +102,7 @@
   Use these instead of raw text-* classes so every element type is
   consistent across every component.
 
-  LABEL      → eyebrow pills, column headers, category badges, CTA micro-links
+  LABEL      → column headers, category badges, CTA micro-links
   CAPTION    → overlay card labels, date stamps, footer meta, attribution
   BODY-SM    → card descriptions, benefit list items, overlay body copy
   BODY       → main section body paragraphs, nav links, form descriptions
@@ -208,57 +208,6 @@
   box-shadow: 0 10px 32px rgba(22, 61, 38, 0.12);
 }
 
-/* ── Eyebrow pills — one look, three surface variants ── */
-@utility eyebrow {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 9999px;
-  border: 1px solid hsl(var(--primary) / 0.2);
-  background: hsl(var(--primary) / 0.06);
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: hsl(var(--primary));
-}
-
-@utility eyebrow-dark {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 9999px;
-  border: 1px solid rgb(255 255 255 / 0.16);
-  background: rgb(255 255 255 / 0.08);
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: rgb(255 255 255 / 0.78);
-}
-
-@utility eyebrow-accent {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 9999px;
-  border: 1px solid hsl(var(--accent) / 0.3);
-  background: hsl(var(--accent) / 0.1);
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: hsl(var(--foreground) / 0.75);
-}
 
 /*
   Large-screen scaling: every size on the site is rem-based, so bumping the
@@ -369,38 +318,6 @@
   ::selection {
     background: rgba(245, 158, 11, 0.22);
     color: var(--text-main);
-  }
-}
-
-@layer base {
-  [data-debug-wrapper="true"] {
-    display: contents !important;
-  }
-
-  [data-debug-wrapper="true"]>* {
-    margin-left: inherit;
-    margin-right: inherit;
-    margin-top: inherit;
-    margin-bottom: inherit;
-    padding-left: inherit;
-    padding-right: inherit;
-    padding-top: inherit;
-    padding-bottom: inherit;
-    column-gap: inherit;
-    row-gap: inherit;
-    gap: inherit;
-    border-left-width: inherit;
-    border-right-width: inherit;
-    border-top-width: inherit;
-    border-bottom-width: inherit;
-    border-left-style: inherit;
-    border-right-style: inherit;
-    border-top-style: inherit;
-    border-bottom-style: inherit;
-    border-left-color: inherit;
-    border-right-color: inherit;
-    border-top-color: inherit;
-    border-bottom-color: inherit;
   }
 }
 
@@ -542,6 +459,10 @@
   .ken-burns img {
     animation: none;
   }
+  .animate-marquee,
+  [class*="animate-[marquee"] {
+    animation: none;
+  }
   .back-to-top {
     transition: opacity 0.15s ease;
   }
@@ -564,7 +485,6 @@
 
 .animate-page-enter {
   animation: pageEnter 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: opacity, transform;
 }
 
 @keyframes siteLoaderProgress {

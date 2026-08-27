@@ -53,9 +53,6 @@ export const BlogPage = () => {
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="space-y-7">
-            <span className="eyebrow">
-              From the Blog
-            </span>
             <h1 className="font-heading type-page-h1 font-semibold tracking-tight text-foreground">
               Latest News &amp; Articles
             </h1>
@@ -190,9 +187,6 @@ export const BlogPage = () => {
     <section className="bg-muted py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <span className="eyebrow">
-            Who We Write For
-          </span>
           <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Insights for Every B2B Stakeholder
           </h2>
@@ -231,18 +225,15 @@ export const BlogPage = () => {
     {/* ── CTA band ── */}
     <section className="bg-secondary py-16 lg:py-20">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <span className="eyebrow-dark">
-          Stay Updated
-        </span>
-        <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-white">
-          Want the latest agricultural insights?
+        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
+          Reading is one thing. Walking the plant is another.
         </h2>
         <p className="mx-auto mt-4 max-w-xl type-body text-white/75">
-          Contact us directly and our team will keep you updated on our latest product innovations and manufacturing capabilities.
+          Site visits at our Vasad facility can be scheduled on working days. See the granulation lines before you commit to a supplier.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
-            <Link to="/contact">Contact Us Today</Link>
+            <Link to="/contact">Book a site visit</Link>
           </Button>
           <Button asChild variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-8 text-white hover:bg-white hover:text-secondary">
             <Link to="/products">View Our Products</Link>

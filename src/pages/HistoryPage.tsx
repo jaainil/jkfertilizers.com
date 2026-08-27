@@ -6,6 +6,10 @@ import { organizationSchema, historyPageSchema } from "@/data/seoSchemas";
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
 import { Leaf } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+
+const prefersReducedMotion =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 import Autoplay from "embla-carousel-autoplay";
 
 const company = {
@@ -89,7 +93,6 @@ export const HistoryPage = () => {
 
       {/* ── Page Hero ── */}
       <PageHero
-        eyebrow="Our Journey"
         title="Manufacturing Organic Fertilizers in Gujarat Since 2006"
         description="Two decades of continuous investment in granulation engineering, quality testing, and agricultural manufacturing infrastructure."
         imageSrc="/images/drone-view-3.webp"
@@ -110,10 +113,6 @@ export const HistoryPage = () => {
       {/* ── Mission Statement Bar ── */}
       <section className="bg-secondary py-14 lg:py-16 text-white text-center">
         <div className="mx-auto max-w-4xl px-4" ref={introReveal.ref}>
-          <span className="eyebrow-dark mb-4">
-            <Leaf className="h-3.5 w-3.5 text-accent" />
-            Mission Statement
-          </span>
           <h2 className="font-heading type-card-title font-semibold italic leading-relaxed text-white/95">
             "{company.mission}"
           </h2>
@@ -123,9 +122,6 @@ export const HistoryPage = () => {
       {/* ── Timeline Section ── */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28 relative overflow-hidden">
         <div className="text-center mb-16">
-          <span className="eyebrow">
-            Key Milestones
-          </span>
           <h2 className="mt-4 font-heading type-section-h2 font-bold tracking-tight text-foreground">
             Our Growth Over The Years
           </h2>
@@ -224,9 +220,6 @@ export const HistoryPage = () => {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <span className="eyebrow">
-              Vasad Infrastructure
-            </span>
             <h2 className="mt-4 font-heading type-section-h2 font-bold tracking-tight text-foreground">
               Granulation &amp; Coating Facilities
             </h2>
@@ -237,7 +230,7 @@ export const HistoryPage = () => {
 
           <Carousel
             opts={{ align: "start", loop: true }}
-            plugins={[Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })]}
+            plugins={prefersReducedMotion ? [] : [Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })]}
             className="w-full"
           >
             <CarouselContent className="-ml-4 sm:-ml-6 items-stretch">
@@ -274,14 +267,11 @@ export const HistoryPage = () => {
       {/* ── Let's Cooperate CTA ── */}
       <section className="bg-secondary py-20 lg:py-28" ref={ctaReveal.ref}>
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <span className="eyebrow-dark">
-            Let's Cooperate Together
-          </span>
-          <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
-            Partner with a Leader in Sustainable Fertilizer Production
+          <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
+            Twenty years of granulation, one address
           </h2>
           <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
-            Whether you are a government agency, a PSU, a corporate entity, or a local distributor, we have the capacity and quality standard to scale your agricultural goals.
+            The same Vasad plant has run since 2006. Ask us for the capacity, specifications, and lead times that fit your requirement.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">

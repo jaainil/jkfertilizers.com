@@ -13,7 +13,6 @@ import {
   Leaf,
   Award,
   Sprout,
-  Quote,
   Star,
   Clock3,
 } from "lucide-react";
@@ -49,10 +48,10 @@ const company = {
 };
 
 const heroStats = [
-  { value: "100", unit: "+", label: "Agricultural Products" },
-  { value: "150", unit: "+", label: "Trusted Clients" },
-  { value: "15", unit: "+", label: "Years of Experience" },
-  { value: "10000", unit: "+", label: "Tons of Products" },
+  { value: "700", unit: "MT", label: "Daily processing capacity" },
+  { value: "100,000", unit: "sq ft", label: "Covered warehousing" },
+  { value: String(products.length), unit: "", label: "FCO-approved granule products" },
+  { value: "2006", unit: "", label: "Manufacturing in Vasad since" },
 ];
 
 const expertiseCards = [
@@ -131,6 +130,10 @@ const services = [
 ];
 
 const insightPosts = getAllBlogs().slice(0, 3);
+
+const prefersReducedMotion =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const testimonials = [
   {
@@ -213,9 +216,6 @@ const HomeHero = () => {
         className={`relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-28 reveal ${heroReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-6 sm:space-y-8">
-          <span className="eyebrow">
-            {company.tagline}
-          </span>
 
           <div className="space-y-4">
             <h1 className="max-w-4xl font-heading type-hero-h1 font-bold tracking-tight text-foreground text-balance">
@@ -258,15 +258,15 @@ const HomeHero = () => {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border/60 pt-5">
             <div className="flex items-center gap-2 type-body-sm text-muted-foreground">
               <Leaf className="h-4 w-4 shrink-0 text-primary" />
-              <span>100% Organic Products</span>
+              <span>FCO-approved range</span>
             </div>
             <div className="flex items-center gap-2 type-body-sm text-muted-foreground">
               <Sprout className="h-4 w-4 shrink-0 text-primary" />
-              <span>15+ Years Experience</span>
+              <span>Manufacturing since 2006</span>
             </div>
             <div className="flex items-center gap-2 type-body-sm text-muted-foreground">
               <Award className="h-4 w-4 shrink-0 text-accent" />
-              <span>150+ Trusted Clients</span>
+              <span>Pan-India bulk dispatch</span>
             </div>
           </div>
         </div>
@@ -285,7 +285,7 @@ const HomeHero = () => {
             <div className="grid gap-2 grid-cols-2 sm:gap-3">
               <div className="rounded-xl border border-border/60 bg-surface-overlay/95 backdrop-blur-xs p-2.5 shadow-card sm:rounded-2xl sm:p-4">
                 <p className="type-label font-bold uppercase tracking-[0.16em] text-primary text-[10px] sm:text-xs">Our promise</p>
-                <p className="mt-0.5 font-heading text-xs font-bold text-foreground sm:mt-2 sm:text-base leading-tight">100% Organic Solutions</p>
+                <p className="mt-0.5 font-heading text-xs font-bold text-foreground sm:mt-2 sm:text-base leading-tight">FCO-approved granules</p>
                 <p className="mt-1 hidden type-body-sm text-muted-foreground sm:block">Eco-friendly fertilizers for sustainable farming.</p>
               </div>
               <div className="rounded-xl border border-white/15 bg-secondary/95 backdrop-blur-xs p-2.5 text-white shadow-card sm:rounded-2xl sm:p-4">
@@ -293,7 +293,7 @@ const HomeHero = () => {
                 <p className="mt-0.5 font-heading text-xs font-bold sm:mt-2 sm:text-base leading-tight">Quality & Sustainability</p>
                 <div className="mt-1 flex items-center gap-1.5 sm:mt-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
-                  <span className="type-label text-white/70 text-[10px] sm:text-xs">15+ years experience</span>
+                  <span className="type-label text-white/70 text-[10px] sm:text-xs">Since 2006</span>
                 </div>
               </div>
             </div>
@@ -338,24 +338,24 @@ const HomePromoCards = () => {
   const cards = [
     {
       icon: Sprout,
-      title: "Innovative Solutions for Modern Agriculture",
-      body: "Explore our innovative organic fertilizers designed for higher yields and healthier soils.",
+      title: "Made in Vasad, not traded",
+      body: "Organic manure and mineral granules manufactured at our own plant, with batch test results available on request.",
       href: "/products",
       actionText: "Explore Products",
-      ariaLabel: "Explore innovative organic fertilizer solutions",
+      ariaLabel: "Explore organic fertilizer products made in Vasad",
     },
     {
       icon: Award,
-      title: "Quality You Can Rely On",
-      body: "Our FCO-approved facility ensures every product is premium-grade and effective for all crops.",
+      title: "FCO paperwork that holds up",
+      body: "Every product is certified under FCO 1985, with lab analysis for moisture, carbon, and nutrient levels.",
       href: "/commitment",
       actionText: "Our Commitment",
       ariaLabel: "Read about our quality standards and sustainability commitment",
     },
     {
       icon: Leaf,
-      title: "A Range of Products for Every Need",
-      body: "From soil conditioners to micronutrients, we offer solutions tailored for diverse agricultural needs.",
+      title: "One catalog, every granule format",
+      body: "From organic manure to plant-available silica, all granule formats ship from a single facility.",
       href: "/products",
       actionText: "View Product Range",
       ariaLabel: "View all fertilizer products and soil solutions",
@@ -416,19 +416,16 @@ const HomeFacilityOverview = () => {
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-72"
           overlay={
             <div className="rounded-2xl border border-white/15 bg-secondary p-4 shadow-card sm:p-5">
-              <p className="type-label font-bold uppercase tracking-[0.16em] text-white/60">Empowering Farmers</p>
-              <p className="mt-1 font-heading text-sm font-bold text-white sm:mt-2 sm:text-base">"Enriching Communities through Sustainable Agriculture"</p>
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-white/60">The Vasad plant</p>
+              <p className="mt-1 font-heading text-sm font-bold text-white sm:mt-2 sm:text-base">700 MT/day processing capacity</p>
               <div className="mt-2 flex items-center gap-2">
                 <Award className="h-3.5 w-3.5 text-accent" />
-                <span className="type-body-sm font-semibold text-accent">India's Trusted Fertilizer Manufacturer</span>
+                <span className="type-body-sm font-semibold text-accent">NH 48, Vasad, Anand, Gujarat</span>
               </div>
             </div>
           }
         />
         <div className="space-y-5 sm:space-y-6">
-          <span className="eyebrow">
-            Better Agriculture for Better Future
-          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
             Growing Greener <span className="text-primary">with Every Granule</span>
           </h2>
@@ -436,7 +433,7 @@ const HomeFacilityOverview = () => {
             Our mineral-coated granules bring sustainability to your fields, replacing chemicals with eco-friendly minerals.
           </p>
           <p className="type-body text-muted-foreground">
-            We are a leading manufacturer providing high-quality, customized organic fertilizer solutions that enhance soil health and ensure farm sustainability.
+            We are a manufacturer, not a trader: every granule is produced at our Vasad plant, coated to customer specification, and tested per batch.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Button
@@ -465,14 +462,11 @@ const HomeProductTicker = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
         <div className="text-center">
-          <span className="eyebrow-accent">
-            Our Expertise
-          </span>
-          <h2 className="mt-4 font-heading type-section-h2 font-bold tracking-tight text-foreground sm:mt-5">
-            Delivering Top-Quality Agricultural Solutions
+          <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground">
+            Every granule we make, in one place
           </h2>
           <p className="mx-auto mt-3 max-w-3xl type-body text-muted-foreground">
-            With over 15 years of experience, J K Fertilizers specializes in premium organic fertilizers, mycorrhiza-coated granules, and soil conditioners that enhance crop yields while promoting sustainable farming practices across diverse agricultural sectors.
+            Organic manure, PROM, PDM, mycorrhiza granules, and mineral base granules. All manufactured at the Vasad plant and certified under FCO.
           </p>
         </div>
       </div>
@@ -529,14 +523,16 @@ const HomeQuoteBanner = () => {
       className={`relative overflow-hidden py-16 sm:py-24 bg-secondary reveal ${quoteReveal.isVisible ? 'visible' : ''}`}
     >
       <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        <Quote className="mx-auto h-10 w-10 text-accent/40 rotate-180 sm:h-12 sm:w-12" />
-        <h2 className="mt-6 font-accent type-section-h2 italic text-white text-balance">
-          "Agriculture is the most healthful, most useful and most noble employment of man."
+        <h2 className="font-heading type-section-h2 font-bold text-white text-balance">
+          Tested specifications. Consistent granules. Dependable bulk delivery.
         </h2>
+        <p className="mx-auto mt-4 max-w-2xl type-body text-white/75">
+          Every batch leaves Vasad with in-house lab results for moisture, crushing strength, and nutrient content.
+        </p>
         <div className="mt-8 flex items-center justify-center gap-3">
           <span className="h-px w-8 bg-accent/40" />
           <p className="type-label font-bold uppercase tracking-[0.16em] text-accent">
-            George Washington
+            J K Fertilizers, manufacturing since 2006
           </p>
           <span className="h-px w-8 bg-accent/40" />
         </div>
@@ -574,11 +570,8 @@ const HomeFoundationSection = () => {
           }
         />
         <div className="space-y-5 sm:space-y-7">
-          <span className="eyebrow">
-            Our Foundation
-          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
-            Over 15 Years of Expertise in Sustainable Agriculture
+            Manufacturing in Vasad since 2006
           </h2>
           <p className="type-body text-muted-foreground">
             {company.aboutDetails}
@@ -587,7 +580,7 @@ const HomeFoundationSection = () => {
             <div className="rounded-2xl border border-border/60 bg-surface-card p-4 sm:p-5">
               <p className="type-label font-bold uppercase tracking-[0.16em] text-primary">Our Mission</p>
               <p className="mt-3 font-accent type-body-sm italic text-foreground">
-                "Empower growers with effective, environmentally sound solutions that support both productivity and sustainability."
+                "Empower growers with effective, environmentally sound inputs that support both productivity and soil health."
               </p>
             </div>
             <div className="rounded-2xl bg-secondary p-4 text-white sm:p-5">
@@ -622,14 +615,11 @@ const HomeWhyChooseSection = () => {
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
         />
         <div className="space-y-6">
-          <span className="eyebrow">
-            Why Choose Us
-          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
-            Nurturing Crops with <span className="text-primary">Nature's Care</span>
+            What you get in every bag
           </h2>
           <p className="type-body text-muted-foreground">
-            At J K Fertilizers, we believe in sustainable farming practices that promote healthy, chemical-free crops. Our mission is to transform agriculture by offering eco-friendly fertilizers and soil solutions that enhance crop yield without harmful chemicals or GMOs.
+            Granules sized and hardened for spreading, coated to your specification, and tested per batch. No synthetic fillers, no undisclosed additives.
           </p>
           <div className="pt-2">
             <Button
@@ -667,14 +657,11 @@ const HomeCommitmentSection = () => {
         className={`relative mx-auto grid grid-cols-1 max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-center lg:gap-10 reveal ${section2Reveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-5 sm:space-y-6">
-          <span className="eyebrow-dark">
-            Our Commitment
-          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
-            We Always Bring Customers <span className="text-accent">Green & Clean Products</span>
+            Tested before it leaves the plant
           </h2>
           <p className="type-body text-white/75 sm:max-w-xl">
-            At J K Fertilizers we believe that we have a duty to adhere to good environmental practice, and operate in a sustainable manner. As lovers of plants and the environment it is only natural for us to want to reduce man's impact.
+            We run batch-level QC in our own lab: moisture, crushing strength, and nutrient assay on every lot before dispatch.
           </p>
           <div className="grid gap-3">
             {commitmentItems.map((item) => (
@@ -709,11 +696,11 @@ const HomeCommitmentSection = () => {
           className="aspect-[4/3] min-h-52 sm:min-h-64 lg:min-h-[26rem]"
           overlay={
             <div className="rounded-2xl border border-white/15 bg-secondary/95 p-3 sm:p-4">
-              <p className="type-label font-bold uppercase tracking-[0.16em] text-white/70">India's Trusted Fertilizer Manufacturer</p>
-              <p className="mt-1 font-heading text-sm font-bold text-white sm:text-base">100% Organic · FCO Approved</p>
+              <p className="type-label font-bold uppercase tracking-[0.16em] text-white/70">Made in Vasad, Gujarat</p>
+              <p className="mt-1 font-heading text-sm font-bold text-white sm:text-base">Batch-tested before dispatch</p>
               <div className="mt-1.5 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                <span className="type-label text-white/60">15+ years of excellence</span>
+                <span className="type-label text-white/60">FCO-approved range</span>
               </div>
             </div>
           }
@@ -734,14 +721,11 @@ const HomeProductsCarousel = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
-            <span className="eyebrow">
-              Product Updates
-            </span>
             <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
-              New Launches
+              New on the lines
             </h2>
             <p className="type-body text-muted-foreground sm:max-w-2xl">
-              At J K Fertilizers, we are constantly seeking the best solutions to meet the evolving needs of the industry and farmers. Through continuous innovation, we strive to develop better, newer, and more sustainable products.
+              The range grows when a customer asks for a coating or carrier we don't stock yet. Recent additions below.
             </p>
           </div>
           <Button
@@ -754,7 +738,7 @@ const HomeProductsCarousel = () => {
         </div>
         <Carousel
           opts={{ align: "start", loop: true }}
-          plugins={[Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })]}
+          plugins={prefersReducedMotion ? [] : [Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })]}
           className="w-full"
         >
           <CarouselContent className="-ml-4 sm:-ml-6 items-stretch">
@@ -811,9 +795,6 @@ const HomeTestimonialsSection = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <span className="eyebrow-accent">
-            Client Stories
-          </span>
           <h2 className="mt-5 font-heading type-section-h2 font-bold tracking-tight text-foreground">
             What Our Clients Say
           </h2>
@@ -826,7 +807,7 @@ const HomeTestimonialsSection = () => {
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, s) => (
-                  <Star key={s} className="h-4 w-4 fill-accent text-accent" />
+                  <Star key={s} className="h-4 w-4 fill-accent text-accent" aria-hidden="true" />
                 ))}
               </div>
               <p className="flex-1 type-body-sm italic text-muted-foreground leading-7">
@@ -851,14 +832,11 @@ const HomeServicesSection = () => {
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28" ref={servicesReveal.ref}>
       <div className={`mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between reveal ${servicesReveal.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl space-y-3 sm:space-y-4">
-          <span className="eyebrow-accent">
-            Services We Provide
-          </span>
           <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
             Our Services
           </h2>
           <p className="type-body text-muted-foreground sm:max-w-2xl">
-            We provide comprehensive solutions for the fertilizer industry, from organic fertilizer manufacturing and granule technology to infrastructure leasing and custom packaging.
+            We cover the full cycle for fertilizer brands: granule manufacturing and coating, private-label packaging, contract production, and leased infrastructure at one Vasad complex.
           </p>
         </div>
         <Button
@@ -891,9 +869,6 @@ const HomeBlogSection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:mb-12 sm:gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
-            <span className="eyebrow">
-              From The Blog
-            </span>
             <h2 className="font-heading type-section-h2 font-bold tracking-tight text-foreground text-balance">
               Latest News &amp; Articles
             </h2>
@@ -925,9 +900,6 @@ const HomeFaqSection = () => {
   return (
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
       <div className="mb-12 text-center">
-        <span className="eyebrow">
-          FAQ
-        </span>
         <h2 className="mt-5 font-heading type-section-h2 font-bold tracking-tight text-foreground">
           Frequently Asked Questions
         </h2>
@@ -977,9 +949,6 @@ const HomeContactSection = () => {
         {/* Left Column: B2B Partnership Value & Direct Contact */}
         <div className="space-y-6 sm:space-y-8">
           <div>
-            <span className="eyebrow-dark">
-              Partner With Us
-            </span>
             <h2 className="mt-3 font-heading type-section-h2 font-bold tracking-tight text-white text-balance">
               Reliable Bulk Supply & <span className="text-accent">Custom Formulation</span>
             </h2>

@@ -65,7 +65,7 @@ export const InquiryForm = ({
         const errorText =
           result?.errors?.map((err: { message: string }) => err.message).join(", ") ||
           result?.error ||
-          "Unable to send message. Please call our team directly at +91 9825045894.";
+          "We couldn't send your inquiry. Please call us directly at +91 98250 45894 or email info@jkfertilizers.com.";
         setErrorMessage(errorText);
         toast.error(errorText);
       }
@@ -80,13 +80,14 @@ export const InquiryForm = ({
 
   if (succeeded) {
     return (
-      <div className={`rounded-2xl border border-border bg-surface-card p-6 shadow-card sm:rounded-3xl sm:p-8 text-center space-y-4 ${className}`}>
+      <div className={`rounded-2xl border border-border bg-surface-card p-6 shadow-card sm:rounded-3xl sm:p-8 text-center space-y-4 ${className}`} aria-live="polite">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="font-heading type-card-title font-bold text-foreground">Thank You!</h3>
+        <h3 className="font-heading type-card-title font-bold text-foreground">Inquiry received</h3>
         <p className="type-body text-muted-foreground max-w-md mx-auto">
-          Your inquiry has been submitted successfully to J K Fertilizers. Our team will contact you within 24 hours.
+          Our technical sales team will reply within 24 hours. Need an answer sooner? Call us at{" "}
+          <a href="tel:+919825045894" className="font-semibold text-primary hover:underline">+91 98250 45894</a>.
         </p>
         <Button
           onClick={() => {
@@ -108,9 +109,6 @@ export const InquiryForm = ({
       data-testid="inquiry-form"
     >
       <div className="space-y-2 sm:space-y-3">
-        <div className="eyebrow" data-testid="inquiry-form-eyebrow">
-          B2B Lead Form
-        </div>
         <h3 className="font-heading type-card-title font-bold text-foreground" data-testid="inquiry-form-title">
           {title}
         </h3>
@@ -132,13 +130,12 @@ export const InquiryForm = ({
           />
         </div>
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-foreground" htmlFor="company">Company</label>
+          <label className="text-sm font-medium text-foreground" htmlFor="company">Company <span className="font-normal text-muted-foreground">(optional)</span></label>
           <Input
             id="company"
             name="company"
-            placeholder="Company or brand"
+            placeholder="Company or farm name"
             className="h-12 rounded-xl border-border bg-muted text-foreground"
-            required
             data-testid="inquiry-form-company-input"
           />
         </div>
@@ -159,7 +156,10 @@ export const InquiryForm = ({
           <Input
             id="phone"
             name="phone"
-            placeholder="Contact number"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="+91 98250 45894"
             className="h-12 rounded-xl border-border bg-muted text-foreground"
             required
             data-testid="inquiry-form-phone-input"
@@ -217,7 +217,7 @@ export const InquiryForm = ({
       </label>
 
       {errorMessage && (
-        <div className="mt-3 flex items-center gap-2 rounded-xl border border-destructive/20 bg-destructive/10 p-3.5 text-xs font-medium text-destructive">
+        <div role="alert" className="mt-3 flex items-center gap-2 rounded-xl border border-destructive/20 bg-destructive/10 p-3.5 text-xs font-medium text-destructive">
           <AlertCircle className="h-4 w-4 shrink-0" />
           <span>{errorMessage}</span>
         </div>

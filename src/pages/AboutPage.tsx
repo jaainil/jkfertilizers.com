@@ -6,7 +6,6 @@ import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, aboutPageSchema } from "@/data/seoSchemas";
 import { useScrollReveal, staggerDelay } from "@/hooks/useScrollReveal";
 import { CheckCircle2, ArrowRight, Leaf, Eye, Compass, Play } from "lucide-react";
-import { toast } from "sonner";
 
 const company = {
   name: "J K Fertilizers",
@@ -18,7 +17,7 @@ const company = {
   heroSubtitle:
     "Pioneering sustainable agriculture since 2006 with eco-friendly, mineral-coated granules and soil conditioners.",
   aboutDetails: "J K Fertilizers, headquartered in Gujarat, India, began its journey in 2006. With a steadfast commitment to sustainable agriculture, we serve farmers, landscapers, and agricultural industries across India and beyond. As a leader in organic fertilizer innovation, we specialize in producing eco-friendly, mineral-coated granules and soil conditioners that enhance soil health and improve crop yield.",
-  mission: "To sustainably advance agricultural productivity and soil health through innovative, eco-friendly fertilizer solutions.",
+  mission: "To sustainably advance agricultural productivity and soil health through effective, eco-friendly fertilizer manufacturing.",
   chairmanMessage: "Founded in 2006, J K Fertilizers has consistently grown through strategic investments in infrastructure and expansion of production capacity, with a focus on organic fertilizers and a commitment to sustainable agricultural practices.",
   philosophy: "Quality You Can Trust, Results You Can See - Every product is manufactured using state-of-the-art technology.",
   phoneDisplay: "9825045894",
@@ -44,21 +43,21 @@ const images = {
 };
 
 const stats = [
-  { value: "100", unit: "+", label: "Agricultural Products" },
-  { value: "150", unit: "+", label: "Trust By Clients" },
-  { value: "15", unit: "+", label: "Years of Experience" },
-  { value: "10000", unit: "+", label: "Tons of Products" },
+  { value: "700", unit: "MT", label: "Daily processing capacity" },
+  { value: "100,000", unit: "sq ft", label: "Covered warehousing" },
+  { value: "2006", unit: "", label: "Manufacturing in Vasad since" },
+  { value: "16", unit: "", label: "FCO-approved granule products" },
 ];
 
 const pillars = [
-  "Organic Excellence",
-  "Sustainable Agriculture",
   "FCO Approved Products",
-  "Trusted Quality",
-  "Eco-Friendly Solutions",
-  "Customer Centric",
-  "15+ Years Experience",
-  "Innovation in Fertilizers",
+  "In-House Batch Testing",
+  "700 MT/Day Capacity",
+  "Private-Label Packaging",
+  "Toll Manufacturing",
+  "Since 2006",
+  "Covered Warehousing",
+  "Pan-India Dispatch",
 ];
 
 const valuesList = [
@@ -76,14 +75,14 @@ const valuesList = [
   },
   {
     title: "Customer-Centricity",
-    desc: "Prioritizing client needs with tailored solutions.",
+    desc: "Specs written around the client's crop, soil, and packaging format.",
   },
 ];
 
 const foundingChecklist = [
   "Sustainable Agriculture Practices",
-  "ISO-Certified Product Excellence",
-  "Customer-Centric Solutions",
+  "FCO-Certified Product Range",
+  "In-house batch QC on every lot",
   "Innovation in Fertilizers",
   "Trusted Long-Term Partnerships",
 ];
@@ -122,27 +121,24 @@ const AboutWelcome = () => {
         className={`grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${welcomeReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-7">
-          <span className="eyebrow">
-            Welcome to J K Fertilizers
-          </span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-            Growing a Greener Future Together
+            A manufacturer, not a trader
           </h2>
           <p className="type-body text-muted-foreground">
-            Welcome to J K Fertilizers, a pioneering force in sustainable agriculture since <strong className="text-foreground">2006</strong>. We’re dedicated to enhancing crop health through premium organic fertilizers that are as beneficial to plants as they are to the planet.
+            J K Fertilizers has manufactured organic fertilizer in Anand district since <strong className="text-foreground">2006</strong>. The plant at Vasad runs rotary drum granulation lines with automated bagging, and every product is certified under FCO.
           </p>
           <p className="type-body text-muted-foreground">
-            With a legacy of innovation, J K Fertilizers brings expertly crafted organic solutions to farmers, helping nurture healthier crops and soils with a focus on quality and eco-responsibility.
+            We make our own granules, coat them to customer specification, and test each batch before dispatch. Brands also use the plant for private-label and toll manufacturing.
           </p>
         </div>
 
         {/* 2x2 Image Gallery */}
         <div className="grid grid-cols-2 gap-4">
           {[
-            { src: images.gallery[0], alt: "DSC00549" },
-            { src: images.gallery[1], alt: "DSC00652" },
-            { src: images.gallery[2], alt: "DSC00296" },
-            { src: images.gallery[3], alt: "DSC00411" },
+            { src: images.gallery[0], alt: "Automated bagging line at the Vasad plant" },
+            { src: images.gallery[1], alt: "Rotary drum granulation equipment" },
+            { src: images.gallery[2], alt: "Finished organic fertilizer granules" },
+            { src: images.gallery[3], alt: "Covered warehouse bays at the Vasad complex" },
           ].map((img, idx) => (
             <div key={idx} className="group relative overflow-hidden rounded-2xl border border-border/60 bg-surface-card shadow-card aspect-square">
               <img
@@ -181,7 +177,7 @@ const AboutMissionVision = () => {
             </div>
             <h3 className="font-heading type-card-title font-semibold text-foreground">Our Mission</h3>
             <p className="mt-4 type-body text-muted-foreground flex-1">
-              To sustainably advance agricultural productivity and soil health through innovative, eco-friendly fertilizer solutions.
+              To sustainably advance agricultural productivity and soil health through effective, eco-friendly fertilizer manufacturing.
             </p>
             <div className="mt-8 border-t border-border pt-6 type-label font-semibold uppercase tracking-[0.16em] text-primary">
               Sustainable Agriculture
@@ -213,37 +209,12 @@ const AboutEthics = () => {
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28" ref={ethicsReveal.ref}>
       <div className={`grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center reveal ${ethicsReveal.isVisible ? 'visible' : ''}`}>
         <div className="space-y-7">
-          <span className="eyebrow">
-            Ethics in Action
-          </span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-            Guided by integrity, committed to quality in every step
+            Quality control, batch by batch
           </h2>
           <p className="type-body text-muted-foreground">
-            At J K Fertilizers, every product reflects our unwavering integrity and dedication to quality, ensuring sustainable, trustworthy solutions from our facilities to your fields.
+            Every product is tested in our own lab before dispatch. Moisture, crushing strength, and nutrient content are checked on every lot, and the results travel with the shipment.
           </p>
-
-          {/* Progress Bars */}
-          <div className="space-y-5 pt-3">
-            <div>
-              <div className="flex justify-between type-body-sm font-semibold mb-1 text-foreground">
-                <span>Organic Solutions</span>
-                <span>100%</span>
-              </div>
-              <div className="h-2 w-full rounded-full bg-border overflow-hidden">
-                <div className="h-full bg-primary rounded-full" style={{ width: "100%" }} />
-              </div>
-            </div>
-            <div>
-              <div className="flex justify-between type-body-sm font-semibold mb-1 text-foreground">
-                <span>Quality Agriculture</span>
-                <span>100%</span>
-              </div>
-              <div className="h-2 w-full rounded-full bg-border overflow-hidden">
-                <div className="h-full bg-accent rounded-full" style={{ width: "100%" }} />
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* 2x2 Values List */}
@@ -304,9 +275,6 @@ const AboutFoundingRoots = () => {
           }
         />
         <div className="space-y-6">
-          <span className="eyebrow">
-            Founding Roots
-          </span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Manufacturing Fertilizers in Gujarat Since 2006
           </h2>
@@ -337,25 +305,17 @@ const AboutFoundingRoots = () => {
 const AboutActionCards = () => {
   const actionReveal = useScrollReveal();
 
-  const handleTourClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    toast.info("Factory Tour Request", {
-      description: "To schedule a factory tour at our Vasad facility, please reach out to us at info@jkfertilizers.com or call 9825045894.",
-      duration: 5000,
-    });
-  };
-
   return (
     <section className="bg-muted py-20 lg:py-28" ref={actionReveal.ref}>
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${actionReveal.isVisible ? 'visible' : ''}`}>
         <div className="grid gap-8 md:grid-cols-2">
-          {/* Harvesting Hope Card */}
+          {/* Portfolio Card */}
           <div className="rounded-3xl border border-border bg-surface-card p-8 shadow-card flex flex-col justify-between min-h-[300px]">
             <div>
-              <span className="type-label font-semibold uppercase tracking-[0.16em] text-accent">Sustainable Growth</span>
-              <h3 className="mt-3 font-heading type-card-title font-bold text-foreground">Harvesting Hope!</h3>
+              <span className="type-label font-semibold uppercase tracking-[0.16em] text-accent">The full range</span>
+              <h3 className="mt-3 font-heading type-card-title font-bold text-foreground">What the plant makes</h3>
               <p className="mt-3 type-body-sm text-muted-foreground">
-                Experience how J K Fertilizers fuels dreams of bountiful harvests, supporting farmers to achieve success sustainably.
+                Organic manure, PROM, PDM, mycorrhiza granules, and a full spread of mineral base and coated granules.
               </p>
             </div>
             <div className="mt-8">
@@ -365,21 +325,23 @@ const AboutActionCards = () => {
             </div>
           </div>
 
-          {/* Built on Integrity Card */}
+          {/* Site Visit Card */}
           <div className="rounded-3xl border border-border bg-surface-card p-8 shadow-card flex flex-col justify-between min-h-[300px]">
             <div>
-              <span className="type-label font-semibold uppercase tracking-[0.16em] text-primary">Quality Facilities</span>
-              <h3 className="mt-3 font-heading type-card-title font-bold text-foreground">Built on Integrity</h3>
+              <span className="type-label font-semibold uppercase tracking-[0.16em] text-primary">See it yourself</span>
+              <h3 className="mt-3 font-heading type-card-title font-bold text-foreground">Walk the plant</h3>
               <p className="mt-3 type-body-sm text-muted-foreground">
-                Our facility embodies our commitment to quality and environmental responsibility, producing fertilizers that are as sustainable as they are effective.
+                See the granulation lines, bagging, and warehouse for yourself. Site visits at our Vasad facility can be scheduled on working days.
               </p>
             </div>
             <div className="mt-8">
-              <Button onClick={handleTourClick} variant="outline" className="h-11 rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
-                <span className="flex items-center gap-2">
-                  <Play className="h-3.5 w-3.5 fill-current" />
-                  Factory Tour
-                </span>
+              <Button asChild variant="outline" className="h-11 rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
+                <Link to="/contact">
+                  <span className="flex items-center gap-2">
+                    <Play className="h-3.5 w-3.5 fill-current" />
+                    Book a site visit
+                  </span>
+                </Link>
               </Button>
             </div>
           </div>
@@ -391,16 +353,13 @@ const AboutActionCards = () => {
 
 const AboutCta = () => (
   <section className="bg-secondary py-20 lg:py-28">
-    <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-      <span className="eyebrow-dark">
-        Let's Cooperate Together
-      </span>
-      <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-white">
-        Ready to Partner with India's Trusted Fertilizer Manufacturer?
-      </h2>
-      <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
-        Contact us today. We will reply within 24 hours via email. Let's build a sustainable agricultural future together.
-      </p>
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
+          Request a quote or book a site visit
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
+          Send your product and tonnage requirement. Our technical sales team replies within 24 hours.
+        </p>
       <div className="mt-10 flex flex-wrap justify-center gap-4">
         <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
           <Link to="/contact">Get In Touch</Link>
@@ -433,7 +392,6 @@ export const AboutPage = () => {
       />
       {/* ── Hero ── */}
       <PageHero
-        eyebrow="About Us"
         title="Organic Fertilizer & Mineral Granule Manufacturing in Gujarat"
         description="Supplying FCO-approved organic manures, biofertilizers, and custom carrier granules from our 700 MT/day processing facility in Vasad, Anand."
         imageSrc={images.hero}

@@ -93,7 +93,6 @@ export const ServicesPage = () => {
     />
     {/* ── Hero ── */}
     <PageHero
-      eyebrow="Services We Provide"
       title="Contract Manufacturing & Granulation Services"
       description="High-capacity toll granulation, private-label packaging, bio-coating, and infrastructure leasing from our 700 MT/day processing facility in Vasad, Anand, Gujarat."
       imageSrc={images.hero}
@@ -138,7 +137,6 @@ export const ServicesPage = () => {
         </div>
 
         <div className="space-y-7">
-          <span className="eyebrow">Manufacturing Standards</span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Industrial Scale Granulation with Laboratory Verification
           </h2>
@@ -170,9 +168,8 @@ export const ServicesPage = () => {
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${listReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-14 text-center">
-          <span className="eyebrow">What Is Our Expertise?</span>
           <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-            Delivering sustainable, eco-friendly solutions to meet your agricultural and operational needs.
+            Granulation, coating, packaging, storage, and leasing, all inside one complex.
           </h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -188,7 +185,6 @@ export const ServicesPage = () => {
     {/* ── Process Steps ── */}
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div ref={processReveal.ref} className={`mb-14 text-center reveal ${processReveal.isVisible ? 'visible' : ''}`}>
-        <span className="eyebrow">How We Work</span>
         <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           Our Operating Process
         </h2>
@@ -222,10 +218,6 @@ export const ServicesPage = () => {
     <section className="bg-muted py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <span className="eyebrow">
-            <Quote className="h-3 w-3" />
-            Testimonials
-          </span>
           <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             What Customers Say
           </h2>
@@ -259,10 +251,10 @@ export const ServicesPage = () => {
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { value: "150+", label: "Trusted Clients" },
-            { value: "15+", label: "Years of Experience" },
-            { value: "10000+", label: "Tons of Products" },
-            { value: "6+", label: "Service Offerings" },
+            { value: "700", label: "MT/Day Capacity" },
+            { value: "100,000+", label: "Sq Ft Covered Storage" },
+            { value: "2006", label: "Manufacturing Since" },
+            { value: "5", label: "Service Lines" },
           ].map((stat, i) => (
             <div key={stat.label} className="group text-center" {...staggerDelay(i)}>
               <p className="font-heading text-5xl font-bold text-white">{stat.value}</p>
@@ -281,12 +273,11 @@ export const ServicesPage = () => {
         className={`mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:items-start reveal ${contactReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="space-y-7">
-          <span className="eyebrow">Let's Cooperate Together</span>
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
-            Contact Us Today!
+            Request a quote
           </h2>
           <p className="type-body text-muted-foreground">
-            We will reply within 24 hours via email. Share your requirement and our team will follow up with the right commercial or technical conversation.
+            Send your product and tonnage. Our team replies within 24 hours with commercial terms or a technical follow-up.
           </p>
           <div className="grid gap-4">
             <a

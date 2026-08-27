@@ -23,15 +23,11 @@ export const SiteFooter = () => {
       <div className="relative border-b border-white/8">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-10 sm:px-6 sm:py-12 lg:flex-row lg:items-center lg:px-8">
           <div>
-            <div className="flex items-center gap-2 mb-2 sm:mb-3">
-              <span className="h-px w-8 bg-accent" />
-              <p className="type-label font-bold uppercase tracking-[0.16em] text-accent">Partner with us</p>
-            </div>
             <h2 className="font-heading type-section-h2 font-bold text-white">
-              Let's grow something great.
+              Get a quote in 24 hours.
             </h2>
             <p className="mt-2 max-w-lg type-body-sm text-white/60">
-              Partner with us for quality organic fertilizers and sustainable agricultural solutions.
+              Send your product and tonnage. Technical sales replies within 24 hours, by email or phone.
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
@@ -147,7 +143,7 @@ export const SiteFooter = () => {
 
         {/* Navigation column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-links-block">
-          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Navigate</p>
+          <h2 className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Navigate</h2>
           <nav className="flex flex-col gap-0.5">
             {[...navigation, { label: "Commitment", path: "/commitment" }].map((item) => (
               <Link
@@ -170,7 +166,7 @@ export const SiteFooter = () => {
 
         {/* Products column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-products-block">
-          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Product Groups</p>
+          <h2 className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Product Groups</h2>
           <div className="flex flex-col gap-0.5">
             {products.slice(0, 6).map((product, index) => (
               <Link
@@ -195,7 +191,7 @@ export const SiteFooter = () => {
 
         {/* Services column */}
         <div className="space-y-4 sm:space-y-5" data-testid="footer-services-block">
-          <p className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Services</p>
+          <h2 className="type-label font-bold uppercase tracking-[0.18em] text-white/80">Services</h2>
           <div className="flex flex-col gap-0.5">
             {services.map((svc, i) => (
               <Link

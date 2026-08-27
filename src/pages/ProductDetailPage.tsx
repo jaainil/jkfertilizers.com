@@ -200,7 +200,6 @@ const ProductDescription = ({ product }: { product: NonNullable<ReturnType<typeo
   <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
     <div className="lg:grid lg:grid-cols-[1fr_1.3fr] lg:gap-20 lg:items-start">
       <div className="space-y-5 lg:sticky lg:top-28">
-        <span className="eyebrow">About This Product</span>
         <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
           What Are {product.title}?
         </h2>
@@ -245,10 +244,33 @@ const ProductLightbox = ({
   setActiveIndex,
   title,
 }: ProductLightboxProps) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+      if (e.key === "ArrowRight") setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+    window.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, images.length, onClose, setActiveIndex]);
+
   if (!isOpen || !images || images.length === 0) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${title} image viewer`}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
       {/* Close button */}
       <button
         onClick={onClose}
@@ -305,7 +327,6 @@ const ProductHowToApply = ({ product }: { product: NonNullable<ReturnType<typeof
     <section className="bg-muted py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-14 text-center">
-          <span className="eyebrow">Application Guide</span>
           <h2 className="mt-5 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             How to Apply {product.title}
           </h2>
@@ -340,7 +361,6 @@ const ProductBenefits = ({ product }: { product: NonNullable<ReturnType<typeof g
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="mb-14">
-        <span className="eyebrow">Key Benefits</span>
         <div className="mt-5 lg:grid lg:grid-cols-[1fr_1.4fr] lg:items-end lg:gap-10">
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             The Clear Benefits of {product.title}
@@ -378,7 +398,6 @@ const ProductComparisonTable = ({ comparison }: { comparison?: NonNullable<Retur
     <section className="bg-muted/70 py-20 lg:py-28 border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <span className="eyebrow">Technical Comparison</span>
           <h2 className="mt-4 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             {comparison.title || "Product Comparison"}
           </h2>
@@ -461,7 +480,6 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-4">
-            <span className="eyebrow">Related Products</span>
             <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
               Explore Other Product Lines
             </h2>

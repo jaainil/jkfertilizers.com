@@ -78,7 +78,6 @@ export const CommitmentPage = () => {
       schema={[organizationSchema, commitmentPageSchema]}
     />
     <PageHero
-      eyebrow="Our Principles"
       title="Quality Assurance & Sustainable Manufacturing"
       description="At J K Fertilizers, our manufacturing standards prioritize soil carbon restoration, FCO regulatory compliance, and dependable supply for agribusiness partners across India."
       imageSrc="/images/commitment-1.webp"
@@ -103,14 +102,11 @@ export const CommitmentPage = () => {
         className={`reveal ${sectionReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-14 text-center">
-          <span className="eyebrow">
-            Other Commitments
-          </span>
           <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             J K Fertilizers' Commitment to Sustainability
           </h2>
           <p className="mx-auto mt-4 max-w-3xl type-body text-muted-foreground">
-            We are dedicated to providing the best range of sustainable, organic fertilizer solutions to enhance crop health and soil quality.
+            Every claim on this page maps to something testable at the plant: FCO certification, batch lab results, and the specs our contracts are written against.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -141,14 +137,11 @@ export const CommitmentPage = () => {
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal ${cardsReveal.isVisible ? 'visible' : ''}`}
       >
         <div className="mb-12 text-center">
-          <span className="eyebrow">
-            Our Quality Standards
-          </span>
           <h2 className="mt-6 font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Committed to Delivering the Highest Quality
           </h2>
           <p className="mx-auto mt-4 max-w-2xl type-body text-muted-foreground">
-            Sustainable solutions that empower farmers, protect the environment, and ensure long-term success.
+            Batch-level quality control, FCO-certified formulations, and written specifications for every bulk contract.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
@@ -219,14 +212,14 @@ export const CommitmentPage = () => {
     <section className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
-          Let's Cooperate Together
+          Request a quote
         </h2>
         <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
-          We will reply you within 24 hours via email. Contact us today!
+          Send your requirement. We reply within 24 hours, by email or phone.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
-            <Link to="/contact">Contact Us Today!</Link>
+            <Link to="/contact">Get in touch</Link>
           </Button>
           <Button asChild variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-8 text-white hover:bg-white hover:text-secondary">
             <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
