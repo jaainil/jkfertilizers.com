@@ -235,7 +235,7 @@ export const HistoryPage = () => {
           >
             <CarouselContent className="-ml-4 sm:-ml-6 items-stretch">
               {machineryGallery.map((img, index) => (
-                <CarouselItem key={index} className="pl-4 sm:pl-6 basis-[90%] sm:basis-1/2 lg:basis-1/4">
+                <CarouselItem key={index} className="pl-4 sm:pl-6 basis-[88%] sm:basis-1/2 lg:basis-1/4">
                   <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-surface-card shadow-card hover:shadow-card-hover transition-shadow duration-300">
                     <div className="relative aspect-video shrink-0 overflow-hidden">
                       <img
@@ -273,7 +273,7 @@ export const HistoryPage = () => {
           <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
             The same Vasad plant has run since 2006. Ask us for the capacity, specifications, and lead times that fit your requirement.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
             <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
               <Link to="/contact">Contact Our Team</Link>
             </Button>

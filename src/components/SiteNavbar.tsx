@@ -8,7 +8,7 @@ import { products, getProductCoverImage } from "@/data/products";
 
 // Desktop nav pill — NOT reused on mobile
 const desktopLinkClassName = ({ isActive }: { isActive: boolean }) =>
-  `relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+  `relative rounded-full px-2.5 xl:px-4 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 ${
     isActive
       ? "bg-primary/10 text-primary font-semibold"
       : "text-foreground/75 hover:text-primary hover:bg-primary/5"
@@ -153,7 +153,7 @@ const MegaProductDropdown = ({
       <NavLink
         to="/products"
         className={({ isActive }) =>
-          `relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+          `relative inline-flex items-center gap-1 rounded-full px-2.5 xl:px-4 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 ${
             isActive
               ? "bg-primary/10 text-primary font-semibold"
               : "text-foreground/75 hover:text-primary hover:bg-primary/5 group-hover:text-primary group-hover:bg-primary/5"
@@ -166,15 +166,15 @@ const MegaProductDropdown = ({
 
       {/* Mega Dropdown Panel */}
       <div 
-        className={`absolute left-1/2 top-full z-50 pt-2 w-[920px] -translate-x-[48%] scale-95 opacity-0 pointer-events-none transition-[transform,opacity] duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:scale-100 group-focus-within:opacity-100 group-focus-within:pointer-events-auto ${
+        className={`absolute left-1/2 top-full z-50 pt-2 w-[min(920px,calc(100vw-2rem))] lg:w-[740px] xl:w-[920px] -translate-x-1/2 scale-95 opacity-0 pointer-events-none transition-[transform,opacity] duration-300 group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:scale-100 group-focus-within:opacity-100 group-focus-within:pointer-events-auto ${
           menuForceClosed ? "hidden pointer-events-none opacity-0" : ""
         }`}
         onMouseLeave={() => setHoveredProductSlug(null)}
         onClick={handleLinkClick}
       >
-        <div className="overflow-hidden rounded-2xl border border-border bg-surface-card p-6 shadow-2xl ring-1 ring-black/5 grid grid-cols-[270px_1fr] gap-6 animate-in fade-in slide-in-from-top-2">
+        <div className="overflow-hidden rounded-2xl border border-border bg-surface-card p-4 xl:p-6 shadow-2xl ring-1 ring-black/5 grid grid-cols-[210px_1fr] xl:grid-cols-[270px_1fr] gap-4 xl:gap-6 animate-in fade-in slide-in-from-top-2">
           {/* Left Panel: Featured Card */}
-          <div className="flex flex-col justify-between h-full rounded-xl bg-primary/5 border border-primary/10 p-5 min-h-[380px]">
+          <div className="flex flex-col justify-between h-full rounded-xl bg-primary/5 border border-primary/10 p-3.5 xl:p-5 min-h-[340px] xl:min-h-[380px]">
             <div>
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted shadow-sm">
                 <img
@@ -183,11 +183,11 @@ const MegaProductDropdown = ({
                   className="h-full w-full object-cover transition-transform duration-300"
                 />
               </div>
-              <span className="mt-3 inline-flex rounded-full bg-accent/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-secondary">
+              <span className="mt-2.5 inline-flex rounded-full bg-accent/25 px-2 py-0.5 text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-secondary">
                 {activeProduct.category}
               </span>
-              <h4 className="mt-2 text-sm font-bold text-foreground transition-colors duration-200">{activeProduct.title}</h4>
-              <p className="mt-1 text-[11px] text-muted-foreground leading-relaxed mb-3 transition-opacity duration-200 line-clamp-4">
+              <h4 className="mt-1.5 text-xs xl:text-sm font-bold text-foreground transition-colors duration-200">{activeProduct.title}</h4>
+              <p className="mt-1 text-[10px] xl:text-[11px] text-muted-foreground leading-relaxed mb-2 transition-opacity duration-200 line-clamp-3 xl:line-clamp-4">
                 {activeProduct.summary || activeProduct.tagline}
               </p>
             </div>
@@ -203,20 +203,20 @@ const MegaProductDropdown = ({
           {/* Right Panel: Catalog — columns built dynamically from products data */}
           <div className="flex flex-col">
             {/* Top Bar Header */}
-            <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Product Catalog</span>
+            <div className="flex items-center justify-between border-b border-border pb-2.5 xl:pb-3 mb-3 xl:mb-4">
+              <span className="text-[11px] xl:text-xs font-bold uppercase tracking-wider text-muted-foreground">Product Catalog</span>
               <NavLink
                 to="/products"
-                className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white shadow-md shadow-primary/10 hover:bg-primary/90 transition-colors duration-200"
+                className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 xl:px-4 py-1 xl:py-1.5 text-[11px] xl:text-xs font-bold text-white shadow-md shadow-primary/10 hover:bg-primary/90 transition-colors duration-200"
               >
-                View All Products <ArrowRight className="h-3.5 w-3.5" />
+                View All Products <ArrowRight className="h-3 w-3 xl:h-3.5 xl:w-3.5" />
               </NavLink>
             </div>
             {/* Product Columns */}
-            <div className="grid grid-cols-3 gap-x-6">
+            <div className="grid grid-cols-3 gap-x-3 xl:gap-x-6">
               {megaGroups.map((group) => (
                 <div key={group.title}>
-                  <h5 className="mb-2 border-b border-border pb-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground/70">
+                  <h5 className="mb-1.5 xl:mb-2 border-b border-border pb-1 text-[9px] xl:text-[10px] font-bold uppercase tracking-[0.16em] xl:tracking-[0.18em] text-muted-foreground/70">
                     {group.title}
                   </h5>
                   <div className="flex flex-col">
@@ -226,7 +226,7 @@ const MegaProductDropdown = ({
                         to={p.path}
                         onMouseEnter={() => setHoveredProductSlug(p.slug)}
                         className={({ isActive }) =>
-                          `rounded-md px-2.5 py-1.5 text-[12px] font-medium leading-snug transition-colors duration-150 ${
+                          `rounded-md px-1.5 xl:px-2.5 py-1 xl:py-1.5 text-[11px] xl:text-[12px] font-medium leading-snug transition-colors duration-150 ${
                             isActive
                               ? "bg-primary/10 text-primary"
                               : "text-foreground/70 hover:bg-primary/5 hover:text-primary"
@@ -258,7 +258,7 @@ const DropdownSubmenu = ({ item, menuForceClosed, handleLinkClick }: DropdownSub
     <NavLink
       to={item.label === "About Us" ? "/about" : "/services"}
       className={({ isActive }) =>
-        `relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+        `relative inline-flex items-center gap-1 rounded-full px-2.5 xl:px-4 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 ${
           isActive
             ? "bg-primary/10 text-primary font-semibold"
             : "text-foreground/75 hover:text-primary hover:bg-primary/5 group-hover:text-primary group-hover:bg-primary/5"
@@ -627,11 +627,11 @@ export const SiteNavbar = ({
           </nav>
 
           {/* Desktop CTAs */}
-          <div className="hidden items-center gap-2.5 lg:flex">
+          <div className="hidden items-center gap-2 xl:gap-2.5 lg:flex shrink-0">
             <Button
               asChild
               variant="outline"
-              className="h-10 rounded-full border-border bg-transparent px-5 text-sm font-medium text-foreground/80 hover:border-primary hover:text-primary hover:bg-primary/5 transition-colors duration-200"
+              className="h-9 xl:h-10 rounded-full border-border bg-transparent px-3.5 xl:px-5 text-xs xl:text-sm font-medium text-foreground/80 hover:border-primary hover:text-primary hover:bg-primary/5 transition-colors duration-200"
               data-testid="header-call-button"
             >
               <a href={`tel:${company.phoneRaw}`}>
@@ -641,7 +641,7 @@ export const SiteNavbar = ({
             </Button>
             <Button
               asChild
-              className="h-10 rounded-full bg-primary px-5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors duration-200"
+              className="h-9 xl:h-10 rounded-full bg-primary px-3.5 xl:px-5 text-xs xl:text-sm font-semibold text-white hover:bg-primary/90 transition-colors duration-200"
               data-testid="header-contact-button"
             >
               <Link to="/contact">Get In Touch</Link>

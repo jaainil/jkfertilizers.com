@@ -144,7 +144,7 @@ export const CommitmentPage = () => {
             Batch-level quality control, FCO-certified formulations, and written specifications for every bulk contract.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {infoCards.map((card, i) => (
             <div
               key={card.title}
@@ -217,7 +217,7 @@ export const CommitmentPage = () => {
         <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
           Send your requirement. We reply within 24 hours, by email or phone.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
           <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
             <Link to="/contact">Get in touch</Link>
           </Button>

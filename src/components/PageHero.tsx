@@ -30,7 +30,7 @@ export const PageHero = ({
             ))}
           </div>
         )}
-        <div className="flex flex-wrap gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
           {primaryCta}
           {secondaryCta}
         </div>

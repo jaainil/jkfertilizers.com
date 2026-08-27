@@ -233,7 +233,7 @@ const HomeHero = () => {
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
             <Button
               asChild
               className="h-12 rounded-full bg-primary px-6 text-sm font-semibold text-white hover:bg-primary/90 transition-colors duration-200 sm:px-8"
@@ -317,14 +317,14 @@ const HomeStatsBar = () => {
         {heroStats.map((item, i) => (
           <div
             key={item.label}
-            className="rounded-2xl border border-border bg-surface-card p-3.5 sm:p-6 shadow-card"
+            className="rounded-2xl border border-border bg-surface-card p-3 sm:p-5 lg:p-6 shadow-card"
             {...staggerDelay(i)}
           >
-            <p className="font-heading text-xl font-extrabold text-primary sm:text-3xl">
+            <p className="font-heading text-lg sm:text-2xl lg:text-3xl font-extrabold text-primary">
               {item.value}
-              {item.unit && <span className="ml-1 text-base sm:text-lg font-semibold text-muted-foreground">{item.unit}</span>}
+              {item.unit && <span className="ml-1 text-sm sm:text-base lg:text-lg font-semibold text-muted-foreground">{item.unit}</span>}
             </p>
-            <p className="mt-1 type-label font-semibold text-muted-foreground uppercase tracking-[0.12em] sm:tracking-[0.14em] sm:mt-2 text-[11px] sm:text-xs leading-tight">{item.label}</p>
+            <p className="mt-1 type-label font-semibold text-muted-foreground uppercase tracking-[0.12em] sm:tracking-[0.14em] sm:mt-2 text-[10px] sm:text-xs leading-tight">{item.label}</p>
           </div>
         ))}
       </div>
@@ -624,7 +624,7 @@ const HomeWhyChooseSection = () => {
           <div className="pt-2">
             <Button
               asChild
-              className="h-12 rounded-full bg-primary px-6 text-sm text-white font-semibold hover:bg-primary/90 transition-colors duration-200"
+              className="h-12 w-full sm:w-auto rounded-full bg-primary px-6 text-sm text-white font-semibold hover:bg-primary/90 transition-colors duration-200"
             >
               <Link to="/about" aria-label="Learn more about J K Fertilizers, our mission, and our values">
                 Learn More About Us
@@ -674,17 +674,17 @@ const HomeCommitmentSection = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
             <Button
               asChild
-              className="h-12 w-full rounded-full bg-accent px-6 text-sm font-bold text-secondary hover:bg-accent/90 transition-colors duration-200 sm:w-auto"
+              className="h-12 rounded-full bg-accent px-6 text-sm font-bold text-secondary hover:bg-accent/90 transition-colors duration-200"
             >
               <Link to="/commitment">See Our Commitment</Link>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white hover:text-secondary transition-colors duration-200 sm:w-auto"
+              className="h-12 rounded-full border-white/25 bg-transparent px-6 text-sm text-white hover:bg-white hover:text-secondary transition-colors duration-200"
             >
               <a href={`tel:${company.phoneRaw}`}>Call Us</a>
             </Button>
@@ -743,7 +743,7 @@ const HomeProductsCarousel = () => {
         >
           <CarouselContent className="-ml-4 sm:-ml-6 items-stretch">
             {products.slice(0, 8).map((product) => (
-              <CarouselItem key={product.slug} className="pl-4 sm:pl-6 basis-[88%] sm:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={product.slug} className="pl-4 sm:pl-6 basis-[85%] sm:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/products/${product.slug}`}
                   aria-label={`Read more about ${product.title}`}
@@ -799,7 +799,7 @@ const HomeTestimonialsSection = () => {
             What Our Clients Say
           </h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
           {testimonials.map((t) => (
             <div
               key={t.name}

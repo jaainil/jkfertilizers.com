@@ -49,7 +49,7 @@ const baseMdxComponents = {
   em: (props) => <em className="italic text-muted-foreground" {...props} />,
   blockquote: (props) => (
     <blockquote
-      className="mt-6 border-l-4 border-primary pl-5 italic text-muted-foreground"
+      className="mt-6 border-l-2 border-primary/40 pl-4 italic text-muted-foreground"
       {...props}
     />
   ),
@@ -222,7 +222,7 @@ export const BlogPostPage = () => {
           <p className="mx-auto mt-4 max-w-xl type-body text-white/75">
             Our team responds within 24 hours. Share your brief and we'll follow up with the right technical or commercial conversation.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
             <Button asChild className="h-12 rounded-full bg-accent px-8 font-semibold text-secondary hover:bg-accent/80">
               <Link to="/contact">Contact Us</Link>
             </Button>

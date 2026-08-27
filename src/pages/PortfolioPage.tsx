@@ -118,13 +118,13 @@ export const PortfolioPage = () => {
         ref={statsReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
       >
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <div key={s.label} className="group text-center" {...staggerDelay(i)}>
-              <p className="font-heading text-5xl font-bold text-white">
+              <p className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
                 {s.value}
               </p>
-              <p className="mt-2 type-body text-white/80">{s.label}</p>
+              <p className="mt-2 type-body text-white/80 text-xs sm:text-sm lg:text-base">{s.label}</p>
               <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
@@ -198,7 +198,7 @@ export const PortfolioPage = () => {
                 </div>
               ))}
             </div>
-            <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
+            <Button asChild className="h-12 w-full sm:w-auto rounded-full bg-primary px-6 text-white hover:bg-primary/90">
               <Link to="/contact">
                 Become a Partner
                 <ArrowRight className="h-4 w-4" />
@@ -230,7 +230,7 @@ export const PortfolioPage = () => {
         <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
           Browse organic manures, biofertilizers, and engineered mineral carrier granules for your agricultural requirements.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
           <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
             <Link to="/products">View All Products</Link>
           </Button>

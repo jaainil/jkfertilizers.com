@@ -48,7 +48,7 @@ const mdxComponents = {
   ),
   blockquote: (props) => (
     <blockquote
-      className="mt-6 border-l-4 border-primary pl-5 italic text-muted-foreground"
+      className="mt-6 border-l-2 border-primary/40 pl-4 italic text-muted-foreground"
       {...props}
     />
   ),
@@ -161,44 +161,44 @@ const ServiceImageGallery = ({ images, title }: { images: string[]; title: strin
       {/* Fullscreen Lightbox Modal */}
       {lightboxOpen && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 animate-in fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-3 sm:p-4 animate-in fade-in"
           onClick={() => setLightboxOpen(false)}
         >
           <button
             onClick={() => setLightboxOpen(false)}
-            className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors duration-200 cursor-pointer"
+            className="absolute right-3 top-3 sm:right-6 sm:top-6 rounded-full bg-white/10 p-2.5 sm:p-3 text-white hover:bg-white/20 transition-colors duration-200 cursor-pointer"
             aria-label="Close"
           >
-            <X className="h-6 w-6" />
+            <X className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
 
           {images.length > 1 && (
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white hover:bg-white/20 transition-colors duration-200 flex items-center justify-center cursor-pointer"
+                className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2.5 sm:p-4 text-white hover:bg-white/20 transition-colors duration-200 flex items-center justify-center cursor-pointer"
                 aria-label="Previous"
               >
-                <ChevronLeft className="h-8 w-8" />
+                <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-4 text-white hover:bg-white/20 transition-colors duration-200 flex items-center justify-center cursor-pointer"
+                className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2.5 sm:p-4 text-white hover:bg-white/20 transition-colors duration-200 flex items-center justify-center cursor-pointer"
                 aria-label="Next"
               >
-                <ChevronRight className="h-8 w-8" />
+                <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" />
               </button>
             </>
           )}
 
-          <div className="max-h-[85vh] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
+          <div className="max-h-[85vh] max-w-[95vw] sm:max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
             <img
               src={images[activeIndex]}
               alt={title}
               decoding="async"
-              className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl select-none"
+              className="max-h-[80vh] sm:max-h-[85vh] max-w-[95vw] sm:max-w-[90vw] rounded-2xl object-contain shadow-2xl select-none"
             />
-            <p className="mt-4 text-center type-body-sm text-white/60 tracking-wider font-medium select-none">
+            <p className="mt-3 sm:mt-4 text-center type-body-sm text-white/60 tracking-wider font-medium select-none text-xs sm:text-sm">
               {activeIndex + 1} / {images.length}
             </p>
           </div>
@@ -257,7 +257,7 @@ export const ServiceDetailPage = () => {
           <p className="mt-5 max-w-2xl type-body text-muted-foreground">
             {description}
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
             <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
               <Link to="/contact">Discuss this service</Link>
             </Button>

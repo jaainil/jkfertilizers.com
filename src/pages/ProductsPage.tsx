@@ -225,7 +225,7 @@ export const ProductsPage = () => {
       </div>
       <div
         ref={listReveal.ref}
-        className={`grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 reveal-scale ${listReveal.isVisible ? 'visible' : ''}`}
+        className={`grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal-scale ${listReveal.isVisible ? 'visible' : ''}`}
       >
         {filteredProducts.map((product, i) => (
           <div key={product.slug} {...staggerDelay(i)} className="h-full flex flex-col">

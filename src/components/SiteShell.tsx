@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { SiteNavbar } from "@/components/SiteNavbar";
 import { SiteFooter } from "@/components/SiteFooter";
+import { JKFertilizersRAGChat } from "@/components/rag/JKFertilizersRAGChat";
 
 export const SiteShell = ({ children }: { children: React.ReactNode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,6 +42,7 @@ export const SiteShell = ({ children }: { children: React.ReactNode }) => {
         {children}
       </main>
       <SiteFooter />
+      <JKFertilizersRAGChat />
 
       {/* Back to Top */}
       <button

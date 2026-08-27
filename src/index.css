@@ -417,14 +417,14 @@
 /* ── Back-to-top button ── */
 .back-to-top {
   position: fixed;
-  bottom: 24px;
+  bottom: 88px;
   right: 24px;
-  z-index: 50;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--brand-dark-green);
   color: white;
@@ -435,6 +435,14 @@
   transform: translateY(20px) scale(0.9);
   transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
   pointer-events: none;
+}
+@media (max-width: 640px) {
+  .back-to-top {
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
 }
 .back-to-top.visible {
   opacity: 1;

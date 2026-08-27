@@ -95,14 +95,14 @@ const AboutStats = () => {
         ref={statsReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${statsReveal.isVisible ? 'visible' : ''}`}
       >
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <div key={s.label} className="group text-center" {...staggerDelay(i)}>
-              <p className="font-heading text-5xl font-bold text-white">
+              <p className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
                 {s.value}
-                {s.unit && <span className="text-accent ml-1 text-3xl">{s.unit}</span>}
+                {s.unit && <span className="text-accent ml-1 text-xl sm:text-2xl lg:text-3xl">{s.unit}</span>}
               </p>
-              <p className="mt-2 type-body text-white/80">{s.label}</p>
+              <p className="mt-2 type-body text-white/80 text-xs sm:text-sm lg:text-base">{s.label}</p>
               <div className="mx-auto mt-3 h-0.5 w-10 rounded-full bg-accent/60 transition-[width] duration-300 group-hover:w-16" />
             </div>
           ))}
@@ -292,7 +292,7 @@ const AboutFoundingRoots = () => {
           </div>
 
           <div className="pt-4">
-            <Button asChild className="h-12 rounded-full bg-primary px-7 text-white hover:bg-primary/90">
+            <Button asChild className="h-12 w-full sm:w-auto rounded-full bg-primary px-7 text-white hover:bg-primary/90">
               <Link to="/commitment">Learn More about Our Commitment</Link>
             </Button>
           </div>
@@ -319,7 +319,7 @@ const AboutActionCards = () => {
               </p>
             </div>
             <div className="mt-8">
-              <Button asChild variant="outline" className="h-11 rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
+              <Button asChild variant="outline" className="h-11 w-full sm:w-auto rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
                 <Link to="/portfolio">View Our Portfolio <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
             </div>
@@ -335,7 +335,7 @@ const AboutActionCards = () => {
               </p>
             </div>
             <div className="mt-8">
-              <Button asChild variant="outline" className="h-11 rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
+              <Button asChild variant="outline" className="h-11 w-full sm:w-auto rounded-full border-primary px-6 text-primary hover:bg-primary hover:text-white">
                 <Link to="/contact">
                   <span className="flex items-center gap-2">
                     <Play className="h-3.5 w-3.5 fill-current" />
@@ -353,14 +353,14 @@ const AboutActionCards = () => {
 
 const AboutCta = () => (
   <section className="bg-secondary py-20 lg:py-28">
-      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
-          Request a quote or book a site visit
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
-          Send your product and tonnage requirement. Our technical sales team replies within 24 hours.
-        </p>
-      <div className="mt-10 flex flex-wrap justify-center gap-4">
+    <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-white">
+        Request a quote or book a site visit
+      </h2>
+      <p className="mx-auto mt-4 max-w-2xl type-body text-white/78">
+        Send your product and tonnage requirement. Our technical sales team replies within 24 hours.
+      </p>
+      <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
         <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
           <Link to="/contact">Get In Touch</Link>
         </Button>
@@ -368,11 +368,11 @@ const AboutCta = () => (
           <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
         </Button>
       </div>
-      <div className="mt-10 flex flex-wrap justify-center gap-6 type-body-sm text-white/60">
+      <div className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 type-body-sm text-white/60">
         <span>{company.address}</span>
-        <span>·</span>
+        <span className="hidden sm:inline">·</span>
         <a href={`mailto:${company.emails[0]}`} className="hover:text-white/90 transition-colors">{company.emails[0]}</a>
-        <span>·</span>
+        <span className="hidden sm:inline">·</span>
         <a href={`mailto:${company.emails[1]}`} className="hover:text-white/90 transition-colors">{company.emails[1]}</a>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@mdx-js/rollup';
@@ -12,8 +12,36 @@ import path from 'node:path';
 const BUILD_DATE = new Date();
 const ROOT_DIR = process.cwd();
 
+/**
+ * Development middleware to route /api/rag/chat during `npm run dev`
+ */
+function ragDevServerPlugin(): Plugin {
+  return {
+    name: 'rag-api-dev-server',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        if (req.url?.startsWith('/api/rag/chat')) {
+          try {
+            const { default: handler } = await import('./api/rag/chat');
+            await handler(req as any, res as any);
+          } catch (err) {
+            console.error('[vite-dev] RAG API error:', err);
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'Internal Dev Server Error' }));
+          }
+          return;
+        }
+        next();
+      });
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
+    ragDevServerPlugin(),
+
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
       providerImportSource: '@mdx-js/react',

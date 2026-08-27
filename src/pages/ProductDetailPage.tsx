@@ -69,7 +69,7 @@ const ProductHero = ({
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
             <Button asChild className="h-12 rounded-full bg-accent px-6 text-secondary font-semibold hover:bg-accent/90">
               <Link to="/contact">Request a Quote</Link>
             </Button>
@@ -263,7 +263,7 @@ const ProductLightbox = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-3 sm:p-4 animate-in fade-in"
       role="dialog"
       aria-modal="true"
       aria-label={`${title} image viewer`}
@@ -274,33 +274,33 @@ const ProductLightbox = ({
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors duration-200"
+        className="absolute right-3 top-3 sm:right-6 sm:top-6 rounded-full bg-white/10 p-2.5 sm:p-3 text-white hover:bg-white/20 transition-colors duration-200 cursor-pointer"
         aria-label="Close lightbox"
       >
-        <X className="h-6 w-6" />
+        <X className="h-5 w-5 sm:h-6 sm:w-6" />
       </button>
 
       {/* Navigation left */}
       {images.length > 1 && (
         <button
           onClick={() => setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
-          className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors duration-200"
+          className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2.5 sm:p-3 text-white hover:bg-white/20 transition-colors duration-200 cursor-pointer"
           aria-label="Previous image"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
       )}
 
       {/* Main Showcase Image */}
-      <div className="max-h-[80vh] max-w-[85vw] overflow-hidden rounded-xl bg-neutral-900 border border-white/10 shadow-2xl flex flex-col justify-center items-center">
+      <div className="max-h-[85vh] max-w-[95vw] sm:max-w-[85vw] overflow-hidden rounded-xl bg-neutral-900 border border-white/10 shadow-2xl flex flex-col justify-center items-center">
         <img
           src={images[activeIndex]}
           alt={`${title} slide`}
           decoding="async"
-          className="max-h-[70vh] w-auto max-w-full object-contain"
+          className="max-h-[70vh] sm:max-h-[75vh] w-auto max-w-full object-contain"
         />
         {/* Caption */}
-        <div className="w-full bg-neutral-900/90 py-3 text-center type-label font-medium text-white/80 border-t border-white/5">
+        <div className="w-full bg-neutral-900/90 py-2.5 sm:py-3 text-center type-label font-medium text-white/80 border-t border-white/5 text-xs sm:text-sm">
           Image {activeIndex + 1} of {images.length}: {title}
         </div>
       </div>
@@ -309,10 +309,10 @@ const ProductLightbox = ({
       {images.length > 1 && (
         <button
           onClick={() => setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
-          className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors duration-200"
+          className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-2.5 sm:p-3 text-white hover:bg-white/20 transition-colors duration-200 cursor-pointer"
           aria-label="Next image"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
       )}
     </div>
@@ -457,7 +457,7 @@ const ProductCtaBand = ({ title }: { title: string }) => (
           Talk to our team about quantities, custom formulations, and supply agreements.
         </p>
       </div>
-      <div className="mt-8 flex flex-wrap gap-4 lg:mt-0 lg:shrink-0">
+      <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 lg:mt-0 lg:shrink-0 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
         <Button asChild className="h-12 rounded-full bg-white px-6 font-semibold text-primary hover:bg-white/90">
           <Link to="/contact">Request a Discussion</Link>
         </Button>
@@ -496,9 +496,9 @@ const ProductRelatedCarousel = ({ related }: { related: ReturnType<typeof getRel
         </div>
 
         <Carousel opts={{ align: "start", loop: true }} className="w-full relative">
-          <CarouselContent className="-ml-6 items-stretch">
+          <CarouselContent className="-ml-4 sm:-ml-6 items-stretch">
             {related.map((relProduct) => (
-              <CarouselItem key={relProduct.slug} className="pl-6 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={relProduct.slug} className="pl-4 sm:pl-6 basis-[85%] sm:basis-1/2 lg:basis-1/3">
                 <Link
                   to={`/products/${relProduct.slug}`}
                   aria-label={`View details and specifications for ${relProduct.title}`}

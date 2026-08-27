@@ -52,7 +52,7 @@ export const SiteFooter = () => {
 
       {/* ── Main grid ── */}
       <div
-        className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 sm:py-14 lg:grid-cols-[1.6fr_1fr_1fr_1fr] lg:gap-8 lg:px-8 lg:py-16"
+        className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:gap-10 sm:px-6 sm:py-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr] xl:grid-cols-[1.6fr_1fr_1fr_1fr] lg:gap-8 lg:px-8 lg:py-16"
         data-testid="footer-main-grid"
       >
         {/* Brand column */}

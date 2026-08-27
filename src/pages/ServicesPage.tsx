@@ -116,7 +116,7 @@ export const ServicesPage = () => {
         ref={coreReveal.ref}
         className={`grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center reveal ${coreReveal.isVisible ? 'visible' : ''}`}
       >
-        <div className="relative overflow-hidden rounded-4xl border border-border shadow-card">
+        <div className="relative overflow-hidden rounded-3xl sm:rounded-4xl border border-border shadow-card">
           <img
             src={images.commitment}
             alt="J K Fertilizers manufacturing and quality control"
@@ -124,19 +124,18 @@ export const ServicesPage = () => {
             height={480}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover"
-            style={{ minHeight: "480px" }}
+            className="h-full w-full object-cover min-h-[280px] sm:min-h-[380px] lg:min-h-[480px]"
           />
           <div className="absolute inset-0 bg-linear-to-t from-secondary/60 via-transparent to-transparent" />
-          <div className="absolute bottom-5 left-5 right-5">
-            <div className="rounded-3xl border border-white/25 bg-secondary/95 p-5">
+          <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5">
+            <div className="rounded-2xl sm:rounded-3xl border border-white/25 bg-secondary/95 p-4 sm:p-5">
               <p className="type-label font-semibold uppercase tracking-[0.16em] text-white/75">Manufacturing Quality</p>
               <p className="mt-1 font-heading type-card-title font-semibold text-white">Consistent Granulation & Strict Batch Testing</p>
             </div>
           </div>
         </div>
 
-        <div className="space-y-7">
+        <div className="space-y-6 sm:space-y-7">
           <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
             Industrial Scale Granulation with Laboratory Verification
           </h2>
@@ -151,7 +150,7 @@ export const ServicesPage = () => {
               </div>
             ))}
           </div>
-          <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
+          <Button asChild className="h-12 w-full sm:w-auto rounded-full bg-primary px-6 text-white hover:bg-primary/90">
             <Link to="/contact">
               Contact Us
               <ArrowRight className="h-4 w-4" />

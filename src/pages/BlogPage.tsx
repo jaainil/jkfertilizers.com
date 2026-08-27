@@ -59,7 +59,7 @@ export const BlogPage = () => {
             <p className="max-w-xl type-body text-muted-foreground">
               Explore our latest insights on sustainable agriculture, organic fertilizer technology, and manufacturing innovations for our B2B partners.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
               <Button asChild className="h-12 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
                 <Link to="/contact">Request a conversation</Link>
               </Button>
@@ -71,8 +71,7 @@ export const BlogPage = () => {
           {/* Featured post preview */}
           <Link
             to={`/blog/${allPosts[0].slug}`}
-            className="group relative overflow-hidden rounded-3xl border border-border shadow-card"
-            style={{ minHeight: "360px" }}
+            className="group relative overflow-hidden rounded-3xl border border-border shadow-card aspect-[4/3] sm:aspect-auto min-h-[260px] sm:min-h-[360px]"
           >
             <img
               src={allPosts[0].img}
@@ -191,7 +190,7 @@ export const BlogPage = () => {
             Insights for Every B2B Stakeholder
           </h2>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {audienceCards.map((card) => (
             <div
               key={card.title}
@@ -231,7 +230,7 @@ export const BlogPage = () => {
         <p className="mx-auto mt-4 max-w-xl type-body text-white/75">
           Site visits at our Vasad facility can be scheduled on working days. See the granulation lines before you commit to a supplier.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
           <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
             <Link to="/contact">Book a site visit</Link>
           </Button>

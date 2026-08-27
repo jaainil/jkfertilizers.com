@@ -84,7 +84,7 @@ const ContactHero = () => {
           <p className="max-w-2xl type-body text-white/78">
             We will reply within <strong className="text-white">24 hours</strong> via email. Reach out for product inquiries, bulk orders, or partnership discussions.
           </p>
-          <div className="flex flex-wrap gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
             <Button asChild className="h-12 rounded-full bg-accent px-7 text-secondary font-semibold hover:bg-accent/80">
               <a href={`tel:${company.phoneRaw}`}>
                 <PhoneCall className="h-4 w-4" />
@@ -199,13 +199,13 @@ const ContactLocationSection = () => {
   const mapReveal = useScrollReveal();
 
   return (
-    <section className="bg-muted py-0 overflow-hidden">
+    <section className="bg-muted py-14 lg:py-20 overflow-hidden">
       <div
         ref={mapReveal.ref}
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale ${mapReveal.isVisible ? 'visible' : ''}`}
       >
-        <div className="grid lg:grid-cols-2">
-          <div className="flex flex-col justify-center space-y-6 py-16 lg:pr-14">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 lg:items-center">
+          <div className="flex flex-col justify-center space-y-6">
             <h2 className="font-heading type-section-h2 font-semibold tracking-tight text-foreground">
               Visit Our Factory
             </h2>
@@ -228,7 +228,7 @@ const ContactLocationSection = () => {
                 </div>
               </div>
             </div>
-            <Button asChild className="w-fit h-11 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
+            <Button asChild className="w-full sm:w-fit h-11 rounded-full bg-primary px-6 text-white hover:bg-primary/90">
               <a href="https://maps.app.goo.gl/wxxAwGrF7c3Yn6VSA" target="_blank" rel="noopener noreferrer">
                 Open in Google Maps
                 <ArrowRight className="h-4 w-4" />
@@ -236,17 +236,15 @@ const ContactLocationSection = () => {
             </Button>
           </div>
 
-          <div className="embed-map-responsive relative w-full" style={{ paddingBottom: '66.66666666666666%' }}>
-            <div className="embed-map-container overflow-hidden bg-none absolute top-0 left-0 w-full h-full">
-              <iframe
-                className="embed-map-frame absolute top-0 left-0 w-full h-full border-0"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.448936258878!2d73.0451195771029!3d22.487333479552614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4adc746987e9%3A0xed5c255f41da256b!2sJ%20K%20Fertilizers!5e0!3m2!1sen!2sin!4v1786533611967!5m2!1sen!2sin"
-                title="J K Fertilizers Location"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+          <div className="relative w-full overflow-hidden rounded-3xl border border-border bg-surface-card shadow-card aspect-[16/10] sm:aspect-[4/3] lg:aspect-square lg:max-h-[460px]">
+            <iframe
+              className="absolute inset-0 h-full w-full border-0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.448936258878!2d73.0451195771029!3d22.487333479552614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4adc746987e9%3A0xed5c255f41da256b!2sJ%20K%20Fertilizers!5e0!3m2!1sen!2sin!4v1786533611967!5m2!1sen!2sin"
+              title="J K Fertilizers Location"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </div>
@@ -290,7 +288,7 @@ const ContactCtaBand = () => (
       <p className="mx-auto mt-4 max-w-xl type-body text-white/78">
         Manufacturing in Vasad since 2006. Technical sales replies within 24 hours.
       </p>
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
+      <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto [&>*]:w-full sm:[&>*]:w-auto">
         <Button asChild className="h-12 rounded-full bg-accent px-8 text-secondary font-semibold hover:bg-accent/80">
           <a href={`tel:${company.phoneRaw}`}>Call {company.phoneDisplay}</a>
         </Button>
