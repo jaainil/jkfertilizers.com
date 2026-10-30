@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useModalFocus } from "@/hooks/useModalFocus";
 import { Link, NavLink } from "react-router-dom";
 import { Mail, MapPin, Menu, Phone, X, Leaf, ChevronDown, ChevronRight, ArrowRight } from "lucide-react";
 
@@ -317,7 +318,9 @@ const MobileNavDrawer = ({
   onMobileToggle,
   openMobileSection,
   toggleMobileSection,
-}: MobileNavDrawerProps) => (
+}: MobileNavDrawerProps) => {
+  const dialogRef = useModalFocus(mobileOpen, onMobileToggle);
+  return (
   <>
     {/* Backdrop */}
     <div
@@ -333,6 +336,8 @@ const MobileNavDrawer = ({
       className={`fixed inset-y-0 right-0 z-50 flex w-[88vw] max-w-sm flex-col bg-background shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
         mobileOpen ? "translate-x-0" : "translate-x-full"
       }`}
+      ref={dialogRef}
+      tabIndex={-1}
       data-testid="mobile-navigation-panel"
       aria-modal="true"
       role="dialog"
@@ -352,7 +357,7 @@ const MobileNavDrawer = ({
         <button
           type="button"
           onClick={onMobileToggle}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-foreground/70 hover:border-primary/40 hover:text-primary transition-colors duration-200"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border/60 text-foreground/70 hover:border-primary/40 hover:text-primary transition-colors duration-200"
           aria-label="Close menu"
         >
           <X className="h-4.5 w-4.5" />
@@ -514,6 +519,7 @@ const MobileNavDrawer = ({
     </div>
   </>
 );
+};
 
 export const SiteNavbar = ({
   onMobileToggle,
@@ -534,25 +540,16 @@ export const SiteNavbar = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile drawer is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    if (!mobileOpen) {
       setOpenMobileSection(null);
+      return;
     }
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  // Close the mobile drawer with Escape
-  useEffect(() => {
-    if (!mobileOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onMobileToggle();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => { if (desktop.matches) onMobileToggle(); };
+    closeOnDesktop();
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
   }, [mobileOpen, onMobileToggle]);
 
   const handleLinkClick = () => {

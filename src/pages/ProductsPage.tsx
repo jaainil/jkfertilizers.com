@@ -159,6 +159,7 @@ export const ProductsPage = () => {
                       key={cat}
                       type="button"
                       onClick={() => setSelectedCategory(cat)}
+                      aria-pressed={isSelected}
                       className={`inline-flex shrink-0 items-center gap-2 rounded-xl sm:rounded-full px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap ${
                         isSelected
                           ? "bg-primary text-white shadow-xs"
@@ -223,6 +224,9 @@ export const ProductsPage = () => {
           )}
         </div>
       </div>
+      <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {filteredProducts.length} product{filteredProducts.length === 1 ? "" : "s"} found{selectedCategory !== "All" ? ` in ${selectedCategory}` : ""}.
+      </p>
       <div
         ref={listReveal.ref}
         className={`grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 reveal-scale ${listReveal.isVisible ? 'visible' : ''}`}

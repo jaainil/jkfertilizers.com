@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useModalFocus } from "@/hooks/useModalFocus";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, MoveRight, Phone, X, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -244,18 +245,16 @@ const ProductLightbox = ({
   setActiveIndex,
   title,
 }: ProductLightboxProps) => {
+  const dialogRef = useModalFocus(isOpen, onClose);
   useEffect(() => {
     if (!isOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
       if (e.key === "ArrowLeft") setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
       if (e.key === "ArrowRight") setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     };
     window.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
     };
   }, [isOpen, images.length, onClose, setActiveIndex]);
 
@@ -267,6 +266,8 @@ const ProductLightbox = ({
       role="dialog"
       aria-modal="true"
       aria-label={`${title} image viewer`}
+      ref={dialogRef}
+      tabIndex={-1}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
