@@ -230,14 +230,16 @@ export const SiteFooter = () => {
             <Link to="/return-policy" className="transition-colors hover:text-white">Return and Refund Policy</Link>
           </div>
           <a
-            href="https://juhenza.com"
+            href="https://juhenza.com/?utm_source=jkfertilizers.com&utm_medium=referral&utm_campaign=client_footer"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-white/75 transition-colors hover:text-white"
+            className="group inline-flex flex-col items-start gap-1 py-2 text-xs text-white/75 transition-colors hover:text-white"
             data-testid="footer-credit"
           >
-            Designed & built by
-            <span className="font-bold text-white hover:text-accent transition-colors">juhenza.com</span>
+            <span>Designed &amp; built by <span className="font-bold text-white">Juhenza</span></span>
+            <span className="font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors group-hover:text-accent group-hover:decoration-accent">
+              Want a website like this? Visit Juhenza <span aria-hidden="true">↗</span>
+            </span>
           </a>
         </div>
       </div>
