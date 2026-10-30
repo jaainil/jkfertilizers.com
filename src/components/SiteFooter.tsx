@@ -230,14 +230,14 @@ export const SiteFooter = () => {
             <Link to="/return-policy" className="transition-colors hover:text-white">Return and Refund Policy</Link>
           </div>
           <a
-            href="https://aexaware.com"
+            href="https://juhenza.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs text-white/75 transition-colors hover:text-white"
             data-testid="footer-credit"
           >
             Designed & built by
-            <span className="font-bold text-white hover:text-accent transition-colors">Aexaware Private Limited</span>
+            <span className="font-bold text-white hover:text-accent transition-colors">juhenza.com</span>
           </a>
         </div>
       </div>
